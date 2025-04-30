@@ -13,6 +13,100 @@ public class TestMethods extends BaseTest{
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//navigate to 'Register' page test method
+protected void navigateToRegisterPageTest(){
+    HomePage homePage = new HomePage(driver);
+    GeneralPage generalPage = new GeneralPage(driver);
+    //general page web element assert (without aside section)
+    isGeneralPageNoAsideWebElementDisplayed(generalPage);
+    //general page aside section web element assert
+    isGeneralPageAsideWebElementDisplayed(generalPage);
+    //general page text element assert
+    isGeneralPageTextElementAsExpected(generalPage);
+    //home page web element assert
+    isHomePageWebElementDisplayed(homePage);
+    //home page text element assert
+    isHomePageTextElementAsExpected(homePage);
+    //log home page product data
+    logHomePageProductData(homePage);
+    //capture screenshot of the home page
+    captureScreenshot(driver, "Home Page Display");
+    //click header 'Register' link
+    generalPage.clickHeaderRegisterLink();
+    //capture screenshot of the test result
+    captureScreenshot(driver, "User Navigation To Register Page Test Result");
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //general page web element assert test method (without aside section)
+    protected void isGeneralPageNoAsideWebElementDisplayed(GeneralPage generalPage){
+        //header switcher
+        //assert header switcher icon is displayed
+        assertTrue(generalPage.isHeaderSwitcherIconDisplayed(), "The header switcher icon isn't displayed");
+        //assert header interface tag is displayed
+        assertTrue(generalPage.isHeaderInterfaceTagDisplayed(), "The header interface tag isn't displayed");
+        //assert header interface dropdown menu is displayed
+        assertTrue(generalPage.isHeaderInterfaceDropdownMenuDisplayed(), "The header interface dropdown menu isn't displayed");
+        //assert header visual scheme tag is displayed
+        assertTrue(generalPage.isHeaderVisualSchemeTagDisplayed(), "The header visual scheme isn't displayed");
+        //assert header visual scheme dropdown menu is displayed
+        assertTrue(generalPage.isHeaderVisualSchemeDropdownMenuDisplayed(), "The header visual scheme dropdown menu isn't displayed");
+        //assert header configuration tag is displayed
+        assertTrue(generalPage.isHeaderConfigurationTagDisplayed(), "The header configuration tag isn't displayed");
+        //assert header configuration dropdown menu is displayed
+        assertTrue(generalPage.isHeaderConfigurationDropdownMenuDisplayed(), "The header configuration dropdown menu isn't displayed");
+        //assert header quick addons panel tag is displayed
+        assertTrue(generalPage.isHeaderQuickAddonsPanelTagDisplayed(), "The header quick addons panel tag isn't displayed");
+        //assert header addons panel slide button is displayed
+        assertTrue(generalPage.isHeaderAddonsPanelSlideButtonDisplayed(), "The header addons panel slide button isn't displayed");
+        //assert header switcher download button is displayed
+        assertTrue(generalPage.isHeaderSwitcherDownloadButtonDisplayed(), "The header switcher download button isn't displayed");
+        //header
+        //assert header homepage logo is displayed
+        assertTrue(generalPage.isHeaderHomepageLogoDisplayed(), "The header homepage logo isn't displayed");
+        //assert header sign-in link is displayed
+        assertTrue(generalPage.isHeaderSignInLinkDisplayed(), "The header sign-in link isn't displayed");
+        //assert header register link is displayed
+        assertTrue(generalPage.isHeaderRegisterLinkDisplayed(), "The header register link isn't displayed");
+        //assert header language dropdown menu is displayed
+        assertTrue(generalPage.isHeaderLanguageDropdownMenuDisplayed(), "The header language dropdown menu isn't displayed");
+        //assert header search bar input field is displayed
+        assertTrue(generalPage.isHeaderSearchBarInputFieldDisplayed(), "The header search bar input field isn't displayed");
+        //assert header search bar button is displayed
+        assertTrue(generalPage.isHeaderSearchBarButtonDisplayed(), "The header search bar button isn't displayed");
+        //assert header shopping cart dropdown button is displayed
+        //assertTrue(generalPage.isHeaderShoppingCartDropdownButtonDisplayed(), "The header shopping cart dropdown button isn't displayed");
+        //navbar
+        //assert navbar home page link is displayed
+        assertTrue(generalPage.isNavbarHomeLinkDisplayed(), "The navbar home page link isn't displayed");
+        //assert navbar shopping cart link is displayed
+        assertTrue(generalPage.isNavbarShoppingCartLinkDisplayed(), "The navbar shopping cart link isn't displayed");
+        //assert navbar contact us link is displayed
+        assertTrue(generalPage.isNavbarContactUsLinkDisplayed(), "The navbar contact us link isn't displayed");
+        //footer
+        //assert footer 'help zone' link is displayed
+        assertTrue(generalPage.isFooterHelpZoneLinkDisplayed(), "The footer 'help zone' link isn't displayed");
+        //assert footer 'contact us' link is displayed
+        assertTrue(generalPage.isFooterContactUsLinkDisplayed(), "The footer 'contact us' link isn't displayed");
+        //assert footer 'our site' link is displayed
+        assertTrue(generalPage.isFooterOurSiteLinkDisplayed(), "The footer 'our site' link isn't displayed");
+        //assert footer 'Terms and Conditions' link is displayed
+        assertTrue(generalPage.isFooterTermsConditionsLinkDisplayed(), "The footer 'Terms and Conditions' link isn't displayed");
+        //assert footer 'privacy' link is displayed
+        assertTrue(generalPage.isFooterPrivacyLinkDisplayed(), "The footer 'privacy' link isn't displayed");
+        //assert footer 'privacy statement' link is displayed
+        assertTrue(generalPage.isFooterPrivacyStatementLinkDisplayed(), "The footer 'privacy statement' link isn't displayed");
+        //assert footer 'powered by' text is displayed
+        assertTrue(generalPage.isFooterPoweredByTextDisplayed(), "The footer 'powered by' text isn't displayed");
+        //assert footer copyright text is displayed
+        assertTrue(generalPage.isFooterCopyrightTextDisplayed(), "The footer copyright text isn't displayed");
+        //assert footer facebook icon button is displayed
+        assertTrue(generalPage.isFooterFacebookIconButtonDisplayed(), "The footer facebook icon button isn't displayed");
+        //assert footer x icon button is displayed
+        assertTrue(generalPage.isFooterXIconButtonDisplayed(), "The footer x icon button isn't displayed");
+    }
+
     //general page web element assert test method (aside section)
     protected void isGeneralPageAsideWebElementDisplayed(GeneralPage generalPage){
         //aside (categories)
@@ -230,6 +324,24 @@ public class TestMethods extends BaseTest{
         //assert home page aside bestseller products section title is as expected
         assertEquals("Bestsellers", homePage.getAsideBestsellerProductsSectionTitle(), "The home page aside bestseller products section title doesn't match expectations.");
     }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //home page product data logger method
+    protected void logHomePageProductData(HomePage homePage){
+        System.out.println("Home page displayed product data: " + "\n");
+
+        logger.info("Featured product name(s): " + homePage.getFeaturedProductName());
+        logger.info("Featured product unit price(s): " + homePage.getFeaturedProductUnitPrice());
+        logger.info("Featured product market price(s): " + homePage.getFeaturedProductMarketPrice());
+
+        logger.info("Aside bestseller product name(s): " + homePage.getAsideBestsellerProductName());
+        logger.info("Aside bestseller product unit price(s): " + homePage.getAsideBestsellerProductUnitPrice());
+        logger.info("Aside bestseller product market price(s): " + homePage.getAsideBestsellerProductMarketPrice());
+
+        System.out.println("\n");
+    }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
