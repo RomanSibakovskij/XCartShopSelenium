@@ -120,6 +120,57 @@ public class TestMethods extends BaseTest{
         assertTrue(generalPage.isFooterXIconButtonDisplayed(), "The footer x icon button isn't displayed");
     }
 
+    //additional general page web element assert method (elements not all pages have)
+    protected void isAddGeneralPageWebElementDisplayed(GeneralPage generalPage){
+        //assert aside bestsellers section title is displayed
+        assertTrue(generalPage.isAsideBestsellersSectionTitleDisplayed(), "The aside bestsellers section title isn't displayed");
+        //assert aside bestsellers product images are displayed (as a list)
+        assertTrue(generalPage.isAsideBestProductImageDisplayed(), "The aside bestsellers product images aren't displayed");
+        //assert aside bestsellers product names are displayed (as a list)
+        assertTrue(generalPage.isAsideBestProductNameLinkDisplayed(), "The aside bestsellers product names aren't displayed");
+        //assert aside bestsellers product unit prices are displayed (as a list)
+        assertTrue(generalPage.isAsideBestProductUnitPriceDisplayed(), "The aside bestsellers product unit prices aren't displayed");
+    }
+
+    //home page web element assert test method
+    protected void isHomePageWebElementDisplayed(HomePage homePage){
+        //assert home page welcome image link is displayed
+        assertTrue(homePage.isWelcomeImageLinkDisplayed(), "The home page welcome image link isn't displayed");
+        //assert home page welcome description is displayed
+        assertTrue(homePage.isWelcomeDescriptionDisplayed(), "The home page welcome description isn't displayed");
+        //assert home page featured products section title is displayed
+        assertTrue(homePage.isFeaturedProductsTitleDisplayed(), "The home page featured products section isn't displayed");
+        //assert home page aside bestseller section title is displayed
+        assertTrue(homePage.isAsideBestsellerSectionTitleDisplayed(), "The home page aside bestseller section title isn't displayed");
+        //list elements
+        //featured
+        //assert home page featured product images are displayed (as a list)
+        assertTrue(homePage.isFeaturedProductImageDisplayed(), "The home page featured product images aren't displayed");
+        //assert home page featured product name links are displayed (as a list)
+        assertTrue(homePage.isFeaturedProductNameLinkDisplayed(), "The home page featured product name links aren't displayed");
+        //assert home page featured product unit prices are displayed (as a list)
+        assertTrue(homePage.isFeaturedProductUnitPriceDisplayed(), "The home page featured product unit prices aren't displayed");
+        //assert home page featured product market prices are displayed (as a list)
+        assertTrue(homePage.isFeaturedProductMarketPriceDisplayed(), "The home page featured product market prices aren't displayed");
+        //assert home page featured product review stars are displayed (as a list)
+        assertTrue(homePage.isFeaturedProductReviewStarDisplayed(), "The home page featured review stars aren't displayed");
+        //assert home page featured product quantity dropdown menus are displayed (as a list)
+        assertTrue(homePage.isFeaturedProductQtyDropdownMenuDisplayed(), "The home page featured product quantity dropdown menus aren't displayed");
+        //assert home page featured product add to cart buttons are displayed (as a list)
+        assertTrue(homePage.isFeaturedProductAddToCartButtonDisplayed(), "The home page featured product add to cart buttons aren't displayed");
+        //assert home page featured product add to wishlist buttons are displayed (as a list)
+        assertTrue(homePage.isFeaturedProductAddToWishlistButtonDisplayed(), "The home page featured product add to wishlist buttons aren't displayed");
+        //bestsellers (same elements as with additional general page but these have different locators)
+        //assert home page aside bestseller product images are displayed (as a list)
+        assertTrue(homePage.isAsideBestsellerProductImageDisplayed(), "The home page aside bestseller product images aren't displayed");
+        //assert home page aside bestseller product name links are displayed (as a list)
+        assertTrue(homePage.isAsideBestsellerProductNameLinkDisplayed(), "The home page aside bestseller product name links aren't displayed");
+        //assert home page aside bestseller product unit price are displayed (as a list)
+        assertTrue(homePage.isAsideBestsellerProductUnitPriceDisplayed(), "The home page aside bestseller product unit price aren't displayed");
+        //assert home page aside bestseller product market prices are displayed (as a list)
+        assertTrue(homePage.isAsideBestsellerProductMarketPriceDisplayed(), "The home page aside bestseller product market prices aren't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -162,6 +213,22 @@ public class TestMethods extends BaseTest{
         assertEquals("Powered by X-Cart shopping cart software", generalPage.getFooterPoweredByText(), "The footer powered by text doesn't match expectations.");
         //assert footer copyright text is as expected
         assertEquals("Copyright © 2002-2025 Your Company Name", generalPage.getFooterCopyrightText(), "The footer copyright text doesn't match expectations.");
+    }
+
+    //additional general page text element assert test method
+    protected void isAddGeneralPageTextElementAsExpected(GeneralPage generalPage){
+        //assert aside bestsellers section title is as expected
+        assertEquals("Bestsellers", generalPage.getAsideBestsellersSectionTitle(), "The aside bestsellers section title doesn't match expectations.");
+    }
+
+    //home page text element assert test method
+    protected void isHomePageTextElementAsExpected(HomePage homePage){
+        //assert home page welcome description is as expected
+        assertEquals("This is a demo store powered by X-Cart software. No real products. No real prices. No real charges. Please do not submit real credit card information.", homePage.getWelcomeDescription(), "The home page welcome description doesn't match expectations.");
+        //assert home page featured products section title is as expected
+        assertEquals("Featured products", homePage.getFeaturedProductsSectionTitle(), "The home page featured products section title doesn't match expectations.");
+        //assert home page aside bestseller products section title is as expected
+        assertEquals("Bestsellers", homePage.getAsideBestsellerProductsSectionTitle(), "The home page aside bestseller products section title doesn't match expectations.");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
