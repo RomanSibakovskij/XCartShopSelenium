@@ -380,7 +380,7 @@ protected void navigateToRegisterPageTest(){
         isAddGeneralPageWebElementDisplayed(generalPage);
         //additional general page text element assert
         isAddGeneralPageTextElementAsExpected(generalPage);
-        //capture screenshot before valid user data input
+        //capture screenshot before user data input
         captureScreenshot(driver, "Register Account Page Before User Account Data Input");
         //invalid user account data input getter - too short user email (1 char -> name, domain)
         registerPageTooShortSingularInput.invalidRegisterDataTooShortEmailGetter();
@@ -428,7 +428,7 @@ protected void navigateToRegisterPageTest(){
         isAddGeneralPageWebElementDisplayed(generalPage);
         //additional general page text element assert
         isAddGeneralPageTextElementAsExpected(generalPage);
-        //capture screenshot before valid user data input
+        //capture screenshot before user data input
         captureScreenshot(driver, "Register Account Page Before User Account Data Input");
         //invalid user account data input getter - too short user password / confirm password (3 chars)
         registerPageTooShortSingularInput.invalidRegisterDataTooShortPasswordGetter();
@@ -456,6 +456,57 @@ protected void navigateToRegisterPageTest(){
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short User Password And Confirm Password");
+    }
+
+    //too long singular input
+
+    //invalid user account creation test method - too long user first name (100 chars)
+    protected void invalidUserAccountCreationTooLongFirstNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageTooLongSingularInput registerPageTooLongSingularInput = new RegisterPageTooLongSingularInput(driver);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot before user data input
+        captureScreenshot(driver, "Register Account Page Before User Account Data Input");
+        //invalid user account data input getter - too long user first name (100 chars)
+        registerPageTooLongSingularInput.invalidRegisterDataTooLongFirstNameGetter();
+        //input too long user first name into first name input field (100 chars)
+        registerPageTooLongSingularInput.inputTooLongFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPageTooLongSingularInput.inputValidLastNameIntoLastNameInputField();
+        //input valid user email into email input field
+        registerPageTooLongSingularInput.inputValidEmailIntoEmailInputField();
+        //input valid user password into password input field
+        registerPageTooLongSingularInput.inputValidPasswordIntoPasswordInputField();
+        //input valid user confirm password into confirm password input field
+        registerPageTooLongSingularInput.inputValidConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the invalid user data input - too long user first name
+        captureScreenshot(driver, "Register Page After Invalid User Account Data Input - Too Long First Name");
+        //click 'Accept terms' checkbox
+        registerPage.clickAcceptTermsCheckbox();
+        //click 'Submit' button
+        registerPage.clickSubmitButton();
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("First name is too long", registerPageTooLongSingularInput.getSingularInputErrorBoxMessage(), "The too long first name error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The too long first name error wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long User First Name");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
