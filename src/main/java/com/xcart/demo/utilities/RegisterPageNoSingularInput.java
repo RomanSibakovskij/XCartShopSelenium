@@ -21,7 +21,48 @@ public class RegisterPageNoSingularInput extends BasePage{
     @FindBy(xpath = "//div[@role='dialog']")
     private WebElement registerPageSingularInputErrorBox;
 
+    //valid register user data input (for remaining input)
+    private String validFirstName;
+    private String validLastName;
+    private String validEmail;
+    private String validPassword;
+    private String validConfirmPassword;
+
+    //invalid register user singular input data - no singular input
+    private String noUserFirstName;
+
     public RegisterPageNoSingularInput(WebDriver driver) {super(driver);}
+
+    //invalid register user input data getter - no user first name
+    public void invalidRegisterDataNoFirstNameGetter(){
+
+        noUserFirstName = "";
+        validLastName = TestDataGenerator.getRandomLastName();
+        validEmail = TestDataGenerator.generateRandomEmailAddress(5);
+        validPassword = TestDataGenerator.generateRandomPassword();
+        validConfirmPassword = validPassword;
+
+        System.out.println("Invalid generated user register data (no first name): " + "\n");
+
+        logger.info("No user first name: " + noUserFirstName);
+        logger.info("Valid user last name (no first name): " + validLastName);
+        logger.info("Valid user email (no first name): " + validEmail);
+        logger.info("Valid user password (no first name): " + validPassword);
+        logger.info("Valid matching confirm password (no first name): " + validConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid register user data input methods - no singular input
+    public void inputNoFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(noUserFirstName);}
+
+    //valid register user data input methods (for remaining valid inputs)
+    public void inputValidFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validFirstName);}
+    public void inputValidLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(validLastName);}
+    public void inputValidEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validEmail);}
+    public void inputValidPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(validPassword);}
+    public void inputValidConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(validConfirmPassword);}
 
     //singular input error box text getter
     public String getSingularInputErrorBoxMessage() {
