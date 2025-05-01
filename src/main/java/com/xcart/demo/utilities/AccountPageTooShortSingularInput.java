@@ -25,6 +25,7 @@ public class AccountPageTooShortSingularInput extends BasePage{
     //invalid singular edited user input data - too short singular input
     private String tooShortEditedFirstName;
     private String tooShortEditedLastName;
+    private String tooShortEditedEmail;
 
     public AccountPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -60,6 +61,22 @@ public class AccountPageTooShortSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid edited user input data getter - too short user edited email (1 char -> name, domain)
+    public void invalidEditedUserDataTooShortEmailGetter() {
+
+        validEditedFirstName = TestDataGenerator.getRandomEditedFirstName();
+        validEditedLastName = TestDataGenerator.getRandomEditedLastName();
+        tooShortEditedEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
+
+        System.out.println("Generated invalid edited user input data (too short edited email address): " + "\n");
+
+        logger.info("Valid edited user first name (too short edited email address): " + validEditedFirstName);
+        logger.info("Valid edited user last name (too short edited email address): " + validEditedLastName);
+        logger.info("Too short edited user email: " + tooShortEditedEmail);
+
+        System.out.println("\n");
+    }
+
     //invalid edited user account data input methods - too short singular input
     public void inputTooShortEditedFirstNameIntoFirstNameInputField(){
         accountDetailsPageFirstNameInputField.clear();
@@ -68,6 +85,11 @@ public class AccountPageTooShortSingularInput extends BasePage{
     public void inputTooShortEditedLastNameIntoLastNameInputField(){
         accountDetailsPageLastNameInputField.clear();
         accountDetailsPageLastNameInputField.sendKeys(tooShortEditedLastName);
+    }
+    public void inputTooShortEditedEmailIntoEmailInputField(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accountDetailsPageEmailInputField);
+        accountDetailsPageEmailInputField.clear();
+        accountDetailsPageEmailInputField.sendKeys(tooShortEditedEmail);
     }
 
     //valid edited user account data input methods (for remaining inputs)
