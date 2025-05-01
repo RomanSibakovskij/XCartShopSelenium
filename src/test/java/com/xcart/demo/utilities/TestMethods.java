@@ -1123,6 +1123,93 @@ protected void navigateToRegisterPageTest(){
         assertTrue(accountPage.isAccountPageBreadcrumbDisplayed(), "The account page breadcrumb isn't displayed");
     }
 
+    //account details page web element assert test method
+    protected void isAccountDetailsPageWebElementDisplayed(AccountDetailsPage accountDetailsPage) {
+        //assert account details page title is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageTitleDisplayed(), "The account details page title isn't displayed");
+        //assert account details page description is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageDescriptionDisplayed(), "The account details page description isn't displayed");
+        //personal information
+        //assert account details personal information is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPagePersonalInfoSectionTitleDisplayed(), "The account details page personal information section title isn't displayed");
+        //assert account details page first name subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageFirstNameSubtextDisplayed(), "The account details page first name subtext isn't displayed");
+        //assert account details page first name input field is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageFirstNameInputFieldDisplayed(), "The account details page first name input field isn't displayed");
+        //assert account details page last name subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageLastNameSubtextDisplayed(), "The account details page last name subtext isn't displayed");
+        //assert account details page last name input field is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageLastNameInputFieldDisplayed(), "The account details page last name input field isn't displayed");
+        //assert account details page company subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageCompanySubtextDisplayed(), "The account details page company subtext isn't displayed");
+        //assert account details page company input field is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageCompanyInputFieldDisplayed(), "The account details page company input field isn't displayed");
+        //assert account details page website subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageWebsiteSubtextDisplayed(), "The account details page website subtext isn't displayed");
+        //assert account details page website input field is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageWebsiteInputFieldDisplayed(), "The account details page website input field isn't displayed");
+        //assert account details page tax number subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageTaxNumberSubtextDisplayed(), "The account details page tax number subtext isn't displayed");
+        //assert account details page tax number input field is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageTaxNumberInputFieldDisplayed(), "The account details page tax number input field isn't displayed");
+        //account information
+        //assert account details page account information section title is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageAccountInfoSectionTitleDisplayed(), "The account details page account information section title isn't displayed");
+        //assert account details page email subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageEmailSubtextDisplayed(), "The account details page email subtext isn't displayed");
+        //assert account details page email input field is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageEmailInputFieldDisplayed(), "The account details page email input field isn't displayed");
+        //assert account details page password subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPagePasswordSubtextDisplayed(), "The account details page password subtext isn't displayed");
+        //assert account details page change password form link is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageChangePasswordFormLinkDisplayed(), "The account details page change password form link isn't displayed");
+        //newsletter section
+        //assert account details page newsletter section title is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageNewsletterSectionTitleDisplayed(), "The account details page newsletter section title isn't displayed");
+        //assert account details page newsletter subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageNewsletterSubtextDisplayed(), "The account details page newsletter subtext isn't displayed");
+        //assert account details page exclusive offers checkbox is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageExclusiveOffersCheckboxDisplayed(), "The account details page exclusive offers checkbox isn't displayed");
+        //assert account details page exclusive offers subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageExclusiveOffersSubtextDisplayed(), "The account details page exclusive offers subtext isn't displayed");
+        //assert account details page exclusive offers description is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageExclusiveOffersDescriptionDisplayed(), "The account details page exclusive offers description isn't displayed");
+        //assert account details page site updates checkbox is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageSiteUpdatesCheckboxDisplayed(), "The account details page site updates checkbox isn't displayed");
+        //assert account details page site updates subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageSiteUpdatesSubtextDisplayed(), "The account details page site updates subtext isn't displayed");
+        //assert account details page site updates description is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageSiteUpdatesDescriptionDisplayed(), "The account details page site updates description isn't displayed");
+        //assert account details page delete account link is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageDeleteAccountLinkDisplayed(), "The account details page delete account link isn't displayed");
+        //assert account details page submit button is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageSubmitButtonDisplayed(), "The account details page submit button isn't displayed");
+    }
+
+    //change password form web element assert method
+    protected void isChangePasswordFormWebElementDisplayed(AccountDetailsPage accountDetailsPage) {
+        //assert account details page change password form title is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageChangePasswordSectionTitleDisplayed(), "The account details page change password form title isn't displayed");
+        //assert account details page change password form email subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageFormEmailSubtextDisplayed(), "The account details page change password form email subtext isn't displayed");
+        //assert account details page change password form email is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageFormEmailAddressDisplayed(), "The account details page change password form email isn't displayed");
+        //assert account details page change password form old password subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageOldPasswordSubtextDisplayed(), "The account details page change password form old password subtext isn't displayed");
+        //assert account details page change password form old password input field is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageOldPasswordInputFieldDisplayed(), "The account details page change password form old password input field isn't displayed");
+        //assert account details page change password form new password subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageNewPasswordSubtextDisplayed(), "The account details page change password form new password subtext isn't displayed");
+        //assert account details page change password form new password input field is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageNewPasswordInputFieldDisplayed(), "The account details page change password form new password input field isn't displayed");
+        //assert account details page change password form confirm password subtext is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageConfirmPasswordSubtextDisplayed(), "The account details page change password form confirm password subtext isn't displayed");
+        //assert account details page change password form confirm password input field is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageConfirmPasswordInputFieldDisplayed(), "The account details page change password form confirm password input field isn't displayed");
+        //assert account details page change password form submit button is displayed
+        assertTrue(accountDetailsPage.isAccountDetailsPageFormSubmitButtonDisplayed(), "The account details page change password form submit button isn't displayed");
+    }
+
     //address book page web element assert test method
     protected void isAddressBookPageWebElementDisplayed(AddressBookPage addressBookPage) {
         //assert address book page title is displayed
@@ -1245,6 +1332,62 @@ protected void navigateToRegisterPageTest(){
         assertEquals("I accept the \"Terms & Conditions\" and \"Privacy statement\"", registerPage.getRegisterPageAcceptTermsSubtext(), "The register page accept terms subtext doesn't match expectations.");
         //assert register page confidential info text is as expected
         //assertEquals("All information you provide to us will be kept confidential. We will never sell, exchange or market it in any way.", registerPage.getRegisterPageConfidentialInfoText(), "The register page confidential info text doesn't match expectations.");
+    }
+
+    //account details page text element assert test method
+    protected void isAccountDetailsPageTextElementAsExpected(AccountDetailsPage accountDetailsPage) {
+        //assert account details page title is as expected
+        assertEquals("Account details", accountDetailsPage.getAccountDetailsPageTitle(), "The account details page title doesn't match expectations.");
+        //assert account details page description is as expected
+        assertEquals("This form enables you to modify your profile so that your data is always up to date\n" + "\n" + "The fields marked with * are mandatory.", accountDetailsPage.getAccountDetailsPageDescription(), "The account details page description doesn't match expectations.");
+        //personal information
+        //assert account details page personal information section title is as expected
+        assertEquals("Personal information", accountDetailsPage.getAccountDetailsPagePersonalInfoSectionTitle(), "The account details page personal information section title doesn't match expectations.");
+        //assert account details page first name subtext is as expected
+        assertEquals("First name", accountDetailsPage.getAccountDetailsPageFirstNameSubtext(), "The account details page first name subtext doesn't match expectations.");
+        //assert account details page last name subtext is as expected
+        assertEquals("Last name", accountDetailsPage.getAccountDetailsPageLastNameSubtext(), "The account details page last name subtext doesn't match expectations.");
+        //assert account details page company subtext is as expected
+        assertEquals("Company", accountDetailsPage.getAccountDetailsPageCompanySubtext(), "The account details page company subtext doesn't match expectations.");
+        //assert account details page website subtext is as expected
+        assertEquals("Web site", accountDetailsPage.getAccountDetailsPageWebsiteSubtext(), "The account details page website subtext doesn't match expectations.");
+        //assert account details page tax number subtext is as expected
+        assertEquals("Tax number", accountDetailsPage.getAccountDetailsPageTaxNumberSubtext(), "The account details page tax number subtext doesn't match expectations.");
+        //account information
+        //assert account details page account information section title is as expected
+        assertEquals("Account information", accountDetailsPage.getAccountDetailsPageAccountInfoSectionTitle(), "The account details page account information section title doesn't match expectations.");
+        //assert account details page email subtext is as expected
+        assertEquals("Email", accountDetailsPage.getAccountDetailsPageEmailSubtext(), "The account details page email subtext doesn't match expectations.");
+        //assert account details page password subtext is as expected
+        assertEquals("Password", accountDetailsPage.getAccountDetailsPagePasswordSubtext(), "The account details page password subtext doesn't match expectations.");
+        //newsletter section
+        //assert account details page newsletter section title is as expected
+        assertEquals("Newsletter", accountDetailsPage.getAccountDetailsPageNewsletterSectionTitle(), "The account details page newsletter section title doesn't match expectations.");
+        //assert account details page newsletter subtext is as expected
+        assertEquals("If you wish to receive our newsletters, please select the news lists to which you want to subscribe:", accountDetailsPage.getAccountDetailsPageNewsletterSubtext(), "The account details page newsletter subtext doesn't match expectations.");
+        //assert account details page exclusive offers subtext is as expected
+        assertEquals("Exclusive special offers", accountDetailsPage.getAccountDetailsPageExclusiveOffersSubtext(), "The account details page exclusive offers subtext doesn't match expectations.");
+        //assert account details page exclusive offers description is as expected
+        assertEquals("Information about our exclusive offers available only by subscription", accountDetailsPage.getAccountDetailsPageExclusiveOffersDescription(), "The account details page exclusive offers description doesn't match expectations.");
+        //assert account details page site updates subtext is as expected
+        assertEquals("Site updates", accountDetailsPage.getAccountDetailsPageSiteUpdatesSubtext(), "The account details page site updates subtext doesn't match expectations.");
+        //assert account details page site updates description is as expected
+        assertEquals("News regarding our shop new offers and products", accountDetailsPage.getAccountDetailsPageSiteUpdatesDescription(), "The account details page site updates description doesn't match expectations.");
+    }
+
+    //change password form text element assert test method
+    protected void isChangePasswordFormTextElementAsExpected(AccountDetailsPage accountDetailsPage) {
+        //assert change password form section title is as expected
+        assertEquals("Change password", accountDetailsPage.getAccountDetailsPageChangePasswordFormSectionTitle(), "The account details page change password form section title doesn't match expectations.");
+        //assert change password form email subtext is as expected
+        assertEquals("Email:", accountDetailsPage.getAccountDetailsPageChangePasswordFormEmailSubtext(), "The account details page change password form email subtext doesn't match expectations.");
+        //assert change password form old password subtext is as expected
+        assertEquals("Old Password:", accountDetailsPage.getAccountDetailsPageChangePasswordFormOldPasswordSubtext(), "The account details page change password form old password subtext doesn't match expectations.");
+        //assert change password form new password subtext is as expected
+        assertEquals("New Password:", accountDetailsPage.getAccountDetailsPageChangePasswordFormNewPasswordSubtext(), "The account details page change password form new password subtext doesn't match expectations.");
+        //assert change password form confirm password subtext is as expected
+        assertEquals("Confirm password:", accountDetailsPage.getAccountDetailsPageChangePasswordFormConfirmPasswordSubtext(), "The account details page change password form confirm password subtext doesn't match expectations.");
+
     }
 
     //address book page text element assert test method
