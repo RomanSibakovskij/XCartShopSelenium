@@ -1229,7 +1229,7 @@ protected void navigateToRegisterPageTest(){
         //assert register page confidential info text is as expected
         //assertEquals("All information you provide to us will be kept confidential. We will never sell, exchange or market it in any way.", registerPage.getRegisterPageConfidentialInfoText(), "The register page confidential info text doesn't match expectations.");
     }
-    
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
