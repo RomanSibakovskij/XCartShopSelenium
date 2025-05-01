@@ -32,6 +32,7 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     //invalid register user singular input data - invalid singular input format
     private String invalidFirstNameFormat;
     private String invalidLastNameFormat;
+    private String invalidEmailFormat;
 
     public RegisterPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -77,9 +78,31 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid register user input data getter - invalid user email format (missing '@')
+    public void invalidRegisterDataInvalidEmailFormatGetter(){
+
+        validFirstName = TestDataGenerator.getRandomLastName();
+        validLastName = TestDataGenerator.getRandomLastName();
+        invalidEmailFormat = "Ghtfdsfakemail.com";
+        validPassword = TestDataGenerator.generateRandomPassword();
+        validConfirmPassword = validPassword;
+
+        System.out.println("Invalid generated user register data (invalid email address format): " + "\n");
+
+        logger.info("Valid user first name (invalid email address format): " + validFirstName);
+        logger.info("Valid user last name (invalid email address format): " + validLastName);
+        logger.info("Invalid email address input format: " + invalidEmailFormat);
+        logger.info("Valid user password (invalid email address format): " + validPassword);
+        logger.info("Valid matching confirm password (invalid email address format): " + validConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid register user data input methods - invalid singular input format
     public void inputInvalidFirstNameFormatIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(invalidFirstNameFormat);}
     public void inputInvalidLastNameFormatIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(invalidLastNameFormat);}
+    public void inputInvalidEmailIntoFormatEmailInputField(){registerPageEmailInputField.sendKeys(invalidEmailFormat);}
 
     //valid register user data input methods (for remaining valid inputs)
     public void inputValidFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validFirstName);}

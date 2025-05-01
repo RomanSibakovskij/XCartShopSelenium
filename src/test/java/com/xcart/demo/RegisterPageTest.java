@@ -197,4 +197,16 @@ public class RegisterPageTest extends TestMethods{
         invalidUserAccountCreationInvalidLastNameFormatTest();
     }
 
+    //Test 002o -> invalid user account creation test - invalid email input format (missing '@')
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid Email Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input")
+    void invalidAccountCreationInvalidEmailFormatTest() {
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - invalid email input format (missing '@')
+        invalidUserAccountCreationInvalidEmailFormatTest();
+    }
+
 }
