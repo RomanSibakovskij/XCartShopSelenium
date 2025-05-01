@@ -92,9 +92,58 @@ public class AccountDetailsPage extends BasePage {
     @FindBy(xpath = "//table[@class='data-table']/tbody/tr[5]//button")
     private WebElement accountDetailsPageFormSubmitButton;
 
+    //valid edited user data
+    private String validEditedFirstName;
+    private String validEditedLastName;
+    private static String validEditedEmail;
+    private String oldPassword;
+    private String newPassword;
+    private String confirmNewPassword;
+
     public AccountDetailsPage(WebDriver driver) {super(driver);}
 
+    //valid edited user input data getter
+    public void validEditedUserDataGetter(RegisterPage registerPage) {
 
+        validEditedFirstName = TestDataGenerator.getValidFirstName();
+        validEditedLastName = TestDataGenerator.getValidLastName();
+        validEditedEmail = TestDataGenerator.generateRandomEmailAddress(12);
+        oldPassword = registerPage.getValidPassword();
+        newPassword = TestDataGenerator.generateRandomPassword();
+        confirmNewPassword = newPassword;
+
+        System.out.println("Generated valid edited user input data: " + "\n");
+
+        logger.info("Valid edited user first name: " + validEditedFirstName);
+        logger.info("Valid edited user last name: " + validEditedLastName);
+        logger.info("Valid edited user email: " + validEditedEmail);
+        logger.info("Valid old user password: " + oldPassword);
+        logger.info("Valid new password: " + newPassword);
+        logger.info("Valid confirm matching new password: " + confirmNewPassword);
+
+        System.out.println("\n");
+    }
+
+    //valid edited user account data input methods
+    public void inputValidEditedFirstNameIntoFirstNameInputField(){
+        accountDetailsPageFirstNameInputField.clear();
+        accountDetailsPageFirstNameInputField.sendKeys(validEditedFirstName);
+    }
+    public void inputValidEditedLastNameIntoLastNameInputField(){
+        accountDetailsPageLastNameInputField.clear();
+        accountDetailsPageLastNameInputField.sendKeys(validEditedLastName);
+    }
+    public void inputValidEditedEmailIntoEmailInputField(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accountDetailsPageEmailInputField);
+        accountDetailsPageEmailInputField.clear();
+        accountDetailsPageEmailInputField.sendKeys(validEditedEmail);
+    }
+
+    //click 'Submit' button
+    public void clickSubmitButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(accountDetailsPageSubmitButton).click().perform();
+    }
 
     //account details page text element getters
     public String getAccountDetailsPageTitle() {return accountDetailsPageTitle.getText();}
