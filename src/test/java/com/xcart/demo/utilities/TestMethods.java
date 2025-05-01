@@ -174,6 +174,50 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Creation Test Result - No User Last Name");
     }
+    //invalid user account creation test method - no user email
+    protected void invalidUserAccountCreationNoEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageNoSingularInput registerPageNoSingularInput = new RegisterPageNoSingularInput(driver);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot before user data input
+        captureScreenshot(driver, "Register Account Page Before User Account Data Input");
+        //invalid user account data input getter - no user email
+        registerPageNoSingularInput.invalidRegisterDataNoEmailGetter();
+        //input valid user first name into first name input field
+        registerPageNoSingularInput.inputValidFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPageNoSingularInput.inputValidLastNameIntoLastNameInputField();
+        //don't input user email into email input field
+        registerPageNoSingularInput.inputNoEmailIntoEmailInputField();
+        //input valid user password into password input field
+        registerPageNoSingularInput.inputValidPasswordIntoPasswordInputField();
+        //input valid user confirm password into confirm password input field
+        registerPageNoSingularInput.inputValidConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the invalid user data input - no user email
+        captureScreenshot(driver, "Register Page After Invalid User Account Data Input - No Email");
+        //click 'Accept terms' checkbox
+        registerPage.clickAcceptTermsCheckbox();
+        //click 'Submit' button
+        registerPage.clickSubmitButton();
+        //assert the user gets an expected error message
+        assertEquals("Warning\n" + "\n" + "The required field 'Email' is empty!", registerPageNoSingularInput.getSingularInputErrorBoxMessage(), "The missing email input error message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No User Email");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
