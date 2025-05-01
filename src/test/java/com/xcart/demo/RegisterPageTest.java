@@ -71,4 +71,18 @@ public class RegisterPageTest extends TestMethods{
         invalidUserAccountCreationNoPasswordConfirmTest();
     }
 
+    //too short singular input
+
+    //Test 002e -> invalid user account creation test - too short user first name (1 char) (the user account got created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Short First Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAccountCreationTooShortFirstNameTest() {
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - too short user first name (1 char)
+        invalidUserAccountCreationTooShortFirstNameTest();
+    }
+
 }
