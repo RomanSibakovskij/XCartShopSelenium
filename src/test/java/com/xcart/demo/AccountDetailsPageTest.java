@@ -165,4 +165,19 @@ public class AccountDetailsPageTest extends TestMethods{
         invalidEditUserAccountTooLongLastNameTest();
     }
 
+    //Test 003j -> invalid edit user account data test - too long user email (100 chars -> name, domain)
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Too Long Email")
+    @Tag("Invalid_Edit_User_Account")
+    @Tag("Too_Long_Singular_Input")
+    void invalidEditAccountTooLongEmailTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid edit user account data test - too long user email (100 chars -> name, domain)
+        invalidEditUserAccountTooLongEmailTest();
+    }
+
 }

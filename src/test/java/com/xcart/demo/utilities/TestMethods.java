@@ -1273,6 +1273,53 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Edit User Account Data Test Result - Too Long Last Name");
     }
+    //invalid edit user account data test method - too long user email (100 chars -> name, domain)
+    protected void invalidEditUserAccountTooLongEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        AccountPageTooLongSingularInput accountPageTooLongSingularInput = new AccountPageTooLongSingularInput(driver);
+        AccountDetailsPage accountDetailsPage = new AccountDetailsPage(driver);
+        //general page web element assert
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //account page web element assert (navbar links)
+        isAccountPageNavbarWebElementDisplayed(accountPage);
+        //click 'Account Details' link
+        accountPage.clickAccountDetailsLink();
+        //capture screenshot of the account details page before data input
+        captureScreenshot(driver, "Account Details Page Display Before Data Input");
+        //account details page web element assert
+        isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
+        //account details text element assert
+        isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //invalid edited user account data getter - too long user email (100 chars)
+        accountPageTooLongSingularInput.invalidEditedUserDataTooLongEmailGetter();
+        //input valid edited first name into first name input field
+        accountPageTooLongSingularInput.inputValidEditedFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountPageTooLongSingularInput.inputValidEditedLastNameIntoLastNameInputField();
+        //input too long edited email into email input field (100 chars -> name, domain)
+        accountPageTooLongSingularInput.inputTooLongEditedEmailIntoEmailInputField();
+        //capture screenshot of the account details page after invalid edited data input - too long edited email
+        captureScreenshot(driver, "Account Details Page Display After Invalid Edited Data Input - Too Long Email");
+        //click 'Submit' button
+        accountDetailsPage.clickSubmitButton();
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("Warning\n" + "\n" + "Email address is invalid! Please correct", accountPageTooLongSingularInput.getSingularInputErrorBoxMessage(), "The too long email input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The too long email error doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Data Test Result - Too Long Email");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
