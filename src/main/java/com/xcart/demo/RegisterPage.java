@@ -80,7 +80,58 @@ public class RegisterPage extends BasePage{
     @FindBy(xpath = "//div[@class='content']/text()[normalize-space()]")
     private WebElement registerPageConfidentialInfoText;
 
+    //valid register user data input
+    private static String validFirstName;
+    private static String validLastName;
+    private static String validEmail;
+    private static String validPassword;
+    private String validConfirmPassword;
+
     public RegisterPage(WebDriver driver) {super(driver);}
+
+    //valid register user data getter
+    public void validUserRegisterDataGetter(){
+        System.out.println("Valid generated user register input data: " + "\n");
+
+        validFirstName = TestDataGenerator.getRandomFirstName();
+        validLastName = TestDataGenerator.getRandomLastName();
+        validEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        validPassword = TestDataGenerator.generateRandomPassword();
+        validConfirmPassword = validPassword;
+
+        logger.info("Valid generated user first name: " + validFirstName);
+        logger.info("Valid generated user last name: " + validLastName);
+        logger.info("Valid generated user email: " + validEmail);
+        logger.info("Valid generated user password: " + validPassword);
+        logger.info("Valid generated user matching confirm password: " + validConfirmPassword);
+
+        System.out.println("\n");
+    }
+
+    //valid register user data input methods
+    public void inputValidFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validFirstName);}
+    public void inputValidLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(validLastName);}
+    public void inputValidEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validEmail);}
+    public void inputValidPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(validPassword);}
+    public void inputValidConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(validConfirmPassword);}
+
+    //click 'Accept terms' checkbox method
+    public void clickAcceptTermsCheckbox(){
+        Actions action = new Actions(driver);
+        action.moveToElement(registerPageAcceptTermsCheckbox).click().perform();
+    }
+
+    //click 'Submit' button method
+    public void clickSubmitButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(registerPageSubmitButton).click().perform();
+    }
+
+    //private data getters
+    public String getValidFirstName(){return validFirstName;}
+    public String getValidLastName(){return validLastName;}
+    public String getValidEmail(){return validEmail;}
+    public String getValidPassword(){return validPassword;}
 
     //register page text element getters
     public String getRegisterPageTitle() {return registerPageTitle.getText();}

@@ -37,6 +37,51 @@ protected void navigateToRegisterPageTest(){
     captureScreenshot(driver, "User Navigation To Register Page Test Result");
 }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid user account creation test
+
+    //valid user account creation test method
+    protected void validUserAccountCreationTest(RegisterPage registerPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot before valid user data input
+        captureScreenshot(driver, "Register Account Page Before User Account Data Input");
+        //valid user account data input getter
+        registerPage.validUserRegisterDataGetter();
+        //input valid user first name into first name input field
+        registerPage.inputValidFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPage.inputValidLastNameIntoLastNameInputField();
+        //input valid user email into email input field
+        registerPage.inputValidEmailIntoEmailInputField();
+        //input valid user password into password input field
+        registerPage.inputValidPasswordIntoPasswordInputField();
+        //input valid user confirm password into confirm password input field
+        registerPage.inputValidConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the valid user data input
+        captureScreenshot(driver, "Register Page After Valid User Account Data Input");
+        //click 'Accept terms' checkbox
+        registerPage.clickAcceptTermsCheckbox();
+        //click 'Submit' button
+        registerPage.clickSubmitButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Creation Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)
