@@ -31,6 +31,7 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
 
     //invalid register user singular input data - invalid singular input format
     private String invalidFirstNameFormat;
+    private String invalidLastNameFormat;
 
     public RegisterPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -55,8 +56,30 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid register user input data getter - invalid user last name format (special symbols only)
+    public void invalidRegisterDataInvalidLastNameFormatGetter(){
+
+        validFirstName = TestDataGenerator.getRandomLastName();
+        invalidLastNameFormat = "*&*&^%%$";
+        validEmail = TestDataGenerator.generateRandomEmailAddress(5);
+        validPassword = TestDataGenerator.generateRandomPassword();
+        validConfirmPassword = validPassword;
+
+        System.out.println("Invalid generated user register data (invalid last name format): " + "\n");
+
+        logger.info("Valid user first name (invalid last name format): " + validFirstName);
+        logger.info("Invalid last name input format: " + invalidLastNameFormat);
+        logger.info("Valid user email (invalid last name format): " + validEmail);
+        logger.info("Valid user password (invalid last name format): " + validPassword);
+        logger.info("Valid matching confirm password (invalid last name format): " + validConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid register user data input methods - invalid singular input format
     public void inputInvalidFirstNameFormatIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(invalidFirstNameFormat);}
+    public void inputInvalidLastNameFormatIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(invalidLastNameFormat);}
 
     //valid register user data input methods (for remaining valid inputs)
     public void inputValidFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validFirstName);}
