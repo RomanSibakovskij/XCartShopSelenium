@@ -86,4 +86,21 @@ public class AccountDetailsPageTest extends TestMethods{
         invalidEditUserAccountNoEmailTest();
     }
 
+    //too short singular input
+
+    //Test 003e -> invalid edit user account data test - too short user first name (1 char) (the user account data got edited, test has failed)
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Too Short First Name")
+    @Tag("Invalid_Edit_User_Account")
+    @Tag("Too_Short_Singular_Input")
+    void invalidEditAccountTooShortFirstNameTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid edit user account data test - too short user first name (1 char)
+        invalidEditUserAccountTooShortFirstNameTest();
+    }
+
 }

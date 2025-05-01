@@ -1033,6 +1033,56 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Invalid Edit User Account Data Test Result - No Email");
     }
 
+    //too short singular input
+
+    //invalid edit user account data test method - too short user first name (1 char)
+    protected void invalidEditUserAccountTooShortFirstNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        AccountPageTooShortSingularInput accountPageTooShortSingularInput = new AccountPageTooShortSingularInput(driver);
+        AccountDetailsPage accountDetailsPage = new AccountDetailsPage(driver);
+        //general page web element assert
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //account page web element assert (navbar links)
+        isAccountPageNavbarWebElementDisplayed(accountPage);
+        //click 'Account Details' link
+        accountPage.clickAccountDetailsLink();
+        //capture screenshot of the account details page before data input
+        captureScreenshot(driver, "Account Details Page Display Before Data Input");
+        //account details page web element assert
+        isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
+        //account details text element assert
+        isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //invalid edited user account data getter - too short user first name (1 char)
+        accountPageTooShortSingularInput.invalidEditedUserDataTooShortFirstNameGetter();
+        //input too short edited first name into first name input field (1 char)
+        accountPageTooShortSingularInput.inputTooShortEditedFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountPageTooShortSingularInput.inputValidEditedLastNameIntoLastNameInputField();
+        //input valid edited email into email input field
+        accountPageTooShortSingularInput.inputValidEditedEmailIntoEmailInputField();
+        //capture screenshot of the account details page after invalid edited data input - too short edited first name
+        captureScreenshot(driver, "Account Details Page Display After Invalid Edited Data Input - Too Short First Name");
+        //click 'Submit' button
+        accountDetailsPage.clickSubmitButton();
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("First name is too short!", accountPageTooShortSingularInput.getSingularInputErrorBoxMessage(), "The too short first name input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The too short first name error doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Data Test Result - Too Short First Name");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)

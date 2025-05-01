@@ -17,7 +17,52 @@ public class AccountPageTooShortSingularInput extends BasePage{
     @FindBy(xpath = "//div[@role='dialog']")
     private WebElement accountEditPageSingularInputErrorBox;
 
+    //valid edited user data (for remaining inputs)
+    private String validEditedFirstName;
+    private String validEditedLastName;
+    private String validEditedEmail;
+
+    //invalid singular edited user input data - too short singular input
+    private String tooShortEditedFirstName;
+
     public AccountPageTooShortSingularInput(WebDriver driver) {super(driver);}
+
+    //invalid edited user input data getter - too short user edited first name (1 char)
+    public void invalidEditedUserDataTooShortFirstNameGetter() {
+
+        tooShortEditedFirstName = "D";
+        validEditedLastName = TestDataGenerator.getRandomEditedLastName();
+        validEditedEmail = TestDataGenerator.generateRandomEmailAddress(12);
+
+        System.out.println("Generated invalid edited user input data (too short edited first name): " + "\n");
+
+        logger.info("Too short edited user first name: " + tooShortEditedFirstName);
+        logger.info("Valid edited user last name (too short edited first name): " + validEditedLastName);
+        logger.info("Valid edited user email (too short edited first name): " + validEditedEmail);
+
+        System.out.println("\n");
+    }
+
+    //invalid edited user account data input methods - too short singular input
+    public void inputTooShortEditedFirstNameIntoFirstNameInputField(){
+        accountDetailsPageFirstNameInputField.clear();
+        accountDetailsPageFirstNameInputField.sendKeys(tooShortEditedFirstName);
+    }
+
+    //valid edited user account data input methods (for remaining inputs)
+    public void inputValidEditedFirstNameIntoFirstNameInputField(){
+        accountDetailsPageFirstNameInputField.clear();
+        accountDetailsPageFirstNameInputField.sendKeys(validEditedFirstName);
+    }
+    public void inputValidEditedLastNameIntoLastNameInputField(){
+        accountDetailsPageLastNameInputField.clear();
+        accountDetailsPageLastNameInputField.sendKeys(validEditedLastName);
+    }
+    public void inputValidEditedEmailIntoEmailInputField(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accountDetailsPageEmailInputField);
+        accountDetailsPageEmailInputField.clear();
+        accountDetailsPageEmailInputField.sendKeys(validEditedEmail);
+    }
 
     //singular input error box text getter
     public String getSingularInputErrorBoxMessage() {
