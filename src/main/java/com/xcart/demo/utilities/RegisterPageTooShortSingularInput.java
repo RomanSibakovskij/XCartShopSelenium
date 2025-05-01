@@ -30,6 +30,7 @@ public class RegisterPageTooShortSingularInput extends BasePage{
 
     //invalid register user singular input data - too short singular input
     private String tooShortFirstName;
+    private String tooShortLastName;
 
     public RegisterPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -54,8 +55,30 @@ public class RegisterPageTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid register user input data getter - too short user last name (1 char)
+    public void invalidRegisterDataTooShortLastNameGetter(){
+
+        validFirstName = TestDataGenerator.getRandomFirstName();
+        tooShortLastName = "G";
+        validEmail = TestDataGenerator.generateRandomEmailAddress(5);
+        validPassword = TestDataGenerator.generateRandomPassword();
+        validConfirmPassword = validPassword;
+
+        System.out.println("Invalid generated user register data (too short last name): " + "\n");
+
+        logger.info("Valid user first name (too short last name): " + validFirstName);
+        logger.info("Too short user last name: " + tooShortLastName);
+        logger.info("Valid user email (too short last name): " + validEmail);
+        logger.info("Valid user password (too short last name): " + validPassword);
+        logger.info("Valid matching confirm password (too short last name): " + validConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid register user data input methods - too short singular input
     public void inputTooShortFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(tooShortFirstName);}
+    public void inputTooShortLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(tooShortLastName);}
 
     //valid register user data input methods (for remaining valid inputs)
     public void inputValidFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validFirstName);}
