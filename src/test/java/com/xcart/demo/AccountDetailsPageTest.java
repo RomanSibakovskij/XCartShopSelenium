@@ -37,4 +37,23 @@ public class AccountDetailsPageTest extends TestMethods{
         validEditUserAccountPasswordTest();
     }
 
+    //invalid edit user account data tests (since password section testing throws 403 error in demo, its testing is postponed)
+
+    //no singular input
+
+    //Test 003b -> invalid edit user account data test - no user first name
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - No First Name")
+    @Tag("Invalid_Edit_User_Account")
+    @Tag("No_Singular_Input")
+    void invalidEditAccountNoFirstNameTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid edit user account data test - no user first name
+        invalidEditUserAccountNoFirstNameTest();
+    }
+
 }
