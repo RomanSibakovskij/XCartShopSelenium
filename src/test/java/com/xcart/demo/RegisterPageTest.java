@@ -135,4 +135,16 @@ public class RegisterPageTest extends TestMethods{
         invalidUserAccountCreationTooLongFirstNameTest();
     }
 
+    //Test 002j -> invalid user account creation test - too long user last name (100 chars) (the user account got created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Long Last Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccountCreationTooLongLastNameTest() {
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - too long user last name (100 chars)
+        invalidUserAccountCreationTooLongLastNameTest();
+    }
+
 }
