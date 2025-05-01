@@ -6,6 +6,7 @@ import org.openqa.selenium.support.*;
 public class AddressBookPageInvalidSingularInputFormat extends BasePage{
 
 
+
     public AddressBookPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
 
