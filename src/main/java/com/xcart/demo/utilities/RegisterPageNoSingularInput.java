@@ -32,6 +32,8 @@ public class RegisterPageNoSingularInput extends BasePage{
     private String noUserFirstName;
     private String noUserLastName;
     private String noUserEmail;
+    private String noUserPassword;
+    private String noUserConfirmPassword;
 
     public RegisterPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -98,10 +100,34 @@ public class RegisterPageNoSingularInput extends BasePage{
 
     }
 
+    //invalid register user input data getter - no user password / confirm password
+    public void invalidRegisterDataNoPasswordConfirmGetter(){
+
+        validFirstName = TestDataGenerator.getRandomFirstName();
+        validLastName = TestDataGenerator.getRandomLastName();
+        validEmail = TestDataGenerator.generateRandomEmailAddress(5);
+        noUserPassword = "";
+        noUserConfirmPassword = noUserPassword;
+
+
+        System.out.println("Invalid generated user register data (no password / confirm password): " + "\n");
+
+        logger.info("Valid user first name (no password / confirm password): " + validFirstName);
+        logger.info("Valid user last name (no password / confirm password): " + validLastName);
+        logger.info("Valid user email (no password / confirm password): " + validEmail);
+        logger.info("No user password: " + noUserPassword);
+        logger.info("No matching confirm password: " + noUserConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid register user data input methods - no singular input
     public void inputNoFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(noUserFirstName);}
     public void inputNoLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(noUserLastName);}
     public void inputNoEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(noUserEmail);}
+    public void inputNoPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(noUserPassword);}
+    public void inputNoConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(noUserConfirmPassword);}
 
     //valid register user data input methods (for remaining valid inputs)
     public void inputValidFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validFirstName);}
