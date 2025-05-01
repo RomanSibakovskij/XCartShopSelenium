@@ -71,4 +71,19 @@ public class AccountDetailsPageTest extends TestMethods{
         invalidEditUserAccountNoLastNameTest();
     }
 
+    //Test 003d -> invalid edit user account data test - no user email
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - No Email")
+    @Tag("Invalid_Edit_User_Account")
+    @Tag("No_Singular_Input")
+    void invalidEditAccountNoEmailTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid edit user account data test - no user email
+        invalidEditUserAccountNoEmailTest();
+    }
+
 }

@@ -25,6 +25,7 @@ public class AccountPageNoSingularInput extends BasePage{
     //invalid singular edited user input data - no singular input
     private String noEditedFirstName;
     private String noEditedLastName;
+    private String noEditedEmail;
 
     public AccountPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -60,6 +61,22 @@ public class AccountPageNoSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid edited user input data getter - no user edited email
+    public void invalidEditedUserDataNoEmailGetter() {
+
+        validEditedFirstName = TestDataGenerator.getRandomEditedFirstName();
+        validEditedLastName = TestDataGenerator.getRandomEditedLastName();
+        noEditedEmail = "";
+
+        System.out.println("Generated invalid edited user input data (no edited email address): " + "\n");
+
+        logger.info("Valid edited user first name (no edited email address): " + validEditedFirstName);
+        logger.info("Valid edited user last name (no edited email address): " + validEditedLastName);
+        logger.info("No edited user email: " + noEditedEmail);
+
+        System.out.println("\n");
+    }
+
     //invalid edited user account data input methods - no singular input
     public void inputNoEditedFirstNameIntoFirstNameInputField(){
         accountDetailsPageFirstNameInputField.clear();
@@ -68,6 +85,11 @@ public class AccountPageNoSingularInput extends BasePage{
     public void inputNoEditedLastNameIntoLastNameInputField(){
         accountDetailsPageLastNameInputField.clear();
         accountDetailsPageLastNameInputField.sendKeys(noEditedLastName);
+    }
+    public void inputNoEditedEmailIntoEmailInputField(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accountDetailsPageEmailInputField);
+        accountDetailsPageEmailInputField.clear();
+        accountDetailsPageEmailInputField.sendKeys(noEditedEmail);
     }
 
     //valid edited user account data input methods (for remaining inputs)
