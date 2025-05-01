@@ -31,6 +31,7 @@ public class RegisterPageTooLongSingularInput extends BasePage{
     //invalid register user singular input data - too long singular input
     private String tooLongFirstName;
     private String tooLongLastName;
+    private String tooLongEmail;
 
     public RegisterPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -76,9 +77,31 @@ public class RegisterPageTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid register user input data getter - too long user email (100 chars -> name, domain)
+    public void invalidRegisterDataTooLongEmailGetter(){
+
+        validFirstName = TestDataGenerator.getRandomFirstName();
+        validLastName = TestDataGenerator.getRandomLastName();
+        tooLongEmail = TestDataGenerator.generateRandomTooLongEmailAddress(90);
+        validPassword = TestDataGenerator.generateRandomPassword();
+        validConfirmPassword = validPassword;
+
+        System.out.println("Invalid generated user register data (too long email): " + "\n");
+
+        logger.info("Valid user first name (too long email): " + validFirstName);
+        logger.info("Valid user last name (too long email): " + validLastName);
+        logger.info("Too long user email: " + tooLongEmail);
+        logger.info("Valid user password (too long email): " + validPassword);
+        logger.info("Valid matching confirm password (too long email): " + validConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid register user data input methods - too long singular input
     public void inputTooLongFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(tooLongFirstName);}
     public void inputTooLongLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(tooLongLastName);}
+    public void inputTooLongEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(tooLongEmail);}
 
     //valid register user data input methods (for remaining valid inputs)
     public void inputValidFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validFirstName);}
