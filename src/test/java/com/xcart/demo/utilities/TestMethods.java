@@ -1103,6 +1103,26 @@ protected void navigateToRegisterPageTest(){
         //assertTrue(registerPage.isRegisterPageConfidentialInfoTextDisplayed(), "The register page confidential info text isn't displayed");
     }
 
+    //account page web element assert test method
+    protected void isAccountPageNavbarWebElementDisplayed(AccountPage accountPage) {
+        //assert account page nav link is displayed
+        assertTrue(accountPage.isAccountDetailsLinkDisplayed(), "The account page account details nav link isn't displayed");
+        //assert account page address book nav link is displayed
+        assertTrue(accountPage.isAddressBookLinkDisplayed(), "The account page address book nav link isn't displayed");
+        //assert account page order history nav link is displayed
+        assertTrue(accountPage.isOrderHistoryLinkDisplayed(), "The account page order history nav link isn't displayed");
+        //assert account page returns nav link is displayed
+        assertTrue(accountPage.isReturnsLinkDisplayed(), "The account page returns nav link isn't displayed");
+        //assert account page wishlist nav link is displayed
+        assertTrue(accountPage.isWishlistLinkDisplayed(), "The account page wishlist nav link isn't displayed");
+    }
+
+    //account page breadcrumb web element assert test method
+    protected void isAccountPageBreadcrumbDisplayed(AccountPage accountPage) {
+        //assert account page breadcrumb is displayed
+        assertTrue(accountPage.isAccountPageBreadcrumbDisplayed(), "The account page breadcrumb isn't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -1209,6 +1229,7 @@ protected void navigateToRegisterPageTest(){
         //assert register page confidential info text is as expected
         //assertEquals("All information you provide to us will be kept confidential. We will never sell, exchange or market it in any way.", registerPage.getRegisterPageConfidentialInfoText(), "The register page confidential info text doesn't match expectations.");
     }
+    
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
