@@ -845,6 +845,59 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid Edit User Account (With User Email) Test Result");
     }
+    //valid edit user account data (with login password) test method (the test throws 403 error)
+    protected void validEditUserAccountPasswordTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        AccountDetailsPage accountDetailsPage = new AccountDetailsPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //account page web element assert (navbar links)
+        isAccountPageNavbarWebElementDisplayed(accountPage);
+        //click 'Account Details' link
+        accountPage.clickAccountDetailsLink();
+        //capture screenshot of the account details page before data input
+        captureScreenshot(driver, "Account Details Page Display Before Data Input");
+        //account details page web element assert
+        isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
+        //account details text element assert
+        isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //valid edited user account data getter
+        accountDetailsPage.validEditedUserDataGetter(registerPage);
+        //input valid edited first name into first name input field
+        accountDetailsPage.inputValidEditedFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountDetailsPage.inputValidEditedLastNameIntoLastNameInputField();
+        //click 'Change Password' link
+        accountDetailsPage.clickChangePasswordLink();
+        //capture screenshot of the change password form before data input
+        captureScreenshot(driver, "Account Details Page Change Password Form Display Before Data Input");
+        //change password form web element assert
+        isChangePasswordFormWebElementDisplayed(accountDetailsPage);
+        //change password for text element assert
+        isChangePasswordFormTextElementAsExpected(accountDetailsPage);
+        //input valid old password into old password input field
+        accountDetailsPage.inputValidOldPasswordIntoOldPasswordInputField();
+        //input valid new password into new password input field
+        accountDetailsPage.inputValidNewPasswordIntoNewPasswordInputField();
+        //input matching confirm password into confirm password input field
+        accountDetailsPage.inputValidConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the account details page after valid edited data input
+        captureScreenshot(driver, "Account Details Page Change Password Form Display After Valid New Password Input");
+        //click 'Submit' button (change password form)
+        accountDetailsPage.clickSubmitNewPasswordButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid Edit User Account Password Test Result");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

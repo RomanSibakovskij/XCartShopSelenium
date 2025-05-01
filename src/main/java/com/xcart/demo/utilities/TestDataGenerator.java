@@ -94,6 +94,17 @@ public class TestDataGenerator extends BasePage{
         return storedLastName;
     }
 
+    //random first name picker method (edited data) //non-static data
+    public static String getRandomEditedFirstName() {
+        Random random = new Random();
+        return firstNames[random.nextInt(firstNames.length)];
+    }
+    //random last name picker method (edited data) //non-static data
+    public static String getRandomEditedLastName() {
+        Random random = new Random();
+        return lastNames[random.nextInt(lastNames.length)];
+    }
+
     //generate random string methods
     private static String generateRandomString(String characters, int length) {
         StringBuilder sb = new StringBuilder(length);

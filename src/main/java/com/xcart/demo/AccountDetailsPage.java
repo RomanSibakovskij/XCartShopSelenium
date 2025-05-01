@@ -105,8 +105,8 @@ public class AccountDetailsPage extends BasePage {
     //valid edited user input data getter
     public void validEditedUserDataGetter(RegisterPage registerPage) {
 
-        validEditedFirstName = TestDataGenerator.getValidFirstName();
-        validEditedLastName = TestDataGenerator.getValidLastName();
+        validEditedFirstName = TestDataGenerator.getRandomEditedFirstName();
+        validEditedLastName = TestDataGenerator.getRandomEditedLastName();
         validEditedEmail = TestDataGenerator.generateRandomEmailAddress(12);
         oldPassword = registerPage.getValidPassword();
         newPassword = TestDataGenerator.generateRandomPassword();
@@ -139,11 +139,37 @@ public class AccountDetailsPage extends BasePage {
         accountDetailsPageEmailInputField.sendKeys(validEditedEmail);
     }
 
+    //change password form
+    public void inputValidOldPasswordIntoOldPasswordInputField(){
+        accountDetailsPageFormOldPasswordInputField.clear();
+        accountDetailsPageFormOldPasswordInputField.sendKeys(oldPassword);
+    }
+    public void inputValidNewPasswordIntoNewPasswordInputField(){
+        accountDetailsPageFormNewPasswordInputField.clear();
+        accountDetailsPageFormNewPasswordInputField.sendKeys(newPassword);
+    }
+    public void inputValidConfirmPasswordIntoConfirmPasswordInputField(){
+        accountDetailsPageFormConfirmPasswordInputField.clear();
+        accountDetailsPageFormConfirmPasswordInputField.sendKeys(confirmNewPassword);
+    }
+
+    //click 'Change password' link method
+    public void clickChangePasswordLink(){accountDetailsPageChangePasswordFormLink.click();}
+
+    //click 'Submit' button (change password form) method
+    public void clickSubmitNewPasswordButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(accountDetailsPageFormSubmitButton).click().perform();
+    }
+
     //click 'Submit' button
     public void clickSubmitButton(){
         Actions action = new Actions(driver);
         action.moveToElement(accountDetailsPageSubmitButton).click().perform();
     }
+
+    //private data getter
+    public String getValidEditedEmail(){return validEditedEmail;}
 
     //account details page text element getters
     public String getAccountDetailsPageTitle() {return accountDetailsPageTitle.getText();}

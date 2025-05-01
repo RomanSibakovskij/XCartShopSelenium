@@ -22,4 +22,19 @@ public class AccountDetailsPageTest extends TestMethods{
         validEditUserAccountTest();
     }
 
+    //Test 003a -> valid edit user account (with password) test (demo version terminates with 403 error - test has failed)
+    @Test
+    @DisplayName("Valid Edit User Account (With Password) Test")
+    @Tag("Valid_Edit_User_Account")
+    @Tag("Edit_Login_Password")
+    void validEditAccountPasswordTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid edit user password test
+        validEditUserAccountPasswordTest();
+    }
+
 }
