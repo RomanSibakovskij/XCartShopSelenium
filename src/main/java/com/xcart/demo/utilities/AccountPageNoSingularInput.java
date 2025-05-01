@@ -1,0 +1,12 @@
+package com.xcart.demo.utilities;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.*;
+
+public class AccountPageNoSingularInput extends BasePage{
+
+
+    public AccountPageNoSingularInput(WebDriver driver) {super(driver);}
+
+
+}
