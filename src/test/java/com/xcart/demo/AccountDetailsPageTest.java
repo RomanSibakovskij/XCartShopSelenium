@@ -56,4 +56,19 @@ public class AccountDetailsPageTest extends TestMethods{
         invalidEditUserAccountNoFirstNameTest();
     }
 
+    //Test 003c -> invalid edit user account data test - no user last name
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - No Last Name")
+    @Tag("Invalid_Edit_User_Account")
+    @Tag("No_Singular_Input")
+    void invalidEditAccountNoLastNameTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid edit user account data test - no user last name
+        invalidEditUserAccountNoLastNameTest();
+    }
+
 }

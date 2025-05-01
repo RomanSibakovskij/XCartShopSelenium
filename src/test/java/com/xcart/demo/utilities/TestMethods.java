@@ -946,6 +946,49 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Edit User Account Data Test Result - No First Name");
     }
+    //invalid edit user account data test method - no user last name
+    protected void invalidEditUserAccountNoLastNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        AccountPageNoSingularInput accountPageNoSingularInput = new AccountPageNoSingularInput(driver);
+        AccountDetailsPage accountDetailsPage = new AccountDetailsPage(driver);
+        //general page web element assert
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //account page web element assert (navbar links)
+        isAccountPageNavbarWebElementDisplayed(accountPage);
+        //click 'Account Details' link
+        accountPage.clickAccountDetailsLink();
+        //capture screenshot of the account details page before data input
+        captureScreenshot(driver, "Account Details Page Display Before Data Input");
+        //account details page web element assert
+        isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
+        //account details text element assert
+        isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //invalid edited user account data getter - no user last name
+        accountPageNoSingularInput.invalidEditedUserDataNoLastNameGetter();
+        //input valid edited first name into first name input field
+        accountPageNoSingularInput.inputValidEditedFirstNameIntoFirstNameInputField();
+        //don't input edited last name into last name input field
+        accountPageNoSingularInput.inputNoEditedLastNameIntoLastNameInputField();
+        //input valid edited email into email input field
+        accountPageNoSingularInput.inputValidEditedEmailIntoEmailInputField();
+        //capture screenshot of the account details page after invalid edited data input - no edited last name
+        captureScreenshot(driver, "Account Details Page Display After Invalid Edited Data Input - No Last Name");
+        //click 'Submit' button
+        accountDetailsPage.clickSubmitButton();
+        //assert the user gets an expected error message
+        assertEquals("Warning\n" + "\n" + "The required field 'Last name' is empty!", accountPageNoSingularInput.getSingularInputErrorBoxMessage(), "The missing last name input error message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Data Test Result - No Last Name");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
