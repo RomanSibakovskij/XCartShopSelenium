@@ -31,6 +31,7 @@ public class RegisterPageTooShortSingularInput extends BasePage{
     //invalid register user singular input data - too short singular input
     private String tooShortFirstName;
     private String tooShortLastName;
+    private String tooShortEmail;
 
     public RegisterPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -76,9 +77,31 @@ public class RegisterPageTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid register user input data getter - too short user email (1 char -> name, domain)
+    public void invalidRegisterDataTooShortEmailGetter(){
+
+        validFirstName = TestDataGenerator.getRandomFirstName();
+        validLastName = TestDataGenerator.getRandomLastName();
+        tooShortEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
+        validPassword = TestDataGenerator.generateRandomPassword();
+        validConfirmPassword = validPassword;
+
+        System.out.println("Invalid generated user register data (too short email): " + "\n");
+
+        logger.info("Valid user first name (too short email): " + validFirstName);
+        logger.info("Valid user last name (too short email): " + validLastName);
+        logger.info("Too short user email: " + tooShortEmail);
+        logger.info("Valid user password (too short email): " + validPassword);
+        logger.info("Valid matching confirm password (too short email): " + validConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid register user data input methods - too short singular input
     public void inputTooShortFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(tooShortFirstName);}
     public void inputTooShortLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(tooShortLastName);}
+    public void inputTooShortEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(tooShortEmail);}
 
     //valid register user data input methods (for remaining valid inputs)
     public void inputValidFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validFirstName);}
