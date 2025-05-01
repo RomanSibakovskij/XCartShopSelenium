@@ -1123,6 +1123,23 @@ protected void navigateToRegisterPageTest(){
         assertTrue(accountPage.isAccountPageBreadcrumbDisplayed(), "The account page breadcrumb isn't displayed");
     }
 
+    //address book page web element assert test method
+    protected void isAddressBookPageWebElementDisplayed(AddressBookPage addressBookPage) {
+        //assert address book page title is displayed
+        assertTrue(addressBookPage.isAddressBookPageTitleDisplayed(), "The address book page title isn't displayed");
+        //assert address book add address link is displayed
+        assertTrue(addressBookPage.isAddAddressLinkDisplayed(), "The address book page add address link isn't displayed");
+        //list elements
+        //assert address book address entry titles are displayed (as a list)
+        assertTrue(addressBookPage.isAddressBookEntryTitleDisplayed(), "The address book page address entry titles aren't displayed");
+        //assert address book address entry usernames are displayed (as a list)
+        assertTrue(addressBookPage.isAddressBookEntryUserNameDisplayed(), "The address book page address entry username aren't displayed");
+        //assert address book address entries data are displayed (as a list)
+        assertTrue(addressBookPage.isAddressBookEntryDataDisplayed(), "The address book page address entry data aren't displayed");
+        //assert address book address entry change buttons are displayed (as a list)
+        assertTrue(addressBookPage.isAddressBookEntryChangeButtonDisplayed(), "The address book page address entry change buttons aren't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -1230,6 +1247,45 @@ protected void navigateToRegisterPageTest(){
         //assertEquals("All information you provide to us will be kept confidential. We will never sell, exchange or market it in any way.", registerPage.getRegisterPageConfidentialInfoText(), "The register page confidential info text doesn't match expectations.");
     }
 
+    //address book page text element assert test method
+    protected void isAddressBookTextElementAsExpected(AddressBookPage addressBookPage) {
+        //assert address book page title is as expected
+        assertEquals("Address book", addressBookPage.getAddressBookPageTitle(), "The address book page title doesn't match expectations.");
+    }
+
+    //new address form page text element assert test method
+    protected void isNewAddressFormTextElementAsExpected(AddressBookPage addressBookPage) {
+        //assert new address form title is as expected
+        assertEquals("New address", addressBookPage.getNewAddressFormTitle(), "The new address form title doesn't match expectations.");
+        //assert new address form use billing address subtext is as expected
+        assertEquals("Use as billing address", addressBookPage.getNewAddressFormUseBillingAddressSubtext(), "The new address form 'use billing address' subtext doesn't match expectations.");
+        //assert new address form use shipping address subtext is as expected
+        assertEquals("Use as shipping address", addressBookPage.getNewAddressFormUseShippingAddressSubtext(), "The new address form 'use shipping address' subtext doesn't match expectations.");
+    }
+
+    //address form text element test method
+    protected void isAddressFormTextElementAsExpected(AddressBookPage addressBookPage) {
+        //assert new address form first name subtext is as expected
+        assertEquals("First name", addressBookPage.getNewAddressFormFirstNameSubtext(), "The new address form first name subtext doesn't match expectations.");
+        //assert new address form last name subtext is as expected
+        assertEquals("Last name", addressBookPage.getNewAddressFormLastNameSubtext(), "The new address form last name subtext doesn't match expectations.");
+        //assert new address form address 1 subtext is as expected
+        assertEquals("Address", addressBookPage.getNewAddressFormAddress1Subtext(), "The new address form address 1 subtext doesn't match expectations.");
+        //assert new address form address 2 subtext is as expected
+        assertEquals("Address (line 2)", addressBookPage.getNewAddressFormAddress2Subtext(), "The new address form address 2 subtext doesn't match expectations.");
+        //assert new address form city subtext is as expected
+        assertEquals("City", addressBookPage.getNewAddressFormCitySubtext(), "The new address form city subtext doesn't match expectations.");
+        //assert new address form country subtext is as expected
+        assertEquals("Country", addressBookPage.getNewAddressFormCountrySubtext(), "The new address form country subtext doesn't match expectations.");
+        //assert new address form state subtext is as expected
+        assertEquals("State", addressBookPage.getNewAddressFormStateSubtext(), "The new address form state subtext doesn't match expectations.");
+        //assert new address form post code subtext is as expected
+        assertEquals("Zip/Postal code", addressBookPage.getNewAddressFormPostCodeSubtext(), "The new address form post code subtext doesn't match expectations.");
+        //assert new address form phone subtext is as expected
+        assertEquals("Phone", addressBookPage.getNewAddressFormPhoneSubtext(), "The new address form phone subtext doesn't match expectations.");
+        //assert new address form fax subtext is as expected
+        assertEquals("Fax", addressBookPage.getNewAddressFormFaxSubtext(), "The new address form fax subtext doesn't match expectations.");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
