@@ -265,6 +265,81 @@ protected void navigateToRegisterPageTest(){
         assertTrue(homePage.isAsideBestsellerProductMarketPriceDisplayed(), "The home page aside bestseller product market prices aren't displayed");
     }
 
+    //register page web element assert test method
+    protected void isRegisterPageWebElementDisplayed(RegisterPage registerPage){
+        //assert register page title is displayed
+        assertTrue(registerPage.isRegisterPageTitleDisplayed(), "The register page title isn't displayed");
+        //assert register page description is displayed
+        assertTrue(registerPage.isRegisterPageDescriptionDisplayed(), "The register page description isn't displayed");
+        //personal info
+        //assert register page personal info section title is displayed
+        assertTrue(registerPage.isRegisterPagePersonalInfoSectionTitleDisplayed(), "The register page personal info section isn't displayed");
+        //assert register page first name subtext is displayed
+        assertTrue(registerPage.isRegisterPageFirstNameSubtextDisplayed(), "The register page first name subtext isn't displayed");
+        //assert register page first name input field is displayed
+        assertTrue(registerPage.isRegisterPageFirstNameInputFieldDisplayed(), "The register page first name input field isn't displayed");
+        //assert register page last name subtext is displayed
+        assertTrue(registerPage.isRegisterPageLastNameSubtextDisplayed(), "The register page last name subtext isn't displayed");
+        //assert register page last name input field is displayed
+        assertTrue(registerPage.isRegisterPageLastNameInputFieldDisplayed(), "The register page last name input field isn't displayed");
+        //assert register page company subtext is displayed
+        assertTrue(registerPage.isRegisterPageCompanySubtextDisplayed(), "The register page company subtext isn't displayed");
+        //assert register page company input field is displayed
+        assertTrue(registerPage.isRegisterPageCompanyInputFieldDisplayed(), "The register page company input field isn't displayed");
+        //assert register page website subtext is displayed
+        assertTrue(registerPage.isRegisterPageWebsiteSubtextDisplayed(), "The register page website subtext isn't displayed");
+        //assert register page website input field is displayed
+        assertTrue(registerPage.isRegisterPageWebsiteInputFieldDisplayed(), "The register page website input field isn't displayed");
+        //assert register page tax number subtext is displayed
+        assertTrue(registerPage.isRegisterPageTaxNumberSubtextDisplayed(), "The register page tax number subtext isn't displayed");
+        //assert register page tax number input field is displayed
+        assertTrue(registerPage.isRegisterPageTaxNumberInputFieldDisplayed(), "The register page tax number input field isn't displayed");
+        //account information
+        //assert register page account info section title is displayed
+        assertTrue(registerPage.isRegisterPageAccountInfoSectionTitleDisplayed(), "The register page account info section isn't displayed");
+        //assert register page email subtext is displayed
+        assertTrue(registerPage.isRegisterPageEmailSubtextDisplayed(), "The register page email subtext isn't displayed");
+        //assert register page email input field is displayed
+        assertTrue(registerPage.isRegisterPageEmailInputFieldDisplayed(), "The register page email input field isn't displayed");
+        //assert register page password subtext is displayed
+        assertTrue(registerPage.isRegisterPagePasswordSubtextDisplayed(), "The register page password subtext isn't displayed");
+        //assert register page password input field is displayed
+        assertTrue(registerPage.isRegisterPagePasswordInputFieldDisplayed(), "The register page password input field isn't displayed");
+        //assert register page confirm password subtext is displayed
+        assertTrue(registerPage.isRegisterPageConfirmPasswordSubtextDisplayed(), "The register page confirm password subtext isn't displayed");
+        //assert register page confirm password input field is displayed
+        assertTrue(registerPage.isRegisterPageConfirmPasswordInputFieldDisplayed(), "The register page confirm password input field isn't displayed");
+        //newsletter section
+        //assert register page newsletter section title is displayed
+        assertTrue(registerPage.isRegisterPageNewsletterSectionTitleDisplayed(), "The register page newsletter section title isn't displayed");
+        //assert register page newsletter description is displayed
+        assertTrue(registerPage.isRegisterPageNewsletterDescriptionDisplayed(), "The register page newsletter description isn't displayed");
+        //assert register page exclusive special offers checkbox is displayed
+        assertTrue(registerPage.isRegisterPageExclusiveSpecialOffersCheckboxDisplayed(), "The register page exclusive special offers checkbox isn't displayed");
+        //assert register page exclusive special offers subtext is displayed
+        assertTrue(registerPage.isRegisterPageExclusiveSpecialSubtextDisplayed(), "The register page exclusive special offers subtext isn't displayed");
+        //assert register page exclusive special offers description is displayed
+        assertTrue(registerPage.isRegisterPageExclusiveSpecialDescriptionDisplayed(), "The register page exclusive special offers description isn't displayed");
+        //assert register page site updates checkbox is displayed
+        assertTrue(registerPage.isRegisterPageSiteUpdatesCheckboxDisplayed(), "The register page site updates checkbox isn't displayed");
+        //assert register page site updates subtext is displayed
+        assertTrue(registerPage.isRegisterPageSiteUpdatesSubtextDisplayed(), "The register page site updates subtext isn't displayed");
+        //assert register page site updates description is displayed
+        assertTrue(registerPage.isRegisterPageSiteUpdatesDescriptionDisplayed(), "The register page site updates description isn't displayed");
+        //assert register page accept terms checkbox is displayed
+        assertTrue(registerPage.isRegisterPageAcceptTermsCheckboxDisplayed(), "The register page accept terms checkbox isn't displayed");
+        //assert register page accept terms subtext is displayed
+        assertTrue(registerPage.isRegisterPageAcceptTermsSubtextDisplayed(), "The register page accept terms subtext isn't displayed");
+        //assert register page accept terms and conditions link is displayed
+        assertTrue(registerPage.isRegisterPageAcceptTermsConditionsLinkDisplayed(), "The register page accept terms and conditions link isn't displayed");
+        //assert register page privacy link is displayed
+        assertTrue(registerPage.isRegisterPagePrivacyLinkDisplayed(), "The register page privacy link isn't displayed");
+        //assert register page submit button is displayed
+        assertTrue(registerPage.isRegisterPageSubmitButtonDisplayed(), "The register page submit button isn't displayed");
+        //assert register page confidential info text is displayed
+        //assertTrue(registerPage.isRegisterPageConfidentialInfoTextDisplayed(), "The register page confidential info text isn't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -323,6 +398,53 @@ protected void navigateToRegisterPageTest(){
         assertEquals("Featured products", homePage.getFeaturedProductsSectionTitle(), "The home page featured products section title doesn't match expectations.");
         //assert home page aside bestseller products section title is as expected
         assertEquals("Bestsellers", homePage.getAsideBestsellerProductsSectionTitle(), "The home page aside bestseller products section title doesn't match expectations.");
+    }
+
+    //register page text element assert test method
+    protected void isRegisterPageTextElementAsExpected(RegisterPage registerPage){
+        //assert register page title is as expected
+        assertEquals("Create Profile", registerPage.getRegisterPageTitle(), "The register page title doesn't match expectations.");
+        //assert register page description is as expected
+        assertEquals("The form below allows you to create a profile which is necessary to place orders. Do not forget that this information is essential to use our services correctly.\n" + "\n" + "The fields marked with * are mandatory.", registerPage.getRegisterPageDescription(), "The register page description doesn't match expectations.");
+        //personal information
+        //assert register page personal information section title is as expected
+        assertEquals("Personal information", registerPage.getRegisterPagePersonalInfoSectionTitle(), "The register page personal information section title doesn't match expectations.");
+        //assert register page first name subtext is as expected
+        assertEquals("First name", registerPage.getRegisterPageFirstNameSubtext(), "The register page first name subtext doesn't match expectations.");
+        //assert register page last name subtext is as expected
+        assertEquals("Last name", registerPage.getRegisterPageLastNameSubtext(), "The register page last name subtext doesn't match expectations.");
+        //assert register page company subtext is as expected
+        assertEquals("Company", registerPage.getRegisterPageCompanySubtext(), "The register page company subtext doesn't match expectations.");
+        //assert register page website subtext is as expected
+        assertEquals("Web site", registerPage.getRegisterPageWebsiteSubtext(), "The register page website subtext doesn't match expectations.");
+        //assert register page tax number subtext is as expected
+        assertEquals("Tax number", registerPage.getRegisterPageTaxNumberSubtext(), "The register page tax number subtext doesn't match expectations.");
+        //account information
+        //assert register page account info section title is as expected
+        assertEquals("Account information", registerPage.getRegisterPageAccountInfoSectionTitle(), "The register page account information section title doesn't match expectations.");
+        //assert register page email subtext is as expected
+        assertEquals("Email", registerPage.getRegisterPageEmailSubtext(), "The register page email subtext doesn't match expectations.");
+        //assert register page password subtext is as expected
+        assertEquals("Password", registerPage.getRegisterPagePasswordSubtext(), "The register page password subtext doesn't match expectations.");
+        //assert register page confirm password subtext is as expected
+        assertEquals("Confirm password", registerPage.getRegisterPageConfirmPasswordSubtext(), "The register page confirm password subtext doesn't match expectations.");
+        //newsletter
+        //assert register page newsletter section title is as expected
+        assertEquals("Newsletter", registerPage.getRegisterPageNewsletterSectionTitle(), "The register page newsletter section title doesn't match expectations.");
+        //assert register page newsletter description is as expected
+        assertEquals("If you wish to receive our newsletters, please select the news lists to which you want to subscribe:", registerPage.getRegisterPageNewsletterDescription(), "The register page newsletter description doesn't match expectations.");
+        //assert register page exclusive special subtext is as expected
+        assertEquals("Exclusive special offers", registerPage.getRegisterPageExclusiveSpecialSubtext(), "The register page exclusive special subtext doesn't match expectations.");
+        //assert register page exclusive special description is as expected
+        assertEquals("Information about our exclusive offers available only by subscription", registerPage.getRegisterPageExclusiveSpecialDescription(), "The register page exclusive special description doesn't match expectations.");
+        //assert register page site updates subtext is as expected
+        assertEquals("Site updates", registerPage.getRegisterPageSiteUpdatesSubtext(), "The register page site updates subtext doesn't match expectations.");
+        //assert register page site updates description is as expected
+        assertEquals("News regarding our shop new offers and products", registerPage.getRegisterPageSiteUpdatesDescription(), "The register page site updates description doesn't match expectations.");
+        //assert register page accept terms subtext is as expected
+        assertEquals("I accept the \"Terms & Conditions\" and \"Privacy statement\"", registerPage.getRegisterPageAcceptTermsSubtext(), "The register page accept terms subtext doesn't match expectations.");
+        //assert register page confidential info text is as expected
+        //assertEquals("All information you provide to us will be kept confidential. We will never sell, exchange or market it in any way.", registerPage.getRegisterPageConfidentialInfoText(), "The register page confidential info text doesn't match expectations.");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
