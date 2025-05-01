@@ -32,6 +32,8 @@ public class RegisterPageTooShortSingularInput extends BasePage{
     private String tooShortFirstName;
     private String tooShortLastName;
     private String tooShortEmail;
+    private String tooShortPassword;
+    private String tooShortConfirmPassword;
 
     public RegisterPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -98,10 +100,33 @@ public class RegisterPageTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid register user input data getter - too short user password / confirm password (3 chars)
+    public void invalidRegisterDataTooShortPasswordGetter(){
+
+        validFirstName = TestDataGenerator.getRandomFirstName();
+        validLastName = TestDataGenerator.getRandomLastName();
+        validEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        tooShortPassword = "Gf%";
+        tooShortConfirmPassword = tooShortPassword;
+
+        System.out.println("Invalid generated user register data (too short password): " + "\n");
+
+        logger.info("Valid user first name (too short password): " + validFirstName);
+        logger.info("Valid user last name (too short password): " + validLastName);
+        logger.info("Valid user user email (too short password): " + validEmail);
+        logger.info("Too short user password (too short password): " + tooShortPassword);
+        logger.info("Too short matching confirm password (too short password): " + tooShortConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid register user data input methods - too short singular input
     public void inputTooShortFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(tooShortFirstName);}
     public void inputTooShortLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(tooShortLastName);}
     public void inputTooShortEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(tooShortEmail);}
+    public void inputTooShortPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(tooShortPassword);}
+    public void inputTooShortConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(tooShortConfirmPassword);}
 
     //valid register user data input methods (for remaining valid inputs)
     public void inputValidFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validFirstName);}
