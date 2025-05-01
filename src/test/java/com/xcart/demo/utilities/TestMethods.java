@@ -604,6 +604,54 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long User Email");
     }
+    //invalid user account creation test method - too long user password and confirm password (50 chars)
+    protected void invalidUserAccountCreationTooLongPasswordConfirmTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageTooLongSingularInput registerPageTooLongSingularInput = new RegisterPageTooLongSingularInput(driver);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //capture screenshot before user data input
+        captureScreenshot(driver, "Register Account Page Before User Account Data Input");
+        //invalid user account data input getter - too long user password and confirm password (50 chars)
+        registerPageTooLongSingularInput.invalidRegisterDataTooLongPasswordConfirmGetter();
+        //input valid user first name into first name input field
+        registerPageTooLongSingularInput.inputValidFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPageTooLongSingularInput.inputValidLastNameIntoLastNameInputField();
+        //input valid user email into email input field
+        registerPageTooLongSingularInput.inputValidEmailIntoEmailInputField();
+        //input too long user password into password input field (50 chars)
+        registerPageTooLongSingularInput.inputTooLongPasswordIntoPasswordInputField();
+        //input too long user confirm password into confirm password input field (50 chars)
+        registerPageTooLongSingularInput.inputTooLongConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the invalid user data input - too long user password / confirm password
+        captureScreenshot(driver, "Register Page After Invalid User Account Data Input - Too Long User Password And Confirm Password");
+        //click 'Accept terms' checkbox
+        registerPage.clickAcceptTermsCheckbox();
+        //click 'Submit' button
+        registerPage.clickSubmitButton();
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("Password is too long", registerPageTooLongSingularInput.getSingularInputErrorBoxMessage(), "The too long password error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The too long password error wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long User Password And Confirm Password");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

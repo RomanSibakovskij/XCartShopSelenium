@@ -32,6 +32,8 @@ public class RegisterPageTooLongSingularInput extends BasePage{
     private String tooLongFirstName;
     private String tooLongLastName;
     private String tooLongEmail;
+    private String tooLongPassword;
+    private String tooLongConfirmPassword;
 
     public RegisterPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -98,10 +100,33 @@ public class RegisterPageTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid register user input data getter - too long user password and confirm password (50 chars)
+    public void invalidRegisterDataTooLongPasswordConfirmGetter(){
+
+        validFirstName = TestDataGenerator.getRandomFirstName();
+        validLastName = TestDataGenerator.getRandomLastName();
+        validEmail = TestDataGenerator.generateRandomEmailAddress(7);
+        tooLongPassword = "FfghfdfdvfcdESRFEGRDFGDS3$%^%&^%&dgbfdgdfdscvcxgSD";
+        tooLongConfirmPassword = tooLongPassword;
+
+        System.out.println("Invalid generated user register data (too long password and confirm password): " + "\n");
+
+        logger.info("Valid user first name (too long password and confirm password): " + validFirstName);
+        logger.info("Valid user last name (too long password and confirm password): " + validLastName);
+        logger.info("Valid user email (too long password and confirm password): " + validEmail);
+        logger.info("Too long user password: " + tooLongPassword);
+        logger.info("Too long matching confirm password: " + tooLongConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid register user data input methods - too long singular input
     public void inputTooLongFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(tooLongFirstName);}
     public void inputTooLongLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(tooLongLastName);}
     public void inputTooLongEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(tooLongEmail);}
+    public void inputTooLongPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(tooLongPassword);}
+    public void inputTooLongConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(tooLongConfirmPassword);}
 
     //valid register user data input methods (for remaining valid inputs)
     public void inputValidFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validFirstName);}
