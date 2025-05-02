@@ -30,6 +30,7 @@ public class AddressBookPageTooLongSingularInput extends BasePage{
 
     //invalid user address input data - too long singular input
     private String tooLongAddressFirstName;
+    private String tooLongAddressLastName;
 
     public AddressBookPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -55,8 +56,31 @@ public class AddressBookPageTooLongSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user new address data getter - too long last name (100 chars)
+    public void invalidUserNewAddressDataTooLongLastNameGetter() {
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidFirstName();
+        tooLongAddressLastName = "Asfdgfdgffgvfdsfaghresrfeghtyjtrewaertuyikyujthygrfsdsffghnbvcsdsfdghfggswfregrthgfsadedfhgdsfsedrhf";
+        validAddress1 = TestDataGenerator.generateRandomAddress(8);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated invalid user new address data (too long last name): " + "\n");
+
+        logger.info("Valid user first name (too long last name): " + validAddressFirstName);
+        logger.info("Too long user last name: " + tooLongAddressLastName);
+        logger.info("Valid user address1 (too long last name): " + validAddress1);
+        logger.info("Valid user city (too long last name): " + validAddressCity);
+        logger.info("Valid user post code (too long last name): " + validAddressPostCode);
+
+        System.out.println("\n");
+    }
+
     //invalid new address form data input methods - too long singular input
     public void inputTooLongFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(tooLongAddressFirstName);}
+    public void inputTooLongLastNameIntoAddressLastNameInputField(){newAddressFormLastNameInputField.sendKeys(tooLongAddressLastName);}
 
     //new address form data input methods (for remaining inputs)
     public void inputValidFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(validAddressFirstName);}
