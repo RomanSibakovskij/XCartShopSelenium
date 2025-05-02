@@ -195,4 +195,19 @@ public class AddressBookPageTest extends TestMethods{
         invalidUserAddressAdditionTooShortCityTest();
     }
 
+    //Test 004l -> invalid user address addition test - too short user post code (4 digits)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Short Post Code")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddressAdditionTooShortPostCodeTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - too short user post code (4 digits)
+        invalidUserAddressAdditionTooShortPostCodeTest();
+    }
+
 }
