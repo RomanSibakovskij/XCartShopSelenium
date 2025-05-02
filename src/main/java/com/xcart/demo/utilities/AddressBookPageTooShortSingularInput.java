@@ -30,6 +30,7 @@ public class AddressBookPageTooShortSingularInput extends BasePage{
 
     //invalid user address input data - too short singular input
     private String tooShortAddressFirstName;
+    private String tooShortAddressLastName;
 
     public AddressBookPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -55,8 +56,31 @@ public class AddressBookPageTooShortSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user new address data getter - too short last name (1 char)
+    public void invalidUserNewAddressDataTooShortLastNameGetter() {
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidFirstName();
+        tooShortAddressLastName = "A";
+        validAddress1 = TestDataGenerator.generateRandomAddress(8);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated invalid user new address data (too short last name): " + "\n");
+
+        logger.info("Valid user first name (too short last name): " + validAddressFirstName);
+        logger.info("Too short user last name: " + tooShortAddressLastName);
+        logger.info("Valid user address1 (too short last name): " + validAddress1);
+        logger.info("Valid user city (too short last name): " + validAddressCity);
+        logger.info("Valid user post code (too short last name): " + validAddressPostCode);
+
+        System.out.println("\n");
+    }
+
     //invalid new address form data input methods - too short singular input
     public void inputTooShortFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(tooShortAddressFirstName);}
+    public void inputTooShortLastNameIntoAddressLastNameInputField(){newAddressFormLastNameInputField.sendKeys(tooShortAddressLastName);}
 
     //new address form data input methods (for remaining inputs)
     public void inputValidFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(validAddressFirstName);}
