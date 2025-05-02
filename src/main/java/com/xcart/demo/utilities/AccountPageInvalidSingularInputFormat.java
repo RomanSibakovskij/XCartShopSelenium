@@ -24,6 +24,7 @@ public class AccountPageInvalidSingularInputFormat extends BasePage{
 
     //invalid singular edited user input data - invalid singular input format
     private String invalidEditedFirstNameFormat;
+    private String invalidEditedLastNameFormat;
 
     public AccountPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -43,10 +44,30 @@ public class AccountPageInvalidSingularInputFormat extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid edited user input data getter - invalid user edited last name format (special symbols only)
+    public void invalidEditedUserDataInvalidLastNameFormatGetter() {
+
+        validEditedFirstName = TestDataGenerator.getValidFirstName();
+        invalidEditedLastNameFormat = "#$%$%#^@#$!";
+        validEditedEmail = TestDataGenerator.generateRandomEmailAddress(12);
+
+        System.out.println("Generated invalid edited user input data (invalid edited last name format): " + "\n");
+
+        logger.info("Valid edited user first name (invalid edited last name format): " + validEditedFirstName);
+        logger.info("Invalid edited user last name format: " + invalidEditedLastNameFormat);
+        logger.info("Valid edited user email (invalid edited last name format): " + validEditedEmail);
+
+        System.out.println("\n");
+    }
+
     //invalid edited user account data input methods - invalid singular input format
     public void inputInvalidEditedFirstNameFormatIntoFirstNameInputField(){
         accountDetailsPageFirstNameInputField.clear();
         accountDetailsPageFirstNameInputField.sendKeys(invalidEditedFirstNameFormat);
+    }
+    public void inputInvalidEditedLastNameFormatIntoLastNameInputField(){
+        accountDetailsPageLastNameInputField.clear();
+        accountDetailsPageLastNameInputField.sendKeys(invalidEditedLastNameFormat);
     }
 
     //valid edited user account data input methods (for remaining inputs)

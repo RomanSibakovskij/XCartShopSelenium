@@ -1370,6 +1370,53 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Edit User Account Data Test Result - Invalid First Name Format");
     }
+    //invalid edit user account data test method - invalid user last name format (special symbols only)
+    protected void invalidEditUserAccountInvalidLastNameFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        AccountPageInvalidSingularInputFormat accountPageInvalidSingularInputFormat = new AccountPageInvalidSingularInputFormat(driver);
+        AccountDetailsPage accountDetailsPage = new AccountDetailsPage(driver);
+        //general page web element assert
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //account page web element assert (navbar links)
+        isAccountPageNavbarWebElementDisplayed(accountPage);
+        //click 'Account Details' link
+        accountPage.clickAccountDetailsLink();
+        //capture screenshot of the account details page
+        captureScreenshot(driver, "Account Details Page Display Before Data Input");
+        //account details page web element assert
+        isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
+        //account details text element assert
+        isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //invalid edited user account data getter - invalid user last name format (special symbols only)
+        accountPageInvalidSingularInputFormat.invalidEditedUserDataInvalidLastNameFormatGetter();
+        //input valid edited first name into first name input field
+        accountPageInvalidSingularInputFormat.inputValidEditedFirstNameIntoFirstNameInputField();
+        //input invalid edited last name format into last name input field (special symbols only)
+        accountPageInvalidSingularInputFormat.inputInvalidEditedLastNameFormatIntoLastNameInputField();
+        //input valid edited email into email input field
+        accountPageInvalidSingularInputFormat.inputValidEditedEmailIntoEmailInputField();
+        //capture screenshot of the account details page after invalid edited data input - invalid last name format
+        captureScreenshot(driver, "Account Details Page Display After Invalid Edited Data Input - Invalid Last Name Format");
+        //click 'Submit' button
+        accountDetailsPage.clickSubmitButton();
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("Last name cannot consist of special symbols only", accountPageInvalidSingularInputFormat.getSingularInputErrorBoxMessage(), "The invalid last name input format error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The invalid last name input format error doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Data Test Result - Invalid Last Name Format");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
