@@ -12,8 +12,44 @@ public class SignInPageInvalidInputScenarios extends BasePage{
     @FindBy(xpath = "//form[@name='authform']//input[@id='password']")
     private WebElement signInFormPagePasswordInputField;
 
+    //valid sign in user input data (for remaining inputs)
+    private String validLoginEmail;
+    private String validLoginPassword;
+
+    //invalid sign in user input data - no singular input
+    private String noLoginEmail;
+
     public SignInPageInvalidInputScenarios(WebDriver driver) {super(driver);}
 
-    
+    //invalid sign in user data getter - no user email
+    public void invalidSignInDataNoEmailGetter(RegisterPage registerPage) {
+
+        noLoginEmail = "";
+        validLoginPassword = registerPage.getValidPassword();
+
+        System.out.println("Generated invalid user login data (no login email): " + "\n");
+
+        logger.info("No login email: " + noLoginEmail);
+        logger.info("Valid user login password (no login email): " + validLoginPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid user login input data methods - no singular input
+    public void inputNoLoginEmailIntoEmailInputField(){
+        signInFormPageEmailInputField.clear();
+        signInFormPageEmailInputField.sendKeys(noLoginEmail);
+    }
+
+    //valid user login input data methods (for remaining inputs)
+    public void inputValidLoginEmailIntoEmailInputField(){
+        signInFormPageEmailInputField.clear();
+        signInFormPageEmailInputField.sendKeys(validLoginEmail);
+    }
+    public void inputValidLoginPasswordIntoPasswordInputField(){
+        signInFormPagePasswordInputField.clear();
+        signInFormPagePasswordInputField.sendKeys(validLoginPassword);
+    }
+
 
 }
