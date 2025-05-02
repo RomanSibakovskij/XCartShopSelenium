@@ -257,4 +257,19 @@ public class AddressBookPageTest extends TestMethods{
         invalidUserAddressAdditionTooLongAddressTest();
     }
 
+    //Test 004p -> invalid user address addition test - too long user city (75 chars) (the user address gets accepted, test has failed)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Long City")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAddressAdditionTooLongCityTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - too long user city (75 chars)
+        invalidUserAddressAdditionTooLongCityTest();
+    }
+
 }
