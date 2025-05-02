@@ -3358,6 +3358,46 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Single Featured Product Addition To Cart Test Result (registered user)");
     }
 
+    //multiple products
+
+    //multiple featured products ('Iphone 5c') add to cart test method (as a guest)
+    protected void addMultipleFeaturedProductsToCartGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert
+        isGeneralPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Iphone 5c' product quantity dropdown menu
+        homePage.clickFeaturedProductQtyDropdownMenu(3);
+        //set 'Iphone 5c' product quantity
+        homePage.selectFeaturedProductQty(3);
+        //click 'Iphone 5c' product add to cart button
+        homePage.clickFeaturedProductAddToCartButton(3);
+        //assert shopping cart form addition success message is as expected
+        assertEquals("5 items added to cart", homePage.getShoppingCartFormAdditionSuccessMessage(), "The shopping cart form addition success message doesn't match expectations or the product addition to cart has failed.");
+        //capture screenshot of the multiple products addition to cart (shopping cart form)
+        captureScreenshot(driver, "Multiple Featured Product Shopping Cart Form Display");
+        //shopping cart form web element assert
+        isShoppingCartFormWebElementDisplayed(homePage);
+        //shopping cart form text element assert
+        isShoppingCartFormTextElementAsExpected(homePage);
+        //log shopping cart form product data
+        logShoppingCartFormProductData(homePage);
+        //click shopping cart form 'View Cart' button
+        homePage.clickViewCartButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Multiple Featured Product Addition To Cart Test Result (guest)");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)

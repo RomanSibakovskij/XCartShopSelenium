@@ -87,6 +87,20 @@ public class HomePage extends BasePage{
         featuredProductAddToCartButtonElements.get(index).click();
     }
 
+    //click featured product quantity dropdown menu method
+    public void clickFeaturedProductQtyDropdownMenu(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(featuredProductQtyDropdownMenuElements.get(index)));
+        featuredProductQtyDropdownMenuElements.get(index).click();
+    }
+
+    //select set quantity for a set featured product method
+    public void selectFeaturedProductQty(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(featuredProductFiveQtyOptionElements.get(index)));
+        featuredProductFiveQtyOptionElements.get(index).click();
+    }
+
     //click shopping cart 'View Cart' button list method
     public void clickViewCartButton(){
         Actions action = new Actions(driver);

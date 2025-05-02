@@ -43,4 +43,15 @@ public class HomePageTest extends TestMethods {
         addSingleFeaturedProductToCartRegUserTest();
     }
 
+    //multiple featured products addition to cart tests
+
+    //Test 007b -> add multiple featured products ("Iphone 5c") to cart test (as a guest)
+    @Test
+    @DisplayName("Multiple Featured Products Addition To Cart Test (as a guest)")
+    @Tag("Add_Multiple_Featured_Products_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void multipleFeaturedProductGuestAddToCartTest() {
+        addMultipleFeaturedProductsToCartGuestTest();
+    }
+
 }
