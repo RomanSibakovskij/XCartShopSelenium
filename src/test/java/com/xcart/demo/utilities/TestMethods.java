@@ -3281,6 +3281,46 @@ protected void navigateToRegisterPageTest(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //featured product addition to cart tests
+
+    //single product
+
+    //single featured product ('Iphone 5c') add to cart test method (as a guest)
+    protected void addSingleFeaturedProductToCartGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert
+        isGeneralPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Iphone 5c' product add to cart button
+        homePage.clickFeaturedProductAddToCartButton(3);
+        //assert shopping cart form addition success message is as expected
+        assertEquals("1 item added to cart", homePage.getShoppingCartFormAdditionSuccessMessage(), "The shopping cart form addition success message doesn't match expectations or the product addition to cart has failed.");
+        //capture screenshot of the single product addition to cart (shopping cart form)
+        captureScreenshot(driver, "Single Featured Product Shopping Cart Form Display");
+        //shopping cart form web element assert
+        isShoppingCartFormWebElementDisplayed(homePage);
+        //shopping cart form text element assert
+        isShoppingCartFormTextElementAsExpected(homePage);
+        //log shopping cart form product data
+        logShoppingCartFormProductData(homePage);
+        //click shopping cart form 'View Cart' button
+        homePage.clickViewCartButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Featured Product Addition To Cart Test Result (guest)");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (without aside section)
     protected void isGeneralPageNoAsideWebElementDisplayed(GeneralPage generalPage){
         //header switcher
@@ -3774,6 +3814,34 @@ protected void navigateToRegisterPageTest(){
         assertTrue(signInFormPage.isSignInFormPageSubmitButtonDisplayed(), "The sign in form page submit button isn't displayed");
     }
 
+    //shopping cart form web element assert test method
+    protected void isShoppingCartFormWebElementDisplayed(HomePage homePage) {
+        //assert shopping cart form addition success message is displayed
+        //assertTrue(homePage.isShoppingCartFormAdditionSuccessMessageDisplayed(), "The shopping cart form addition success message isn't displayed");
+        //assert shopping cart form close button is displayed
+        assertTrue(homePage.isShoppingCartFormCloseButtonDisplayed(), "The shopping cart form close button isn't displayed");
+        //assert shopping cart form product thumb image is displayed
+        assertTrue(homePage.isShoppingCartFormProductThumbImageDisplayed(), "The shopping cart form product thumb image isn't displayed");
+        //assert shopping cart form product name link is displayed
+        assertTrue(homePage.isShoppingCartFormProductNameLinkDisplayed(), "The shopping cart form product name link isn't displayed");
+        //assert shopping cart form product unit price is displayed
+        assertTrue(homePage.isShoppingCartFormProductUnitPriceDisplayed(), "The shopping cart form product unit price isn't displayed");
+        //assert shopping cart form product alt unit price is displayed
+        assertTrue(homePage.isShoppingCartFormProductAltUnitPriceDisplayed(), "The shopping cart form product alt unit price isn't displayed");
+        //assert shopping cart form your cart section subtitle is displayed
+        assertTrue(homePage.isShoppingCartFormYourCartSectionSubtitleDisplayed(), "The shopping cart form 'Your Cart' section subtitle isn't displayed");
+        //assert shopping cart form your cart section item count is displayed
+        assertTrue(homePage.isShoppingCartFormYourCartSectionItemCountDisplayed(), "The shopping cart form 'Your Cart' section item count isn't displayed");
+        //assert shopping cart form your cart section subtotal price is displayed
+        assertTrue(homePage.isShoppingCartFormYourCartSectionSubtotalPriceDisplayed(), "The shopping cart form 'Your Cart' section subtotal price isn't displayed");
+        //assert shopping cart form your cart section view cart button is displayed
+        assertTrue(homePage.isShoppingCartFormYourCartSectionViewCartButtonDisplayed(), "The shopping cart form 'Your Cart' section view cart button isn't displayed");
+        //assert shopping cart form continue shopping button is displayed
+        assertTrue(homePage.isShoppingCartFormContinueShoppingButtonDisplayed(), "The shopping cart form continue shopping button isn't displayed");
+        //assert shopping cart form proceed to checkout is displayed
+        assertTrue(homePage.isShoppingCartFormProceedToCheckoutButtonDisplayed(), "The shopping cart form proceed to checkout button isn't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -3981,6 +4049,12 @@ protected void navigateToRegisterPageTest(){
         assertEquals("Password", signInFormPage.getSignInFormPagePasswordSubtext(), "The sign in form page password subtext doesn't match expectations.");
     }
 
+    //shopping cart form text element assert test method
+    protected void isShoppingCartFormTextElementAsExpected(HomePage homePage) {
+        //assert shopping cart form your cart section subtitle is as expected
+        assertEquals("Your cart", homePage.getShoppingCartFormYourCartSectionSubtitle(), "The shopping cart form your cart section subtitle doesn't match expectations.");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page product data logger method
@@ -4005,6 +4079,19 @@ protected void navigateToRegisterPageTest(){
         logger.info("Address entry title(s): " + addressBookPage.getAddressEntryTitle());
         logger.info("Address entry username(s): " + addressBookPage.getAddressEntryUserName());
         logger.info("Address entry data; " + addressBookPage.getAddressEntryData());
+
+        System.out.println("\n");
+    }
+
+    //shopping cart form data logger method
+    protected void logShoppingCartFormProductData(HomePage homePage){
+        System.out.println("Shopping cart form page displayed product data: " + "\n");
+
+        logger.info("Shopping cart form page product name(s): " + homePage.getShoppingCartFormProductNameLinkText());
+        logger.info("Shopping cart form page product unit price(s): " + homePage.getShoppingCartFormProductUnitPriceText());
+        logger.info("Shopping cart form page product alternative unit price(s): " + homePage.getShoppingCartFormProductAltUnitPriceText());
+        logger.info("Shopping cart form page product item(s) count: " + homePage.getShoppingCartFormYourCartSectionItemCount());
+        logger.info("Shopping cart form page product subtotal price(s): " + homePage.getShoppingCartFormYourCartSectionSubtotalPrice());
 
         System.out.println("\n");
     }

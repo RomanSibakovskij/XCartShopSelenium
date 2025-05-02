@@ -15,5 +15,15 @@ public class HomePageTest extends TestMethods {
         navigateToRegisterPageTest();
     }
 
+    //single featured product addition to cart tests
+
+    //Test 007 -> add single featured product ("Iphone 5c") to cart test (as a guest)
+    @Test
+    @DisplayName("Single Featured Product Addition To Cart Test (as a guest)")
+    @Tag("Add_Single_Featured_Product_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void singleFeaturedProductGuestAddToCartTest() {
+        addSingleFeaturedProductToCartGuestTest();
+    }
 
 }

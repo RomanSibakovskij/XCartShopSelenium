@@ -80,6 +80,19 @@ public class HomePage extends BasePage{
 
     public HomePage(WebDriver driver) {super(driver);}
 
+    //click featured product 'Add to cart' button list method
+    public void clickFeaturedProductAddToCartButton(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(featuredProductAddToCartButtonElements.get(index)));
+        featuredProductAddToCartButtonElements.get(index).click();
+    }
+
+    //click shopping cart 'View Cart' button list method
+    public void clickViewCartButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(shoppingCartFormYourCartSectionViewCartButton).click().perform();
+    }
+
     //home page product data getters
     //featured
     public List<String> getFeaturedProductName(){return featuredProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
@@ -89,6 +102,20 @@ public class HomePage extends BasePage{
     public List<String> getAsideBestsellerProductName(){return asideBestProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getAsideBestsellerProductUnitPrice(){return asideBestProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getAsideBestsellerProductMarketPrice(){return asideBestProductMarketPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
+    //shopping cart form web element text getters
+    public String getShoppingCartFormAdditionSuccessMessage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
+        wait.until(ExpectedConditions.visibilityOf(shoppingCartFormAdditionSuccessMessage));
+        return shoppingCartFormAdditionSuccessMessage.getText();
+    }
+    public String getShoppingCartFormYourCartSectionSubtitle() {return shoppingCartFormYourCartSectionSubtitle.getText();}
+    //product data getters
+    public String getShoppingCartFormProductNameLinkText() {return shoppingCartFormProductNameLink.getText();}
+    public String getShoppingCartFormProductUnitPriceText() {return shoppingCartFormProductUnitPrice.getText();}
+    public String getShoppingCartFormProductAltUnitPriceText() {return shoppingCartFormProductAltUnitPrice.getText();}
+    public String getShoppingCartFormYourCartSectionItemCount() {return shoppingCartFormYourCartSectionItemCount.getText();}
+    public String getShoppingCartFormYourCartSectionSubtotalPrice() {return shoppingCartFormYourCartSectionSubtotalPrice.getText();}
 
     //home page web element text getters
     public String getWelcomeDescription(){return welcomeDescription.getText();}
@@ -150,5 +177,19 @@ public class HomePage extends BasePage{
         return asideBestProductMarketPriceElements.stream()
                 .allMatch(WebElement::isDisplayed);
     }
+
+    //shopping cart form
+    public boolean isShoppingCartFormAdditionSuccessMessageDisplayed() {return shoppingCartFormAdditionSuccessMessage.isDisplayed();}
+    public boolean isShoppingCartFormCloseButtonDisplayed() {return shoppingCartFormCloseButton.isDisplayed();}
+    public boolean isShoppingCartFormProductThumbImageDisplayed() {return shoppingCartFormProductThumbImage.isDisplayed();}
+    public boolean isShoppingCartFormProductNameLinkDisplayed() {return shoppingCartFormProductNameLink.isDisplayed();}
+    public boolean isShoppingCartFormProductUnitPriceDisplayed() {return shoppingCartFormProductUnitPrice.isDisplayed();}
+    public boolean isShoppingCartFormProductAltUnitPriceDisplayed() {return shoppingCartFormProductAltUnitPrice.isDisplayed();}
+    public boolean isShoppingCartFormYourCartSectionSubtitleDisplayed() {return shoppingCartFormYourCartSectionSubtitle.isDisplayed();}
+    public boolean isShoppingCartFormYourCartSectionItemCountDisplayed() {return shoppingCartFormYourCartSectionItemCount.isDisplayed();}
+    public boolean isShoppingCartFormYourCartSectionSubtotalPriceDisplayed() {return shoppingCartFormYourCartSectionSubtotalPrice.isDisplayed();}
+    public boolean isShoppingCartFormYourCartSectionViewCartButtonDisplayed() {return shoppingCartFormYourCartSectionViewCartButton.isDisplayed();}
+    public boolean isShoppingCartFormContinueShoppingButtonDisplayed() {return shoppingCartFormContinueShoppingButton.isDisplayed();}
+    public boolean isShoppingCartFormProceedToCheckoutButtonDisplayed() {return shoppingCartFormProceedToCheckoutButton.isDisplayed();}
 
 }
