@@ -90,6 +90,11 @@ public class AddressBookPage extends BasePage{
     private String validAddressCity;
     private int validAddressPostCode;
 
+    //valid user input data (for second user address
+    private String validSecondAddress1;
+    private String validSecondAddressCity;
+    private int validSecondAddressPostCode;
+
     public AddressBookPage(WebDriver driver) {super(driver);}
 
     //valid user new address data getter
@@ -114,12 +119,48 @@ public class AddressBookPage extends BasePage{
         System.out.println("\n");
     }
 
+    //valid user second new address data getter
+    public void validUserSecondNewAddressDataGetter() {
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidFirstName();
+        validAddressLastName = registerPage.getValidLastName();
+        validSecondAddress1 = TestDataGenerator.generateRandomAddress(8);
+        validSecondAddressCity = TestDataGenerator.getRandomCity();
+        validSecondAddressPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated valid user new address data (second valid address): " + "\n");
+
+        logger.info("Valid user first name (second valid address): " + validAddressFirstName);
+        logger.info("Valid user last name (second valid address): " + validAddressLastName);
+        logger.info("Valid user address1 (second valid address): " + validSecondAddress1);
+        logger.info("Valid user city (second valid address): " + validSecondAddressCity);
+        logger.info("Valid user post code (second valid address): " + validSecondAddressPostCode);
+
+        System.out.println("\n");
+    }
+
     //new address form data input methods
     public void inputValidFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(validAddressFirstName);}
     public void inputValidLastNameIntoAddressLastNameInputField(){newAddressFormLastNameInputField.sendKeys(validAddressLastName);}
     public void inputValidAddress1IntoAddress1InputField(){newAddressFormAddress1InputField.sendKeys(validAddress1);}
     public void inputValidCityIntoAddressCityInputField(){newAddressFormCityInputField.sendKeys(validAddressCity);}
     public void inputValidPostCodeIntoAddressPostCodeInputField(){newAddressFormPostCodeInputField.sendKeys(String.valueOf(validAddressPostCode));}
+
+    //second new address data input methods
+    public void inputValidSecondAddress1IntoAddress1InputField(){
+        newAddressFormAddress1InputField.clear();
+        newAddressFormAddress1InputField.sendKeys(validSecondAddress1);
+    }
+    public void inputValidSecondCityIntoAddressCityInputField(){
+        newAddressFormCityInputField.clear();
+        newAddressFormCityInputField.sendKeys(validSecondAddressCity);
+    }
+    public void inputValidSecondPostCodeIntoAddressPostCodeInputField(){
+        newAddressFormPostCodeInputField.clear();
+        newAddressFormPostCodeInputField.sendKeys(String.valueOf(validSecondAddressPostCode));
+    }
 
     //click 'Add address' link method
     public void clickAddAddressLink() {addAddressLink.click();}

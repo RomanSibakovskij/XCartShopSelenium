@@ -20,5 +20,22 @@ public class AddressBookPageTest extends TestMethods{
         //valid user address addition test
         validUserAddressAdditionTest();
     }
-    
+
+    //Test 004a -> valid multiple user addresses addition test (second user address fails to be added, test has failed)
+    @Test
+    @DisplayName("Valid Multiple User Addresses Addition Test")
+    @Tag("Valid_User_Address_Addition")
+    @Tag("Multiple_Addresses_Addition")
+    void validMultipleAddressesAdditionTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //valid second user address addition test
+        validUserSecondAddressAdditionTest();
+    }
+
 }
