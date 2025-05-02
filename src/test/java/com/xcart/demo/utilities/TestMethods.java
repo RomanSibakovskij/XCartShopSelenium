@@ -2250,6 +2250,63 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid New Address Addition Test Result - Too Short User Address");
     }
+    //invalid user address addition test method - too short user city (2 chars)
+    protected void invalidUserAddressAdditionTooShortCityTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        AddressBookPage addressBookPage = new AddressBookPage(driver);
+        AddressBookPageTooShortSingularInput addressBookPageTooShortSingularInput = new AddressBookPageTooShortSingularInput(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //account page web element assert (navbar links)
+        isAccountPageNavbarWebElementDisplayed(accountPage);
+        //address book web element assert
+        isAddressBookPageWebElementDisplayed(addressBookPage);
+        //capture screenshot of the address book page
+        captureScreenshot(driver, "Address Book Page Display");
+        //assert the address book title is as expected (since the user gets here first)
+        assertEquals("Address book", accountPage.getAccountPageTitle(), "The address book page title doesn't match expectations");
+        //click 'Add address' link
+        addressBookPage.clickAddAddressLink();
+        //capture screenshot of the new address form
+        captureScreenshot(driver, "New Address Form Display");
+        //address form web element assert
+        isAddressFormWebElementDisplayed(addressBookPage);
+        //address form text element assert
+        isAddressFormTextElementAsExpected(addressBookPage);
+        //invalid new address data getter - too short city (2 chars)
+        addressBookPageTooShortSingularInput.invalidUserNewAddressDataTooShortCityGetter();
+        //input valid first name into new address first name input field
+        addressBookPageTooShortSingularInput.inputValidFirstNameIntoAddressFirstNameInputField();
+        //input valid last name into new address last name input field
+        addressBookPageTooShortSingularInput.inputValidLastNameIntoAddressLastNameInputField();
+        //input valid address 1 into new address 1 input field
+        addressBookPageTooShortSingularInput.inputValidAddress1IntoAddress1InputField();
+        //input too short city into new address city input field (2 chars)
+        addressBookPageTooShortSingularInput.inputTooShortCityIntoAddressCityInputField();
+        //input valid post code into new address post code input field
+        addressBookPageTooShortSingularInput.inputValidPostCodeIntoAddressPostCodeInputField();
+        //capture screenshot of the address form after invalid user address data input - too short city
+        captureScreenshot(driver, "New Address Form After Invalid Data Input - Too Short City");
+        //click 'Save' button
+        addressBookPage.clickSaveButton();
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("City is too short", addressBookPageTooShortSingularInput.getSingularInputErrorBoxMessage(), "The too short city input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The too short city input error message doesn't get triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid New Address Addition Test Result - Too Short User City");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

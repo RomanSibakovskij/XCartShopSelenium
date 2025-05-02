@@ -32,6 +32,7 @@ public class AddressBookPageTooShortSingularInput extends BasePage{
     private String tooShortAddressFirstName;
     private String tooShortAddressLastName;
     private String tooShortAddress1;
+    private String tooShortAddressCity;
 
     public AddressBookPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -101,10 +102,33 @@ public class AddressBookPageTooShortSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user new address data getter - too short city (2 chars)
+    public void invalidUserNewAddressDataTooShortCityGetter() {
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidFirstName();
+        validAddressLastName = registerPage.getValidLastName();
+        validAddress1 = TestDataGenerator.generateRandomAddress(8);
+        tooShortAddressCity = "D5";
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated invalid user new address data (too short city): " + "\n");
+
+        logger.info("Valid user first name (too short city): " + validAddressFirstName);
+        logger.info("Valid user last name (too short city): " + validAddressLastName);
+        logger.info("Valid user address1 (too short city): " + validAddress1);
+        logger.info("Too short user city: " + tooShortAddressCity);
+        logger.info("Valid user post code (too short city): " + validAddressPostCode);
+
+        System.out.println("\n");
+    }
+
     //invalid new address form data input methods - too short singular input
     public void inputTooShortFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(tooShortAddressFirstName);}
     public void inputTooShortLastNameIntoAddressLastNameInputField(){newAddressFormLastNameInputField.sendKeys(tooShortAddressLastName);}
     public void inputTooShortAddress1IntoAddress1InputField(){newAddressFormAddress1InputField.sendKeys(tooShortAddress1);}
+    public void inputTooShortCityIntoAddressCityInputField(){newAddressFormCityInputField.sendKeys(tooShortAddressCity);}
 
     //new address form data input methods (for remaining inputs)
     public void inputValidFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(validAddressFirstName);}
