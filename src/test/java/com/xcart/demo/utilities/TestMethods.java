@@ -832,6 +832,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //valid edited user account data getter
         accountDetailsPage.validEditedUserDataGetter(registerPage);
         //input valid edited first name into first name input field
@@ -865,6 +867,8 @@ protected void navigateToRegisterPageTest(){
         isAddGeneralPageTextElementAsExpected(generalPage);
         //account page web element assert (navbar links)
         isAccountPageNavbarWebElementDisplayed(accountPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //assert the address book title is as expected (since the user gets here first)
         assertEquals("Address book", accountPage.getAccountPageTitle(), "The address book page title doesn't match expectations");
         //click 'Account Details' link
@@ -899,6 +903,11 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Account Details Page Change Password Form Display After Valid New Password Input");
         //click 'Submit' button (change password form)
         accountDetailsPage.clickSubmitNewPasswordButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //assert the user gets an expected error (since this operation is disabled on demo)
+        assertEquals("403\n" + "Permission denied\n" + "Sorry, this operation is disabled on the demo.", accountPage.getAccountErrorBlockMessage(), "The account error block message doesn't match expectations.");
+        logger.error("The user account operation is disabled on the demo (user password change test).");
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid Edit User Account Password Test Result");
     }
@@ -935,6 +944,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - no user first name
         accountPageNoSingularInput.invalidEditedUserDataNoFirstNameGetter();
         //don't input edited first name into first name input field
@@ -980,6 +991,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - no user last name
         accountPageNoSingularInput.invalidEditedUserDataNoLastNameGetter();
         //input valid edited first name into first name input field
@@ -1025,6 +1038,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - no user email
         accountPageNoSingularInput.invalidEditedUserDataNoEmailGetter();
         //input valid edited first name into first name input field
@@ -1073,6 +1088,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - too short user first name (1 char)
         accountPageTooShortSingularInput.invalidEditedUserDataTooShortFirstNameGetter();
         //input too short edited first name into first name input field (1 char)
@@ -1122,6 +1139,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - too short user last name (1 char)
         accountPageTooShortSingularInput.invalidEditedUserDataTooShortLastNameGetter();
         //input valid edited first name into first name input field
@@ -1171,6 +1190,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - too short user email (1 char)
         accountPageTooShortSingularInput.invalidEditedUserDataTooShortEmailGetter();
         //input valid edited first name into first name input field
@@ -1223,6 +1244,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - too long user first name (100 chars)
         accountPageTooLongSingularInput.invalidEditedUserDataTooLongFirstNameGetter();
         //input too long edited first name into first name input field (100 chars)
@@ -1272,6 +1295,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - too long user last name (100 chars)
         accountPageTooLongSingularInput.invalidEditedUserDataTooLongLastNameGetter();
         //input valid edited first name into first name input field
@@ -1321,6 +1346,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - too long user email (100 chars)
         accountPageTooLongSingularInput.invalidEditedUserDataTooLongEmailGetter();
         //input valid edited first name into first name input field
@@ -1373,6 +1400,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - invalid user first name format (special symbols only)
         accountPageInvalidSingularInputFormat.invalidEditedUserDataInvalidFirstNameFormatGetter();
         //input invalid edited first name format into first name input field (special symbols only)
@@ -1422,6 +1451,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - invalid user last name format (special symbols only)
         accountPageInvalidSingularInputFormat.invalidEditedUserDataInvalidLastNameFormatGetter();
         //input valid edited first name into first name input field
@@ -1471,6 +1502,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - invalid user email format (missing '@')
         accountPageInvalidSingularInputFormat.invalidEditedUserDataInvalidEmailFormatGetter();
         //input valid edited first name into first name input field
@@ -1520,6 +1553,8 @@ protected void navigateToRegisterPageTest(){
         isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
         //account details text element assert
         isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
         //invalid edited user account data getter - existing test email
         accountPageInvalidSingularInputFormat.invalidEditedUserDataExistingEmailGetter();
         //input valid edited first name into first name input field
@@ -1542,10 +1577,121 @@ protected void navigateToRegisterPageTest(){
         generalPage.waitForElementsToLoad();
         //assert the user gets the expected error message
         assertEquals("403\n" + "Permission denied\n" + "Sorry, this operation is disabled on the demo.", accountPage.getAccountErrorBlockMessage(), "The account error block message doesn't match expectations.");
-        logger.error("The user account operation is disabled on the demo.");
+        logger.error("The user account operation is disabled on the demo (existing email test).");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Edit User Account Data Test Result - Existing Test Email");
     }
+
+    //user account removal test
+
+    //user account removal test method
+    protected void userAccountRemovalTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        AccountDetailsPage accountDetailsPage = new AccountDetailsPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //account page web element assert (navbar links)
+        isAccountPageNavbarWebElementDisplayed(accountPage);
+        //assert the address book title is as expected (since the user gets here first)
+        assertEquals("Address book", accountPage.getAccountPageTitle(), "The address book page title doesn't match expectations");
+        //click 'Account Details' link
+        accountPage.clickAccountDetailsLink();
+        //capture screenshot of the account details page before account removal
+        captureScreenshot(driver, "Account Details Page Display Before Account Removal");
+        //account details page web element assert
+        isAccountDetailsPageWebElementDisplayed(accountDetailsPage);
+        //account details text element assert
+        isAccountDetailsPageTextElementAsExpected(accountDetailsPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //click 'Delete account link'
+        accountDetailsPage.clickDeleteAccountLink();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //assert the user gets expected removal confirmation text messages
+        assertEquals("Confirmation", accountDetailsPage.getAccountRemovalTitle(), "The account removal message title doesn't match expectations.");
+        assertEquals("Do you really want to delete your profile?", accountDetailsPage.getAccountRemovalQuestion(), "The account removal question doesn't match expectations.");
+        //click 'Yes' button
+        accountDetailsPage.clickYesButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //assert the user gets an expected error (since this operation is disabled on demo)
+        assertEquals("403\n" + "Permission denied\n" + "Sorry, this operation is disabled on the demo.", accountPage.getAccountErrorBlockMessage(), "The account error block message doesn't match expectations.");
+        logger.error("The user account operation is disabled on the demo (user account removal test).");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "User Account Removal Test Result");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid user address addition test
+
+    //valid user address addition test method
+    protected void validUserAddressAdditionTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        AddressBookPage addressBookPage = new AddressBookPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //account page web element assert (navbar links)
+        isAccountPageNavbarWebElementDisplayed(accountPage);
+        //address book web element assert
+        isAddressBookPageWebElementDisplayed(addressBookPage);
+        //capture screenshot of the address book page
+        captureScreenshot(driver, "Address Book Page Display");
+        //click 'Add address' link
+        addressBookPage.clickAddAddressLink();
+        //capture screenshot of the new address form
+        captureScreenshot(driver, "New Address Form Display");
+        //address form web element assert
+        isAddressFormWebElementDisplayed(addressBookPage);
+        //address form text element assert
+        isAddressFormTextElementAsExpected(addressBookPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //valid new address data getter
+        addressBookPage.validUserNewAddressDataGetter();
+        //input valid first name into new address first name input field
+        addressBookPage.inputValidFirstNameIntoAddressFirstNameInputField();
+        //input valid last name into new address last name input field
+        addressBookPage.inputValidLastNameIntoAddressLastNameInputField();
+        //click 'State dropdown menu
+        addressBookPage.clickStateDropdownMenu();
+        //select 'Illinois' state option
+        addressBookPage.selectIllinoisStateOption();
+        //input valid address 1 into new address 1 input field
+        addressBookPage.inputValidAddress1IntoAddress1InputField();
+        //input valid city into new address city input field
+        addressBookPage.inputValidCityIntoAddressCityInputField();
+        //input valid post code into new address post code input field
+        addressBookPage.inputValidPostCodeIntoAddressPostCodeInputField();
+        //capture screenshot of the address form after valid user address data input
+        captureScreenshot(driver, "New Address Form After Valid Data Input");
+        //click 'Save' button
+        addressBookPage.clickSaveButton();
+        //log address book data
+        logAddressBookPageData(addressBookPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid New Address Addition Test Result");
+    }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1974,6 +2120,54 @@ protected void navigateToRegisterPageTest(){
         assertTrue(addressBookPage.isAddressBookEntryChangeButtonDisplayed(), "The address book page address entry change buttons aren't displayed");
     }
 
+    //new address form web element assert test method
+    protected void isAddressFormWebElementDisplayed(AddressBookPage addressBookPage) {
+        //assert new address form title is displayed
+        assertTrue(addressBookPage.isNewAddressFormTitleDisplayed(), "The new address form title isn't displayed");
+        //assert new address form first name subtext is displayed
+        assertTrue(addressBookPage.isNewAddressFormFirstNameSubtextDisplayed(), "The new address form first name subtext isn't displayed");
+        //assert new address form first name input field is displayed
+        assertTrue(addressBookPage.isNewAddressFormFirstNameInputFieldDisplayed(), "The new address form first name input field isn't displayed");
+        //assert new address form last name subtext is displayed
+        assertTrue(addressBookPage.isNewAddressFormLastNameSubtextDisplayed(), "The new address form last name subtext isn't displayed");
+        //assert new address form last name input field is displayed
+        assertTrue(addressBookPage.isNewAddressFormLastNameInputFieldDisplayed(), "The new address form last name input field isn't displayed");
+        //assert new address form address 1 subtext is displayed
+        assertTrue(addressBookPage.isNewAddressFormAddress1SubtextDisplayed(), "The new address form address 1 subtext isn't displayed");
+        //assert new address form address 1 input field is displayed
+        assertTrue(addressBookPage.isNewAddressFormAddress1InputFieldDisplayed(), "The new address form address 1 input field isn't displayed");
+        //assert new address form address 2 subtext is displayed
+        assertTrue(addressBookPage.isNewAddressFormAddress2SubtextDisplayed(), "The new address form address 2 subtext isn't displayed");
+        //assert new address form address 2 input field is displayed
+        assertTrue(addressBookPage.isNewAddressFormAddress2InputFieldDisplayed(), "The new address form address 2 input field isn't displayed");
+        //assert new address form city subtext is displayed
+        assertTrue(addressBookPage.isNewAddressFormCitySubtextDisplayed(), "The new address form city subtext isn't displayed");
+        //assert new address form city input field is displayed
+        assertTrue(addressBookPage.isNewAddressFormCityInputFieldDisplayed(), "The new address form city input field isn't displayed");
+        //assert new address form country subtext is displayed
+        assertTrue(addressBookPage.isNewAddressFormCountrySubtextDisplayed(), "The new address form country subtext isn't displayed");
+        //assert new address form country dropdown menu is displayed
+        assertTrue(addressBookPage.isNewAddressFormCountryDropdownMenuDisplayed(), "The new address form country dropdown menu isn't displayed");
+        //assert new address form state subtext is displayed
+        assertTrue(addressBookPage.isNewAddressFormStateSubtextDisplayed(), "The new address form state subtext isn't displayed");
+        //assert new address form state dropdown menu is displayed
+        assertTrue(addressBookPage.isNewAddressFormStateDropdownMenuDisplayed(), "The new address form state dropdown menu isn't displayed");
+        //assert new address form post code subtext is displayed
+        assertTrue(addressBookPage.isNewAddressFormPostCodeSubtextDisplayed(), "The new address form post code subtext isn't displayed");
+        //assert new address form post code input field is displayed
+        assertTrue(addressBookPage.isNewAddressFormPostCodeInputFieldDisplayed(), "The new address form post code input field isn't displayed");
+        //assert new address form phone subtext is displayed
+        assertTrue(addressBookPage.isNewAddressFormPhoneSubtextDisplayed(), "The new address form phone subtext isn't displayed");
+        //assert new address form phone input field is displayed
+        assertTrue(addressBookPage.isNewAddressFormPhoneInputFieldDisplayed(), "The new address form phone input field isn't displayed");
+        //assert new address form fax subtext is displayed
+        assertTrue(addressBookPage.isNewAddressFormFaxSubtextDisplayed(), "The new address form fax subtext isn't displayed");
+        //assert new address form fax input field is displayed
+        assertTrue(addressBookPage.isNewAddressFormFaxInputFieldDisplayed(), "The new address form fax input field isn't displayed");
+        //assert new address form save button is displayed
+        assertTrue(addressBookPage.isNewAddressFormSaveButtonDisplayed(), "The new address form save button isn't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -2194,6 +2388,16 @@ protected void navigateToRegisterPageTest(){
         System.out.println("\n");
     }
 
+    //address book data logger method
+    protected void logAddressBookPageData(AddressBookPage addressBookPage){
+        System.out.println("Address book page displayed user address data: " + "\n");
+
+        logger.info("Address entry title(s): " + addressBookPage.getAddressEntryTitle());
+        logger.info("Address entry username(s): " + addressBookPage.getAddressEntryUserName());
+        logger.info("Address entry data; " + addressBookPage.getAddressEntryData());
+
+        System.out.println("\n");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

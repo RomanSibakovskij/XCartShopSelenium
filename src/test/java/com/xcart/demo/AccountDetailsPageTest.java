@@ -242,4 +242,21 @@ public class AccountDetailsPageTest extends TestMethods{
         invalidEditUserAccountExistingTestEmailTest();
     }
 
+    //user account removal test
+
+    //Test 003o -> user account removal test (Selenium sometimes clicks on the wrong element with VALID selector provided during automation run)
+    @Test
+    @DisplayName("User Account Removal Test")
+    @Tag("Valid_Edit_User_Account")
+    @Tag("Account_Removal")
+    void removeUserAccountTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user account removal test
+        userAccountRemovalTest();
+    }
+
 }

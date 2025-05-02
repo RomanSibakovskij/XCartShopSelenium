@@ -83,7 +83,67 @@ public class AddressBookPage extends BasePage{
     @FindBy(xpath = "//div[@class='buttons-row buttons-auto-separator']/button")
     private WebElement newAddressFormSaveButton;
 
+    //valid user address input data
+    private String validAddressFirstName;
+    private String validAddressLastName;
+    private String validAddress1;
+    private String validAddressCity;
+    private int validAddressPostCode;
+
     public AddressBookPage(WebDriver driver) {super(driver);}
+
+    //valid user new address data getter
+    public void validUserNewAddressDataGetter() {
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidFirstName();
+        validAddressLastName = registerPage.getValidLastName();
+        validAddress1 = TestDataGenerator.generateRandomAddress(8);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated valid user new address data: " + "\n");
+
+        logger.info("Valid user first name: " + validAddressFirstName);
+        logger.info("Valid user last name: " + validAddressLastName);
+        logger.info("Valid user address1: " + validAddress1);
+        logger.info("Valid user city: " + validAddressCity);
+        logger.info("Valid user post code: " + validAddressPostCode);
+
+        System.out.println("\n");
+    }
+
+    //new address form data input methods
+    public void inputValidFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(validAddressFirstName);}
+    public void inputValidLastNameIntoAddressLastNameInputField(){newAddressFormLastNameInputField.sendKeys(validAddressLastName);}
+    public void inputValidAddress1IntoAddress1InputField(){newAddressFormAddress1InputField.sendKeys(validAddress1);}
+    public void inputValidCityIntoAddressCityInputField(){newAddressFormCityInputField.sendKeys(validAddressCity);}
+    public void inputValidPostCodeIntoAddressPostCodeInputField(){newAddressFormPostCodeInputField.sendKeys(String.valueOf(validAddressPostCode));}
+
+    //click 'Add address' link method
+    public void clickAddAddressLink() {addAddressLink.click();}
+
+    //click 'State' dropdown menu method
+    public void clickStateDropdownMenu() {
+        Actions action = new Actions(driver);
+        action.moveToElement(newAddressFormStateDropdownMenu).click().perform();
+    }
+
+    //select 'Illinois' state option method
+    public void selectIllinoisStateOption() {newAddressFormIllinoisStateOption.click();}
+
+    //click 'Shipping address' checkbox method (new address form)
+    public void clickShippingAddressCheckbox() {
+        Actions action = new Actions(driver);
+        action.moveToElement(newAddressFormUseShippingAddressCheckbox).click().perform();
+    }
+
+    //click 'Save' button method (new address form)
+    public void clickSaveButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(newAddressFormSaveButton).click().perform();
+    }
 
     //address book page text element getter
     public String getAddressBookPageTitle() {return addressBookPageTitle.getText();}

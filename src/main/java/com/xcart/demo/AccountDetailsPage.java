@@ -91,6 +91,15 @@ public class AccountDetailsPage extends BasePage {
     private WebElement accountDetailsPageFormConfirmPasswordInputField;
     @FindBy(xpath = "//table[@class='data-table']/tbody/tr[5]//button")
     private WebElement accountDetailsPageFormSubmitButton;
+    //removal confirmation elements
+    @FindBy(xpath = "//h1")
+    private WebElement accountDetailsPageRemovalTitle;
+    @FindBy(xpath = "//p[@class='form-text text-block']")
+    private WebElement accountDetailsPageConfirmRemovalQuestion;
+    @FindBy(xpath = "//button[@class='button']")
+    private WebElement accountDetailsPageRemovalYesButton;
+    @FindBy(xpath = "//div[@class='buttons-row']/div[@class='button']/a")
+    private WebElement accountDetailsPageRemovalNoButton;
 
     //valid edited user data
     private String validEditedFirstName;
@@ -168,6 +177,15 @@ public class AccountDetailsPage extends BasePage {
         action.moveToElement(accountDetailsPageSubmitButton).click().perform();
     }
 
+    //click 'Delete account' link method
+    public void clickDeleteAccountLink(){accountDetailsPageDeleteAccountLink.click();}
+
+    //click 'Yes' button (account removal) method
+    public void clickYesButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(accountDetailsPageRemovalYesButton).click().perform();
+    }
+
     //private data getter
     public String getValidEditedEmail(){return validEditedEmail;}
 
@@ -197,6 +215,11 @@ public class AccountDetailsPage extends BasePage {
     public String getAccountDetailsPageChangePasswordFormOldPasswordSubtext() {return accountDetailsPageFormOldPasswordSubtext.getText();}
     public String getAccountDetailsPageChangePasswordFormNewPasswordSubtext() {return accountDetailsPageFormNewPasswordSubtext.getText();}
     public String getAccountDetailsPageChangePasswordFormConfirmPasswordSubtext() {return accountDetailsPageFormConfirmPasswordSubtext.getText();}
+
+    //account removal section text element getters
+    public String getAccountRemovalTitle(){return accountDetailsPageRemovalTitle.getText();}
+    public String getAccountRemovalQuestion(){return accountDetailsPageConfirmRemovalQuestion.getText();}
+
 
     //account details page web element assert methods
     public boolean isAccountDetailsPageTitleDisplayed() {return accountDetailsPageTitle.isDisplayed();}
