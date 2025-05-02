@@ -30,6 +30,7 @@ public class AddressBookPageInvalidSingularInputFormat extends BasePage{
 
     //invalid user address input data - invalid singular input format
     private String invalidAddressFirstNameFormat;
+    private String invalidAddressLastNameFormat;
 
     public AddressBookPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -55,8 +56,31 @@ public class AddressBookPageInvalidSingularInputFormat extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user new address data getter - invalid last name format (special symbols only)
+    public void invalidUserNewAddressDataInvalidLastNameFormatGetter() {
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidFirstName();
+        invalidAddressLastNameFormat = "$%$%^%^&%^&";
+        validAddress1 = TestDataGenerator.generateRandomAddress(8);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated invalid user new address data (invalid last name format): " + "\n");
+
+        logger.info("Valid user first name (invalid last name format): " + validAddressFirstName);
+        logger.info("Invalid last name input format: " + invalidAddressLastNameFormat);
+        logger.info("Valid user address1 (invalid last name format): " + validAddress1);
+        logger.info("Valid user city (invalid last name format): " + validAddressCity);
+        logger.info("Valid user post code (invalid last name format): " + validAddressPostCode);
+
+        System.out.println("\n");
+    }
+
     //invalid new address form data input methods - invalid singular input format
     public void inputInvalidFirstNameFormatIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(invalidAddressFirstNameFormat);}
+    public void inputInvalidLastNameFormatIntoAddressLastNameInputField(){newAddressFormLastNameInputField.sendKeys(invalidAddressLastNameFormat);}
 
     //new address form data input methods (for remaining inputs)
     public void inputValidFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(validAddressFirstName);}
