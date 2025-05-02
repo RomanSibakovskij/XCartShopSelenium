@@ -145,6 +145,9 @@ public class GeneralPage extends BasePage {
 
     public GeneralPage(WebDriver driver) {super(driver);}
 
+    //click header 'Sign in' link method
+    public void clickHeaderSignInLink(){ headerSignInLink.click();}
+
     //click header 'Register' link method
     public void clickHeaderRegisterLink(){ headerRegisterLink.click();}
 

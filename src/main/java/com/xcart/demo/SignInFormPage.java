@@ -28,7 +28,41 @@ public class SignInFormPage extends BasePage{
     @FindBy(xpath = "//div[@role='dialog'][2]")
     private WebElement signInFormPageSingularInputErrorBox;
 
+    //valid sign in user input data
+    private String validLoginEmail;
+    private String validLoginPassword;
+
     public SignInFormPage(WebDriver driver) {super(driver);}
+
+    //valid sign in user data getter
+    public void validSignInDataGetter(RegisterPage registerPage) {
+
+        validLoginEmail = registerPage.getValidEmail();
+        validLoginPassword = registerPage.getValidPassword();
+
+        System.out.println("Generated valid user login data: " + "\n");
+
+        logger.info("Valid user login email: " + validLoginEmail);
+        logger.info("Valid user login password: " + validLoginPassword);
+
+        System.out.println("\n");
+    }
+
+    //valid user login input data methods
+    public void inputValidLoginEmailIntoEmailInputField(){
+        signInFormPageEmailInputField.clear();
+        signInFormPageEmailInputField.sendKeys(validLoginEmail);
+    }
+    public void inputValidLoginPasswordIntoPasswordInputField(){
+        signInFormPagePasswordInputField.clear();
+        signInFormPagePasswordInputField.sendKeys(validLoginPassword);
+    }
+
+    //click 'Submit' button method
+    public void clickSubmitLoginButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(signInFormPageSubmitButton).click().perform();
+    }
 
     //sign in form page text element getters
     public String getSignInFormPageTitle() {return signInFormPageTitle.getText();}
