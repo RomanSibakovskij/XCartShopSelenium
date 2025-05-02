@@ -31,6 +31,7 @@ public class AddressBookPageTooLongSingularInput extends BasePage{
     //invalid user address input data - too long singular input
     private String tooLongAddressFirstName;
     private String tooLongAddressLastName;
+    private String tooLongAddress1;
 
     public AddressBookPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -78,9 +79,32 @@ public class AddressBookPageTooLongSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user new address data getter - too long address (100 chars)
+    public void invalidUserNewAddressDataTooLongAddressGetter() {
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidFirstName();
+        validAddressLastName = registerPage.getValidLastName();
+        tooLongAddress1 = TestDataGenerator.generateRandomAddress(93);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated invalid user new address data (too long address): " + "\n");
+
+        logger.info("Valid user first name (too long address): " + validAddressFirstName);
+        logger.info("Valid user last name (too long address): " + validAddressLastName);
+        logger.info("Too long user address1: " + tooLongAddress1);
+        logger.info("Valid user city (too long address): " + validAddressCity);
+        logger.info("Valid user post code (too long address): " + validAddressPostCode);
+
+        System.out.println("\n");
+    }
+
     //invalid new address form data input methods - too long singular input
     public void inputTooLongFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(tooLongAddressFirstName);}
     public void inputTooLongLastNameIntoAddressLastNameInputField(){newAddressFormLastNameInputField.sendKeys(tooLongAddressLastName);}
+    public void inputTooLongAddress1IntoAddress1InputField(){newAddressFormAddress1InputField.sendKeys(tooLongAddress1);}
 
     //new address form data input methods (for remaining inputs)
     public void inputValidFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(validAddressFirstName);}
