@@ -32,6 +32,9 @@ public class SignInFormPage extends BasePage{
     private String validLoginEmail;
     private String validLoginPassword;
 
+    //valid edited sign in user input data
+    private String validEditedLoginEmail;
+
     public SignInFormPage(WebDriver driver) {super(driver);}
 
     //valid sign in user data getter
@@ -56,6 +59,28 @@ public class SignInFormPage extends BasePage{
     public void inputValidLoginPasswordIntoPasswordInputField(){
         signInFormPagePasswordInputField.clear();
         signInFormPagePasswordInputField.sendKeys(validLoginPassword);
+    }
+
+    //valid sign in user data (with edited email) getter
+    public void validEditedEmailSignInDataGetter(RegisterPage registerPage) {
+
+        AccountDetailsPage accountDetailsPage = new AccountDetailsPage(driver);
+
+        validEditedLoginEmail = accountDetailsPage.getValidEditedEmail();
+        validLoginPassword = registerPage.getValidPassword();
+
+        System.out.println("Generated valid user login data (with edited email): " + "\n");
+
+        logger.info("Valid edited user login email: " + validEditedLoginEmail);
+        logger.info("Valid user login password (with edited email): " + validLoginPassword);
+
+        System.out.println("\n");
+    }
+
+    //valid edited user login input data method
+    public void inputValidEditedLoginEmailIntoEmailInputField(){
+        signInFormPageEmailInputField.clear();
+        signInFormPageEmailInputField.sendKeys(validEditedLoginEmail);
     }
 
     //click 'Submit' button method

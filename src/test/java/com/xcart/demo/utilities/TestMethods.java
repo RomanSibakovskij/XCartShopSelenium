@@ -3052,6 +3052,47 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Valid User Login Test Result");
     }
 
+
+
+    //valid user login with edited email test method
+    protected void validUserEditedEmailLoginTest(RegisterPage registerPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SignInFormPage signInFormPage = new SignInFormPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Sign in' header nav link
+        generalPage.clickHeaderSignInLink();
+        //capture screenshot of the sign-in form before valid data input
+        captureScreenshot(driver, "Sign In Form Page Display Before Data Input");
+        //sign-in form page web element assert
+        isSignInFormPageWebElementDisplayed(signInFormPage);
+        //sign-in form page text element assert
+        isSignInFormPageTextAsExpected(signInFormPage);
+        //valid edited sign-in user data getter
+        signInFormPage.validEditedEmailSignInDataGetter(registerPage);
+        //input valid edited user login email into email input field
+        signInFormPage.inputValidEditedLoginEmailIntoEmailInputField();
+        //input valid user login password into password input field
+        signInFormPage.inputValidLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the sign-in form after valid data input
+        captureScreenshot(driver, "Sign In Form Page Display After Valid Data Input");
+        //click 'Submit' button
+        signInFormPage.clickSubmitLoginButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Login Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)

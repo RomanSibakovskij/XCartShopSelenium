@@ -43,4 +43,23 @@ public class SignInFormPageTest extends TestMethods{
         validUserLoginTest(registerPage);
     }
 
+    //Test 006a -> valid user login with edited email test
+    @Test
+    @DisplayName("Valid User Login With Edited Email Test")
+    @Tag("Valid_User_Login")
+    @Tag("Valid_Edited_Email_Login")
+    void validAccountLoginWithEditedEmailTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid edit user account data test
+        validEditUserAccountTest();
+        //valid user logout test
+        userLogoutTest();
+        //valid user login test (with edited email)
+        validUserEditedEmailLoginTest(registerPage);
+    }
+
 }
