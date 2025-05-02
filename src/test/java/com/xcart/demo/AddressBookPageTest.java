@@ -319,4 +319,19 @@ public class AddressBookPageTest extends TestMethods{
         invalidUserAddressAdditionInvalidLastNameFormatTest();
     }
 
+    //Test 004t -> invalid user address addition test - invalid user address format (special symbols only) (the user address gets accepted, test has failed)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Invalid Address Format")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAddressAdditionInvalidAddressFormatTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - invalid user address format (special symbols only)
+        invalidUserAddressAdditionInvalidAddressFormatTest();
+    }
+
 }
