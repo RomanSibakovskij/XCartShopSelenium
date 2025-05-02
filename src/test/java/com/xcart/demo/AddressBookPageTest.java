@@ -103,4 +103,19 @@ public class AddressBookPageTest extends TestMethods{
         invalidUserAddressAdditionNoAddress1Test();
     }
 
+    //Test 004f -> invalid user address addition test - no user city
+    @Test
+    @DisplayName("Invalid User Address Addition Test - No City")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("No_Singular_Input")
+    void invalidAddressAdditionNoCityTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - no user city
+        invalidUserAddressAdditionNoCityTest();
+    }
+
 }
