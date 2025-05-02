@@ -1654,6 +1654,8 @@ protected void navigateToRegisterPageTest(){
         isAccountPageNavbarWebElementDisplayed(accountPage);
         //address book web element assert
         isAddressBookPageWebElementDisplayed(addressBookPage);
+        //assert the address book title is as expected (since the user gets here first)
+        assertEquals("Address book", accountPage.getAccountPageTitle(), "The address book page title doesn't match expectations");
         //capture screenshot of the address book page
         captureScreenshot(driver, "Address Book Page Display");
         //click 'Add address' link
@@ -1710,6 +1712,8 @@ protected void navigateToRegisterPageTest(){
         isAccountPageNavbarWebElementDisplayed(accountPage);
         //address book web element assert
         isAddressBookPageWebElementDisplayed(addressBookPage);
+        //assert the address book title is as expected (since the user gets here first)
+        assertEquals("Address book", accountPage.getAccountPageTitle(), "The address book page title doesn't match expectations");
         //capture screenshot of the address book page
         captureScreenshot(driver, "Address Book Page Display");
         //click 'Add address' link
@@ -1771,6 +1775,8 @@ protected void navigateToRegisterPageTest(){
         isAccountPageNavbarWebElementDisplayed(accountPage);
         //address book web element assert
         isAddressBookPageWebElementDisplayed(addressBookPage);
+        //assert the address book title is as expected (since the user gets here first)
+        assertEquals("Address book", accountPage.getAccountPageTitle(), "The address book page title doesn't match expectations");
         //capture screenshot of the address book page
         captureScreenshot(driver, "Address Book Page Display");
         //click 'Change' address button
@@ -1825,6 +1831,8 @@ protected void navigateToRegisterPageTest(){
         isAccountPageNavbarWebElementDisplayed(accountPage);
         //address book web element assert
         isAddressBookPageWebElementDisplayed(addressBookPage);
+        //assert the address book title is as expected (since the user gets here first)
+        assertEquals("Address book", accountPage.getAccountPageTitle(), "The address book page title doesn't match expectations");
         //capture screenshot of the address book page
         captureScreenshot(driver, "Address Book Page Display");
         //click 'Add address' link
@@ -1878,6 +1886,8 @@ protected void navigateToRegisterPageTest(){
         isAddressBookPageWebElementDisplayed(addressBookPage);
         //capture screenshot of the address book page
         captureScreenshot(driver, "Address Book Page Display");
+        //assert the address book title is as expected (since the user gets here first)
+        assertEquals("Address book", accountPage.getAccountPageTitle(), "The address book page title doesn't match expectations");
         //click 'Add address' link
         addressBookPage.clickAddAddressLink();
         //capture screenshot of the new address form
@@ -1906,6 +1916,59 @@ protected void navigateToRegisterPageTest(){
         assertEquals("Warning\n" + "\n" + "The required field 'Last name' is empty!", addressBookPageNoSingularInput.getSingularInputErrorBoxMessage(), "The missing last name input error message doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid New Address Addition Test Result - No User Last Name");
+    }
+    //invalid user address addition test method - no user address
+    protected void invalidUserAddressAdditionNoAddress1Test(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        AddressBookPage addressBookPage = new AddressBookPage(driver);
+        AddressBookPageNoSingularInput addressBookPageNoSingularInput = new AddressBookPageNoSingularInput(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //account page web element assert (navbar links)
+        isAccountPageNavbarWebElementDisplayed(accountPage);
+        //address book web element assert
+        isAddressBookPageWebElementDisplayed(addressBookPage);
+        //capture screenshot of the address book page
+        captureScreenshot(driver, "Address Book Page Display");
+        //assert the address book title is as expected (since the user gets here first)
+        assertEquals("Address book", accountPage.getAccountPageTitle(), "The address book page title doesn't match expectations");
+        //click 'Add address' link
+        addressBookPage.clickAddAddressLink();
+        //capture screenshot of the new address form
+        captureScreenshot(driver, "New Address Form Display");
+        //address form web element assert
+        isAddressFormWebElementDisplayed(addressBookPage);
+        //address form text element assert
+        isAddressFormTextElementAsExpected(addressBookPage);
+        //invalid new address data getter - no address
+        addressBookPageNoSingularInput.invalidUserNewAddressDataNoAddressGetter();
+        //input valid first name into new address first name input field
+        addressBookPageNoSingularInput.inputValidFirstNameIntoAddressFirstNameInputField();
+        //input valid last name into new address last name input field
+        addressBookPageNoSingularInput.inputValidLastNameIntoAddressLastNameInputField();
+        //don't input address 1 into new address 1 input field
+        addressBookPageNoSingularInput.inputNoAddress1IntoAddress1InputField();
+        //input valid city into new address city input field
+        addressBookPageNoSingularInput.inputValidCityIntoAddressCityInputField();
+        //input valid post code into new address post code input field
+        addressBookPageNoSingularInput.inputValidPostCodeIntoAddressPostCodeInputField();
+        //capture screenshot of the address form after invalid user address data input - no address
+        captureScreenshot(driver, "New Address Form After Invalid Data Input - No Address");
+        //click 'Save' button
+        addressBookPage.clickSaveButton();
+        //assert the user gets an expected error message
+        assertEquals("Warning\n" + "\n" + "The required field 'Address' is empty!", addressBookPageNoSingularInput.getSingularInputErrorBoxMessage(), "The missing address input error message doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid New Address Addition Test Result - No User Address");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

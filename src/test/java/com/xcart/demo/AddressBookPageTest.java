@@ -88,4 +88,19 @@ public class AddressBookPageTest extends TestMethods{
         invalidUserAddressAdditionNoLastNameTest();
     }
 
+    //Test 004e -> invalid user address addition test - no user address
+    @Test
+    @DisplayName("Invalid User Address Addition Test - No Address")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("No_Singular_Input")
+    void invalidAddressAdditionNoAddressTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - no user address
+        invalidUserAddressAdditionNoAddress1Test();
+    }
+
 }
