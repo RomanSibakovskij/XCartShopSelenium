@@ -118,4 +118,19 @@ public class AddressBookPageTest extends TestMethods{
         invalidUserAddressAdditionNoCityTest();
     }
 
+    //Test 004g -> invalid user address addition test - no user post code
+    @Test
+    @DisplayName("Invalid User Address Addition Test - No Post Code")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("No_Singular_Input")
+    void invalidAddressAdditionNoPostCodeTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - no user post code
+        invalidUserAddressAdditionNoPostCodeTest();
+    }
+
 }
