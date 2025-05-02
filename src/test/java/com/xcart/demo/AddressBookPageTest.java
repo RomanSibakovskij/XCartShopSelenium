@@ -210,4 +210,21 @@ public class AddressBookPageTest extends TestMethods{
         invalidUserAddressAdditionTooShortPostCodeTest();
     }
 
+    //too long singular input
+
+    //Test 004m -> invalid user address addition test - too long user first name (100 chars) (the user address gets accepted, test has failed)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Long First Name")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAddressAdditionTooLongFirstNameTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - too long user first name (100 chars)
+        invalidUserAddressAdditionTooLongFirstNameTest();
+    }
+
 }
