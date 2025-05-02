@@ -26,4 +26,21 @@ public class HomePageTest extends TestMethods {
         addSingleFeaturedProductToCartGuestTest();
     }
 
+    //Test 007a -> add single featured product ("Thumb-Size R/C Mini Cooper") to cart test (as a registered user)
+    @Test
+    @DisplayName("Single Featured Product Addition To Cart Test (as a registered user)")
+    @Tag("Add_Single_Featured_Product_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void singleFeaturedProductRegUserAddToCartTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add single featured product ("Thumb-Size R/C Mini Cooper") to cart test (as a registered user)
+        addSingleFeaturedProductToCartRegUserTest();
+    }
+
 }
