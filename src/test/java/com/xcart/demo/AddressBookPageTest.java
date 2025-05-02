@@ -54,4 +54,23 @@ public class AddressBookPageTest extends TestMethods{
         validUserEditAddressTest();
     }
 
+    //invalid user address addition tests
+
+    //no singular input (the country by default is set to 'United States' and there are no blank options for country and state dropdown menus, therefore, their testing is canceled)
+
+    //Test 004c -> invalid user address addition test - no user first name
+    @Test
+    @DisplayName("Invalid User Address Addition Test - No First Name")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("No_Singular_Input")
+    void invalidAddressAdditionNoFirstNameTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - no user first name
+        invalidUserAddressAdditionNoFirstNameTest();
+    }
+
 }

@@ -21,7 +21,49 @@ public class AddressBookPageNoSingularInput extends BasePage{
     @FindBy(xpath = "//div[@role='dialog'][2]")
     private WebElement addressBookPageSingularInputErrorBox;
 
+    //valid user address input data (for remaining inputs)
+    private String validAddressFirstName;
+    private String validAddressLastName;
+    private String validAddress1;
+    private String validAddressCity;
+    private int validAddressPostCode;
+
+    //invalid user address input data - no singular input
+    private String noAddressFirstName;
+
     public AddressBookPageNoSingularInput(WebDriver driver) {super(driver);}
+
+    //invalid user new address data getter - no first name
+    public void invalidUserNewAddressDataNoFirstNameGetter() {
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        noAddressFirstName = "";
+        validAddressLastName = registerPage.getValidLastName();
+        validAddress1 = TestDataGenerator.generateRandomAddress(8);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated invalid user new address data (no first name): " + "\n");
+
+        logger.info("No user first name: " + noAddressFirstName);
+        logger.info("Valid user last name (no first name): " + validAddressLastName);
+        logger.info("Valid user address1 (no first name): " + validAddress1);
+        logger.info("Valid user city (no first name): " + validAddressCity);
+        logger.info("Valid user post code (no first name): " + validAddressPostCode);
+
+        System.out.println("\n");
+    }
+
+    //invalid new address form data input methods - no singular input
+    public void inputNoFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(noAddressFirstName);}
+
+    //new address form data input methods (for remaining inputs)
+    public void inputValidFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(validAddressFirstName);}
+    public void inputValidLastNameIntoAddressLastNameInputField(){newAddressFormLastNameInputField.sendKeys(validAddressLastName);}
+    public void inputValidAddress1IntoAddress1InputField(){newAddressFormAddress1InputField.sendKeys(validAddress1);}
+    public void inputValidCityIntoAddressCityInputField(){newAddressFormCityInputField.sendKeys(validAddressCity);}
+    public void inputValidPostCodeIntoAddressPostCodeInputField(){newAddressFormPostCodeInputField.sendKeys(String.valueOf(validAddressPostCode));}
 
     //singular input error box text getter
     public String getSingularInputErrorBoxMessage() {
