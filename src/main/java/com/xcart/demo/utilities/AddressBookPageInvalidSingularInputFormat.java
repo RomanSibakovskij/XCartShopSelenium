@@ -1,5 +1,6 @@
 package com.xcart.demo.utilities;
 
+import com.xcart.demo.RegisterPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 
@@ -20,7 +21,49 @@ public class AddressBookPageInvalidSingularInputFormat extends BasePage{
     @FindBy(xpath = "//div[@role='dialog'][2]")
     private WebElement addressBookPageSingularInputErrorBox;
 
+    //valid user address input data (for remaining inputs)
+    private String validAddressFirstName;
+    private String validAddressLastName;
+    private String validAddress1;
+    private String validAddressCity;
+    private int validAddressPostCode;
+
+    //invalid user address input data - invalid singular input format
+    private String invalidAddressFirstNameFormat;
+
     public AddressBookPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
+
+    //invalid user new address data getter - invalid first name format (special symbols only)
+    public void invalidUserNewAddressDataInvalidFirstNameFormatGetter() {
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        invalidAddressFirstNameFormat = "@$#$%^%$&";
+        validAddressLastName = registerPage.getValidLastName();
+        validAddress1 = TestDataGenerator.generateRandomAddress(8);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated invalid user new address data (invalid first name format): " + "\n");
+
+        logger.info("Invalid first name input format: " + invalidAddressFirstNameFormat);
+        logger.info("Valid user last name (invalid first name format): " + validAddressLastName);
+        logger.info("Valid user address1 (invalid first name format): " + validAddress1);
+        logger.info("Valid user city (invalid first name format): " + validAddressCity);
+        logger.info("Valid user post code (invalid first name format): " + validAddressPostCode);
+
+        System.out.println("\n");
+    }
+
+    //invalid new address form data input methods - invalid singular input format
+    public void inputInvalidFirstNameFormatIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(invalidAddressFirstNameFormat);}
+
+    //new address form data input methods (for remaining inputs)
+    public void inputValidFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(validAddressFirstName);}
+    public void inputValidLastNameIntoAddressLastNameInputField(){newAddressFormLastNameInputField.sendKeys(validAddressLastName);}
+    public void inputValidAddress1IntoAddress1InputField(){newAddressFormAddress1InputField.sendKeys(validAddress1);}
+    public void inputValidCityIntoAddressCityInputField(){newAddressFormCityInputField.sendKeys(validAddressCity);}
+    public void inputValidPostCodeIntoAddressPostCodeInputField(){newAddressFormPostCodeInputField.sendKeys(String.valueOf(validAddressPostCode));}
 
     //singular input error box text getter
     public String getSingularInputErrorBoxMessage() {

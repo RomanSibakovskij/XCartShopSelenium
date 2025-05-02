@@ -2689,6 +2689,68 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Invalid New Address Addition Test Result - Too Long User Post Code");
     }
 
+    //invalid singular input format
+
+    //invalid user address addition test method - invalid user first name format (special symbols only)
+    protected void invalidUserAddressAdditionInvalidFirstNameFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        AddressBookPage addressBookPage = new AddressBookPage(driver);
+        AddressBookPageInvalidSingularInputFormat addressBookPageInvalidSingularInputFormat = new AddressBookPageInvalidSingularInputFormat(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //account page web element assert (navbar links)
+        isAccountPageNavbarWebElementDisplayed(accountPage);
+        //address book web element assert
+        isAddressBookPageWebElementDisplayed(addressBookPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //capture screenshot of the address book page
+        captureScreenshot(driver, "Address Book Page Display");
+        //assert the address book title is as expected (since the user gets here first)
+        assertEquals("Address book", accountPage.getAccountPageTitle(), "The address book page title doesn't match expectations");
+        //click 'Add address' link
+        addressBookPage.clickAddAddressLink();
+        //capture screenshot of the new address form
+        captureScreenshot(driver, "New Address Form Display");
+        //address form web element assert
+        isAddressFormWebElementDisplayed(addressBookPage);
+        //address form text element assert
+        isAddressFormTextElementAsExpected(addressBookPage);
+        //invalid new address data getter - invalid first name input format (special symbols only)
+        addressBookPageInvalidSingularInputFormat.invalidUserNewAddressDataInvalidFirstNameFormatGetter();
+        //input invalid first name into new address first name input field (special symbols only)
+        addressBookPageInvalidSingularInputFormat.inputInvalidFirstNameFormatIntoAddressFirstNameInputField();
+        //input valid last name into new address last name input field
+        addressBookPageInvalidSingularInputFormat.inputValidLastNameIntoAddressLastNameInputField();
+        //input valid address 1 into new address 1 input field
+        addressBookPageInvalidSingularInputFormat.inputValidAddress1IntoAddress1InputField();
+        //input valid city into new address city input field
+        addressBookPageInvalidSingularInputFormat.inputValidCityIntoAddressCityInputField();
+        //input valid post code into new address post code input field
+        addressBookPageInvalidSingularInputFormat.inputValidPostCodeIntoAddressPostCodeInputField();
+        //capture screenshot of the address form after invalid user address data input - invalid first name format
+        captureScreenshot(driver, "New Address Form After Invalid Data Input - Invalid First Name Format");
+        //click 'Save' button
+        addressBookPage.clickSaveButton();
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("First name cannot consist of special symbols only.", addressBookPageInvalidSingularInputFormat.getSingularInputErrorBoxMessage(), "The invalid first name input format error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The invalid first name input error message doesn't get triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid New Address Addition Test Result - Invalid User First Name Format");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)

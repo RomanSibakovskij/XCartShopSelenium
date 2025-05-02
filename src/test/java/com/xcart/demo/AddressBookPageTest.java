@@ -287,4 +287,21 @@ public class AddressBookPageTest extends TestMethods{
         invalidUserAddressAdditionTooLongPostCodeTest();
     }
 
+    //invalid singular input format
+
+    //Test 004r -> invalid user address addition test - invalid user first name format (special symbols only) (the user address gets accepted, test has failed)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Invalid First Name Format")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAddressAdditionInvalidFirstNameFormatTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - invalid user first name format (special symbols only)
+        invalidUserAddressAdditionInvalidFirstNameFormatTest();
+    }
+
 }
