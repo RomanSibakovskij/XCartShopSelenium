@@ -3,7 +3,9 @@ package com.xcart.demo;
 import com.xcart.demo.utilities.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
+import org.openqa.selenium.support.ui.*;
 
+import java.time.Duration;
 import java.util.*;
 
 public class AccountPage extends BasePage{
@@ -26,6 +28,9 @@ public class AccountPage extends BasePage{
     private WebElement wishlistLink;
     @FindBy(xpath = "//a[@class='new-address']")
     private WebElement addAddressLink;
+    //account 403 error message block element
+    @FindBy(xpath = "//div[@id='dialog-message']")
+    private WebElement accountErrorBlockMessage;
 
     public AccountPage(WebDriver driver) {super(driver);}
 
@@ -34,6 +39,13 @@ public class AccountPage extends BasePage{
 
     //account page title getter
     public String getAccountPageTitle() {return accountPageTitle.getText();}
+
+    //account page error block message getter
+    public String getAccountErrorBlockMessage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2100));
+        wait.until(ExpectedConditions.visibilityOf(accountErrorBlockMessage));
+        return accountErrorBlockMessage.getText();
+    }
 
     //address book page web element assert methods
     public boolean isAccountBookPageTitleDisplayed() {return accountPageTitle.isDisplayed();}

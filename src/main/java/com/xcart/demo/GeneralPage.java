@@ -160,6 +160,18 @@ public class GeneralPage extends BasePage {
     public String getFooterPoweredByText(){return footerPoweredByText.getText();}
     public String getFooterCopyrightText(){return footerCopyrightText.getText();}
 
+    //element wait load method (so that Selenium would stop skipping test methods during run)
+    public void waitForElementsToLoad() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(11));
+
+        // Wait for the document to be fully loaded
+        wait.until(driver -> ((JavascriptExecutor) driver)
+                .executeScript("return document.readyState").equals("complete"));
+
+        // Wait for at least one visible element to be present
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("body *:not(script):not(style)")));
+    }
+
     //general page web element assert methods
     //header (switcher)
     public boolean isHeaderSwitcherIconDisplayed() {return headerSwitcherIcon.isDisplayed();}

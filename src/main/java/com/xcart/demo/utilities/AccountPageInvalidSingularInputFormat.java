@@ -26,6 +26,7 @@ public class AccountPageInvalidSingularInputFormat extends BasePage{
     private String invalidEditedFirstNameFormat;
     private String invalidEditedLastNameFormat;
     private String invalidEditedEmailFormat;
+    private String existingTestEmail;
 
     public AccountPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -77,6 +78,22 @@ public class AccountPageInvalidSingularInputFormat extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid edited user input data getter - existing test email
+    public void invalidEditedUserDataExistingEmailGetter() {
+
+        validEditedFirstName = TestDataGenerator.getValidFirstName();
+        validEditedLastName = TestDataGenerator.getValidLastName();
+        existingTestEmail = "demo-customer@x-cart.com";
+
+        System.out.println("Generated invalid edited user input data (existing test email address): " + "\n");
+
+        logger.info("Valid edited user first name (existing test email address): " + validEditedFirstName);
+        logger.info("Valid edited user last name (existing test email address): " + validEditedLastName);
+        logger.info("Existing test email address: " + existingTestEmail);
+
+        System.out.println("\n");
+    }
+
     //invalid edited user account data input methods - invalid singular input format
     public void inputInvalidEditedFirstNameFormatIntoFirstNameInputField(){
         accountDetailsPageFirstNameInputField.clear();
@@ -90,6 +107,13 @@ public class AccountPageInvalidSingularInputFormat extends BasePage{
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accountDetailsPageEmailInputField);
         accountDetailsPageEmailInputField.clear();
         accountDetailsPageEmailInputField.sendKeys(invalidEditedEmailFormat);
+    }
+
+    //existing test email address input method
+    public void inputExistingTestEmailIntoEmailInputField(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accountDetailsPageEmailInputField);
+        accountDetailsPageEmailInputField.clear();
+        accountDetailsPageEmailInputField.sendKeys(existingTestEmail);
     }
 
     //valid edited user account data input methods (for remaining inputs)

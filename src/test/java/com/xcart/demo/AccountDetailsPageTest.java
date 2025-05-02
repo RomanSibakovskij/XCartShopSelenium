@@ -227,4 +227,19 @@ public class AccountDetailsPageTest extends TestMethods{
         invalidEditUserAccountInvalidEmailFormatTest();
     }
 
+    //Test 003n -> invalid edit user account data test - existing test email (the test throws 403, so, technically, this test can be considered as passed)
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Existing Test Email")
+    @Tag("Invalid_Edit_User_Account")
+    @Tag("Invalid_Singular_Input")
+    void invalidEditAccountExistingTestEmailTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid edit user account data test - existing test email
+        invalidEditUserAccountExistingTestEmailTest();
+    }
+
 }
