@@ -180,6 +180,13 @@ public class AddressBookPage extends BasePage{
         action.moveToElement(newAddressFormUseShippingAddressCheckbox).click().perform();
     }
 
+    //click 'Change' address button method (new address form)
+    public void clickChangeAddressButton(int index) {
+        WebElement element = addressBookEntryChangeButtonElements.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(element).click().perform();
+    }
+
     //click 'Save' button method (new address form)
     public void clickSaveButton() {
         Actions action = new Actions(driver);

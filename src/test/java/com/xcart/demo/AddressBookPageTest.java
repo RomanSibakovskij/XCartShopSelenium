@@ -38,4 +38,20 @@ public class AddressBookPageTest extends TestMethods{
         validUserSecondAddressAdditionTest();
     }
 
+    //Test 004b -> valid edit user address test (the address fails to be edited, test has failed)
+    @Test
+    @DisplayName("Valid Edit User Address Test")
+    @Tag("Valid_Edit_User_Address")
+    void validEditUserAddressTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //valid edit user address test
+        validUserEditAddressTest();
+    }
+
 }

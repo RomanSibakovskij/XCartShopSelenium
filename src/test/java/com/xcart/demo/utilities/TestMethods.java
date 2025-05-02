@@ -1752,6 +1752,55 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Valid Second New Address Addition Test Result");
     }
 
+    //valid edit user address test method
+    protected void validUserEditAddressTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        AddressBookPage addressBookPage = new AddressBookPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //account page web element assert (navbar links)
+        isAccountPageNavbarWebElementDisplayed(accountPage);
+        //address book web element assert
+        isAddressBookPageWebElementDisplayed(addressBookPage);
+        //capture screenshot of the address book page
+        captureScreenshot(driver, "Address Book Page Display");
+        //click 'Change' address button
+        addressBookPage.clickChangeAddressButton(0);
+        //capture screenshot of the new address form
+        captureScreenshot(driver, "New Address Form Display");
+        //address form web element assert
+        isAddressFormWebElementDisplayed(addressBookPage);
+        //address form text element assert
+        isAddressFormTextElementAsExpected(addressBookPage);
+        //valid new address data getter (for second address)
+        addressBookPage.validUserSecondNewAddressDataGetter();
+        //input valid address 1 into new address 1 input field
+        addressBookPage.inputValidSecondAddress1IntoAddress1InputField();
+        //input valid city into new address city input field
+        addressBookPage.inputValidSecondCityIntoAddressCityInputField();
+        //input valid post code into new address post code input field
+        addressBookPage.inputValidSecondPostCodeIntoAddressPostCodeInputField();
+        //capture screenshot of the address form after valid user address data input (edited data)
+        captureScreenshot(driver, "New Address Form After Valid Edited Data Input");
+        //click 'Save' button
+        addressBookPage.clickSaveButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //log address book data
+        logAddressBookPageData(addressBookPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Edit Address Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)
