@@ -180,4 +180,21 @@ public class AccountDetailsPageTest extends TestMethods{
         invalidEditUserAccountTooLongEmailTest();
     }
 
+    //invalid singular input format
+
+    //Test 003k -> invalid edit user account data test - invalid user first name format (special symbols only) (the user account data got edited, test has failed)
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Invalid First Name Format")
+    @Tag("Invalid_Edit_User_Account")
+    @Tag("Invalid_Singular_Input")
+    void invalidEditAccountInvalidFirstNameFormatTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid edit user account data test - invalid user first name format (special symbols only)
+        invalidEditUserAccountInvalidFirstNameFormatTest();
+    }
+
 }

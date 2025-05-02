@@ -17,7 +17,52 @@ public class AccountPageInvalidSingularInputFormat extends BasePage{
     @FindBy(xpath = "//div[@role='dialog']")
     private WebElement accountEditPageSingularInputErrorBox;
 
+    //valid edited user data (for remaining inputs)
+    private String validEditedFirstName;
+    private String validEditedLastName;
+    private String validEditedEmail;
+
+    //invalid singular edited user input data - invalid singular input format
+    private String invalidEditedFirstNameFormat;
+
     public AccountPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
+
+    //invalid edited user input data getter - invalid user edited first name format (special symbols only)
+    public void invalidEditedUserDataInvalidFirstNameFormatGetter() {
+
+        invalidEditedFirstNameFormat = "!#@$%#$#^$%^$%";
+        validEditedLastName = TestDataGenerator.getValidLastName();
+        validEditedEmail = TestDataGenerator.generateRandomEmailAddress(12);
+
+        System.out.println("Generated invalid edited user input data (invalid edited first name format): " + "\n");
+
+        logger.info("Invalid edited user first name format: " + invalidEditedFirstNameFormat);
+        logger.info("Valid edited user last name (invalid edited first name format): " + validEditedLastName);
+        logger.info("Valid edited user email (invalid edited first name format): " + validEditedEmail);
+
+        System.out.println("\n");
+    }
+
+    //invalid edited user account data input methods - invalid singular input format
+    public void inputInvalidEditedFirstNameFormatIntoFirstNameInputField(){
+        accountDetailsPageFirstNameInputField.clear();
+        accountDetailsPageFirstNameInputField.sendKeys(invalidEditedFirstNameFormat);
+    }
+
+    //valid edited user account data input methods (for remaining inputs)
+    public void inputValidEditedFirstNameIntoFirstNameInputField(){
+        accountDetailsPageFirstNameInputField.clear();
+        accountDetailsPageFirstNameInputField.sendKeys(validEditedFirstName);
+    }
+    public void inputValidEditedLastNameIntoLastNameInputField(){
+        accountDetailsPageLastNameInputField.clear();
+        accountDetailsPageLastNameInputField.sendKeys(validEditedLastName);
+    }
+    public void inputValidEditedEmailIntoEmailInputField(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accountDetailsPageEmailInputField);
+        accountDetailsPageEmailInputField.clear();
+        accountDetailsPageEmailInputField.sendKeys(validEditedEmail);
+    }
 
     //singular input error box text getter
     public String getSingularInputErrorBoxMessage() {
