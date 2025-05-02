@@ -334,4 +334,19 @@ public class AddressBookPageTest extends TestMethods{
         invalidUserAddressAdditionInvalidAddressFormatTest();
     }
 
+    //Test 004u -> invalid user address addition test - invalid user city format (special symbols only) (the user address gets accepted, test has failed)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Invalid City Format")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAddressAdditionInvalidCityFormatTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - invalid user city format (special symbols only)
+        invalidUserAddressAdditionInvalidCityFormatTest();
+    }
+
 }
