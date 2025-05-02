@@ -7,8 +7,48 @@ import org.openqa.selenium.support.*;
 
 public class SignInFormPage extends BasePage{
 
+    //sign in form page web elements
+    @FindBy(xpath = "//div[@class='ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix']/span")
+    private WebElement signInFormPageTitle;
+    @FindBy(xpath = "//div[@class='ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix']/button")
+    private WebElement signInFormPageCloseButton;
+    @FindBy(xpath = "//form[@name='authform']//label[@for='username']")
+    private WebElement signInFormPageEmailSubtext;
+    @FindBy(xpath = "//form[@name='authform']//input[@id='username']")
+    private WebElement signInFormPageEmailInputField;
+    @FindBy(xpath = "//form[@name='authform']//label[@for='password']")
+    private WebElement signInFormPagePasswordSubtext;
+    @FindBy(xpath = "//form[@name='authform']//input[@id='password']")
+    private WebElement signInFormPagePasswordInputField;
+    @FindBy(xpath = "//form[@name='authform']//a")
+    private WebElement signInFormPageForgotPasswordLink;
+    @FindBy(xpath = "//form[@name='authform']//button")
+    private WebElement signInFormPageSubmitButton;
+    //singular input error box element
+    @FindBy(xpath = "//div[@role='dialog'][2]")
+    private WebElement signInFormPageSingularInputErrorBox;
 
     public SignInFormPage(WebDriver driver) {super(driver);}
 
-    
+    //sign in form page text element getters
+    public String getSignInFormPageTitle() {return signInFormPageTitle.getText();}
+    public String getSignInFormPageEmailSubtext() {return signInFormPageEmailSubtext.getText();}
+    public String getSignInFormPagePasswordSubtext() {return signInFormPagePasswordSubtext.getText();}
+
+    //singular input error box text getter
+    public String getSingularInputErrorBoxMessage() {
+        String boxErrorText = signInFormPageSingularInputErrorBox.getText();
+        return boxErrorText.replace("Close", "").replace("OK", "").trim();
+    }
+
+    //sign in form page web element assert methods
+    public boolean isSignInFormPageTitleDisplayed() {return signInFormPageTitle.isDisplayed();}
+    public boolean isSignInFormPageCloseButtonDisplayed() {return signInFormPageCloseButton.isDisplayed();}
+    public boolean isSignInFormPageEmailSubtextDisplayed() {return signInFormPageEmailSubtext.isDisplayed();}
+    public boolean isSignInFormPageEmailInputFieldDisplayed() {return signInFormPageEmailInputField.isDisplayed();}
+    public boolean isSignInFormPagePasswordSubtextDisplayed() {return signInFormPagePasswordSubtext.isDisplayed();}
+    public boolean isSignInFormPagePasswordInputFieldDisplayed() {return signInFormPagePasswordInputField.isDisplayed();}
+    public boolean isSignInFormPageForgotPasswordLinkDisplayed() {return signInFormPageForgotPasswordLink.isDisplayed();}
+    public boolean isSignInFormPageSubmitButtonDisplayed() {return signInFormPageSubmitButton.isDisplayed();}
+
 }
