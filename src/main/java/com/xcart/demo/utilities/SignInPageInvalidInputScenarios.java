@@ -20,6 +20,9 @@ public class SignInPageInvalidInputScenarios extends BasePage{
     private String noLoginEmail;
     private String noLoginPassword;
 
+    //invalid sign in user input data - invalid singular input
+    private String invalidLoginEmail;
+
     public SignInPageInvalidInputScenarios(WebDriver driver) {super(driver);}
 
     //invalid sign in user data getter - no user email
@@ -58,6 +61,26 @@ public class SignInPageInvalidInputScenarios extends BasePage{
     public void inputNoLoginPasswordIntoPasswordInputField(){
         signInFormPagePasswordInputField.clear();
         signInFormPagePasswordInputField.sendKeys(noLoginPassword);
+    }
+
+    //invalid sign in user data getter - invalid user email
+    public void invalidSignInDataInvalidEmailGetter(RegisterPage registerPage) {
+
+        invalidLoginEmail = "fgdree@fakemail.com";
+        validLoginPassword = registerPage.getValidPassword();
+
+        System.out.println("Generated invalid user login data (invalid login email): " + "\n");
+
+        logger.info("Invalid login email: " + invalidLoginEmail);
+        logger.info("Valid user login password (invalid login email): " + validLoginPassword);
+
+        System.out.println("\n");
+    }
+
+    //invalid user login input data methods - invalid singular input
+    public void inputInvalidLoginEmailIntoEmailInputField(){
+        signInFormPageEmailInputField.clear();
+        signInFormPageEmailInputField.sendKeys(invalidLoginEmail);
     }
 
     //valid user login input data methods (for remaining inputs)

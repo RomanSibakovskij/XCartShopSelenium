@@ -104,4 +104,25 @@ public class SignInFormPageTest extends TestMethods{
         invalidUserLoginNoLoginPasswordTest(registerPage);
     }
 
+    //invalid singular input
+
+    //Test 006d -> invalid user login test - invalid login email
+    @Test
+    @DisplayName("Invalid User Login Test - Invalid Login Email")
+    @Tag("Invalid_User_Login")
+    @Tag("Invalid_Singular_Input")
+    void invalidAccountLoginInvalidEmailTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //valid user logout test
+        userLogoutTest();
+        //invalid user login test - invalid login email
+        invalidUserLoginInvalidLoginEmailTest(registerPage);
+    }
+
 }

@@ -3127,7 +3127,7 @@ protected void navigateToRegisterPageTest(){
         signInPageInvalidInputScenarios.inputNoLoginEmailIntoEmailInputField();
         //input valid user login password into password input field
         signInPageInvalidInputScenarios.inputValidLoginPasswordIntoPasswordInputField();
-        //capture screenshot of the sign-in form after valid data input
+        //capture screenshot of the sign-in form after invalid data input - no login email
         captureScreenshot(driver, "Sign In Form Page Display After Invalid Data Input - No Login Email");
         //click 'Submit' button
         signInFormPage.clickSubmitLoginButton();
@@ -3172,7 +3172,7 @@ protected void navigateToRegisterPageTest(){
         signInPageInvalidInputScenarios.inputValidLoginEmailIntoEmailInputField();
         //don't input user login password into password input field
         signInPageInvalidInputScenarios.inputNoLoginPasswordIntoPasswordInputField();
-        //capture screenshot of the sign-in form after valid data input
+        //capture screenshot of the sign-in form after invalid data input - no login password
         captureScreenshot(driver, "Sign In Form Page Display After Invalid Data Input - No Login Password");
         //click 'Submit' button
         signInFormPage.clickSubmitLoginButton();
@@ -3184,6 +3184,54 @@ protected void navigateToRegisterPageTest(){
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Login Test Result - No Login Password");
+    }
+
+    //invalid singular input
+
+    //invalid user login test method - invalid login email
+    protected void invalidUserLoginInvalidLoginEmailTest(RegisterPage registerPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SignInFormPage signInFormPage = new SignInFormPage(driver);
+        SignInPageInvalidInputScenarios signInPageInvalidInputScenarios = new SignInPageInvalidInputScenarios(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Sign in' header nav link
+        generalPage.clickHeaderSignInLink();
+        //capture screenshot of the sign-in form before valid data input
+        captureScreenshot(driver, "Sign In Form Page Display Before Data Input");
+        //sign-in form page web element assert
+        isSignInFormPageWebElementDisplayed(signInFormPage);
+        //sign-in form page text element assert
+        isSignInFormPageTextAsExpected(signInFormPage);
+        //invalid sign-in user data getter - invalid login email
+        signInPageInvalidInputScenarios.invalidSignInDataInvalidEmailGetter(registerPage);
+        //input invalid user login email into email input field
+        signInPageInvalidInputScenarios.inputInvalidLoginEmailIntoEmailInputField();
+        //input valid user login password into password input field
+        signInPageInvalidInputScenarios.inputValidLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the sign-in form after invalid data input - invalid login email
+        captureScreenshot(driver, "Sign In Form Page Display After Invalid Data Input - Invalid Login Email");
+        //click 'Submit' button
+        signInFormPage.clickSubmitLoginButton();
+        //assert the user gets an expected error message, log the issue otherwise
+        try {
+            assertEquals("You have failed to login. This could be due to an incorrect Email or Password.", signInFormPage.getInvalidInputErrorBoxMessage(), "The invalid login email input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The invalid login email input error message doesn't get triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Login Test Result - Invalid Login Email");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

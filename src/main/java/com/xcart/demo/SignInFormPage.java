@@ -4,6 +4,9 @@ import com.xcart.demo.utilities.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.*;
+import org.openqa.selenium.support.ui.*;
+
+import java.time.Duration;
 
 public class SignInFormPage extends BasePage{
 
@@ -104,7 +107,11 @@ public class SignInFormPage extends BasePage{
     }
 
     //invalid input error box text getter
-    public String getInvalidInputErrorBoxMessage() {return signInFormPageInvalidInputErrorBox.getText();}
+    public String getInvalidInputErrorBoxMessage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
+        wait.until(ExpectedConditions.visibilityOf(signInFormPageInvalidInputErrorBox));
+        return signInFormPageInvalidInputErrorBox.getText();
+    }
 
     //sign in form page web element assert methods
     public boolean isSignInFormPageTitleDisplayed() {return signInFormPageTitle.isDisplayed();}
