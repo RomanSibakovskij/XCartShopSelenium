@@ -27,6 +27,9 @@ public class SignInFormPage extends BasePage{
     //singular input error box element
     @FindBy(xpath = "//div[@role='dialog'][2]")
     private WebElement signInFormPageSingularInputErrorBox;
+    //invalid input error box element
+    @FindBy(xpath = "//div[@role='dialog']//div[@class='ajax-popup-error-message ui-corner-all ui-state-error']")
+    private WebElement signInFormPageInvalidInputErrorBox;
 
     //valid sign in user input data
     private String validLoginEmail;
@@ -99,6 +102,9 @@ public class SignInFormPage extends BasePage{
         String boxErrorText = signInFormPageSingularInputErrorBox.getText();
         return boxErrorText.replace("Close", "").replace("OK", "").trim();
     }
+
+    //invalid input error box text getter
+    public String getInvalidInputErrorBoxMessage() {return signInFormPageInvalidInputErrorBox.getText();}
 
     //sign in form page web element assert methods
     public boolean isSignInFormPageTitleDisplayed() {return signInFormPageTitle.isDisplayed();}
