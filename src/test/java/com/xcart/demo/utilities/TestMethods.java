@@ -1728,6 +1728,8 @@ protected void navigateToRegisterPageTest(){
         isAddressFormWebElementDisplayed(addressBookPage);
         //address form text element assert
         isAddressFormTextElementAsExpected(addressBookPage);
+        //address form additional text element assert
+        isNewAddressFormTextElementAsExpected(addressBookPage);
         //capture screenshot of the address book page
         captureScreenshot(driver, "Address Book Page Display");
         //valid new address data getter (for second address)
@@ -2989,6 +2991,28 @@ protected void navigateToRegisterPageTest(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //user logout test method
+    protected void userLogoutTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AddressBookPage addressBookPage = new AddressBookPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (register page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //click 'Sign out' header nav link (locator for 'Register' link)
+        generalPage.clickHeaderSignOutLink();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "User Logout Test Result");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (without aside section)
     protected void isGeneralPageNoAsideWebElementDisplayed(GeneralPage generalPage){
         //header switcher
@@ -3462,6 +3486,26 @@ protected void navigateToRegisterPageTest(){
         assertTrue(addressBookPage.isNewAddressFormSaveButtonDisplayed(), "The new address form save button isn't displayed");
     }
 
+    //sign in form page web element assert test method
+    protected void isSignInFormPageWebElementDisplayed(SignInFormPage signInFormPage) {
+        //assert sign in form page title is displayed
+        assertTrue(signInFormPage.isSignInFormPageTitleDisplayed(), "The sign in form page title isn't displayed");
+        //assert sign in form page close button is displayed
+        assertTrue(signInFormPage.isSignInFormPageCloseButtonDisplayed(), "The sign in form page close button isn't displayed");
+        //assert sign in form page email subtext is displayed
+        assertTrue(signInFormPage.isSignInFormPageEmailSubtextDisplayed(), "The sign in form page email subtext isn't displayed");
+        //assert sign in form page email input field is displayed
+        assertTrue(signInFormPage.isSignInFormPageEmailInputFieldDisplayed(), "The sign in form page email input field isn't displayed");
+        //assert sign in form page password subtext is displayed
+        assertTrue(signInFormPage.isSignInFormPagePasswordSubtextDisplayed(), "The sign in form page password subtext isn't displayed");
+        //assert sign in form page password input field is displayed
+        assertTrue(signInFormPage.isSignInFormPagePasswordInputFieldDisplayed(), "The sign in form page password input field isn't displayed");
+        //assert sign in form page forgot password link is displayed
+        assertTrue(signInFormPage.isSignInFormPageForgotPasswordLinkDisplayed(), "The sign in form page forgot password link isn't displayed");
+        //assert sign in form page submit button is displayed
+        assertTrue(signInFormPage.isSignInFormPageSubmitButtonDisplayed(), "The sign in form page submit button isn't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -3625,12 +3669,6 @@ protected void navigateToRegisterPageTest(){
 
     }
 
-    //address book page text element assert test method
-    protected void isAddressBookTextElementAsExpected(AddressBookPage addressBookPage) {
-        //assert address book page title is as expected
-        assertEquals("Address book", addressBookPage.getAddressBookPageTitle(), "The address book page title doesn't match expectations.");
-    }
-
     //new address form page text element assert test method
     protected void isNewAddressFormTextElementAsExpected(AddressBookPage addressBookPage) {
         //assert new address form title is as expected
@@ -3663,6 +3701,16 @@ protected void navigateToRegisterPageTest(){
         assertEquals("Phone", addressBookPage.getNewAddressFormPhoneSubtext(), "The new address form phone subtext doesn't match expectations.");
         //assert new address form fax subtext is as expected
         assertEquals("Fax", addressBookPage.getNewAddressFormFaxSubtext(), "The new address form fax subtext doesn't match expectations.");
+    }
+
+    //sign in form page text element assert test method
+    protected void isSignInFormPageTextAsExpected(SignInFormPage signInFormPage) {
+        //assert sign in form page title is as expected
+        assertEquals("Authentication", signInFormPage.getSignInFormPageTitle(), "The sign in form page title doesn't match expectations.");
+        //assert sign in form page email subtext is as expected
+        assertEquals("Email", signInFormPage.getSignInFormPageEmailSubtext(), "The sign in form page email subtext doesn't match expectations.");
+        //assert sign in form page password subtext is as expected
+        assertEquals("Password", signInFormPage.getSignInFormPagePasswordSubtext(), "The sign in form page password subtext doesn't match expectations.");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

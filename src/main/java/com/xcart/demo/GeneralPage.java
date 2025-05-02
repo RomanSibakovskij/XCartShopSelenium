@@ -148,6 +148,9 @@ public class GeneralPage extends BasePage {
     //click header 'Register' link method
     public void clickHeaderRegisterLink(){ headerRegisterLink.click();}
 
+    //click header 'Sign out' link method (same element as 'Register')
+    public void clickHeaderSignOutLink(){headerRegisterLink.click();}
+
     //general page text element getters
     public String getHeaderInterfaceTag(){return headerInterfaceTag.getText();}
     public String getHeaderVisualSchemeTag(){return headerVisualSchemeTag.getText();}
