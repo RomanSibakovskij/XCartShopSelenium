@@ -125,4 +125,23 @@ public class SignInFormPageTest extends TestMethods{
         invalidUserLoginInvalidLoginEmailTest(registerPage);
     }
 
+    //Test 006e -> invalid user login test - invalid login password (Selenium fails to find the error element, it's getting triggered, test has passed)
+    @Test
+    @DisplayName("Invalid User Login Test - Invalid Login Password")
+    @Tag("Invalid_User_Login")
+    @Tag("Invalid_Singular_Input")
+    void invalidAccountLoginInvalidPasswordTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //valid user logout test
+        userLogoutTest();
+        //invalid user login test - invalid login password
+        invalidUserLoginInvalidLoginPasswordTest(registerPage);
+    }
+
 }
