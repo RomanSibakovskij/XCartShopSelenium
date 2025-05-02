@@ -30,6 +30,7 @@ public class AddressBookPageNoSingularInput extends BasePage{
 
     //invalid user address input data - no singular input
     private String noAddressFirstName;
+    private String noAddressLastName;
 
     public AddressBookPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -55,8 +56,31 @@ public class AddressBookPageNoSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user new address data getter - no last name
+    public void invalidUserNewAddressDataNoLastNameGetter() {
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidFirstName();
+        noAddressLastName = "";
+        validAddress1 = TestDataGenerator.generateRandomAddress(8);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated invalid user new address data (no last name): " + "\n");
+
+        logger.info("Valid user first name (no last name): " + validAddressFirstName);
+        logger.info("No user last name: " + noAddressLastName);
+        logger.info("Valid user address1 (no last name): " + validAddress1);
+        logger.info("Valid user city (no last name): " + validAddressCity);
+        logger.info("Valid user post code (no last name): " + validAddressPostCode);
+
+        System.out.println("\n");
+    }
+
     //invalid new address form data input methods - no singular input
     public void inputNoFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(noAddressFirstName);}
+    public void inputNoLastNameIntoAddressLastNameInputField(){newAddressFormLastNameInputField.sendKeys(noAddressLastName);}
 
     //new address form data input methods (for remaining inputs)
     public void inputValidFirstNameIntoAddressFirstNameInputField(){newAddressFormFirstNameInputField.sendKeys(validAddressFirstName);}

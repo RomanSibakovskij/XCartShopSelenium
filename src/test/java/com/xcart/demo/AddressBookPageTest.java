@@ -73,4 +73,19 @@ public class AddressBookPageTest extends TestMethods{
         invalidUserAddressAdditionNoFirstNameTest();
     }
 
+    //Test 004d -> invalid user address addition test - no user last name
+    @Test
+    @DisplayName("Invalid User Address Addition Test - No Last Name")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("No_Singular_Input")
+    void invalidAddressAdditionNoLastNameTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //invalid user address addition test - no user last name
+        invalidUserAddressAdditionNoLastNameTest();
+    }
+
 }
