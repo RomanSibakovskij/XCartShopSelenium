@@ -33,4 +33,15 @@ public class SingleCategoryProductDashboardPageTest extends TestMethods{
         addSingleProductCategoryToCartRegUserTest();
     }
 
+    //single category multiple products addition to cart tests
+
+    //Test 010b -> add multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") to cart test (as a guest)
+    @Test
+    @DisplayName("Multiple Single Category Products Addition To Cart (as a guest)")
+    @Tag("Add_Multiple_Single_Category_Products_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void multipleSingleCategoryProductsGuestAddToCartTest() {
+        addSetProductCategoryMultipleProductsToCartTest();
+    }
+
 }
