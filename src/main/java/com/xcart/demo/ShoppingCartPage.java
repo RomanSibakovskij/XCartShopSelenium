@@ -92,6 +92,40 @@ public class ShoppingCartPage extends BasePage {
 
     public ShoppingCartPage(WebDriver driver) {super(driver);}
 
+    //click 'Edit options' link (available for some products only)
+    public void clickEditOptionsLink(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartPageProductOptionsLinkElements.get(index)));
+        shoppingCartPageProductOptionsLinkElements.get(index).click();
+    }
+
+    //click capacity dropdown menu method (available only for some products)
+    public void clickCapacityDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(capacityDropdownMenu).click().perform();
+    }
+
+    //select 32 GB option (available for 'Iphone')
+    public void select32GBOption(){capacity32GBOption.click();}
+
+    //click color dropdown menu method (available only for some products)
+    public void clickColorDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(colorDropdownMenu).click().perform();
+    }
+
+    //select 'Yellow' color option (available for 'Iphone')
+    public void selectYellowColorOption(){colorYellowOption.click();}
+
+    //click 'Update' product details button
+    public void clickUpdateProductDetailsButton(){updateButton.click();}
+
+    //click upper 'Checkout' button method
+    public void clickUpperCheckoutButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(shoppingCartPageUpperCheckoutButton).click().perform();
+    }
+
     //shopping cart page product data getters
     public List<String> getShoppingCartPageProductName(){return shoppingCartPageProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getShoppingCartPageProductDetails(){return shoppingCartPageProductDetailsElements.stream().map(WebElement::getText).collect(Collectors.toList());}

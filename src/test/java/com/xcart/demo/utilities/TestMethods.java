@@ -4650,6 +4650,53 @@ protected void navigateToRegisterPageTest(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //product addition (with available product details) to check out test method (as a guest -> both single and multiple products)
+    protected void addIphoneProductToCheckoutWithOptionsGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page text element assert (without aside section)
+        isGeneralPageNoAsideTextElementAsExpected(generalPage);
+        //shopping cart web element asserts
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        isShoppingCartProductDetailsSectionWebElementDisplayed(shoppingCartPage);
+        //shopping cart text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //log shopping cart product details data
+        logShoppingCartPageProductDetailsData(shoppingCartPage);
+        //log shopping cart product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //capture screenshot of shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Display");
+        //click 'Edit options' link
+        shoppingCartPage.clickEditOptionsLink(0);
+        //capture screenshot of options form
+        captureScreenshot(driver, "Shopping Cart Iphone Options Form Display");
+        //click 'Capacity' dropdown menu
+        shoppingCartPage.clickCapacityDropdownMenu();
+        //select '32 GB' option
+        shoppingCartPage.select32GBOption();
+        //click 'Color' dropdown menu
+        shoppingCartPage.clickColorDropdownMenu();
+        //select 'Yellow' color option
+        shoppingCartPage.selectYellowColorOption();
+        //click 'Update' button
+        shoppingCartPage.clickUpdateProductDetailsButton();
+        //capture screenshot of updated product data
+        captureScreenshot(driver, "Shopping Cart Updated Iphone Product Details");
+        //log shopping cart product details data (for confirmation)
+        logShoppingCartPageProductDetailsData(shoppingCartPage);
+        //log shopping cart product data (for confirmation)
+        logShoppingCartPageProductData(shoppingCartPage);
+        //click upper 'Checkout' button
+        shoppingCartPage.clickUpperCheckoutButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Iphone Product To Checkout Test Result");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (without aside section)
     protected void isGeneralPageNoAsideWebElementDisplayed(GeneralPage generalPage){
         //header switcher
@@ -5769,6 +5816,28 @@ protected void navigateToRegisterPageTest(){
         logger.info("Wishlist product quantity(ies): " + wishlistPage.getWishlistPageProductQty());
         logger.info("Wishlist product total price(s): " + wishlistPage.getWishlistPageProductTotalPrice());
         logger.info("Wishlist product alt price(s): " + wishlistPage.getWishlistPageProductAltPrice());
+
+        System.out.println("\n");
+    }
+
+    //shopping cart page product data logger method
+    protected void logShoppingCartPageProductData(ShoppingCartPage shoppingCartPage){
+        System.out.println("Shopping cart displayed product data: " + "\n");
+
+        logger.info("Shopping cart product name(s): " + shoppingCartPage.getShoppingCartPageProductName());
+        logger.info("Shopping cart product unit price(s): " + shoppingCartPage.getShoppingCartPageProductUnitPrice());
+        logger.info("Shopping cart product quantity(ies): " + shoppingCartPage.getShoppingCartPageProductQty());
+        logger.info("Shopping cart product total price(s): " + shoppingCartPage.getShoppingCartPageProductTotalPrice());
+        logger.info("Shopping cart product alt price(s): " + shoppingCartPage.getShoppingCartPageProductAltPrice());
+
+        System.out.println("\n");
+    }
+
+    //shopping cart page product details data logger method (not all products have this part)
+    protected void logShoppingCartPageProductDetailsData(ShoppingCartPage shoppingCartPage){
+        System.out.println("Shopping cart displayed product details data: " + "\n");
+
+        logger.info("Shopping cart product(s) details: " + shoppingCartPage.getShoppingCartPageProductDetails());
 
         System.out.println("\n");
     }
