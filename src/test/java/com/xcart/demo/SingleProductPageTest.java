@@ -48,4 +48,22 @@ public class SingleProductPageTest extends TestMethods{
         addMultipleDigitalAngelProductToCartGuestTest();
     }
 
+    //Test 009c -> add multiple products ("Digital Angel") from single product page to cart test (as a registered user)
+    @Test
+    @DisplayName("Multiple Products Addition From Single Product Page To Cart Test (as a registered user)")
+    @Tag("Add_Multiple_Products_To_Cart")
+    @Tag("Single_Product_Page_Test")
+    @Tag("Test_As_A_Reg_User")
+    void multipleProductsPageProductRegUserAddToCartTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add multiple products ("Digital Angel") from single product page to cart test (as a registered user)
+        addMultipleDigitalAngelProductsToCartRegUserTest();
+    }
+
 }
