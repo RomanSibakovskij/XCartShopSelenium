@@ -60,5 +60,5 @@ public class ProductsMapPageTest extends TestMethods{
         //add multiple products ("iMac") from products map to cart test (as a registered user)
         addMultipleProductsFromProductsMapToCartRegUserTest();
     }
-    
+
 }
