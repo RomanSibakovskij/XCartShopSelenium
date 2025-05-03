@@ -217,4 +217,23 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 015a -> add single product ("Apple Dock Connector to USB Cable") from products map to check out test (as a registered user)
+    @Test
+    @DisplayName("Single Product Addition From Products Map To Checkout Test (as a registered user)")
+    @Tag("Add_Single_Product_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void singleProductsMapProductRegUserAddToCheckoutTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add single product ("Apple Dock Connector to USB Cable") from products map to cart test (as a registered user)
+        addSingleProductFromProductsMapToCartRegUserTest();
+        //add single product ("Apple Dock Connector to USB Cable") from products map to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+    }
+
 }
