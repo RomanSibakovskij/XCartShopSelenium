@@ -4725,6 +4725,36 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Product Addition To Checkout Test Result (registered user)");
     }
 
+    //product addition  to check out test method (as a guest -> both single and multiple products)
+    protected void addProductToCheckoutTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page text element assert (without aside section)
+        isGeneralPageNoAsideTextElementAsExpected(generalPage);
+        //shopping cart web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //log shopping cart product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //capture screenshot of shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Display (guest)");
+        //click upper 'Checkout' button
+        shoppingCartPage.clickUpperCheckoutButton();
+        //assert if the error message appears if the order total amount is less than $10
+        try {
+            if(shoppingCartPage.isShoppingCartTenDollarLimitErrorMessageDisplayed()){
+                assertEquals("Error: A minimum order subtotal of $10.00 is required to checkout.\n" + "Please review your cart.", shoppingCartPage.getShoppingCartTenDollarErrorMessage(), "The shopping cart 10 dollar error message doesn't match expectations");
+            }
+        } catch (Exception e) {
+            System.out.println("No error message displayed as expected for orders meeting the minimum amount");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Product Addition To Checkout Test Result (guest)");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)
