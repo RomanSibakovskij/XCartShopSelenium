@@ -3441,7 +3441,6 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Multiple Featured Product Addition To Cart Test Result (registered user)");
     }
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)
@@ -3965,6 +3964,45 @@ protected void navigateToRegisterPageTest(){
         assertTrue(homePage.isShoppingCartFormProceedToCheckoutButtonDisplayed(), "The shopping cart form proceed to checkout button isn't displayed");
     }
 
+    //single product category dashboard page web element assert test method
+    protected void isSingleProductCategoryDashboardPageWebElementDisplayed(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage) {
+        //assert single product category dashboard page title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageTitleDisplayed(), "The single product category dashboard page title isn't displayed");
+        //assert single product category dashboard page subtitle is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageSubtitleDisplayed(), "The single product category dashboard page subtitle isn't displayed");
+        //assert single product category dashboard page product sort link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductSortLinkDisplayed(), "The single product category dashboard page product sort link isn't displayed");
+        //assert single product category dashboard page product price sort link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductPriceSortLinkDisplayed(), "The single product category dashboard page product price sort link isn't displayed");
+        //assert single product category dashboard page product default sort link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductDefaultSortLinkDisplayed(), "The single product category dashboard page product default sort link isn't displayed");
+        //assert single product category dashboard page product sales sort link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductSalesSortLinkDisplayed(), "The single product category dashboard page product sales sort link isn't displayed");
+        //list elements
+        //assert single product category dashboard page product images are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductImageDisplayed(), "The single product category dashboard page product images aren't displayed");
+        //assert single product category dashboard page product names are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductNameLinkDisplayed(), "The single product category dashboard page product names aren't displayed");
+        //assert single product category dashboard page product unit prices are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductUnitPriceDisplayed(), "The single product category dashboard page product unit prices aren't displayed");
+        //assert single product category dashboard page product alt prices are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductAltPriceDisplayed(), "The single product category dashboard page product alt prices aren't displayed");
+        //assert single product category dashboard page product review stars are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductReviewStarDisplayed(), "The single product category dashboard page product review stars aren't displayed");
+        //assert single product category dashboard page product quantity dropdown menus are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductQtyDropdownMenuDisplayed(), "The single product category dashboard page product quantity dropdown menus aren't displayed");
+        //assert single product category dashboard page product add to cart buttons are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductAddToCartButtonDisplayed(), "The single product category dashboard page product add to cart buttons aren't displayed");
+        //assert single product category dashboard page product add to wishlist buttons are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isSingleProductCategoryDashboardPageProductAddToWishlistButtonDisplayed(), "The single product category dashboard page product add to wishlist buttons aren't displayed");
+    }
+
+    //searched product dashboard page web element assert test method
+    protected void isSearchedProductDashboardPageWebElementDisplayed(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage) {
+        //assert searched product dashboard page this page URL link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isSearchedProductDashboardPageThisPageURLDisplayed(), "The searched product dashboard page 'this page URL' link isn't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -4178,6 +4216,12 @@ protected void navigateToRegisterPageTest(){
         assertEquals("Your cart", homePage.getShoppingCartFormYourCartSectionSubtitle(), "The shopping cart form your cart section subtitle doesn't match expectations.");
     }
 
+    //single product category dashboard page text element assert test method
+    protected void isSingleProductCategoryDashboardPageTextElementAsExpected(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage) {
+        //assert single product category dashboard page subtitle is as expected
+        assertEquals("Products", singleProductCategoryDashboardPage.getSingleProductCategoryDashboardPageSubtitle(), "The single product category dashboard page subtitle doesn't match expectations.");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page product data logger method
@@ -4215,6 +4259,17 @@ protected void navigateToRegisterPageTest(){
         logger.info("Shopping cart form page product alternative unit price(s): " + homePage.getShoppingCartFormProductAltUnitPriceText());
         logger.info("Shopping cart form page product item(s) count: " + homePage.getShoppingCartFormYourCartSectionItemCount());
         logger.info("Shopping cart form page product subtotal price(s): " + homePage.getShoppingCartFormYourCartSectionSubtotalPrice());
+
+        System.out.println("\n");
+    }
+
+    //single product category dashboard page data logger method
+    protected void logSingleProductCategoryDashboardPageProductData(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage){
+        System.out.println("Single product category dashboard page displayed product data: " + "\n");
+
+        logger.info("Single product category dashboard page product name(s): " + singleProductCategoryDashboardPage.getSingleCategoryDashboardPageProductName());
+        logger.info("Single product category dashboard page product unit price(s): " + singleProductCategoryDashboardPage.getSingleCategoryDashboardPageProductUnitPrice());
+        logger.info("Single product category dashboard page product alt price(s): " + singleProductCategoryDashboardPage.getSingleCategoryDashboardPageProductAltPrice());
 
         System.out.println("\n");
     }
