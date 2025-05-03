@@ -52,4 +52,23 @@ public class ShoppingCartPageTest extends TestMethods{
         addIphoneProductToCheckoutWithOptionsGuestTest();
     }
 
+    //Test 012c -> add multiple featured products ("Thumb-Size R/C Mini Cooper") to check out test (as a registered user)
+    @Test
+    @DisplayName("Multiple Featured Product Addition To Checkout Test (as a registered user)")
+    @Tag("Add_Multiple_Featured_Products_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void multipleFeaturedProductRegUserAddToCheckoutTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add multiple featured products ("Thumb-Size R/C Mini Cooper") to cart test (as a registered user)
+        addMultipleFeaturedProductToCartRegUserTest();
+        //add multiple featured products ("Thumb-Size R/C Mini Cooper") to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+    }
+
 }

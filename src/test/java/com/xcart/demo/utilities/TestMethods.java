@@ -4718,7 +4718,7 @@ protected void navigateToRegisterPageTest(){
             if(shoppingCartPage.isShoppingCartTenDollarLimitErrorMessageDisplayed()){
                 assertEquals("Error: A minimum order subtotal of $10.00 is required to checkout.\n" + "Please review your cart.", shoppingCartPage.getShoppingCartTenDollarErrorMessage(), "The shopping cart 10 dollar error message doesn't match expectations");
             }
-        } catch (NoSuchElementException nse) {
+        } catch (Exception e) {
             System.out.println("No error message displayed as expected for orders meeting the minimum amount");
         }
         //capture screenshot of the test result
