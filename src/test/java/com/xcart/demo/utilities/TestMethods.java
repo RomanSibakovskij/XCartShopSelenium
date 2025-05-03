@@ -4792,6 +4792,32 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Recently Updated Product (by quantity) Addition To Checkout Test Result");
     }
 
+    //remove product from shopping cart test method (as a guest only -> registered user will have the same result)
+    protected void removeProductFromShoppingCartTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page text element assert (without aside section)
+        isGeneralPageNoAsideTextElementAsExpected(generalPage);
+        //shopping cart web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //log shopping cart product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //capture screenshot of shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Display Before Product Removal");
+        //click 'Product remove' cart button
+        shoppingCartPage.clickProductRemoveButton(0);
+        //capture screenshot of shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Display After Product Removal");
+        //assert the user gets the expected message
+        assertEquals("Your shopping cart is empty", shoppingCartPage.getShoppingEmptyMessage(), "The shopping cart is empty message doesn't match expectations.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Product Removal From Shopping Cart Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)

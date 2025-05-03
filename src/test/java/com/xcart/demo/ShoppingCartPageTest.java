@@ -350,4 +350,18 @@ public class ShoppingCartPageTest extends TestMethods{
         updateShoppingCartQuantityTest();
     }
 
+    //remove product from shopping cart test
+
+    //Test 018 -> remove featured product ("Iphone 5c") quantity from shopping cart test (guest branch is tested only to avoid redundancy -> registered user will have the same result)
+    @Test
+    @DisplayName("Remove Featured Product From Shopping Cart Test")
+    @Tag("Remove_Product_From_Shopping_Cart")
+    @Tag("Test_As_A_Guest")
+    void productRemoveFromShoppingCartTest() {
+        //add single featured product ("Iphone 5c") to cart test (as a guest)
+        addSingleFeaturedProductToCartGuestTest();
+        //remove featured product ("Iphone 5c") quantity from shopping cart test
+        removeProductFromShoppingCartTest();
+    }
+
 }
