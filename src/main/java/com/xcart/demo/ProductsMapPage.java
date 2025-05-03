@@ -51,6 +51,27 @@ public class ProductsMapPage extends BasePage {
         productsMapPageProductAddToCartButtonElements.get(index).click();
     }
 
+    //click set product first letter name link on letter list method (products map)
+    public void clickSetProductFirstLetterOnList(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(productsMapPageLetterListElements.get(index)));
+        productsMapPageLetterListElements.get(index).click();
+    }
+
+    //click set product quantity dropdown menu method (products map)
+    public void clickSetProductQtyDropdownMenu(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(productsMapPageProductQtyDropdownMenuElements.get(index)));
+        productsMapPageProductQtyDropdownMenuElements.get(index).click();
+    }
+
+    //select set quantity for a set  product method
+    public void selectSetProductQtySeven(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(productsMapPageSetProductQtySevenOptionElements.get(index)));
+        productsMapPageSetProductQtySevenOptionElements.get(index).click();
+    }
+
     //product map page product data getters
     public List<String> getProductMapPageProductName(){return productsMapPageProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getProductMapPageProductUnitPrice(){return productsMapPageProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}

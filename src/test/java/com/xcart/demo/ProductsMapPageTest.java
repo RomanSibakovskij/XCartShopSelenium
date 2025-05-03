@@ -33,4 +33,15 @@ public class ProductsMapPageTest extends TestMethods{
         addSingleProductFromProductsMapToCartRegUserTest();
     }
 
+    //multiple products addition from products map to cart tests
+
+    //Test 008b -> add multiple products ("Genius Traveler 6000X Ambidextrous Mouse") from products map to cart test (as a guest)
+    @Test
+    @DisplayName("Multiple Products Addition From Products Map To Cart (as a guest)")
+    @Tag("Add_Multiple_Products_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void multipleProductsMapProductsGuestAddToCartTest() {
+        addMultipleProductsFromProductsMapToCartGuestTest();
+    }
+
 }

@@ -3756,6 +3756,62 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Single Product (Apple Dock Connector to USB Cable) Addition From Products Map To Cart Test Result (registered user)");
     }
 
+    //multiple products addition from products map to cart tests
+
+    //add multiple products ('Genius Traveler 6000X Ambidextrous Mouse') from product map to cart test (as a guest)
+    protected void addMultipleProductsFromProductsMapToCartGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        ProductsMapPage productsMapPage = new ProductsMapPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert
+        isGeneralPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Products map' aside link
+        generalPage.clickAsideProductsMapLink();
+        //capture screenshot of the products map display
+        captureScreenshot(driver, "Products Map Page Display");
+        //products map web element assert
+        isProductsMapPageWebElementDisplayed(productsMapPage);
+        //products map text element assert
+        isProductsMapTextElementAsExpected(productsMapPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //log products map page product data
+        logProductsMapPageProductData(productsMapPage);
+        //click set product first letter on letter list ('G')
+        productsMapPage.clickSetProductFirstLetterOnList(5);
+        //capture screenshot of the products map display after set letter selection
+        captureScreenshot(driver, "Products Map Page Display After Set First Letter Selection");
+        //click set product ('Genius Traveler 6000X Ambidextrous Mouse') quantity dropdown menu
+        productsMapPage.clickSetProductQtyDropdownMenu(1);
+        //select set product quantity (7)
+        productsMapPage.selectSetProductQtySeven(1);
+        //click set product ('Genius Traveler 6000X Ambidextrous Mouse') add to cart button
+        productsMapPage.clickProductsMapAddToCartButton(1);
+        //capture screenshot of the multiple products addition to cart (shopping cart form)
+        captureScreenshot(driver, "Multiple Products Shopping Cart Form Display (Genius Traveler 6000X Ambidextrous Mouse)");
+        //shopping cart form web element assert
+        isShoppingCartFormWebElementDisplayed(homePage);
+        //shopping cart form text element assert
+        isShoppingCartFormTextElementAsExpected(homePage);
+        //log shopping cart form product data
+        logShoppingCartFormProductData(homePage);
+        //click shopping cart form 'View Cart' button
+        homePage.clickViewCartButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Multiple Products (Genius Traveler 6000X Ambidextrous Mouse) Addition From Products Map To Cart Test Result (guest)");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)
