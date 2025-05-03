@@ -174,7 +174,7 @@ public class ShoppingCartPageTest extends TestMethods{
 
     //Test 014b -> add multiple single product page products ("Digital Angel") to check out test (as a guest)
     @Test
-    @DisplayName("Single Product Page Product Multiple Products Addition To Checkout Test (as a guest)")
+    @DisplayName("Single Product Page Multiple Products Addition To Checkout Test (as a guest)")
     @Tag("Add_Multiple_Searched_Products_To_Checkout")
     @Tag("Test_As_A_Guest")
     void multipleProductsSingleProductPageGuestAddToCheckoutTest() {
@@ -182,6 +182,25 @@ public class ShoppingCartPageTest extends TestMethods{
         addMultipleDigitalAngelProductToCartGuestTest();;
         //add multiple searched products ("Digital Angel") to check out test (as a guest)
         addProductToCheckoutTest();
+    }
+
+    //Test 014c -> add multiple single product page products ("Digital Angel") to check out test (as a registered user)
+    @Test
+    @DisplayName("Single Product Page Multiple Products Addition To Checkout Test (as a registered user)")
+    @Tag("Add_Multiple_Searched_Products_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void multipleProductsSingleProductPageRegUserAddToCheckoutTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add multiple searched products ("Digital Angel") to cart test (as a registered user)
+        addMultipleDigitalAngelProductsToCartRegUserTest();
+        //add multiple featured product ("Digital Angel") to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
     }
 
 }
