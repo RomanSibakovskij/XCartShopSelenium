@@ -3550,7 +3550,7 @@ protected void navigateToRegisterPageTest(){
 
     //multiple searched product addition to cart test
 
-    //add multiple searched products ('AMD A10-5800K') to cart test method (as a guest)
+    //add multiple searched products ('R/C Desktop Forklift') to cart test method (as a guest)
     protected void addMultipleSearchedProductToCartGuestTest(){
         GeneralPage generalPage = new GeneralPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -3588,9 +3588,9 @@ protected void navigateToRegisterPageTest(){
         //select set product quantity
         singleProductCategoryDashboardPage.selectSetProductQty(0);
         //set the set review stars review for a product //this product is being already set as rated already
-        singleProductCategoryDashboardPage.selectSetReviewStarsForSetProduct(0);
+        //singleProductCategoryDashboardPage.selectSetReviewStarsForSetProduct(0);
         //capture screenshot of the multiple searched products review stars setting
-        captureScreenshot(driver, "Multiple Searched Products Review Stars Setting Display");
+        //captureScreenshot(driver, "Multiple Searched Products Review Stars Setting Display");
         //click 'Add to cart' button
         singleProductCategoryDashboardPage.clickSetProductAddToCartButton(0);
         //capture screenshot of the multiple searched products addition to cart (shopping cart form)
@@ -3604,7 +3604,7 @@ protected void navigateToRegisterPageTest(){
         //click shopping cart form 'View Cart' button
         homePage.clickViewCartButton();
         //capture screenshot of the test result
-        captureScreenshot(driver, "Multiple Searched Products (R/C Desktop Forklift) Addition To Cart Test Result (guest)");
+        captureScreenshot(driver, "Multiple Searched Products (RC Desktop Forklift) Addition To Cart Test Result (guest)");
     }
     //add multiple searched products ('R/C Desktop Forklift') to cart test method (as a registered user)
     protected void addMultipleSearchedProductsToCartRegUserTest(){

@@ -104,4 +104,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutLowerButtonTest();
     }
 
+    //multiple searched products addition to check out tests
+
+    //Test 013b -> add multiple searched products ("R/C Desktop Forklift") to check out test (as a guest)
+    @Test
+    @DisplayName("Multiple Searched Products Addition To Checkout Test (as a guest)")
+    @Tag("Add_Multiple_Searched_Products_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void multipleSearchedProductsGuestAddToCheckoutTest() {
+        //add multiple searched products ("R/C Desktop Forklift") to cart test (as a guest)
+        addMultipleSearchedProductToCartGuestTest();
+        //add multiple searched products ("R/C Desktop Forklift") to check out test (as a guest)
+        addProductToCheckoutTest();
+    }
+
 }
