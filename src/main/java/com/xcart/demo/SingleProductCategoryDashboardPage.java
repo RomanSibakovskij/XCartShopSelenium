@@ -59,6 +59,27 @@ public class SingleProductCategoryDashboardPage extends BasePage{
         singleProductCategoryDashboardProductAddToCartButtonElements.get(index).click();
     }
 
+    //click set product quantity dropdown menu method
+    public void clickSetProductQtyDropdownMenu(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(singleProductCategoryDashboardProductQtyDropdownMenuElements.get(index)));
+        singleProductCategoryDashboardProductQtyDropdownMenuElements.get(index).click();
+    }
+
+    //select set quantity for a set product method
+    public void selectSetProductQty(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(singleProductCategoryDashboardSetProductFourQuantityOption.get(index)));
+        singleProductCategoryDashboardSetProductFourQuantityOption.get(index).click();
+    }
+
+    //select set review star rating for a set product method
+    public void selectSetReviewStarsForSetProduct(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(singleProductCategoryDashboardProductFourStarReviewElements.get(index)));
+        singleProductCategoryDashboardProductFourStarReviewElements.get(index).click();
+    }
+
     //single product dashboard page text element getters
     public String getSingleProductCategoryDashboardPageTitle() {return singleProductCategoryDashboardPageTitle.getText();}
     public String getSingleProductCategoryDashboardPageDescription() {return singleProductCategoryDashboardPageDescription.getText();}

@@ -99,4 +99,15 @@ public class HomePageTest extends TestMethods {
         addSingleSearchedProductToCartRegUserTest();
     }
 
+    //multiple searched products addition to cart tests
+
+    //Test 007f -> add multiple searched products ("R/C Desktop Forklift") to cart test (as a guest)
+    @Test
+    @DisplayName("Multiple Searched Products Addition To Cart Test (as a guest)")
+    @Tag("Add_Multiple_Searched_Products_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void multipleSearchedProductsGuestAddToCartTest() {
+        addMultipleSearchedProductToCartGuestTest();
+    }
+
 }
