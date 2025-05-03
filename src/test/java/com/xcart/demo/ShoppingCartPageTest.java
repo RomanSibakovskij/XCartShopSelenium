@@ -302,4 +302,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutLowerButtonTest();
     }
 
+    //single category multiple products addition to check out tests
+
+    //Test 016b -> add multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") to check out test (as a guest)
+    @Test
+    @DisplayName("Multiple Single Category Products Addition To Checkout Test(as a guest)")
+    @Tag("Add_Multiple_Single_Category_Products_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void multipleSingleCategoryProductsGuestAddToCheckoutTest() {
+        //add multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") to cart test (as a guest)
+        addSetProductCategoryMultipleProductsToCartTest();
+        //add multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") to check out test (as a guest)
+        addProductToCheckoutTest();
+    }
+
 }
