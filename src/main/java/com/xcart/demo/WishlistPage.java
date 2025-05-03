@@ -49,6 +49,13 @@ public class WishlistPage extends BasePage {
 
     public WishlistPage(WebDriver driver) {super(driver);}
 
+    //wishlist page product data getters
+    public List<String> getWishlistPageProductName(){return wishlistPageProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getWishlistPageProductUnitPrice(){return wishlistPageProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getWishlistPageProductQty(){return wishlistPageProductQtyInputFieldElements.stream().map(element -> element.getDomAttribute("value")).collect(Collectors.toList());}
+    public List<String> getWishlistPageProductTotalPrice(){return wishlistPageProductTotalPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getWishlistPageProductAltPrice(){return wishlistPageProductAltPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
     //wishlist page text element getters
     public String getWishlistPageTitle() {return wishlistPageTitle.getText();}
     public String getWishlistPageSendWishlistSubtext() {return wishlistPageSendWishlistSubtext.getText();}

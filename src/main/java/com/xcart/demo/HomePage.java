@@ -108,6 +108,13 @@ public class HomePage extends BasePage{
         featuredProductNameLinkElements.get(index).click();
     }
 
+    //click featured product 'Add to wishlist' button list method
+    public void clickFeaturedProductAddToWishlistButton(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(featuredProductAddToWishlistButtonElements.get(index)));
+        featuredProductAddToWishlistButtonElements.get(index).click();
+    }
+
     //click shopping cart 'View Cart' button list method
     public void clickViewCartButton(){
         Actions action = new Actions(driver);

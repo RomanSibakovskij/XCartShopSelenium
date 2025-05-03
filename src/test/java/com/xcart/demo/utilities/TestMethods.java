@@ -4390,6 +4390,48 @@ protected void navigateToRegisterPageTest(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //featured product addition to wishlist tests
+
+    //add featured product ('Thumb-Size R/C Mini Cooper [Detailed Images Demo]') to wishlist test method (only registered user has this feature)
+    protected void addFeaturedProductToWishlistRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        WishlistPage wishlistPage = new WishlistPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (this page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //click 'Home' navbar link
+        generalPage.clickNavbarHomeLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click set product ('Thumb-Size R/C Mini Cooper [Detailed Images Demo]') add to wishlist button
+        homePage.clickFeaturedProductAddToWishlistButton(2);
+        //wishlist page web element assert
+        isWishlistPageWebElementDisplayed(wishlistPage);
+        //wishlist page text element assert
+        isWishlistPageTextElementAsExpected(wishlistPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //log wishlist page product data
+        logWishlistPageProductData(wishlistPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Featured Product (Thumb-Size RC Mini Cooper) Add To Wishlist Test Result");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (without aside section)
     protected void isGeneralPageNoAsideWebElementDisplayed(GeneralPage generalPage){
         //header switcher
@@ -5413,6 +5455,19 @@ protected void navigateToRegisterPageTest(){
 
         logger.info("Customers also bought section product name(s): " + singleProductPage.getCustomersAlsoBoughtProductName());
         logger.info("Customers also bought section product unit price(s): " + singleProductPage.getCustomersAlsoBoughtProductUnitPrice());
+
+        System.out.println("\n");
+    }
+
+    //wishlist page product data logger method
+    protected void logWishlistPageProductData(WishlistPage wishlistPage){
+        System.out.println("Wishlist page displayed product data: " + "\n");
+
+        logger.info("Wishlist product name(s): " + wishlistPage.getWishlistPageProductName());
+        logger.info("Wishlist product unit price(s): " + wishlistPage.getWishlistPageProductUnitPrice());
+        logger.info("Wishlist product quantity(ies): " + wishlistPage.getWishlistPageProductQty());
+        logger.info("Wishlist product total price(s): " + wishlistPage.getWishlistPageProductTotalPrice());
+        logger.info("Wishlist product alt price(s): " + wishlistPage.getWishlistPageProductAltPrice());
 
         System.out.println("\n");
     }
