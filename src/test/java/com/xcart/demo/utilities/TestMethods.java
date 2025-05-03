@@ -4338,6 +4338,55 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Multiple Products (by Category) (The Lord of the Rings) Addition To Cart Test Result (guest)");
     }
+    //add multiple single category products ('The Lord of the Rings: 50th Anniversary, One Vol. Edition') to cart test (as a registered user)
+    protected void addSetProductCategoryMultipleProductsToCartRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        ProductsMapPage productsMapPage = new ProductsMapPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (this page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //click 'Books' aside link
+        generalPage.clickOtherAsideBooksLink();
+        //capture screenshot of the single category product dashboard page display
+        captureScreenshot(driver, "Single Category Product Dashboard (Books) Page Display");
+        //assert the user gets onto expected category page
+        assertEquals("Books", singleProductCategoryDashboardPage.getSingleProductCategoryDashboardPageTitle(), "The single category product page dashboard page title doesn't match expectations or the user is on the wrong category page.");
+        assertEquals("My Description of the category", singleProductCategoryDashboardPage.getSingleProductCategoryDashboardPageDescription(), "The single category product page dashboard page description doesn't match expectations or the user is on the wrong category page.");
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //log single category product dashboard page product data
+        logProductsMapPageProductData(productsMapPage);
+        //click 'Sort by product' link
+        singleProductCategoryDashboardPage.clickSortByProductLink();
+        //click set product ('The Lord of the Rings: 50th Anniversary, One Vol. Edition') quantity dropdown menu
+        productsMapPage.clickSetProductQtyDropdownMenu(4);
+        //select set product quantity
+        productsMapPage.selectSetProductQtySeven(4);
+        //click set product ('The Lord of the Rings: 50th Anniversary, One Vol. Edition') add to cart button
+        productsMapPage.clickProductsMapAddToCartButton(4);
+        //capture screenshot of the multiple searched products addition to cart (shopping cart form)
+        captureScreenshot(driver, "Multiple Product Shopping Cart Form Display (The Lord of the Rings)");
+        //shopping cart form web element assert
+        isShoppingCartFormWebElementDisplayed(homePage);
+        //shopping cart form text element assert
+        isShoppingCartFormTextElementAsExpected(homePage);
+        //log shopping cart form product data
+        logShoppingCartFormProductData(homePage);
+        //click shopping cart form 'View Cart' button
+        homePage.clickViewCartButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Multiple Products (by singular Category) (The Lord of the Rings) Addition To Cart Test Result (registered user)");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
