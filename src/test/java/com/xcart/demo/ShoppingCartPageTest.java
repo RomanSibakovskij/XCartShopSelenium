@@ -269,4 +269,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutLowerButtonTest();
     }
 
+    //single category product addition to check out tests
+
+    //Test 016 -> add single category product ("Anna Karenina") to check out (as a guest)
+    @Test
+    @DisplayName("Single Category Product Addition To Checkout Test (as a guest)")
+    @Tag("Add_Single_Category_Product_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void singleCategoryProductGuestAddProductToCheckoutTest() {
+        //add single category product ("Anna Karenina") to cart (as a guest)
+        addSingleProductCategoryProductToCartTest();
+        //add single category product ("Anna Karenina") to check out (as a guest)
+        addProductToCheckoutTest();
+    }
+
 }
