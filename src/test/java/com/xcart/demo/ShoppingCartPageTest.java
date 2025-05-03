@@ -283,4 +283,23 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 016a -> add single category product ("Anna Karenina") to check out test (as a registered user)
+    @Test
+    @DisplayName("Single Category Product Addition To Checkout Test (as a registered user)")
+    @Tag("Add_Single_Category_Product_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void singleCategoryProductRegUserAddProductToCheckoutTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add single category product ("Anna Karenina") to cart test (as a registered user)
+        addSingleProductCategoryToCartRegUserTest();
+        //add single category product ("Anna Karenina") to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+    }
+
 }
