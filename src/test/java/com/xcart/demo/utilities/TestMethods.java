@@ -5057,6 +5057,39 @@ protected void navigateToRegisterPageTest(){
         assertTrue(singleProductPage.isSingleProductCustomersAlsoBoughtProductUnitPriceDisplayed(), "The single product page customers also bought product unit prices aren't displayed");
     }
 
+    //wishlist page web element assert test method
+    protected void isWishlistPageWebElementDisplayed(WishlistPage wishlistPage) {
+        //assert wishlist page title is displayed
+        assertTrue(wishlistPage.isWishlistPageTitleDisplayed(), "The wishlist page title isn't displayed");
+        //assert wishlist page clear wishlist button is displayed
+        assertTrue(wishlistPage.isWishlistPageClearWishlistButtonDisplayed(), "The wishlist page clear wishlist button isn't displayed");
+        //assert wishlist page send wishlist subtext is displayed
+        assertTrue(wishlistPage.isWishlistPageSendWishlistSubtextDisplayed(), "The wishlist page send wishlist subtext isn't displayed");
+        //assert wishlist page email input field is displayed
+        assertTrue(wishlistPage.isWishlistPageEmailInputDisplayed(), "The wishlist page email input field isn't displayed");
+        //assert wishlist page send button is displayed
+        assertTrue(wishlistPage.isWishlistPageSendButtonDisplayed(), "The wishlist page send button isn't displayed");
+        //list elements
+        //assert wishlist page product remove buttons are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistProductRemoveButtonDisplayed(), "The wishlist product remove buttons aren't displayed");
+        //assert wishlist page product images are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistProductImageDisplayed(), "The wishlist product images aren't displayed");
+        //assert wishlist page product name link are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistProductNameLinkDisplayed(), "The wishlist product name link aren't displayed");
+        //assert wishlist page product unit prices are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistProductUnitPriceDisplayed(), "The wishlist product unit prices aren't displayed");
+        //assert wishlist page product quantity input fields are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistProductQtyInputFieldDisplayed(), "The wishlist product quantity input fields aren't displayed");
+        //assert wishlist page product total prices are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistProductTotalPriceDisplayed(), "The wishlist product total prices aren't displayed");
+        //assert wishlist page product alt prices are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistProductAltPriceDisplayed(), "The wishlist product alt prices aren't displayed");
+        //assert wishlist page product update buttons are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistProductUpdateButtonDisplayed(), "The wishlist product update buttons aren't displayed");
+        //assert wishlist page product add to cart buttons are displayed (as a list)
+        assertTrue(wishlistPage.isWishlistProductAddToCartButtonDisplayed(), "The wishlist product add to cart buttons aren't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -5280,6 +5313,14 @@ protected void navigateToRegisterPageTest(){
     protected void isProductsMapTextElementAsExpected(ProductsMapPage productsMapPage) {
         //assert products map page title is as expected
         assertEquals("Products Map", productsMapPage.getProductsMapPageTitle(), "The products map page title doesn't match expectations.");
+    }
+
+    //wishlist page text element assert test method
+    protected void isWishlistPageTextElementAsExpected(WishlistPage wishlistPage) {
+        //assert wishlist page title is as expected
+        assertEquals("Wish list", wishlistPage.getWishlistPageTitle(), "The wishlist page title doesn't match expectations.");
+        //assert wishlist page send wishlist subtext is as expected
+        assertEquals("Send entire wish list by email:", wishlistPage.getWishlistPageSendWishlistSubtext(), "The wishlist page send wishlist subtext doesn't match expectations.");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
