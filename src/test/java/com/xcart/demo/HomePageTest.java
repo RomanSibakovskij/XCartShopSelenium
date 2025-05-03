@@ -127,6 +127,4 @@ public class HomePageTest extends TestMethods {
         addMultipleSearchedProductsToCartRegUserTest();
     }
 
-    
-
 }

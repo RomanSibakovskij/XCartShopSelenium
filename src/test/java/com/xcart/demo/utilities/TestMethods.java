@@ -3811,6 +3811,57 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Multiple Products (Genius Traveler 6000X Ambidextrous Mouse) Addition From Products Map To Cart Test Result (guest)");
     }
+    //add multiple products ('iMac') from product map to cart test (as a registered user)
+    protected void addMultipleProductsFromProductsMapToCartRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        ProductsMapPage productsMapPage = new ProductsMapPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (this page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //click 'Products map' aside link
+        generalPage.clickAsideProductsMapLink();
+        //capture screenshot of the products map display
+        captureScreenshot(driver, "Products Map Page Display");
+        //products map web element assert
+        isProductsMapPageWebElementDisplayed(productsMapPage);
+        //products map text element assert
+        isProductsMapTextElementAsExpected(productsMapPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //log products map page product data
+        logProductsMapPageProductData(productsMapPage);
+        //click set product first letter on letter list ('I')
+        productsMapPage.clickSetProductFirstLetterOnList(7);
+        //capture screenshot of the products map display after set letter selection
+        captureScreenshot(driver, "Products Map Page Display After Set First Letter Selection");
+        //click set product ('iMac') quantity dropdown menu
+        productsMapPage.clickSetProductQtyDropdownMenu(2);
+        //select set product quantity (7)
+        productsMapPage.selectSetProductQtySeven(2);
+        //click set product ('iMac') add to cart button
+        productsMapPage.clickProductsMapAddToCartButton(2);
+        //capture screenshot of the multiple products addition to cart (shopping cart form)
+        captureScreenshot(driver, "Multiple Products Shopping Cart Form Display (iMac)");
+        //shopping cart form web element assert
+        isShoppingCartFormWebElementDisplayed(homePage);
+        //shopping cart form text element assert
+        isShoppingCartFormTextElementAsExpected(homePage);
+        //log shopping cart form product data
+        logShoppingCartFormProductData(homePage);
+        //click shopping cart form 'View Cart' button
+        homePage.clickViewCartButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Multiple Products (iMac) Addition From Products Map To Cart Test Result (registered user)");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
