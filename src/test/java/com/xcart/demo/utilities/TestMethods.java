@@ -4228,6 +4228,35 @@ protected void navigateToRegisterPageTest(){
         assertTrue(singleProductCategoryDashboardPage.isSearchedProductDashboardPageThisPageURLDisplayed(), "The searched product dashboard page 'this page URL' link isn't displayed");
     }
 
+    //products map page web element assert test method
+    protected void isProductsMapPageWebElementDisplayed(ProductsMapPage productsMapPage) {
+        //assert products map page title is displayed
+        assertTrue(productsMapPage.isProductsMapPageTitleDisplayed(), "The products map page title isn't displayed");
+        //list elements
+        //assert product map page letter list elements are displayed (as a list)
+        assertTrue(productsMapPage.isProductsMapPageLetterListDisplayed(), "The products map page letter list elements aren't displayed");
+        //assert products map page upper pagination elements are displayed (as a list)
+        assertTrue(productsMapPage.isProductsMapPageUpperPaginationDisplayed(), "The products map page upper pagination elements aren't displayed");
+        //assert products map page product images are displayed (as a list)
+        assertTrue(productsMapPage.isProductsMapPageProductImageDisplayed(), "The products map page product images aren't displayed");
+        //assert products map page product name link are displayed (as a list)
+        assertTrue(productsMapPage.isProductsMapPageProductNameLinkDisplayed(), "The products map page product name links aren't displayed");
+        //assert products map page product unit prices are displayed (as a list)
+        assertTrue(productsMapPage.isProductsMapPageProductUnitPriceDisplayed(), "The products map page product unit prices aren't displayed");
+        //assert products map page product alt prices are displayed (as a list)
+        assertTrue(productsMapPage.isProductsMapPageProductAltPriceDisplayed(), "The products map page product alt prices aren't displayed");
+        //assert products map page product rating stars are displayed (as a list)
+        assertTrue(productsMapPage.isProductsMapPageProductRatingStarDisplayed(), "The products map page product rating stars aren't displayed");
+        //assert products map page product quantity dropdown menus are displayed (as a list)
+        assertTrue(productsMapPage.isProductsMapPageProductQtyDropdownMenuDisplayed(), "The products map page product quantity dropdown menus aren't displayed");
+        //assert products map page product add to cart buttons are displayed (as a list)
+        assertTrue(productsMapPage.isProductsMapPageProductAddToCartButtonDisplayed(), "The products map page product add to cart buttons aren't displayed");
+        //assert products map page product add to wishlist are displayed (as a list)
+        assertTrue(productsMapPage.isProductsMapPageProductAddToWishlistDisplayed(), "The products map page product product add to wishlist buttons aren't displayed");
+        //assert products map page lower pagination elements are displayed (as a list)
+        assertTrue(productsMapPage.isProductsMapPageLowerPaginationDisplayed(), "The products map page product lower pagination elements aren't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -4445,6 +4474,12 @@ protected void navigateToRegisterPageTest(){
     protected void isSingleProductCategoryDashboardPageTextElementAsExpected(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage) {
         //assert single product category dashboard page subtitle is as expected
         assertEquals("Products", singleProductCategoryDashboardPage.getSingleProductCategoryDashboardPageSubtitle(), "The single product category dashboard page subtitle doesn't match expectations.");
+    }
+
+    //products map page text element assert test method
+    protected void isProductsMapTextElementAsExpected(ProductsMapPage productsMapPage) {
+        //assert products map page title is as expected
+        assertEquals("Products Map", productsMapPage.getProductsMapPageTitle(), "The products map page title doesn't match expectations.");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
