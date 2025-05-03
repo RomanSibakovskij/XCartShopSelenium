@@ -56,6 +56,20 @@ public class WishlistPage extends BasePage {
         wishlistPageProductAddToCartButtonElements.get(index).click();
     }
 
+    //click 'Update' wishlist button method
+    public void clickUpdateWishlistButton(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(wishlistPageProductAddToCartButtonElements.get(index)));
+        wishlistPageProductAddToCartButtonElements.get(index).click();
+    }
+
+    //update product quantity in wishlist method
+    public void updateWishlistProductQuantity(int index){
+        wishlistPageProductQtyInputFieldElements.get(index).clear();
+        wishlistPageProductQtyInputFieldElements.get(index).sendKeys("8");
+        wishlistPageProductUpdateButtonElements.get(index).click();
+    }
+
     //wishlist page product data getters
     public List<String> getWishlistPageProductName(){return wishlistPageProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getWishlistPageProductUnitPrice(){return wishlistPageProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
