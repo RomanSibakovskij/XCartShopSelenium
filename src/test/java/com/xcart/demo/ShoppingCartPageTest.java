@@ -316,4 +316,23 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 016c -> add multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") to check out test (as a registered user)
+    @Test
+    @DisplayName("Multiple Single Category Products Addition To Checkout Test(as a registered user)")
+    @Tag("Add_Multiple_Single_Category_Products_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void multipleSingleCategoryProductsRegUserAddToCheckoutTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") to cart test (as a registered user)
+        addSetProductCategoryMultipleProductsToCartRegUserTest();
+        //add multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") from products map to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+    }
+
 }
