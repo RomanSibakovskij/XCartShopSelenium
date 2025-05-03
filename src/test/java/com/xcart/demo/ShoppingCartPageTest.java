@@ -151,4 +151,23 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 014a -> add single featured product ("Digital Angel") to check out test (as a registered user)
+    @Test
+    @DisplayName("Single Product Page Product Addition To Checkout Test (as a registered user)")
+    @Tag("Add_Single_Product_Page_Product_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void singleProductPageProductRegUserAddToCheckoutTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add single featured product ("Digital Angel") to cart test (as a registered user)
+        addSingleDigitalAngelProductToCartRegUserTest();;
+        //add single featured product ("Digital Angel") to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+    }
+
 }
