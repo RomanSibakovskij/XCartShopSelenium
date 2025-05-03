@@ -335,4 +335,19 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutLowerButtonTest();
     }
 
+    //update product quantity in shopping cart test
+
+    //Test 017 -> update featured product ("Iphone 5c") quantity during addition to check out test (guest branch is tested only to avoid redundancy -> registered user will have the same result)
+    @Test
+    @DisplayName("Update Featured Product Quantity During Addition To Checkout Test")
+    @Tag("Add_Single_Featured_Product_To_Checkout")
+    @Tag("Update_Product_Qty_In_Checkout")
+    @Tag("Test_As_A_Guest")
+    void updateProductQtyInShoppingCartTest() {
+        //add single featured product ("Iphone 5c") to cart test (as a guest)
+        addSingleFeaturedProductToCartGuestTest();
+        //update featured product ("Iphone 5c") quantity during addition to check out test
+        updateShoppingCartQuantityTest();
+    }
+
 }

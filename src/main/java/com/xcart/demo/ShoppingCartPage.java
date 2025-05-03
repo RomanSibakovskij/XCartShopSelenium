@@ -179,6 +179,16 @@ public class ShoppingCartPage extends BasePage {
         return shoppingCartTenDollarLimitErrorMessage.isDisplayed();
     }
 
+    //input product quantity into shopping cart product qty input field method
+    public void changeShoppingCartProductQty(int index){
+        shoppingCartPageProductQtyInputFieldElements.get(index).clear();
+        shoppingCartPageProductQtyInputFieldElements.get(index).sendKeys("8");
+        shoppingCartPageProductQtyInputFieldElements.get(index).click();
+    }
+
+    //click 'Update cart' button
+    public void clickUpdateCartButton(){shoppingCartUpdateCartButton.click();}
+
     //discount section
     public boolean isShoppingCartDiscountSectionTitleDisplayed() {return shoppingCartDiscountSectionTitle.isDisplayed();}
     public boolean isShoppingCartDiscountSubtextDisplayed() {return shoppingCartDiscountSubtext.isDisplayed();}

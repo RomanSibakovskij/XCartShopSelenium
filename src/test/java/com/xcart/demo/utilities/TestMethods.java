@@ -4755,6 +4755,43 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Product Addition To Checkout Test Result (guest)");
     }
 
+    //update product count in shopping cart test method (as a guest only -> registered user will have the same result)
+    protected void updateShoppingCartQuantityTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page text element assert (without aside section)
+        isGeneralPageNoAsideTextElementAsExpected(generalPage);
+        //shopping cart web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //shopping cart web element asserts
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        isShoppingCartProductDetailsSectionWebElementDisplayed(shoppingCartPage);
+        //shopping cart text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //log shopping cart product details data
+        logShoppingCartPageProductDetailsData(shoppingCartPage);
+        //log shopping cart product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //capture screenshot of shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Display Before Quantity Update");
+        //change product quantity
+        shoppingCartPage.changeShoppingCartProductQty(0);
+        //click 'Update' cart button
+        shoppingCartPage.clickUpdateCartButton();
+        //log shopping cart product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //capture screenshot of product quantity update in shopping cart page
+        captureScreenshot(driver, "Updated Product Quantity in Shopping Cart");
+        //click upper 'Checkout' button
+        shoppingCartPage.clickUpperCheckoutButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Recently Updated Product (by quantity) Addition To Checkout Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)
