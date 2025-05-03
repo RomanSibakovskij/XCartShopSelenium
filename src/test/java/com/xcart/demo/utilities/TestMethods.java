@@ -4454,6 +4454,84 @@ protected void navigateToRegisterPageTest(){
         assertTrue(productsMapPage.isProductsMapPageLowerPaginationDisplayed(), "The products map page product lower pagination elements aren't displayed");
     }
 
+    //single product page web element assert test method
+    protected void isSingleProductPageWebElementDisplayed(SingleProductPage singleProductPage) {
+        //assert single product page previous product link is displayed
+        assertTrue(singleProductPage.isSingleProductPagePreviousLinkDisplayed(), "The single product page previous product link isn't displayed");
+        //assert single product page next product link is displayed
+        assertTrue(singleProductPage.isSingleProductPageNextLinkDisplayed(), "The single product page next product link isn't displayed");
+        //assert single product page title is displayed
+        assertTrue(singleProductPage.isSingleProductPageTitleDisplayed(), "The single product page title isn't displayed");
+        //assert single product page main image is displayed
+        assertTrue(singleProductPage.isSingleProductMainImageDisplayed(), "The single product page main image isn't displayed");
+        //assert single product page product SKU is displayed
+        assertTrue(singleProductPage.isSingleProductSKUDisplayed(), "The single product page product SKU isn't displayed");
+        //assert single product page product unit price is displayed
+        assertTrue(singleProductPage.isSingleProductUnitPriceDisplayed(), "The single product page product unit price isn't displayed");
+        //assert single product page product alt price is displayed
+        assertTrue(singleProductPage.isSingleProductAltPriceDisplayed(), "The single product page product alt price isn't displayed");
+        //assert single product page product quantity dropdown menu is displayed
+        assertTrue(singleProductPage.isSingleProductQtyDropdownMenuDisplayed(), "The single product page product quantity dropdown menu isn't displayed");
+        //assert single product page product add to cart button is displayed
+        assertTrue(singleProductPage.isSingleProductAddToCartButtonDisplayed(), "The single product page product add to cart button isn't displayed");
+        //assert single product page product add to wishlist is displayed
+        assertTrue(singleProductPage.isSingleProductAddToWishlistButtonDisplayed(), "The single product page product add to wishlist button isn't displayed");
+        //assert single product page product description is displayed
+        assertTrue(singleProductPage.isSingleProductDescriptionDisplayed(), "The single product page product description isn't displayed");
+        //assert single product page product demo box text is displayed
+        assertTrue(singleProductPage.isSingleProductDemoBoxTextDisplayed(), "The single product page product demo box text isn't displayed");
+        //assert single product page product think geek link is displayed
+        assertTrue(singleProductPage.isSingleProductThinkGeekLinkDisplayed(), "The single product page product think geek link isn't displayed");
+        //assert single product page product x button is displayed
+        assertTrue(singleProductPage.isSingleProductXButtonDisplayed(), "The single product page product X button isn't displayed");
+        //assert single product page product pin it button is displayed
+        assertTrue(singleProductPage.isSingleProductPinItButtonDisplayed(), "The single product page product pin it button isn't displayed");
+        //assert single product page product ask questions button is displayed
+        assertTrue(singleProductPage.isSingleProductAskQuestionButtonDisplayed(), "The single product page product ask question button isn't displayed");
+        //send to friend section
+        //assert single product page send to friend link is displayed
+        assertTrue(singleProductPage.isSingleProductSendToFriendLinkDisplayed(), "The single product page send to friend link isn't displayed");
+        //assert single product page send to friend name input field is displayed
+        assertTrue(singleProductPage.isSingleProductNameInputFieldDisplayed(), "The single product page send to friend name input field isn't displayed");
+        //assert single product page send to friend email input field is displayed
+        assertTrue(singleProductPage.isSingleProductEmailInputFieldDisplayed(), "The single product page send to friend email input field isn't displayed");
+        //assert single product page send to friend recipient email input field is displayed
+        assertTrue(singleProductPage.isSingleProductRecipientEmailInputFieldDisplayed(), "The single product page send to friend recipient email input field isn't displayed");
+        //assert single product page send to friend add personal message checkbox is displayed
+        assertTrue(singleProductPage.isSingleProductAddPersonalMessageCheckboxDisplayed(), "The single product page send to friend add personal message checkbox isn't displayed");
+        //assert single product page send to friend captcha hint is displayed
+        assertTrue(singleProductPage.isSingleProductCaptchaHintDisplayed(), "The single product page send to friend captcha hint isn't displayed");
+        //assert single product page send to friend captcha image box is displayed
+        assertTrue(singleProductPage.isSingleProductCaptchaImageBoxDisplayed(), "The single product page send to friend captcha image box isn't displayed");
+        //assert single product page send to friend captcha different code link is displayed
+        assertTrue(singleProductPage.isSingleProductCaptchaDifferentCodeLinkDisplayed(), "The single product page send to friend captcha different code link isn't displayed");
+        //assert single product page send to friend captcha code input field is displayed
+        assertTrue(singleProductPage.isSingleProductCaptchaCodeInputFieldDisplayed(), "The single product page send to friend captcha code input field isn't displayed");
+        //assert single product page send to friend button is displayed
+        assertTrue(singleProductPage.isSingleProductSendToFriendButtonDisplayed(), "The single product page send to friend button isn't displayed");
+        //customers feedback section
+        //assert single product page customers feedback link is displayed
+        assertTrue(singleProductPage.isSingleProductCustomersFeedbackLinkDisplayed(), "The single product page customers feedback link isn't displayed");
+    }
+
+    //single product page (Digital Angel' t-shirt) web element assert test method
+    protected void isSingleProductTShirtPageWebElementDisplayed(SingleProductPage singleProductPage) {
+        //assert single product page product weight is displayed
+        assertTrue(singleProductPage.isSingleProductWeightDisplayed(), "The single product page product weight isn't displayed");
+        //assert single product page product size dropdown menu is displayed
+        assertTrue(singleProductPage.isSingleProductSizeDropdownMenuDisplayed(), "The single product page product size dropdown menu isn't displayed");
+        //customers also bought section
+        //assert single product page customers also bought link is displayed
+        assertTrue(singleProductPage.isSingleProductCustomersAlsoBoughtLinkDisplayed(), "The single product page customers also bought link isn't displayed");
+        //list elements
+        //assert single product page customers also bought product images are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductCustomersAlsoBoughtProductImageDisplayed(), "The single product page customers also bought product images aren't displayed");
+        //assert single product page customers also bought product name links are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductCustomersAlsoBoughtProductNameLinkDisplayed(), "The single product page customers also bought product name links aren't displayed");
+        //assert single product page customers also bought product unit prices are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductCustomersAlsoBoughtProductUnitPriceDisplayed(), "The single product page customers also bought product unit prices aren't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -4678,6 +4756,8 @@ protected void navigateToRegisterPageTest(){
         //assert products map page title is as expected
         assertEquals("Products Map", productsMapPage.getProductsMapPageTitle(), "The products map page title doesn't match expectations.");
     }
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
