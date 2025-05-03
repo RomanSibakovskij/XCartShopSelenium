@@ -4469,6 +4469,50 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Multiple Featured Products (Thumb-Size RC Mini Cooper) Add To Wishlist Test Result");
     }
 
+    //featured product addition to cart from wishlist tests
+
+    //add featured product ('Thumb-Size R/C Mini Cooper [Detailed Images Demo]') from wishlist to cart test method (only registered user has this feature)
+    protected void addFeaturedProductFromWishlistToCartRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        WishlistPage wishlistPage = new WishlistPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (this page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //click 'Home' navbar link
+        generalPage.clickNavbarHomeLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click set product ('Thumb-Size R/C Mini Cooper [Detailed Images Demo]') add to wishlist button
+        homePage.clickFeaturedProductAddToWishlistButton(2);
+        //wishlist page web element assert
+        isWishlistPageWebElementDisplayed(wishlistPage);
+        //wishlist page text element assert
+        isWishlistPageTextElementAsExpected(wishlistPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //log wishlist page product data
+        logWishlistPageProductData(wishlistPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Wishlist Page Display");
+        //click 'Add to cart' product button
+        wishlistPage.clickAddToCartFromWishlistButton(0);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Featured Product (Thumb-Size RC Mini Cooper) Add To Cart From Wishlist Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)

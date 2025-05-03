@@ -41,4 +41,23 @@ public class WishlistPageTest extends TestMethods{
         addMultipleFeaturedProductsToWishlistRegUserTest();
     }
 
+    //product addition to cart from wishlist test
+
+    //Test 011b -> add single featured product ("Thumb-Size R/C Mini Cooper [Detailed Images Demo]") to cart from wishlist test (as a registered user)
+    @Test
+    @DisplayName("Single Featured Product Addition To Cart From Wishlist Test (as a registered user)")
+    @Tag("Add_Single_Featured_Product_To_Cart_From_Wishlist")
+    @Tag("Test_As_A_Reg_User")
+    void singleFeaturedProductRegUserAddToCartFromWishlistTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add single featured product ("Thumb-Size R/C Mini Cooper [Detailed Images Demo]") to cart from wishlist test (as a registered user)
+        addFeaturedProductFromWishlistToCartRegUserTest();
+    }
+
 }

@@ -49,6 +49,13 @@ public class WishlistPage extends BasePage {
 
     public WishlistPage(WebDriver driver) {super(driver);}
 
+    //click 'Add to cart' product button method
+    public void clickAddToCartFromWishlistButton(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(wishlistPageProductAddToCartButtonElements.get(index)));
+        wishlistPageProductAddToCartButtonElements.get(index).click();
+    }
+
     //wishlist page product data getters
     public List<String> getWishlistPageProductName(){return wishlistPageProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getWishlistPageProductUnitPrice(){return wishlistPageProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
