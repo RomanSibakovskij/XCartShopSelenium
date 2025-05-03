@@ -82,4 +82,21 @@ public class HomePageTest extends TestMethods {
         addSingleSearchedProductToCartGuestTest();
     }
 
+    //Test 007e -> add single featured product ("R/C Desktop Forklift") to cart test (as a registered user)
+    @Test
+    @DisplayName("Single Searched Product Addition To Cart Test (as a registered user)")
+    @Tag("Add_Single_Searched_Product_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void singleSearchedProductRegUserAddToCartTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add single featured product ("R/C Desktop Forklift") to cart test (as a registered user)
+        addSingleSearchedProductToCartRegUserTest();
+    }
+
 }

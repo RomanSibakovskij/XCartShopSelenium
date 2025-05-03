@@ -157,8 +157,9 @@ public class GeneralPage extends BasePage {
     //click navbar 'Home' link method
     public void clickNavbarHomeLink(){navbarHomeLink.click();}
 
-    //input search query into header search bar method
+    //input search query into header search bar methods
     public void inputAMDProductSearchQueryIntoSearchBar(){headerSearchBarInputField.sendKeys("AMD A10-5800K");}
+    public void inputRCForkliftProductSearchQueryIntoSearchBar(){headerSearchBarInputField.sendKeys("R/C Desktop Forklift");}
 
     //click 'Search' button method
     public void clickSearchBarButton(){headerSearchBarButton.click();}
