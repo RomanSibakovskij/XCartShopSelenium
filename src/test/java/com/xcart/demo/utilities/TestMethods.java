@@ -5350,6 +5350,73 @@ protected void navigateToRegisterPageTest(){
         assertTrue(wishlistPage.isWishlistProductAddToCartButtonDisplayed(), "The wishlist product add to cart buttons aren't displayed");
     }
 
+    //shopping cart page web element assert test method
+    protected void isShoppingCartPageWebElementDisplayed(ShoppingCartPage shoppingCartPage) {
+        //assert shopping cart page title is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageTitleDisplayed(), "The shopping cart page title isn't displayed");
+        //assert shopping cart page upper continue shopping button is displayed
+        //assertTrue(shoppingCartPage.isShoppingCartPageUpperContinueShoppingButtonDisplayed(), "The shopping cart page upper continue shopping button isn't displayed");
+        //assert shopping cart page upper checkout button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageUpperCheckoutButtonDisplayed(), "The shopping cart page upper checkout button isn't displayed");
+        //assert shopping cart page description is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageDescriptionDisplayed(), "The shopping cart page description isn't displayed");
+        //order subtotal
+        //assert shopping cart subtotal subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartSubtotalSubtextDisplayed(), "The shopping cart subtotal subtext isn't displayed");
+        //assert shopping cart page order subtotal price is displayed
+        assertTrue(shoppingCartPage.isShoppingCartOrderSubtotalPriceDisplayed(), "The shopping cart page order subtotal price isn't displayed");
+        //assert shopping cart page order alt price is displayed
+        assertTrue(shoppingCartPage.isShoppingCartOrderSubtotalAltPriceDisplayed(), "The shopping cart page order alt price isn't displayed");
+        //assert shopping cart page add gift wrap checkbox is displayed
+        assertTrue(shoppingCartPage.isShoppingCartAddGiftWrapCheckboxDisplayed(), "The shopping cart page add gift wrap checkbox isn't displayed");
+        //assert shopping cart page add gift wrap subtitle is displayed
+        assertTrue(shoppingCartPage.isShoppingCartAddGiftWrapSubtitleDisplayed(), "The shopping cart page add gift wrap subtitle isn't displayed");
+        //assert shopping cart page update gift wrap button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartUpdateGiftWrapButtonDisplayed(), "The shopping cart page update gift wrap button isn't displayed");
+        //assert shopping cart page update cart button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartUpdateCartButtonDisplayed(), "The shopping cart page update cart button isn't displayed");
+        //assert shopping cart page clear cart link is displayed
+        assertTrue(shoppingCartPage.isShoppingCartClearCartLinkDisplayed(), "The shopping cart page clear cart link isn't displayed");
+        //assert shopping cart page checkout button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartCheckoutButtonDisplayed(), "The shopping cart page checkout button isn't displayed");
+        //discount section
+        //assert shopping cart page discount section title is displayed
+        assertTrue(shoppingCartPage.isShoppingCartDiscountSectionTitleDisplayed(), "The shopping cart page discount section title isn't displayed");
+        //assert shopping cart page discount subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartDiscountSubtextDisplayed(), "The shopping cart page discount subtext isn't displayed");
+        //assert shopping cart page discount coupon code is displayed
+        assertTrue(shoppingCartPage.isShoppingCartDiscountCouponCodeInputDisplayed(), "The shopping cart page discount coupon code isn't displayed");
+        //assert shopping cart page discount code submit button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartDiscountCodeSubmitButtonDisplayed(), "The shopping cart page discount code submit button isn't displayed");
+        //list elements
+        //assert shopping cart page product remove buttons are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductRemoveButtonDisplayed(), "The shopping cart page product remove buttons aren't displayed");
+        //assert shopping cart page product images are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductImageDisplayed(), "The shopping cart page product images aren't displayed");
+        //assert shopping cart page product name links are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductNameLinkDisplayed(), "The shopping cart page product name links aren't displayed");
+        //assert shopping cart page product unit prices are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductUnitPriceDisplayed(), "The shopping cart page product unit prices aren't displayed");
+        //assert shopping cart page product quantities are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductQtyInputFieldDisplayed(), "The shopping cart page product quantities aren't displayed");
+        //assert shopping cart page product total prices are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductTotalPriceDisplayed(), "The shopping cart page product total prices aren't displayed");
+        //assert shopping cart page product alt prices are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductAltPriceDisplayed(), "The shopping cart page product alt prices aren't displayed");
+        //assert shopping cart page product update item buttons are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageUpdateItemButtonDisplayed(), "The shopping cart page update item buttons aren't displayed");
+        //assert shopping cart page move to wishlist buttons are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageMoveToWishlistButtonDisplayed(), "The shopping cart page move to wishlist buttons aren't displayed");
+    }
+
+    //shopping cart page product details section web element assert test method
+    protected void isShoppingCartProductDetailsSectionWebElementDisplayed(ShoppingCartPage shoppingCartPage) {
+        //assert shopping cart page product details are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductDetailsDisplayed(), "The shopping cart page product details aren't displayed");
+        //assert shopping cart page product options links are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartPageProductOptionsLinkDisplayed(), "The shopping cart page product options links aren't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -5581,6 +5648,22 @@ protected void navigateToRegisterPageTest(){
         assertEquals("Wish list", wishlistPage.getWishlistPageTitle(), "The wishlist page title doesn't match expectations.");
         //assert wishlist page send wishlist subtext is as expected
         assertEquals("Send entire wish list by email:", wishlistPage.getWishlistPageSendWishlistSubtext(), "The wishlist page send wishlist subtext doesn't match expectations.");
+    }
+
+    //shopping cart page text element assert test method
+    protected void isShoppingCartPageTextElementAsExpected(ShoppingCartPage shoppingCartPage) {
+        //assert shopping cart page title is as expected
+        assertEquals("Your shopping cart", shoppingCartPage.getShoppingCartPageTitle(), "The shopping cart page title doesn't match expectations.");
+        //assert shopping cart page description is as expected
+        assertEquals("Please note: 1) Delivery Method is ignored if you are ordering Gift Certificates or electronically distributed products. 2) Gift Certificates are redeemed during Checkout process.", shoppingCartPage.getShoppingCartPageDescription(), "The shopping cart page description doesn't match expectations.");
+        //assert shopping cart page subtotal subtitle is as expected
+        assertEquals("Subtotal:", shoppingCartPage.getShoppingCartSubtotalSubtitle(), "The shopping cart page subtotal subtitle doesn't match expectations.");
+        //assert shopping cart page add gift to wrap subtitle is as expected
+        assertEquals("Add gift wrap", shoppingCartPage.getShoppingCartAddGiftWrapSubtitle(), "The shopping cart page add gift to wrap subtitle doesn't match expectations.");
+        //assert shopping cart page discount section title is as expected
+        assertEquals("Redeem a discount coupon", shoppingCartPage.getShoppingCartDiscountSectionTitle(), "The shopping cart page discount section title doesn't match expectations.");
+        //assert shopping cart page discount subtext is as expected
+        assertEquals("Have a coupon?", shoppingCartPage.getShoppingCartDiscountSubtext(), "The shopping cart page discount subtext doesn't match expectations.");
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
