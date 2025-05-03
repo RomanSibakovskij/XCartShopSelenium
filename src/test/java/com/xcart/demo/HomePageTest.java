@@ -71,4 +71,15 @@ public class HomePageTest extends TestMethods {
         addMultipleFeaturedProductToCartRegUserTest();
     }
 
+    //single searched product addition to cart tests
+
+    //Test 007d -> add single searched product ("AMD A10-5800K") to cart test (as a guest)
+    @Test
+    @DisplayName("Single Searched Product Addition To Cart Test (as a guest)")
+    @Tag("Add_Single_Searched_Product_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void singleSearchedProductGuestAddToCartTest() {
+        addSingleSearchedProductToCartGuestTest();
+    }
+
 }

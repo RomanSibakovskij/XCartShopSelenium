@@ -52,6 +52,13 @@ public class SingleProductCategoryDashboardPage extends BasePage{
 
     public SingleProductCategoryDashboardPage(WebDriver driver) {super(driver);}
 
+    //click specific product 'Add to cart' button list method
+    public void clickSetProductAddToCartButton(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(singleProductCategoryDashboardProductAddToCartButtonElements.get(index)));
+        singleProductCategoryDashboardProductAddToCartButtonElements.get(index).click();
+    }
+
     //single product dashboard page text element getters
     public String getSingleProductCategoryDashboardPageTitle() {return singleProductCategoryDashboardPageTitle.getText();}
     public String getSingleProductCategoryDashboardPageDescription() {return singleProductCategoryDashboardPageDescription.getText();}

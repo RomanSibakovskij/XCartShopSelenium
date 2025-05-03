@@ -3441,6 +3441,59 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Multiple Featured Product Addition To Cart Test Result (registered user)");
     }
 
+    //searched product addition to cart tests
+
+    //single searched product tests
+
+    //add searched product ('AMD A10-5800K') to cart test method (as a guest)
+    protected void addSingleSearchedProductToCartGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert
+        isGeneralPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //input search query ('AMD A10-5800K') into header search bar
+        generalPage.inputAMDProductSearchQueryIntoSearchBar();
+        //click 'Search' button
+        generalPage.clickSearchBarButton();
+        //capture screenshot of the searched product dashboard page
+        captureScreenshot(driver, "Searched Product Dashboard Page Display");
+        //searched product dashboard page web element asserts (with the addition of 'This page URL' link)
+        isSingleProductCategoryDashboardPageWebElementDisplayed(singleProductCategoryDashboardPage);
+        isSearchedProductDashboardPageWebElementDisplayed(singleProductCategoryDashboardPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //single product dashboard text element assert
+        isSingleProductCategoryDashboardPageTextElementAsExpected(singleProductCategoryDashboardPage);
+        //log searched product dashboard page displayed product data (same exact logger method as for single product category dashboard page)
+        logSingleProductCategoryDashboardPageProductData(singleProductCategoryDashboardPage);
+        //click 'Add to cart' button
+        singleProductCategoryDashboardPage.clickSetProductAddToCartButton(0);
+        //capture screenshot of the searched products addition to cart (shopping cart form)
+        captureScreenshot(driver, "Searched Product Shopping Cart Form Display");
+        //shopping cart form web element assert
+        isShoppingCartFormWebElementDisplayed(homePage);
+        //shopping cart form text element assert
+        isShoppingCartFormTextElementAsExpected(homePage);
+        //log shopping cart form product data
+        logShoppingCartFormProductData(homePage);
+        //click shopping cart form 'View Cart' button
+        homePage.clickViewCartButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Searched Product (AMD A10-5800K) Addition To Cart Test Result (guest)");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)

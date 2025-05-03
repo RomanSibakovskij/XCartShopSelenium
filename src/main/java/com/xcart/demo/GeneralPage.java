@@ -157,6 +157,12 @@ public class GeneralPage extends BasePage {
     //click navbar 'Home' link method
     public void clickNavbarHomeLink(){navbarHomeLink.click();}
 
+    //input search query into header search bar method
+    public void inputAMDProductSearchQueryIntoSearchBar(){headerSearchBarInputField.sendKeys("AMD A10-5800K");}
+
+    //click 'Search' button method
+    public void clickSearchBarButton(){headerSearchBarButton.click();}
+
     //general page text element getters
     public String getHeaderInterfaceTag(){return headerInterfaceTag.getText();}
     public String getHeaderVisualSchemeTag(){return headerVisualSchemeTag.getText();}
