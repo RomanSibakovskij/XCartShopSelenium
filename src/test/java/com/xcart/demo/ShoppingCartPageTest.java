@@ -236,4 +236,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutLowerButtonTest();
     }
 
+    //multiple products addition from products map to check out tests
+
+    //Test 015b -> add multiple products ("Genius Traveler 6000X Ambidextrous Mouse") from products map to check out test (as a guest)
+    @Test
+    @DisplayName("Multiple Products Addition From Products Map To Checkout (as a guest)")
+    @Tag("Add_Multiple_Products_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void multipleProductsMapProductsGuestAddToCheckoutTest() {
+        //add multiple products ("Genius Traveler 6000X Ambidextrous Mouse") from products map to cart test (as a guest)
+        addMultipleProductsFromProductsMapToCartGuestTest();
+        //add multiple products ("Genius Traveler 6000X Ambidextrous Mouse") from products map to check out test (as a guest)
+        addProductToCheckoutTest();
+    }
+
 }
