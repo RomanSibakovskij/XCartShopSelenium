@@ -137,5 +137,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutLowerButtonTest();
     }
 
+    //single product page product addition to cart tests
+
+    //Test 014 -> add single product page product ("Digital Angel") to check out test (as a guest)
+    @Test
+    @DisplayName("Single Product Page Product Addition To Checkout Test (as a guest)")
+    @Tag("Add_Single_Product_Page_Product_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void singleProductPageProductGuestAddToCheckoutTest() {
+        //add single searched product ("Digital Angel") to cart out test (as a guest)
+        addSingleDigitalAngelProductToCartGuestTest();
+        //add single searched product ("Digital Angel") to check out test (as a guest)
+        addProductToCheckoutTest();
+    }
 
 }
