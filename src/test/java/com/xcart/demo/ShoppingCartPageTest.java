@@ -364,4 +364,25 @@ public class ShoppingCartPageTest extends TestMethods{
         removeProductFromShoppingCartTest();
     }
 
+    //move product from shopping cart to wishlist test
+
+    //Test 019 -> move featured product ("Thumb-Size R/C Mini Cooper") from shopping cart to wishlist test (only registered user has this feature)
+    @Test
+    @DisplayName("Move Single Featured Product To Wishlist From Shopping Cart Test")
+    @Tag("Move_Product_To_Wishlist_From_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void moveSingleFeaturedProductRegUserToWishlistFromCartTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add single featured product ("Thumb-Size R/C Mini Cooper") to cart test (as a registered user)
+        addSingleFeaturedProductToCartRegUserTest();
+        //move featured product ("Thumb-Size R/C Mini Cooper") from shopping cart to wishlist test (as a registered user)
+        moveProductFromShoppingCartToWishlistTest();
+    }
+
 }

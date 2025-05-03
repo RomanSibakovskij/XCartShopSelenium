@@ -139,6 +139,13 @@ public class ShoppingCartPage extends BasePage {
         shoppingCartPageProductRemoveButtonElements.get(index).click();
     }
 
+    //click 'Move to wishlist' button method
+    public void clickMoveToWishlistButton(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartPageMoveToWishlistButtonElements.get(index)));
+        shoppingCartPageMoveToWishlistButtonElements.get(index).click();
+    }
+
     //shopping cart page product data getters
     public List<String> getShoppingCartPageProductName(){return shoppingCartPageProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getShoppingCartPageProductDetails(){return shoppingCartPageProductDetailsElements.stream().map(WebElement::getText).collect(Collectors.toList());}

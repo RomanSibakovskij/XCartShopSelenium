@@ -4818,6 +4818,40 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Product Removal From Shopping Cart Test Result");
     }
 
+    //move product from shopping cart to wishlist test method (only registered user has this feature)
+    protected void moveProductFromShoppingCartToWishlistTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        WishlistPage wishlistPage = new WishlistPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page text element assert (without aside section)
+        isGeneralPageNoAsideTextElementAsExpected(generalPage);
+        //shopping cart web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //log shopping cart product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //capture screenshot of shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Display Before Moving Product To Wishlist");
+        //click 'Product remove' cart button
+        shoppingCartPage.clickMoveToWishlistButton(0);
+        //capture screenshot of shopping cart page display after moving the product to wishlist
+        captureScreenshot(driver, "Shopping Cart Display After Product Moving Product To Wishlist");
+        //click 'My Account' header link
+        generalPage.clickHeaderMyAccountLink();
+        //click 'Wishlist' account page navbar link
+        accountPage.clickWishlistLink();
+        //wishlist page web element assert
+        isWishlistPageWebElementDisplayed(wishlistPage);
+        //wishlist page text element assert
+        isWishlistPageTextElementAsExpected(wishlistPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Move Product From Shopping Cart To Wishlist Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)

@@ -37,6 +37,9 @@ public class AccountPage extends BasePage{
     //click 'Account Details' link method
     public void clickAccountDetailsLink() {accountDetailsLink.click();}
 
+    //click 'Wishlist' link method
+    public void clickWishlistLink() {wishlistLink.click();}
+
     //account page title getter
     public String getAccountPageTitle() {return accountPageTitle.getText();}
 
