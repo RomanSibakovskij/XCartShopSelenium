@@ -36,4 +36,16 @@ public class SingleProductPageTest extends TestMethods{
         addSingleDigitalAngelProductToCartRegUserTest();
     }
 
+    //multiple products addition from single product page to cart tests
+
+    //Test 009b -> add multiple products ("Digital Angel") from single product page to cart test (as a guest)
+    @Test
+    @DisplayName("Multiple Products Addition From Single Product Page To Cart Test (as a guest)")
+    @Tag("Add_Multiple_Products_To_Cart")
+    @Tag("Single_Product_Page_Test")
+    @Tag("Test_As_A_Guest")
+    void multipleProductsPageProductGuestAddToCartTest() {
+        addMultipleDigitalAngelProductToCartGuestTest();
+    }
+
 }
