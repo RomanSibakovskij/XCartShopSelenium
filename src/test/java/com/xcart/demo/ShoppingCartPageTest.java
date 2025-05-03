@@ -250,4 +250,23 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 015c -> add multiple products ("iMac") from products map to check out test (as a registered user)
+    @Test
+    @DisplayName("Multiple Products Addition From Products Map To Checkout (as a registered user)")
+    @Tag("Add_Multiple_Products_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void multipleProductsMapProductsRegUserAddToCheckoutTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add multiple products ("iMac") from products map to cart test (as a registered user)
+        addMultipleProductsFromProductsMapToCartRegUserTest();
+        //add multiple products ("iMac") from products map to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+    }
+
 }
