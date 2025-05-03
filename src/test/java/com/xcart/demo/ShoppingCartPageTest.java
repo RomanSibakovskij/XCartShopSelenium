@@ -203,4 +203,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutLowerButtonTest();
     }
 
+    //single product addition from products map to check out tests
+
+    //Test 015 -> add single product ("Antec Nine Hundred ATX Gaming Case") from products map to check out test (as a guest)
+    @Test
+    @DisplayName("Single Product Addition From Products Map To Checkout Test (as a guest)")
+    @Tag("Add_Single_Product_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void singleProductsMapProductGuestAddToCheckoutTest() {
+        //add single product ("Antec Nine Hundred ATX Gaming Case") from products map to cart test (as a guest)
+        addSingleProductFromProductsMapToCartGuestTest();
+        //add single product ("Antec Nine Hundred ATX Gaming Case") from products map to check out test (as a guest)
+        addProductToCheckoutTest();
+    }
+
 }
