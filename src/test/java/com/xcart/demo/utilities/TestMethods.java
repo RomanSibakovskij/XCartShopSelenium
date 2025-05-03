@@ -4133,6 +4133,60 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Add Single Product ('Digital Angel') From Single Product Page To Wishlist Test Result (registered user)");
     }
+    //add multiple products ('Digital Angel') from single product page to wishlist test method (as a registered user)
+    protected void addMultipleDigitalAngelProductsToWishlistRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (this page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //click 'Home' navbar link
+        generalPage.clickNavbarHomeLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Digital Angel' product name link
+        homePage.clickFeaturedProductNameLink(1);
+        //capture screenshot of the set single product page
+        captureScreenshot(driver, "Single Product ('Digital Angel') Page Display");
+        //assert the user got onto correct product page
+        assertEquals("Digital Angel [Product Options Demo]", singleProductPage.getSingleProductPageTitle(), "The single product page title doesn't match expectations or the user is on the wrong product page.");
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //log single product page data
+        logSingleProductPageProductData(singleProductPage);
+        //click 'Customers also bought; link
+        singleProductPage.clickCustomersAlsoBoughtLink();
+        //single product page ('Digital Angel') web element assert
+        isSingleProductTShirtPageWebElementDisplayed(singleProductPage);
+        //log specific single product page data
+        logSingleProductTShirtPageProductData(singleProductPage);
+        logSingleProductTShirtPageCustomersBoughtProductData(singleProductPage);
+        //click size dropdown menu
+        singleProductPage.clickProductSizeDropdownMenu();
+        //select 'L' size
+        singleProductPage.selectLSizeOption();
+        //click product quantity dropdown menu
+        singleProductPage.clickProductQtyDropdownMenu();
+        //select set product quantity
+        singleProductPage.selectThreeProductQtyOption();
+        //click 'Add to wishlist' button
+        singleProductPage.clickAddToWishlistButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Multiple Products ('Digital Angel') From Single Product Page To Wishlist Test Result (registered user)");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
