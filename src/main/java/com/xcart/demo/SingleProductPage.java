@@ -127,6 +127,12 @@ public class SingleProductPage extends BasePage{
         shoppingCartFormYourCartSectionViewCartButton.click();
     }
 
+    //click 'add to wishlist' button method
+    public void clickAddToWishlistButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleProductAddToWishlistButton).click().perform();
+    }
+
     //single product page product data getters
     public String getSingleProductSKU(){return singleProductSKU.getText();}
     public String getSingleProductWeight(){return singleProductWeight.getText();}

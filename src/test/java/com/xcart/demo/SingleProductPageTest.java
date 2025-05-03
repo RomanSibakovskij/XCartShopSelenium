@@ -66,4 +66,24 @@ public class SingleProductPageTest extends TestMethods{
         addMultipleDigitalAngelProductsToCartRegUserTest();
     }
 
+    //product addition from single product page to wishlist tests (only registered users have this feature)
+
+    //Test 009d -> add single product ("Digital Angel") from single product page to wishlist test (as a registered user)
+    @Test
+    @DisplayName("Single Product Addition From Single Product Page To Wishlist Test (as a registered user)")
+    @Tag("Add_Single_Product_From_Single_Product_Page_To_Wishlist")
+    @Tag("Single_Product_Page_Test")
+    @Tag("Test_As_A_Reg_User")
+    void singleProductPageProductRegUserAddToWishlistTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add single product ("Digital Angel") from single product page to wishlist test (as a registered user)
+        addSingleDigitalAngelProductToWishlistRegUserTest();
+    }
+
 }
