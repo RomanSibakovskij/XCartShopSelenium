@@ -3714,7 +3714,47 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Single Product (Antec Nine Hundred ATX Gaming Case) Addition From Products Map To Cart Test Result (guest)");
     }
-
+    //add single product ('Apple Dock Connector to USB Cable') from product map to cart test (as a registered user)
+    protected void addSingleProductFromProductsMapToCartRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        ProductsMapPage productsMapPage = new ProductsMapPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert (this page has an additional div in aside categories section)
+        isGeneralOtherPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //additional general page web element assert
+        isAddGeneralPageWebElementDisplayed(generalPage);
+        //additional general page text element assert
+        isAddGeneralPageTextElementAsExpected(generalPage);
+        //click 'Products map' aside link
+        generalPage.clickAsideProductsMapLink();
+        //capture screenshot of the products map display
+        captureScreenshot(driver, "Products Map Page Display");
+        //products map web element assert
+        isProductsMapPageWebElementDisplayed(productsMapPage);
+        //products map text element assert
+        isProductsMapTextElementAsExpected(productsMapPage);
+        //log products map page product data
+        logProductsMapPageProductData(productsMapPage);
+        //click set product ('Apple Dock Connector to USB Cable') add to cart button
+        productsMapPage.clickProductsMapAddToCartButton(9);
+        //capture screenshot of the single searched product addition to cart (shopping cart form)
+        captureScreenshot(driver, "Single Product Shopping Cart Form Display (Apple Dock Connector to USB Cable)");
+        //shopping cart form web element assert
+        isShoppingCartFormWebElementDisplayed(homePage);
+        //shopping cart form text element assert
+        isShoppingCartFormTextElementAsExpected(homePage);
+        //log shopping cart form product data
+        logShoppingCartFormProductData(homePage);
+        //click shopping cart form 'View Cart' button
+        homePage.clickViewCartButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Product (Apple Dock Connector to USB Cable) Addition From Products Map To Cart Test Result (registered user)");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
