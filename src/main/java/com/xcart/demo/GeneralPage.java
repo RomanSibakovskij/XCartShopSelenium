@@ -170,6 +170,9 @@ public class GeneralPage extends BasePage {
     //click aside 'Books' link method (for guest)
     public void clickAsideBooksLink(){asideBooksLink.click();}
 
+    //click aside 'Books' link method (for registered user)
+    public void clickOtherAsideBooksLink(){asideOtherBooksLink.click();}
+
     //general page text element getters
     public String getHeaderInterfaceTag(){return headerInterfaceTag.getText();}
     public String getHeaderVisualSchemeTag(){return headerVisualSchemeTag.getText();}
