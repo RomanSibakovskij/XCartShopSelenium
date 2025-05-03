@@ -4190,6 +4190,58 @@ protected void navigateToRegisterPageTest(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //single product category dashboard page addition to cart tests
+
+    //add single product category to cart test method (as a guest)
+    protected void addSingleProductCategoryProductToCartTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        ProductsMapPage productsMapPage = new ProductsMapPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert
+        isGeneralPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Books' aside link
+        generalPage.clickAsideBooksLink();
+        //capture screenshot of the single category product dashboard page display
+        captureScreenshot(driver, "Single Category Product Dashboard (Books) Page Display");
+        //assert the user gets onto expected category page
+        assertEquals("Books", singleProductCategoryDashboardPage.getSingleProductCategoryDashboardPageTitle(), "The single category product page dashboard page title doesn't match expectations or the user is on the wrong category page.");
+        assertEquals("My Description of the category", singleProductCategoryDashboardPage.getSingleProductCategoryDashboardPageDescription(), "The single category product page dashboard page subtitle doesn't match expectations or the user is on the wrong category page.");
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //log single category product dashboard page product data
+        logProductsMapPageProductData(productsMapPage);
+        //click 'Sort by product' link
+        singleProductCategoryDashboardPage.clickSortByProductLink();
+        //click set product ('Anna Karenina') add to cart button
+        productsMapPage.clickProductsMapAddToCartButton(0);
+        //capture screenshot of the single searched product addition to cart (shopping cart form)
+        captureScreenshot(driver, "Single Product Shopping Cart Form Display (Anna Karenina)");
+        //shopping cart form web element assert
+        isShoppingCartFormWebElementDisplayed(homePage);
+        //shopping cart form text element assert
+        isShoppingCartFormTextElementAsExpected(homePage);
+        //log shopping cart form product data
+        logShoppingCartFormProductData(homePage);
+        //click shopping cart form 'View Cart' button
+        homePage.clickViewCartButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Product (by Category) (Anna Karenina) Addition To Cart Test Result (guest)");
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (without aside section)
     protected void isGeneralPageNoAsideWebElementDisplayed(GeneralPage generalPage){
         //header switcher

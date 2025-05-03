@@ -52,6 +52,9 @@ public class SingleProductCategoryDashboardPage extends BasePage{
 
     public SingleProductCategoryDashboardPage(WebDriver driver) {super(driver);}
 
+    //click 'Sort by product' link method
+    public void clickSortByProductLink(){singleProductCategoryDashboardProductSortLink.click();}
+
     //click specific product 'Add to cart' button list method
     public void clickSetProductAddToCartButton(int index){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
