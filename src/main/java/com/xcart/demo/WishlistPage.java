@@ -70,6 +70,13 @@ public class WishlistPage extends BasePage {
         wishlistPageProductUpdateButtonElements.get(index).click();
     }
 
+    //click product 'Remove' from wishlist button list method
+    public void clickProductRemoveFromWishlistButton(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(wishlistPageProductRemoveButtonElements.get(index)));
+        wishlistPageProductRemoveButtonElements.get(index).click();
+    }
+
     //wishlist page product data getters
     public List<String> getWishlistPageProductName(){return wishlistPageProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getWishlistPageProductUnitPrice(){return wishlistPageProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}

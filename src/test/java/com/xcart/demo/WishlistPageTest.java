@@ -96,4 +96,23 @@ public class WishlistPageTest extends TestMethods{
         updateFeaturedProductQtyInWishlistRegUserTest();
     }
 
+    //product remove from wishlist test
+
+    //Test 011e -> remove single featured product ("Thumb-Size R/C Mini Cooper [Detailed Images Demo]") from wishlist test (as a registered user)
+    @Test
+    @DisplayName("Single Featured Product Removal From Wishlist Test (as a registered user)")
+    @Tag("Remove_Single_Featured_Product_From_Wishlist")
+    @Tag("Test_As_A_Reg_User")
+    void singleFeaturedProductRegUserRemoveFromWishlistTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //remove single featured product ("Thumb-Size R/C Mini Cooper [Detailed Images Demo]") from wishlist test (as a registered user)
+        removeFeaturedProductFromWishlistRegUserTest();
+    }
+
 }
