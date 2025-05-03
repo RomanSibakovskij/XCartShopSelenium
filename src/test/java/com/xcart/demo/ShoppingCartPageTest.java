@@ -38,4 +38,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutLowerButtonTest();
     }
 
+    //multiple featured product addition to check out tests
+
+    //Test 012b -> add multiple featured products ("Iphone 5c") to check out test (as a guest)
+    @Test
+    @DisplayName("Multiple Featured Products Addition To Checkout Test (as a guest)")
+    @Tag("Add_Multiple_Featured_Products_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void multipleFeaturedProductGuestAddToCheckoutTest() {
+        //add multiple featured products ("Iphone 5c") to cart test (as a guest)
+        addMultipleFeaturedProductsToCartGuestTest();
+        //add multiple featured products ("Iphone 5c") to check out test (as a guest)
+        addIphoneProductToCheckoutWithOptionsGuestTest();
+    }
+
 }

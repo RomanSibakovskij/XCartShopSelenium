@@ -4713,7 +4713,7 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Shopping Cart Display (register user)");
         //click lower 'Checkout' button
         shoppingCartPage.clickLowerCheckoutButton();
-        //assert if the error message appears if the order total amount is less than $10
+        //assert if the error message appears if the order total amount is less than $10, log the issue otherwise
         try {
             if(shoppingCartPage.isShoppingCartTenDollarLimitErrorMessageDisplayed()){
                 assertEquals("Error: A minimum order subtotal of $10.00 is required to checkout.\n" + "Please review your cart.", shoppingCartPage.getShoppingCartTenDollarErrorMessage(), "The shopping cart 10 dollar error message doesn't match expectations");
