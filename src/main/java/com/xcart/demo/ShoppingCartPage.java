@@ -126,6 +126,12 @@ public class ShoppingCartPage extends BasePage {
         action.moveToElement(shoppingCartPageUpperCheckoutButton).click().perform();
     }
 
+    //click lower 'Checkout' button method
+    public void clickLowerCheckoutButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(shoppingCartCheckoutButton).click().perform();
+    }
+
     //shopping cart page product data getters
     public List<String> getShoppingCartPageProductName(){return shoppingCartPageProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
     public List<String> getShoppingCartPageProductDetails(){return shoppingCartPageProductDetailsElements.stream().map(WebElement::getText).collect(Collectors.toList());}
@@ -143,7 +149,12 @@ public class ShoppingCartPage extends BasePage {
     public String getShoppingCartDiscountSubtext() {return shoppingCartDiscountSubtext.getText();}
 
     //shopping cart ten dollar error message getter
-    public String getShoppingCartTenDollarErrorMessage(){return shoppingCartTenDollarLimitErrorMessage.getText();}
+    public String getShoppingCartTenDollarErrorMessage(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(900));
+        wait.until(ExpectedConditions.visibilityOf(shoppingCartTenDollarLimitErrorMessage));
+        return shoppingCartTenDollarLimitErrorMessage.getText();
+    }
+
     //shopping cart empty message getter
     public String getShoppingEmptyMessage(){return shoppingCartEmptyMessage.getText();}
 
@@ -161,7 +172,13 @@ public class ShoppingCartPage extends BasePage {
     public boolean isShoppingCartUpdateCartButtonDisplayed() {return shoppingCartUpdateCartButton.isDisplayed();}
     public boolean isShoppingCartClearCartLinkDisplayed() {return shoppingCartClearCartLink.isDisplayed();}
     public boolean isShoppingCartCheckoutButtonDisplayed() {return shoppingCartCheckoutButton.isDisplayed();}
-    public boolean isShoppingCartTenDollarLimitErrorMessageDisplayed() {return shoppingCartTenDollarLimitErrorMessage.isDisplayed();}
+
+    public boolean isShoppingCartTenDollarLimitErrorMessageDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
+        wait.until(ExpectedConditions.visibilityOf(shoppingCartTenDollarLimitErrorMessage));
+        return shoppingCartTenDollarLimitErrorMessage.isDisplayed();
+    }
+
     //discount section
     public boolean isShoppingCartDiscountSectionTitleDisplayed() {return shoppingCartDiscountSectionTitle.isDisplayed();}
     public boolean isShoppingCartDiscountSubtextDisplayed() {return shoppingCartDiscountSubtext.isDisplayed();}

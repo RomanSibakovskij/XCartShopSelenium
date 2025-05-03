@@ -4695,6 +4695,36 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Add Iphone Product To Checkout Test Result");
     }
 
+    //product addition to check out (with clicking lower checkout button) test method (as a registered user -> both single and multiple products)
+    protected void addProductToCheckoutLowerButtonTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page text element assert (without aside section)
+        isGeneralPageNoAsideTextElementAsExpected(generalPage);
+        //shopping cart web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //log shopping cart product data
+        logShoppingCartPageProductData(shoppingCartPage);
+        //capture screenshot of shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Display (register user)");
+        //click lower 'Checkout' button
+        shoppingCartPage.clickLowerCheckoutButton();
+        //assert if the error message appears if the order total amount is less than $10
+        try {
+            if(shoppingCartPage.isShoppingCartTenDollarLimitErrorMessageDisplayed()){
+                assertEquals("Error: A minimum order subtotal of $10.00 is required to checkout.\n" + "Please review your cart.", shoppingCartPage.getShoppingCartTenDollarErrorMessage(), "The shopping cart 10 dollar error message doesn't match expectations");
+            }
+        } catch (NoSuchElementException nse) {
+            System.out.println("No error message displayed as expected for orders meeting the minimum amount");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Product Addition To Checkout Test Result (registered user)");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)
