@@ -92,7 +92,52 @@ public class SingleProductPage extends BasePage{
     private WebElement shoppingCartFormYourCartSectionViewCartButton;
 
     public SingleProductPage(WebDriver driver) {super(driver);}
-    
+
+    //click size dropdown menu
+    public void clickProductSizeDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleProductSizeDropdownMenu).click().perform();
+    }
+
+    //select 'L' size option
+    public void selectLSizeOption(){singleProductLSizeOption.click();}
+
+    //click product quantity dropdown menu
+    public void clickProductQtyDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleProductQtyDropdownMenu).click().perform();
+    }
+
+    //select set product quantity option
+    public void selectThreeProductQtyOption(){singleProductThreeQtyOption.click();}
+
+    //click 'customers also bought' link method
+    public void clickCustomersAlsoBoughtLink(){singleProductCustomersAlsoBoughtLink.click();}
+
+    //click 'add to cart' button method
+    public void clickAddToCartButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleProductAddToCartButton).click().perform();
+    }
+
+    //click 'View cart' shopping cart form method
+    public void clickViewCartShoppingCartFormButton(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1100));
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartFormYourCartSectionViewCartButton));
+        shoppingCartFormYourCartSectionViewCartButton.click();
+    }
+
+    //single product page product data getters
+    public String getSingleProductSKU(){return singleProductSKU.getText();}
+    public String getSingleProductWeight(){return singleProductWeight.getText();}
+    public String getSingleProductUnitPrice(){return singleProductUnitPrice.getText();}
+    public String getSingleProductAltPrice(){return singleProductAltPrice.getText();}
+    public String getSingleProductDescription(){return singleProductDescription.getText();}
+
+    //customers also bought section data getters
+    public List<String> getCustomersAlsoBoughtProductName(){return singleProductCustomersAlsoBoughtProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getCustomersAlsoBoughtProductUnitPrice(){return singleProductCustomersAlsoBoughtProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
     //single product page text element getter
     public String getSingleProductPageTitle() {return singleProductPageTitle.getText();}
 

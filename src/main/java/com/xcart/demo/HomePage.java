@@ -101,6 +101,13 @@ public class HomePage extends BasePage{
         featuredProductFiveQtyOptionElements.get(index).click();
     }
 
+    //click featured product name link list method
+    public void clickFeaturedProductNameLink(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(featuredProductNameLinkElements.get(index)));
+        featuredProductNameLinkElements.get(index).click();
+    }
+
     //click shopping cart 'View Cart' button list method
     public void clickViewCartButton(){
         Actions action = new Actions(driver);

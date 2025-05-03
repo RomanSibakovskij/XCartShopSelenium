@@ -3863,6 +3863,57 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Multiple Products (iMac) Addition From Products Map To Cart Test Result (registered user)");
     }
 
+    //single product page product addition to cart tests
+
+    //add single product ('Digital Angel') from single product page to cart test method (as a guest)
+    protected void addSingleDigitalAngelProductToCartGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert
+        isGeneralPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Digital Angel' product name link
+        homePage.clickFeaturedProductNameLink(1);
+        //capture screenshot of the set single product page
+        captureScreenshot(driver, "Single Product ('Digital Angel') Page Display");
+        //assert the user got onto correct product page
+        assertEquals("Digital Angel [Product Options Demo]", singleProductPage.getSingleProductPageTitle(), "The single product page title doesn't match expectations or the user is on the wrong product page.");
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //log single product page data
+        logSingleProductPageProductData(singleProductPage);
+        //click 'Customers also bought; link
+        singleProductPage.clickCustomersAlsoBoughtLink();
+        //single product page ('Digital Angel') web element assert
+        isSingleProductTShirtPageWebElementDisplayed(singleProductPage);
+        //log specific single product page data
+        logSingleProductTShirtPageProductData(singleProductPage);
+        logSingleProductTShirtPageCustomersBoughtProductData(singleProductPage);
+        //click size dropdown menu
+        singleProductPage.clickProductSizeDropdownMenu();
+        //select 'L' size
+        singleProductPage.selectLSizeOption();
+        //click 'Add to cart' button
+        singleProductPage.clickAddToCartButton();
+        //click shopping cart form 'View Cart' button (since the shopping cart form elements somehow are not being seen as in other pages, separate click method is being used)
+        singleProductPage.clickViewCartShoppingCartFormButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Single Product ('Digital Angel') From Single Product Page To Cart Test Result (guest)");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (without aside section)
@@ -4757,8 +4808,6 @@ protected void navigateToRegisterPageTest(){
         assertEquals("Products Map", productsMapPage.getProductsMapPageTitle(), "The products map page title doesn't match expectations.");
     }
 
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page product data logger method
@@ -4818,6 +4867,37 @@ protected void navigateToRegisterPageTest(){
         logger.info("Product map page product name(s): " + productsMapPage.getProductMapPageProductName());
         logger.info("Product map page product unit price(s): " + productsMapPage.getProductMapPageProductUnitPrice());
         logger.info("Product map page product alt price(s): " + productsMapPage.getProductMapPageProductAltPrice());
+
+        System.out.println("\n");
+    }
+
+    //single product page data logger method
+    protected void logSingleProductPageProductData(SingleProductPage singleProductPage){
+        System.out.println("Single product page displayed product data: " + "\n");
+
+        logger.info("Single product unit price: " + singleProductPage.getSingleProductUnitPrice());
+        logger.info("Single product alt price: " + singleProductPage.getSingleProductAltPrice());
+        logger.info("Single product description: " + singleProductPage.getSingleProductDescription());
+
+        System.out.println("\n");
+    }
+
+    //single product page ('Digital Angel' t-shirt) data logger method
+    protected void logSingleProductTShirtPageProductData(SingleProductPage singleProductPage){
+        System.out.println("Single product page ('Digital Angel' t-shirt) displayed product data: " + "\n");
+
+        logger.info("Single product SKU: " + singleProductPage.getSingleProductSKU());
+        logger.info("Single product weight: " + singleProductPage.getSingleProductWeight());
+
+        System.out.println("\n");
+    }
+
+    //single product page ('Digital Angel' t-shirt) customers also bought section data logger method
+    protected void logSingleProductTShirtPageCustomersBoughtProductData(SingleProductPage singleProductPage){
+        System.out.println("Single product page ('Digital Angel' t-shirt) customers also bought section displayed product data: " + "\n");
+
+        logger.info("Customers also bought section product name(s): " + singleProductPage.getCustomersAlsoBoughtProductName());
+        logger.info("Customers also bought section product unit price(s): " + singleProductPage.getCustomersAlsoBoughtProductUnitPrice());
 
         System.out.println("\n");
     }
