@@ -44,6 +44,18 @@ public class ProductsMapPage extends BasePage {
 
     public ProductsMapPage(WebDriver driver) {super(driver);}
 
+    //click set product 'Add to cart' button list method (products map)
+    public void clickProductsMapAddToCartButton(int index){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(870));
+        wait.until(ExpectedConditions.elementToBeClickable(productsMapPageProductAddToCartButtonElements.get(index)));
+        productsMapPageProductAddToCartButtonElements.get(index).click();
+    }
+
+    //product map page product data getters
+    public List<String> getProductMapPageProductName(){return productsMapPageProductNameLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getProductMapPageProductUnitPrice(){return productsMapPageProductUnitPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getProductMapPageProductAltPrice(){return productsMapPageProductAltPriceElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
     //product map page text element getter
     public String getProductsMapPageTitle() {return productsMapPageTitle.getText();}
 

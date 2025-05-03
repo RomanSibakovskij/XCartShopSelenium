@@ -3665,6 +3665,56 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Multiple Searched Product (RC Forklift) Addition To Cart Test Result (registered user)");
     }
 
+    //product addition from products map to cart tests
+
+    //single product
+
+    //add single product ('Antec Nine Hundred ATX Gaming Case') from product map to cart test (as a guest)
+    protected void addSingleProductFromProductsMapToCartGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AccountPage accountPage = new AccountPage(driver);
+        ProductsMapPage productsMapPage = new ProductsMapPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page aside section web element assert
+        isGeneralPageAsideWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Products map' aside link
+        generalPage.clickAsideProductsMapLink();
+        //capture screenshot of the products map display
+        captureScreenshot(driver, "Products Map Page Display");
+        //products map web element assert
+        isProductsMapPageWebElementDisplayed(productsMapPage);
+        //products map text element assert
+        isProductsMapTextElementAsExpected(productsMapPage);
+        //account page breadcrumb web element assert
+        isAccountPageBreadcrumbDisplayed(accountPage);
+        //log products map page product data
+        logProductsMapPageProductData(productsMapPage);
+        //click set product ('Antec Nine Hundred ATX Gaming Case') add to cart button
+        productsMapPage.clickProductsMapAddToCartButton(8);
+        //capture screenshot of the single searched product addition to cart (shopping cart form)
+        captureScreenshot(driver, "Single Product Shopping Cart Form Display (Antec Nine Hundred ATX Gaming Case)");
+        //shopping cart form web element assert
+        isShoppingCartFormWebElementDisplayed(homePage);
+        //shopping cart form text element assert
+        isShoppingCartFormTextElementAsExpected(homePage);
+        //log shopping cart form product data
+        logShoppingCartFormProductData(homePage);
+        //click shopping cart form 'View Cart' button
+        homePage.clickViewCartButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Product (Antec Nine Hundred ATX Gaming Case) Addition From Products Map To Cart Test Result (guest)");
+    }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -4530,6 +4580,17 @@ protected void navigateToRegisterPageTest(){
         logger.info("Single product category dashboard page product name(s): " + singleProductCategoryDashboardPage.getSingleCategoryDashboardPageProductName());
         logger.info("Single product category dashboard page product unit price(s): " + singleProductCategoryDashboardPage.getSingleCategoryDashboardPageProductUnitPrice());
         logger.info("Single product category dashboard page product alt price(s): " + singleProductCategoryDashboardPage.getSingleCategoryDashboardPageProductAltPrice());
+
+        System.out.println("\n");
+    }
+
+    //products map page product data logger method
+    protected void logProductsMapPageProductData(ProductsMapPage productsMapPage){
+        System.out.println("Product map page displayed product data: " + "\n");
+
+        logger.info("Product map page product name(s): " + productsMapPage.getProductMapPageProductName());
+        logger.info("Product map page product unit price(s): " + productsMapPage.getProductMapPageProductUnitPrice());
+        logger.info("Product map page product alt price(s): " + productsMapPage.getProductMapPageProductAltPrice());
 
         System.out.println("\n");
     }

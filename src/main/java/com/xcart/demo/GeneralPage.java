@@ -164,6 +164,9 @@ public class GeneralPage extends BasePage {
     //click 'Search' button method
     public void clickSearchBarButton(){headerSearchBarButton.click();}
 
+    //click aside 'Products map' link method
+    public void clickAsideProductsMapLink(){asideSpecialProductsMapLink.click();}
+
     //general page text element getters
     public String getHeaderInterfaceTag(){return headerInterfaceTag.getText();}
     public String getHeaderVisualSchemeTag(){return headerVisualSchemeTag.getText();}
