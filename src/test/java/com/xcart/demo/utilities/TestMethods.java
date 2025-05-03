@@ -3587,7 +3587,7 @@ protected void navigateToRegisterPageTest(){
         singleProductCategoryDashboardPage.clickSetProductQtyDropdownMenu(0);
         //select set product quantity
         singleProductCategoryDashboardPage.selectSetProductQty(0);
-        //set the set review stars review for a product //this product is being already set as rated already
+        //set the set review stars review for a product //this product is being already set as rated already (sometimes this bug occurs even though the product hasn't been rated by test yet)
         //singleProductCategoryDashboardPage.selectSetReviewStarsForSetProduct(0);
         //capture screenshot of the multiple searched products review stars setting
         //captureScreenshot(driver, "Multiple Searched Products Review Stars Setting Display");

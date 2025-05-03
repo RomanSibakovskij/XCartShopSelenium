@@ -118,4 +118,24 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 013c -> add multiple featured product ("R/C Desktop Forklift") to check out test (as a registered user)
+    @Test
+    @DisplayName("Multiple Searched Product Addition To Checkout Test (as a registered user)")
+    @Tag("Add_Multiple_Searched_Products_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void multipleSearchedProductRegUserAddToCheckoutTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add multiple searched products ("R/C Desktop Forklift") to cart test (as a registered user)
+        addMultipleSearchedProductsToCartRegUserTest();
+        //add multiple featured product ("R/C Desktop Forklift") to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+    }
+
+
 }
