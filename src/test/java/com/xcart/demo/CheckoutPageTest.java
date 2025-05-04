@@ -389,4 +389,29 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //Test 024a -> single category product ("Anna Karenina") check out confirmation test (as a registered user) (with shipping method example delivery method 2 selection)
+    @Test
+    @DisplayName("Single Category Product With Ex Delivery Method Two Checkout Confirmation Test (as a registered user)")
+    @Tag("Single_Category_Product_Checkout_Confirmation")
+    @Tag("Single_Product")
+    @Tag("Reg_User_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void singleCategoryProductRegUserCheckoutConfirmationTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add single category product ("Anna Karenina") to cart test (as a registered user)
+        addSingleProductCategoryToCartRegUserTest();
+        //add single category product ("Anna Karenina") to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+        //registered user single category product ("Anna Karenina") checkout confirmation test (with shipping method example delivery method 2 selection)
+        validRegUserProductCheckoutWithExMethodTwoConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }
