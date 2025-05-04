@@ -25,4 +25,25 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //single featured product check out confirmation test (billing and shipping address)
+
+    //Test 020a -> valid single featured product ("Iphone 5c") check out (billing and shipping address) confirmation test (as a guest)
+    @Test
+    @DisplayName("Single Featured Product Checkout (Billing and Shipping Address) Confirmation Test (as a guest)")
+    @Tag("Single_Featured_Product_Checkout_Confirmation")
+    @Tag("Single_Product")
+    @Tag("Billing_And_Shipping_Address")
+    @Tag("Valid_Guest_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void singleFeaturedProductGuestBillAndShipCheckoutConfirmationTest() {
+        //add single featured product ("Iphone 5c") to cart test (as a guest)
+        addSingleFeaturedProductToCartGuestTest();
+        //add single featured product ("Iphone 5c") to check out test (as a guest)
+        addIphoneProductToCheckoutWithOptionsGuestTest();
+        //valid guest product ("Iphone 5c") (billing and shipping address) checkout confirmation test
+        validGuestProductBillAndShipAddressCheckoutConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }

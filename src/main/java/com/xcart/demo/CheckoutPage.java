@@ -218,6 +218,13 @@ public class CheckoutPage extends BasePage{
     private int validGuestAccPostCode;
     private String validGuestAccEmail;
 
+    //valid guest account generated data (shipping address)
+    private String validGuestShipAccFirstName;
+    private String validGuestShipAccLastName;
+    private String validGuestShipAccAddress1;
+    private String validGuestShipAccCity;
+    private int validGuestShipAccPostCode;
+
     public CheckoutPage(WebDriver driver) {super(driver);}
 
     //valid guest account input data getter (billing address)
@@ -254,7 +261,48 @@ public class CheckoutPage extends BasePage{
     //click 'Submit' button (guest account) method
     public void clickSubmitButton(){checkoutPageNameAddressSubmitButton.click();}
 
-    //click ''Accept Terms' checkbox method
+    //valid guest account input data getter (shipping address)
+    public void validGuestAccountShipAddressInputDataGetter(){
+
+        validGuestShipAccFirstName = validGuestAccFirstName;
+        validGuestShipAccLastName = validGuestAccLastName;
+        validGuestShipAccAddress1 = TestDataGenerator.generateRandomAddress(4);
+        validGuestShipAccCity = TestDataGenerator.getRandomCity();
+        validGuestShipAccPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated input data for valid guest account (shipping address section): " + "\n");
+
+        logger.info("Valid guest first name (shipping address section): " + validGuestShipAccFirstName);
+        logger.info("Valid guest last name (shipping address section): " + validGuestShipAccLastName);
+        logger.info("Valid guest address1 (shipping address section): " + validGuestShipAccAddress1);
+        logger.info("Valid guest city (shipping address section): " + validGuestShipAccCity);
+        logger.info("Valid guest post code (shipping address section): " + validGuestShipAccPostCode);
+
+        System.out.println("\n");
+
+    }
+
+    //click 'Ship to a different address' checkbox method
+    public void clickShipDiffAddressCheckbox() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", checkoutPageNameAddressShipDiffAddressCheckbox);
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageNameAddressShipDiffAddressCheckbox).click().perform();
+    }
+
+    //valid guest data input methods (shipping address)
+    public void inputValidGuestShipFirstNameIntoFirstNameInputField(){checkoutPageNameShipAddressFirstNameInputField.sendKeys(validGuestAccFirstName);}
+    public void inputValidGuestShipLastNameIntoLastNameInputField(){checkoutPageNameShipAddressLastNameInputField.sendKeys(validGuestAccLastName);}
+
+    public void inputValidGuestShipAddress1IntoAddress1InputField(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", checkoutPageNameAddressShipDiffAddressCheckbox);
+        checkoutPageNameShipAddressAddress1InputField.sendKeys(validGuestAccAddress1);
+    }
+
+    public void inputValidGuestShipCityIntoCityInputField(){checkoutPageNameShipAddressCityInputField.sendKeys(validGuestAccCity);}
+    public void inputValidGuestShipPostCodeIntoPostCodeInputField(){checkoutPageNameShipAddressPostCodeInputField.sendKeys(String.valueOf(validGuestAccPostCode));}
+
+
+    //click 'Accept Terms' checkbox method
     public void clickAcceptTermsCheckbox(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".blockUI.blockOverlay")));
