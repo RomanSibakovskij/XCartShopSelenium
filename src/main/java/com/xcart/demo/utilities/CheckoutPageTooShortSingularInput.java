@@ -73,6 +73,7 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
     private String tooShortGuestShipAccFirstName;
     private String tooShortGuestShipAccLastName;
     private String tooShortGuestShipAccAddress1;
+    private String tooShortGuestShipAccCity;
 
     public CheckoutPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -391,6 +392,41 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid guest account input data getter (billing and shipping address) - too short shipping city (2 chars)
+    public void invalidGuestAccountInputDataTooShortShipCityGetter(){
+
+        validGuestAccFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestAccLastName = TestDataGenerator.getRandomLastName();
+        validGuestAccAddress1 = TestDataGenerator.generateRandomAddress(6);
+        validGuestAccCity = TestDataGenerator.getRandomCity();
+        validGuestAccPostCode = 54625;
+        validGuestAccEmail = TestDataGenerator.generateRandomEmailAddress(7);
+
+        validGuestShipAccFirstName = validGuestAccFirstName;
+        validGuestShipAccLastName = validGuestAccLastName;
+        validGuestShipAccAddress1 = TestDataGenerator.generateRandomAddress(6);
+        tooShortGuestShipAccCity = "3T";
+        validGuestShipAccPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated input data for valid guest account (too short shipping city): " + "\n");
+
+        logger.info("Valid guest first name (too short shipping city): " + validGuestAccFirstName);
+        logger.info("Valid guest last name (too short shipping city): " + validGuestAccLastName);
+        logger.info("Valid guest address1 (too short shipping city): " + validGuestAccAddress1);
+        logger.info("Valid guest city (too short shipping city): " + validGuestAccCity);
+        logger.info("Valid guest post code (too short shipping city): " + validGuestAccPostCode);
+        logger.info("Valid guest email (too short shipping city): " + validGuestAccEmail);
+
+        logger.info("Valid guest (shipping address section) first name (too short shipping city): " + validGuestShipAccFirstName);
+        logger.info("Valid guest (shipping address section) last name (too short shipping city): " + validGuestShipAccLastName);
+        logger.info("Valid guest (shipping address section) address1 (too short shipping city): " + validGuestShipAccAddress1);
+        logger.info("Too short guest (shipping address section) city: " + tooShortGuestShipAccCity);
+        logger.info("Valid guest (shipping address section) post code (too short shipping city): " + validGuestShipAccPostCode);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest data input methods (billing address) - too short singular input
     public void inputTooShortGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(tooShortGuestAccFirstName);}
     public void inputTooShortGuestLastNameIntoLastNameInputField(){checkoutPageNameAddressLastNameInputField.sendKeys(tooShortGuestAccLastName);}
@@ -407,6 +443,8 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", checkoutPageNameAddressShipDiffAddressCheckbox);
         checkoutPageNameShipAddressAddress1InputField.sendKeys(tooShortGuestShipAccAddress1);
     }
+
+    public void inputTooShortGuestShipCityIntoCityInputField(){checkoutPageNameShipAddressCityInputField.sendKeys(tooShortGuestShipAccCity);}
 
     //valid guest data input methods (billing address) - for remaining inputs
     public void inputValidGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(validGuestAccFirstName);}
