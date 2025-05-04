@@ -210,7 +210,62 @@ public class CheckoutPage extends BasePage{
     @FindBy(xpath = "//div[@id='btn_box']//button")
     private WebElement checkoutPageSubmitOrderButton;
 
+    //valid guest account generated data (billing address)
+    private String validGuestAccFirstName;
+    private String validGuestAccLastName;
+    private String validGuestAccAddress1;
+    private String validGuestAccCity;
+    private int validGuestAccPostCode;
+    private String validGuestAccEmail;
+
     public CheckoutPage(WebDriver driver) {super(driver);}
+
+    //valid guest account input data getter (billing address)
+    public void validGuestAccountInputDataGetter(){
+
+        validGuestAccFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestAccLastName = TestDataGenerator.getRandomLastName();
+        validGuestAccAddress1 = TestDataGenerator.generateRandomAddress(9);
+        validGuestAccCity = TestDataGenerator.getRandomCity();
+        validGuestAccPostCode = TestDataGenerator.getRandomPostalCode();
+        validGuestAccEmail = TestDataGenerator.generateRandomEmailAddress(6);
+
+        System.out.println("Generated input data for valid guest account: " + "\n");
+
+        logger.info("Valid guest first name: " + validGuestAccFirstName);
+        logger.info("Valid guest last name: " + validGuestAccLastName);
+        logger.info("Valid guest address1: " + validGuestAccAddress1);
+        logger.info("Valid guest city: " + validGuestAccCity);
+        logger.info("Valid guest post code: " + validGuestAccPostCode);
+        logger.info("Valid guest email: " + validGuestAccEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //valid guest data input methods (billing address)
+    public void inputValidGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(validGuestAccFirstName);}
+    public void inputValidGuestLastNameIntoLastNameInputField(){checkoutPageNameAddressLastNameInputField.sendKeys(validGuestAccLastName);}
+    public void inputValidGuestAddress1IntoAddress1InputField(){checkoutPageNameAddressAddress1InputField.sendKeys(validGuestAccAddress1);}
+    public void inputValidGuestCityIntoCityInputField(){checkoutPageNameAddressCityInputField.sendKeys(validGuestAccCity);}
+    public void inputValidGuestPostCodeIntoPostCodeInputField(){checkoutPageNameAddressPostCodeInputField.sendKeys(String.valueOf(validGuestAccPostCode));}
+    public void inputValidGuestEmailIntoEmailInputField(){checkoutPageNameAddressEmailInputField.sendKeys(validGuestAccEmail);}
+
+    //click 'Submit' button (guest account) method
+    public void clickSubmitButton(){checkoutPageNameAddressSubmitButton.click();}
+
+    //click ''Accept Terms' checkbox method
+    public void clickAcceptTermsCheckbox(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".blockUI.blockOverlay")));
+        checkoutPageDiscountCouponAcceptTermsCheckbox.click();
+    }
+
+    //click 'Submit order' button method
+    public void clickSubmitOrderButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageSubmitOrderButton).click().perform();
+    }
 
     //checkout page order section order data getters
     public String getOrderSummarySubtotalPrice() {return checkoutPageOrderSummarySubtotalPrice.getText();}
