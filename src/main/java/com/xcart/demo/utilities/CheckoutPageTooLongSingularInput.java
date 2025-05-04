@@ -69,6 +69,9 @@ public class CheckoutPageTooLongSingularInput extends BasePage{
     private int tooLongGuestAccPostCode;
     private String tooLongGuestAccEmail;
 
+    //invalid guest account generated data (shipping address) - too long singular input
+    private String tooLongGuestShipAccFirstName;
+
     public CheckoutPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
     //invalid guest account input data getter (billing and shipping address) - too long billing first name (100 chars)
@@ -275,6 +278,41 @@ public class CheckoutPageTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid guest account input data getter (billing and shipping address) - too long shipping first name (100 chars)
+    public void invalidGuestAccountInputDataTooLongShipFirstNameGetter(){
+
+        validGuestAccFirstName = "Keith";
+        validGuestAccLastName = TestDataGenerator.getRandomLastName();
+        validGuestAccAddress1 = TestDataGenerator.generateRandomAddress(8);
+        validGuestAccCity = TestDataGenerator.getRandomCity();
+        validGuestAccPostCode = TestDataGenerator.getRandomPostalCode();
+        validGuestAccEmail = TestDataGenerator.generateRandomEmailAddress(6);
+
+        tooLongGuestShipAccFirstName = "Kdsffhgfhsdegttgyujiilukfgdsfdgchjkliiuikyuiiopopiiuyytrefdawsfgvxvxfgdsfsdfgeerweqerettuyhfgfdfgdfd";
+        validGuestShipAccLastName = validGuestAccLastName;
+        validGuestShipAccAddress1 = TestDataGenerator.generateRandomAddress(4);
+        validGuestShipAccCity = TestDataGenerator.getRandomCity();
+        validGuestShipAccPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated input data for valid guest account (too long shipping first name): " + "\n");
+
+        logger.info("Valid guest first name (too long shipping first name): " + validGuestAccFirstName);
+        logger.info("Valid guest last name (too long shipping first name): " + tooLongGuestAccLastName);
+        logger.info("Valid guest address1 (too long shipping first name): " + validGuestAccAddress1);
+        logger.info("Valid guest city (too long shipping first name): " + validGuestAccCity);
+        logger.info("Valid guest post code (too long shipping first name): " + validGuestAccPostCode);
+        logger.info("Valid guest email (too long shipping first name): " + validGuestAccEmail);
+
+        logger.info("Too long guest (shipping address section) first name: " + tooLongGuestShipAccFirstName);
+        logger.info("Valid guest (shipping address section) last name (too long shipping first name): " + validGuestShipAccLastName);
+        logger.info("Valid guest (shipping address section) address1 (too long shipping first name): " + validGuestShipAccAddress1);
+        logger.info("Valid guest (shipping address section) city (too long shipping first name): " + validGuestShipAccCity);
+        logger.info("Valid guest (shipping address section) post code (too long shipping first name): " + validGuestShipAccPostCode);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest data input methods (billing address) - too long singular input
     public void inputTooLongGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(tooLongGuestAccFirstName);}
     public void inputTooLongGuestLastNameIntoLastNameInputField(){checkoutPageNameAddressLastNameInputField.sendKeys(tooLongGuestAccLastName);}
@@ -290,6 +328,9 @@ public class CheckoutPageTooLongSingularInput extends BasePage{
     public void inputValidGuestCityIntoCityInputField(){checkoutPageNameAddressCityInputField.sendKeys(validGuestAccCity);}
     public void inputValidGuestPostCodeIntoPostCodeInputField(){checkoutPageNameAddressPostCodeInputField.sendKeys(String.valueOf(validGuestAccPostCode));}
     public void inputValidGuestEmailIntoEmailInputField(){checkoutPageNameAddressEmailInputField.sendKeys(validGuestAccEmail);}
+
+    //invalid guest data input methods (shipping address) - too long singular input
+    public void inputTooLongGuestShipFirstNameIntoFirstNameInputField(){checkoutPageNameShipAddressFirstNameInputField.sendKeys(tooLongGuestShipAccFirstName);}
 
     //valid guest data input methods (shipping address) - for remaining inputs
     public void inputValidGuestShipFirstNameIntoFirstNameInputField(){checkoutPageNameShipAddressFirstNameInputField.sendKeys(validGuestShipAccFirstName);}
