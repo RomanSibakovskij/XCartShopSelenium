@@ -434,4 +434,29 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //Test 024c -> multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") (with shipping method example delivery method 2 selection) check out confirmation test (as a registered user)
+    @Test
+    @DisplayName("Multiple Single Category Products With Ex Delivery Method Two Checkout Confirmation Test (as a registered user)")
+    @Tag("Multiple_Single_Category_Product_Products_Checkout_Confirmation")
+    @Tag("Multiple_Products")
+    @Tag("Reg_User_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void multipleSingleCategoryProductsRegUserCheckoutConfirmationTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") to cart test (as a registered user)
+        addSetProductCategoryMultipleProductsToCartRegUserTest();
+        //add multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") from products map to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+        //registered user single category multiple products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") checkout confirmation test (with shipping method example delivery method 2 selection)
+        validRegUserProductCheckoutWithExMethodTwoConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }
