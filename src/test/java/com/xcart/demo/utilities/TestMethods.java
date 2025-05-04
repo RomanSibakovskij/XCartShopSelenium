@@ -6194,6 +6194,52 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Guest Checkout Confirmation Test Result (billing and shipping address) - Too Long Billing Post Code");
     }
+    //invalid guest product checkout confirmation test method (billing and shipping address) - too long billing email (100 chars -> name, domain)
+    protected void invalidGuestBillAndShipAddressCheckoutTooLongBillEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageTooLongSingularInput checkoutPageTooLongSingularInput = new CheckoutPageTooLongSingularInput(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page text element assert (without aside section)
+        isGeneralPageNoAsideTextElementAsExpected(generalPage);
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page
+        captureScreenshot(driver, "Checkout Page Display (guest)");
+        //checkout page guest name address section web element assert
+        isCheckoutPageGuestWebElementDisplayed(checkoutPage);
+        //checkout page guest name address section text element assert
+        isCheckoutPageGuestTextElementAsExpected(checkoutPage);
+        //invalid guest account data (billing and shipping address) input getter - too long billing email (100 chars -> name, domain)
+        checkoutPageTooLongSingularInput.invalidGuestAccountInputDataTooLongBillEmailGetter();
+        //input valid guest first name into first name input field
+        checkoutPageTooLongSingularInput.inputValidGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        checkoutPageTooLongSingularInput.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest address 1 into address 1 input field
+        checkoutPageTooLongSingularInput.inputValidGuestAddress1IntoAddress1InputField();
+        //input valid guest city into city input field
+        checkoutPageTooLongSingularInput.inputValidGuestCityIntoCityInputField();
+        //input valid guest post code into post code input field
+        checkoutPageTooLongSingularInput.inputValidGuestPostCodeIntoPostCodeInputField();
+        //input too long guest email into email input field (100 chars -> name, domain)
+        checkoutPageTooLongSingularInput.inputTooLongGuestEmailIntoEmailInputField();
+        //capture screenshot of the checkout page after valid guest data input
+        captureScreenshot(driver, "Checkout Page Display After Invalid Guest Account Data Input (billing address) - Too Long Billing Email");
+        //click 'Submit' button
+        checkoutPage.clickSubmitButton();
+        //assert the user gets an expected error, log the issue otherwise
+        try{
+            assertEquals("Email address is invalid! Please correct", checkoutPageTooLongSingularInput.getSingularInputErrorMessage(), "The too long billing address email input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The too long billing address email input error doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Guest Checkout Confirmation Test Result (billing and shipping address) - Too Long Billing Email");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
