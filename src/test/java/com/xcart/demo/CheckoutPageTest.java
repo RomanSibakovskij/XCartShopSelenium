@@ -107,4 +107,24 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //single searched product check out confirmation tests
+
+    //Test 021 -> single searched product with fax ordering payment method ("AMD A10-5800K") check out confirmation test (as a guest)
+    @Test
+    @DisplayName("Single Searched Product With Fax Ordering Payment Checkout Confirmation Test (as a guest)")
+    @Tag("Single_Searched_Product_Checkout_Confirmation")
+    @Tag("Single_Product")
+    @Tag("Valid_Guest_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void singleSearchedProductGuestCheckoutConfirmationTest() {
+        //add single searched product ("AMD A10-5800K") to check out test (as a guest)
+        addSingleSearchedProductToCartGuestTest();
+        //add single searched product ("AMD A10-5800K") to check out test (as a guest)
+        addProductToCheckoutTest();
+        //valid guest product with fax ordering payment method ("AMD A10-5800K") checkout confirmation test
+        validGuestProductFaxOrderCheckoutConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }

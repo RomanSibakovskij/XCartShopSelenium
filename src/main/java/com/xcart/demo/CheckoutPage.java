@@ -301,6 +301,11 @@ public class CheckoutPage extends BasePage{
     public void inputValidGuestShipCityIntoCityInputField(){checkoutPageNameShipAddressCityInputField.sendKeys(validGuestAccCity);}
     public void inputValidGuestShipPostCodeIntoPostCodeInputField(){checkoutPageNameShipAddressPostCodeInputField.sendKeys(String.valueOf(validGuestAccPostCode));}
 
+    //click 'Fax ordering payment method' radio button
+    public void clickFaxOrderingRadioButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPagePayMethodFaxOrderingRadioButton).click().perform();
+    }
 
     //click 'Accept Terms' checkbox method
     public void clickAcceptTermsCheckbox(){

@@ -4968,6 +4968,56 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Guest Checkout Confirmation Test Result (billing and shipping address)");
     }
 
+    //valid guest product with fax ordering checkout confirmation test method (applicable to any product count)
+    protected void validGuestProductFaxOrderCheckoutConfirmationTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page text element assert (without aside section)
+        isGeneralPageNoAsideTextElementAsExpected(generalPage);
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page
+        captureScreenshot(driver, "Checkout Page Display (guest)");
+        //checkout page guest name address section web element assert
+        isCheckoutPageGuestWebElementDisplayed(checkoutPage);
+        //checkout page guest name address section text element assert
+        isCheckoutPageGuestTextElementAsExpected(checkoutPage);
+        //valid guest account data input getter
+        checkoutPage.validGuestAccountInputDataGetter();
+        //input valid guest first name into first name input field
+        checkoutPage.inputValidGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        checkoutPage.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest address 1 into address 1 input field
+        checkoutPage.inputValidGuestAddress1IntoAddress1InputField();
+        //input valid guest city into city input field
+        checkoutPage.inputValidGuestCityIntoCityInputField();
+        //input valid guest post code into post code input field
+        checkoutPage.inputValidGuestPostCodeIntoPostCodeInputField();
+        //input valid guest email into email input field
+        checkoutPage.inputValidGuestEmailIntoEmailInputField();
+        //capture screenshot of the checkout page after valid guest data input
+        captureScreenshot(driver, "Checkout Page Display After Valid Guest Account Data Input");
+        //click 'Submit' button
+        checkoutPage.clickSubmitButton();
+        //log order summary data
+        logCheckoutPageOrderSummaryData(checkoutPage);
+        //click 'Fax ordering' radio button
+        checkoutPage.clickFaxOrderingRadioButton();
+        //log order summary without price surcharge data (for confirmation)
+        logCheckoutPageOrderSummaryNoSurchargeData(checkoutPage);
+        //click 'Accept Terms' checkbox
+        checkoutPage.clickAcceptTermsCheckbox();
+        //click 'Submit order' button
+        checkoutPage.clickSubmitOrderButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Guest Checkout (With Fax Ordering Payment Method) Confirmation Test Result");
+    }
+
     //registered user product checkout confirmation test method (both for single / multiple products)
     protected void validRegUserProductCheckoutConfirmationTest(){
         GeneralPage generalPage = new GeneralPage(driver);
