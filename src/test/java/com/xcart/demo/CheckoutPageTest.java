@@ -238,4 +238,22 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //multiple single product page products check out confirmation tests
+
+    //Test 022b -> add multiple single product page products ("Digital Angel") check out confirmation test (as a guest)
+    @Test
+    @DisplayName("Single Product Page Product Multiple Products Checkout Confirmation Test (as a guest)")
+    @Tag("Add_Multiple_Searched_Products_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void multipleProductsSingleProductPageGuestCheckoutConfirmationTest() {
+        //add multiple searched products ("Digital Angel") to cart test (as a guest)
+        addMultipleDigitalAngelProductToCartGuestTest();;
+        //add multiple searched products ("Digital Angel") to check out test (as a guest)
+        addProductToCheckoutTest();
+        //valid guest products with fax ordering payment method ("Digital Angel") checkout confirmation test
+        validGuestProductFaxOrderCheckoutConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }
