@@ -324,4 +324,24 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //multiple products addition (from products map) check out confirmation tests
+
+    //Test 023b -> add multiple products ("Genius Traveler 6000X Ambidextrous Mouse") (from products map) check out confirmation test (as a guest)
+    @Test
+    @DisplayName("Multiple Products Addition (Products Map) With Ex Delivery Method One And Money Order Checkout Confirmation Test (as a guest)")
+    @Tag("Multiple_Product_Map_Products_Checkout_Confirmation")
+    @Tag("Multiple_Products")
+    @Tag("Valid_Guest_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void multipleProductsMapProductsGuestCheckoutConfirmationTest() {
+        //add multiple products ("Genius Traveler 6000X Ambidextrous Mouse") from products map to cart test (as a guest)
+        addMultipleProductsFromProductsMapToCartGuestTest();
+        //add multiple products ("Genius Traveler 6000X Ambidextrous Mouse") from products map to check out test (as a guest)
+        addProductToCheckoutTest();
+        //valid guest product with example shipping delivery method 1 and money order payment method ("Genius Traveler 6000X Ambidextrous Mouse") (from products map) checkout confirmation test
+        validGuestProductExDeliveryOneAndMoneyOrderCheckoutConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }
