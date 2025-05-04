@@ -5621,6 +5621,219 @@ protected void navigateToRegisterPageTest(){
         assertTrue(shoppingCartPage.isShoppingCartPageProductOptionsLinkDisplayed(), "The shopping cart page product options links aren't displayed");
     }
 
+    //checkout page web element assert test method
+    protected void isCheckoutPageWebElementDisplayed(CheckoutPage checkoutPage) {
+        //assert checkout page title is displayed
+        assertTrue(checkoutPage.isCheckoutPageTitleDisplayed(), "The checkout page title isn't displayed");
+        //shipping method
+        //assert checkout page shipping method section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageShipMethodSectionTitleDisplayed(), "The checkout page shipping method section title isn't displayed");
+        //payment method
+        //assert checkout page payment method section title is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodSectionTitleDisplayed(), "The checkout page payment method section title isn't displayed");
+        //assert checkout page payment method phone ordering radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodPhoneOrderingRadioButtonDisplayed(), "The checkout page payment method phone ordering radio button isn't displayed");
+        //assert checkout page payment method phone ordering subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodPhoneOrderingSubtextDisplayed(), "The checkout page payment method phone ordering subtext isn't displayed");
+        //assert checkout page payment method gift certificate radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodGiftCertificateRadioButtonDisplayed(), "The checkout page payment method gift certificate radio button isn't displayed");
+        //assert checkout page payment method gift certificate subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodGiftCertificateSubtextDisplayed(), "The checkout page payment method gift certificate subtext isn't displayed");
+        //assert checkout page payment method fax ordering radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodFaxOrderingRadioButtonDisplayed(), "The checkout page payment method fax ordering radio button isn't displayed");
+        //assert checkout page payment method fax ordering subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodFaxOrderingSubtextDisplayed(), "The checkout page payment method fax ordering subtext isn't displayed");
+        //assert checkout page payment method money order radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodMoneyOrderRadioButtonDisplayed(), "The checkout page payment method money order radio button isn't displayed");
+        //assert checkout page payment method money order subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodMoneyOrderSubtextDisplayed(), "The checkout page payment method money order subtext isn't displayed");
+        //assert checkout page payment method purchase order radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodPurchaseOrderRadioButtonDisplayed(), "The checkout page payment method purchase order radio button isn't displayed");
+        //assert checkout page payment method purchase order subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodPurchaseOrderSubtextDisplayed(), "The checkout page payment method purchase order subtext isn't displayed");
+        //assert checkout page payment method sage pay go radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodSagePayGoRadioButtonDisplayed(), "The checkout page payment method sage pay go radio button isn't displayed");
+        //assert checkout page payment method sage pay go subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodSagePayGoSubtextDisplayed(), "The checkout page payment method sgae pay go subtext isn't displayed");
+        //assert checkout page payment method x payments ordering radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodXPaymentsRadioButtonDisplayed(), "The checkout page payment method x payment radio button isn't displayed");
+        //assert checkout page payment method x payment subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPayMethodXPaymentsSubtextDisplayed(), "The checkout page payment method x payment subtext isn't displayed");
+        //order summary
+        //assert checkout page order summary section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageOrderSummarySectionTitleDisplayed(), "The checkout page order summary section title isn't displayed");
+        //assert checkout page order summary subtotal price is displayed
+        assertTrue(checkoutPage.isCheckoutPageOrderSummarySubtotalPriceDisplayed(), "The checkout page order summary subtotal price isn't displayed");
+        //assert checkout page order summary shipping cost is displayed
+        assertTrue(checkoutPage.isCheckoutPageOrderSummaryShippingCostDisplayed(), "The checkout page order summary shipping cost isn't displayed");
+        //assert checkout page order summary pay method surcharge is displayed
+        assertTrue(checkoutPage.isCheckoutPageOrderSummaryPayMethodSurchargeDisplayed(), "The checkout page order summary pay method surcharge isn't displayed");
+        //assert checkout page order summary total price is displayed
+        assertTrue(checkoutPage.isCheckoutPageOrderSummaryTotalPriceDisplayed(), "The checkout page order summary total price isn't displayed");
+        //assert checkout page order summary total alt price is displayed
+        assertTrue(checkoutPage.isCheckoutPageOrderSummaryTotalAltPriceDisplayed(), "The checkout page order summary total alt price isn't displayed");
+        //discount coupon
+        //assert checkout page discount coupon section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageDiscountCouponSectionTitleDisplayed(), "The checkout page discount coupon section title isn't displayed");
+        //assert checkout page discount coupon section subtitle is displayed
+        assertTrue(checkoutPage.isCheckoutPageDiscountCouponSectionSubtitleDisplayed(), "The checkout page discount coupon section subtitle isn't displayed");
+        //assert checkout page discount coupon textarea is displayed
+        assertTrue(checkoutPage.isCheckoutPageDiscountCouponTextareaDisplayed(), "The checkout page discount coupon section textarea isn't displayed");
+        //assert checkout page discount coupon accept terms checkbox is displayed
+        assertTrue(checkoutPage.isCheckoutPageDiscountCouponAcceptTermsCheckboxDisplayed(), "The checkout page discount coupon accept terms checkbox isn't displayed");
+        //assert checkout page discount coupon accept terms subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageDiscountCouponAcceptTermsSubtextDisplayed(), "The checkout page discount coupon accept terms subtext isn't displayed");
+        //assert checkout page discount coupon section terms page link is displayed
+        assertTrue(checkoutPage.isCheckoutPageDiscountCouponTermsPageLinkDisplayed(), "The checkout page discount coupon section terms page link isn't displayed");
+        //assert checkout page discount coupon section privacy page link is displayed
+        assertTrue(checkoutPage.isCheckoutPageDiscountCouponPrivacyPageLinkDisplayed(), "The checkout page discount coupon section privacy page link isn't displayed");
+        //assert checkout page submit order button is displayed
+        assertTrue(checkoutPage.isCheckoutPageSubmitOrderButtonDisplayed(), "The checkout page submit order button isn't displayed");
+    }
+
+    //checkout page guest only web element assert test method
+    protected void isCheckoutPageGuestWebElementDisplayed(CheckoutPage checkoutPage) {
+        //assert checkout page guest description is displayed
+        assertTrue(checkoutPage.isCheckoutPageGuestDescriptionDisplayed(), "The checkout page guest description isn't displayed");
+        //assert checkout page sign-in link is displayed
+        assertTrue(checkoutPage.isCheckoutPageSignInLinkDisplayed(), "The checkout page sign-in link isn't displayed");
+        //name and address
+        //assert checkout page name and address section title is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressSectionTitleDisplayed(), "The checkout page name and address section title isn't displayed");
+        //assert checkout page name and address section cancel button is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressCancelButtonDisplayed(), "The checkout page name and address section cancel button isn't displayed");
+        //assert checkout page first name subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressFirstNameSubtextDisplayed(), "The checkout page first name subtext isn't displayed");
+        //assert checkout page first name input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressFirstNameInputFieldDisplayed(), "The checkout page first name input field isn't displayed");
+        //assert checkout page last name subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressLastNameSubtextDisplayed(), "The checkout page last name subtext isn't displayed");
+        //assert checkout page last name input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressLastNameInputFieldDisplayed(), "The checkout page last name input field isn't displayed");
+        //assert checkout page address 1 subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressAddress1SubtextDisplayed(), "The checkout page address 1 subtext isn't displayed");
+        //assert checkout page address 1 input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressAddress1InputFieldDisplayed(), "The checkout page address 1 input field isn't displayed");
+        //assert checkout page address 2 subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressAddress2SubtextDisplayed(), "The checkout page address 2 subtext isn't displayed");
+        //assert checkout page address 2 input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressAddress2InputFieldDisplayed(), "The checkout page address 2 input field isn't displayed");
+        //assert checkout page city subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressCitySubtextDisplayed(), "The checkout page city subtext isn't displayed");
+        //assert checkout page city input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressCityInputFieldDisplayed(), "The checkout page city input field isn't displayed");
+        //assert checkout page country subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressCountrySubtextDisplayed(), "The checkout page country subtext isn't displayed");
+        //assert checkout page country input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressCountryDropdownMenuDisplayed(), "The checkout page first country dropdown menu isn't displayed");
+        //assert checkout page state subtext is displayed
+        //assertTrue(checkoutPage.isCheckoutPageNameAddressStateSubtextDisplayed(), "The checkout page state subtext isn't displayed");
+        //assert checkout page state input field is displayed
+        //assertTrue(checkoutPage.isCheckoutPageNameAddressStateDropdownMenuDisplayed(), "The checkout page state dropdown menu isn't displayed");
+        //assert checkout page post code subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressPostCodeSubtextDisplayed(), "The checkout page post code subtext isn't displayed");
+        //assert checkout page post code input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressPostCodeInputFieldDisplayed(), "The checkout page post code input field isn't displayed");
+        //assert checkout page phone subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressPhoneSubtextDisplayed(), "The checkout page phone subtext isn't displayed");
+        //assert checkout page phone input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressPhoneInputFieldDisplayed(), "The checkout page phone input field isn't displayed");
+        //assert checkout page fax subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressFaxSubtextDisplayed(), "The checkout page fax subtext isn't displayed");
+        //assert checkout page fax input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressFaxInputFieldDisplayed(), "The checkout page fax input field isn't displayed");
+        //assert checkout page email subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressEmailSubtextDisplayed(), "The checkout page email subtext isn't displayed");
+        //assert checkout page email input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressEmailInputFieldDisplayed(), "The checkout page email input field isn't displayed");
+        //assert checkout page create account subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressCreateAccountSubtextDisplayed(), "The checkout page create account subtext isn't displayed");
+        //assert checkout page create account checkbox is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressCreateAccountCheckboxDisplayed(), "The checkout page create account checkbox isn't displayed");
+        //assert checkout page ship to a different address subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressShipDiffAddressSubtextDisplayed(), "The checkout page ship to a different address subtext isn't displayed");
+        //assert checkout page ship to a different address checkbox is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressShipDiffAddressCheckboxDisplayed(), "The checkout page ship to a different address checkbox isn't displayed");
+        //assert checkout page name and address submit button is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameAddressSubmitButtonDisplayed(), "The checkout page name and address submit button isn't displayed");
+    }
+
+    //checkout page shipping address section web element assert test method
+    protected void isCheckoutPageShippingAddressSectionWebElementDisplayed(CheckoutPage checkoutPage){
+        //assert checkout page shipping address section first name subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressFirstNameSubtextDisplayed(), "The checkout page shipping address section first name subtext isn't displayed");
+        //assert checkout page shipping address section first name input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressFirstNameInputFieldDisplayed(), "The checkout page shipping address section first name input field isn't displayed");
+        //assert checkout page shipping address section last name subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressLastNameSubtextDisplayed(), "The checkout page shipping address section last name subtext isn't displayed");
+        //assert checkout page shipping address section last name input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressLastNameInputFieldDisplayed(), "The checkout page shipping address section last name input field isn't displayed");
+        //assert checkout page shipping address section address 1 subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressAddress1SubtextDisplayed(), "The checkout page shipping address section address 1 subtext isn't displayed");
+        //assert checkout page shipping address section address 1 input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressAddress1InputFieldDisplayed(), "The checkout page shipping address section address 1 input field isn't displayed");
+        //assert checkout page shipping address section address 2 subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressAddress2SubtextDisplayed(), "The checkout page shipping address section address 2 subtext isn't displayed");
+        //assert checkout page shipping address section address 2 input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressAddress2InputFieldDisplayed(), "The checkout page shipping address section address 2 input field isn't displayed");
+        //assert checkout page shipping address section city subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressCitySubtextDisplayed(), "The checkout page shipping address section city subtext isn't displayed");
+        //assert checkout page shipping address section city input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressCityInputFieldDisplayed(), "The checkout page shipping address section city input field isn't displayed");
+        //assert checkout page shipping address section country subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressCountrySubtextDisplayed(), "The checkout page shipping address section country subtext isn't displayed");
+        //assert checkout page shipping address section country input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressCountryDropdownMenuDisplayed(), "The checkout page shipping address section country dropdown menu isn't displayed");
+        //assert checkout page shipping address section state subtext is displayed
+        //assertTrue(checkoutPage.isCheckoutPageNameShipAddressStateSubtextDisplayed(), "The checkout page shipping address section state subtext isn't displayed");
+        //assert checkout page shipping address section state input field is displayed
+        //assertTrue(checkoutPage.isCheckoutPageNameShipAddressStateDropdownMenuDisplayed(), "The checkout page shipping address section state dropdown menu isn't displayed");
+        //assert checkout page shipping address section post code subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressPostCodeSubtextDisplayed(), "The checkout page shipping address section post code subtext isn't displayed");
+        //assert checkout page shipping address section post code input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressPostCodeInputFieldDisplayed(), "The checkout page shipping address section post code input field isn't displayed");
+        //assert checkout page shipping address section phone subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressPhoneSubtextDisplayed(), "The checkout page shipping address section phone subtext isn't displayed");
+        //assert checkout page shipping address section phone input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressPhoneInputFieldDisplayed(), "The checkout page shipping address section phone input field isn't displayed");
+        //assert checkout page shipping address section fax subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressFaxSubtextDisplayed(), "The checkout page shipping address section fax subtext isn't displayed");
+        //assert checkout page shipping address section fax input field is displayed
+        assertTrue(checkoutPage.isCheckoutPageNameShipAddressFaxInputFieldDisplayed(), "The checkout page shipping address section fax input field isn't displayed");
+    }
+
+    //checkout page registered user only web element assert test method
+    protected void isCheckoutPageRegUserWebElementDisplayed(CheckoutPage checkoutPage) {
+        //assert checkout page registered user description is displayed
+        assertTrue(checkoutPage.isCheckoutPageRegUserDescriptionDisplayed(), "The checkout page registered user description isn't displayed");
+        //assert checkout page view profile link is displayed
+        assertTrue(checkoutPage.isCheckoutPageViewProfileLinkDisplayed(), "The checkout page view profile link isn't displayed");
+        //assert checkout page sign out link is displayed
+        assertTrue(checkoutPage.isCheckoutPageSignOutLinkDisplayed(), "The checkout page sign out link isn't displayed");
+    }
+
+    //checkout page shipping method section web element assert test method
+    protected void isCheckoutPageShippingSectionWebElementDisplayed(CheckoutPage checkoutPage) {
+        //assert checkout page shipping method example US delivery radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPageShipMethodExampleUSDeliveryRadioButtonDisplayed(), "The checkout page shipping method example US delivery radio button isn't displayed");
+        //assert checkout page shipping method example US delivery subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShipMethodExampleUSDeliverySubtextDisplayed(), "The checkout page shipping method example US delivery subtext isn't displayed");
+        //assert checkout page shipping method example US delivery price is displayed
+        assertTrue(checkoutPage.isCheckoutPageShipMethodExampleUSDeliveryPriceDisplayed(), "The checkout page shipping method example US delivery price isn't displayed");
+        //assert checkout page shipping method example US delivery one radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPageShipMethodExampleUSDelivery1RadioButtonDisplayed(), "The checkout page shipping method example US delivery one radio button isn't displayed");
+        //assert checkout page shipping method example US delivery one subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShipMethodExampleUSDelivery1SubtextDisplayed(), "The checkout page shipping method example US delivery one subtext isn't displayed");
+        //assert checkout page shipping method example US delivery one price is displayed
+        assertTrue(checkoutPage.isCheckoutPageShipMethodExampleUSDelivery1PriceDisplayed(), "The checkout page shipping method example US delivery one price isn't displayed");
+        //assert checkout page shipping method example US delivery two radio button is displayed
+        assertTrue(checkoutPage.isCheckoutPageShipMethodExampleUSDelivery2RadioButtonDisplayed(), "The checkout page shipping method example US delivery two radio button isn't displayed");
+        //assert checkout page shipping method example US delivery two subtext is displayed
+        assertTrue(checkoutPage.isCheckoutPageShipMethodExampleUSDelivery2SubtextDisplayed(), "The checkout page shipping method example US delivery two subtext isn't displayed");
+        //assert checkout page shipping method example US delivery two price is displayed
+        assertTrue(checkoutPage.isCheckoutPageShipMethodExampleUSDelivery2PriceDisplayed(), "The checkout page shipping method example US delivery two price isn't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -5870,6 +6083,126 @@ protected void navigateToRegisterPageTest(){
         assertEquals("Have a coupon?", shoppingCartPage.getShoppingCartDiscountSubtext(), "The shopping cart page discount subtext doesn't match expectations.");
     }
 
+    //checkout page text element assert test method
+    protected void isCheckoutPageTextElementAsExpected(CheckoutPage checkoutPage) {
+        //assert checkout page title is as expected
+        assertEquals("Checkout", checkoutPage.getCheckoutPageTitle(), "The checkout page title doesn't match expectations.");
+        //shipping method
+        //assert checkout page shipping method section title is as expected
+        assertEquals("Shipping method", checkoutPage.getCheckoutPageShipMethodSectionTitle(), "The checkout page shipping method section title doesn't match expectations.");
+        //payment method
+        //assert checkout page payment method section title is as expected
+        assertEquals("Payment method", checkoutPage.getCheckoutPagePayMethodSectionTitle(), "The checkout page payment method section title doesn't match expectations.");
+        //assert checkout page payment method phone ordering subtext is as expected
+        assertEquals("Phone Ordering\n" +
+                "Phone: (555) 555-5555", checkoutPage.getCheckoutPagePayMethodPhoneOrderingSubtext(), "The checkout page payment method phone ordering subtext doesn't match expectations.");
+        //assert checkout page payment method gift certificate subtext is as expected
+        assertEquals("Gift Certificate", checkoutPage.getCheckoutPagePayMethodGiftCertificateSubtext(), "The checkout page payment method gift certificate subtext doesn't match expectations.");
+        //assert checkout page payment method fax ordering subtext is as expected
+        assertEquals("Fax Ordering\n" +
+                "Fax: (555) 555-5555", checkoutPage.getCheckoutPagePayMethodFaxOrderingSubtext(), "The checkout page payment method fax ordering subtext doesn't match expectations.");
+        //assert checkout page payment method money order subtext is as expected
+        assertEquals("Money Order\n" +
+                "US Banks Only", checkoutPage.getCheckoutPagePayMethodMoneyOrderingSubtext(), "The checkout page payment method money order subtext doesn't match expectations.");
+        //assert checkout page payment method purchase order subtext is as expected //Selenium fails to find this element with VALID selector
+        assertEquals("Purchase Order", checkoutPage.getCheckoutPagePayMethodPurchaseOrderSubtext(), "The checkout page payment method purchase order subtext doesn't match expectations.");
+        //assert checkout page payment method sage pay go subtext is as expected
+        assertEquals("Sage Pay Go - Form protocol(test cards)", checkoutPage.getCheckoutPagePayMethodSagePayGoSubtext(), "The checkout page payment method sage pay go subtext doesn't match expectations.");
+        //assert checkout page payment method x payment subtext is as expected
+        assertEquals("X-Payments: X-Payments DEMO", checkoutPage.getCheckoutPagePayMethodXPaymentSubtext(), "The checkout page payment method x payment subtext doesn't match expectations.");
+        //order summary
+        //assert checkout page order summary section title is as expected
+        assertEquals("Order summary", checkoutPage.getCheckoutPageOrderSummarySectionTitle(), "The checkout page order summary section title doesn't match expectations.");
+        //discount coupon
+        //assert checkout page discount coupon section title link is as expected
+        assertEquals("Redeem a discount coupon", checkoutPage.getCheckoutPageDiscountCouponSectionTitle(), "The checkout page discount coupon section title link doesn't match expectations.");
+        //assert checkout page discount coupon section subtitle is as expected
+        assertEquals("Customer notes:", checkoutPage.getCheckoutPageDiscountCouponSectionSubtitle(), "The checkout page discount coupon section subtitle doesn't match expectations.");
+        //assert checkout page discount coupon section accept terms subtext is as expected
+        assertEquals("I accept the \"Terms & Conditions\" and \"Privacy statement\"", checkoutPage.getCheckoutPageDiscountCouponAcceptTermsSubtext(), "The checkout page discount coupon accept terms subtext doesn't match expectations.");
+    }
+
+    //checkout page (guest) text element assert test method
+    protected void isCheckoutPageGuestTextElementAsExpected(CheckoutPage checkoutPage) {
+        //assert checkout page guest description is as expected
+        assertEquals("Please enter your Name and Address then click \"Submit\" below before selecting Shipping and Payment Method.\n" +
+                "If you already have an account please sign in", checkoutPage.getCheckoutPageGuestDescription(), "The checkout page guest description doesn't match expectations.");
+        //assert checkout page name address section title is as expected
+        assertEquals("Name and address", checkoutPage.getCheckoutPageNameAddressSectionTitle(), "The checkout page name address section title doesn't match expectations.");
+        //assert checkout page name address first name subtext is as expected
+        assertEquals("First name", checkoutPage.getCheckoutPageNameAddressFirstNameSubtext(), "The checkout page name address first name subtext doesn't match expectations.");
+        //assert checkout page name address last name subtext is as expected
+        assertEquals("Last name", checkoutPage.getCheckoutPageNameAddressLastNameSubtext(), "The checkout page name address last name subtext doesn't match expectations.");
+        //assert checkout page name address section address 1 subtext is as expected
+        assertEquals("Address", checkoutPage.getCheckoutPageNameAddressAddress1Subtext(), "The checkout page name address section address 1 subtext doesn't match expectations.");
+        //assert checkout page name address section address 2 subtext is as expected
+        assertEquals("Address (line 2)", checkoutPage.getCheckoutPageNameAddressAddress2Subtext(), "The checkout page name address section address 2 subtext doesn't match expectations.");
+        //assert checkout page name address city subtext is as expected
+        assertEquals("City", checkoutPage.getCheckoutPageNameAddressCitySubtext(), "The checkout page name address city subtext doesn't match expectations.");
+        //assert checkout page name address country subtext is as expected
+        assertEquals("Country", checkoutPage.getCheckoutPageNameAddressCountrySubtext(), "The checkout page name address country subtext doesn't match expectations.");
+        //assert checkout page name address state subtext is as expected
+        //assertEquals("State", checkoutPage.getCheckoutPageNameAddressStateSubtext(), "The checkout page name address state subtext doesn't match expectations.");
+        //assert checkout page name address post code subtext is as expected
+        assertEquals("Zip/Postal code", checkoutPage.getCheckoutPageNameAddressPostCodeSubtext(), "The checkout page name address post code subtext doesn't match expectations.");
+        //assert checkout page name address phone subtext is as expected
+        assertEquals("Phone", checkoutPage.getCheckoutPageNameAddressPhoneSubtext(), "The checkout page name address phone subtext doesn't match expectations.");
+        //assert checkout page name address fax subtext is as expected
+        assertEquals("Fax", checkoutPage.getCheckoutPageNameAddressFaxSubtext(), "The checkout page name address fax subtext doesn't match expectations.");
+        //assert checkout page name address email subtext is as expected
+        assertEquals("Email", checkoutPage.getCheckoutPageNameAddressEmailSubtext(), "The checkout page name address email subtext doesn't match expectations.");
+        //assert checkout page name address create account subtext is as expected
+        assertEquals("Create account for this Email", checkoutPage.getCheckoutPageNameAddressCreateAccountSubtext(), "The checkout page name address create account subtext doesn't match expectations.");
+        //assert checkout page name address ship to a different address subtext is as expected
+        assertEquals("Ship to a different address", checkoutPage.getCheckoutPageNameAddressShipDiffAddressSubtext(), "The checkout page name address ship to a different address subtext doesn't match expectations.");
+    }
+
+    //checkout page (shipping address section) text element assert test method
+    protected void isCheckoutPageShipAddressSectionTextElementAsExpected(CheckoutPage checkoutPage){
+        //assert checkout page name address shipping address section first name subtext is as expected
+        assertEquals("First name", checkoutPage.getCheckoutPageNameShipAddressFirstNameSubtext(), "The checkout page name address first name subtext doesn't match expectations.");
+        //assert checkout page name address shipping address section last name subtext is as expected
+        assertEquals("Last name", checkoutPage.getCheckoutPageNameShipAddressLastNameSubtext(), "The checkout page name address last name subtext doesn't match expectations.");
+        //assert checkout page name address shipping address section address 1 subtext is as expected
+        assertEquals("Address", checkoutPage.getCheckoutPageNameShipAddressAddress1Subtext(), "The checkout page name address section address 1 subtext doesn't match expectations.");
+        //assert checkout page name address shipping address section address 2 subtext is as expected
+        assertEquals("Address (line 2)", checkoutPage.getCheckoutPageNameShipAddressAddress2Subtext(), "The checkout page name address section address 2 subtext doesn't match expectations.");
+        //assert checkout page name address shipping address section city subtext is as expected
+        assertEquals("City", checkoutPage.getCheckoutPageNameShipAddressCitySubtext(), "The checkout page name address city subtext doesn't match expectations.");
+        //assert checkout page name address shipping address section country subtext is as expected
+        assertEquals("Country", checkoutPage.getCheckoutPageNameShipAddressCountrySubtext(), "The checkout page name address country subtext doesn't match expectations.");
+        //assert checkout page name address shipping address section state subtext is as expected
+        //assertEquals("State", checkoutPage.getCheckoutPageNameShipAddressStateSubtext(), "The checkout page name address state subtext doesn't match expectations.");
+        //assert checkout page name address shipping address section post code subtext is as expected
+        assertEquals("Zip/Postal code", checkoutPage.getCheckoutPageNameShipAddressPostCodeSubtext(), "The checkout page name address post code subtext doesn't match expectations.");
+        //assert checkout page name address shipping address section phone subtext is as expected
+        assertEquals("Phone", checkoutPage.getCheckoutPageNameShipAddressPhoneSubtext(), "The checkout page name address phone subtext doesn't match expectations.");
+        //assert checkout page name address shipping address section fax subtext is as expected
+        assertEquals("Fax", checkoutPage.getCheckoutPageNameShipAddressFaxSubtext(), "The checkout page name address fax subtext doesn't match expectations.");
+    }
+
+    //checkout page (registered user) text element assert test method
+    protected void isCheckoutPageRegUserTextElementAsExpected(CheckoutPage checkoutPage) {
+        //assert checkout page registered user description is as expected
+        assertEquals("Greetings", checkoutPage.getCheckoutPageRegUserDescription(), "The checkout page registered user description doesn't match expectations.");
+    }
+
+    //checkout page (shipping method) text element assert test method
+    protected void isCheckoutPageShipMethodTextElementAsExpected(CheckoutPage checkoutPage) {
+        //assert checkout page shipping method example US delivery subtext is as expected
+        assertEquals("Example US delivery", checkoutPage.getCheckoutPageShipMethodExampleUSDeliverySubtext(), "The checkout page shipping method example US delivery subtext doesn't match expectations.");
+        //assert checkout page shipping method example US delivery price is as expected
+        assertEquals("$15.00", checkoutPage.getCheckoutPageShipMethodExampleUSDeliveryPrice(), "The checkout page shipping method example US delivery price doesn't match expectations.");
+        //assert checkout page shipping method example US delivery one subtext is as expected
+        assertEquals("Example national delivery method1", checkoutPage.getCheckoutPageShipMethodExampleDelivery1Subtext(), "The checkout page shipping method example US delivery one subtext doesn't match expectations.");
+        //assert checkout page shipping method example US delivery one price is as expected
+        assertEquals("$9.00", checkoutPage.getCheckoutPageShipMethodExampleDelivery1Price(), "The checkout page shipping method example US delivery one price doesn't match expectations.");
+        //assert checkout page shipping method example US delivery two subtext is as expected
+        assertEquals("Example national delivery method2", checkoutPage.getCheckoutPageShipMethodExampleDelivery2Subtext(), "The checkout page shipping method example US delivery two subtext doesn't match expectations.");
+        //assert checkout page shipping method example US delivery two price is as expected
+        assertEquals("$11.00", checkoutPage.getCheckoutPageShipMethodExampleDelivery2Price(), "The checkout page shipping method example US delivery two price doesn't match expectations.");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page product data logger method
@@ -5995,6 +6328,31 @@ protected void navigateToRegisterPageTest(){
         System.out.println("Shopping cart displayed product details data: " + "\n");
 
         logger.info("Shopping cart product(s) details: " + shoppingCartPage.getShoppingCartPageProductDetails());
+
+        System.out.println("\n");
+    }
+
+    //checkout page order summary data logger method
+    protected void logCheckoutPageOrderSummaryData(CheckoutPage checkoutPage){
+        System.out.println("Checkout page displayed order summary data: " + "\n");
+
+        logger.info("Checkout order summary subtotal price: " + checkoutPage.getOrderSummarySubtotalPrice());
+        logger.info("Checkout order summary shipping cost: " + checkoutPage.getOrderSummaryShippingCost());
+        logger.info("Checkout order summary pay method surcharge: " + checkoutPage.getOrderSummaryPayMethodSurcharge());
+        logger.info("Checkout order summary total price: " + checkoutPage.getOrderSummaryTotalPrice());
+        logger.info("Checkout order summary total alt price: " + checkoutPage.getOrderSummaryTotalAltPrice());
+
+        System.out.println("\n");
+    }
+
+    //checkout page order summary data logger method (without price surcharge)
+    protected void logCheckoutPageOrderSummaryNoSurchargeData(CheckoutPage checkoutPage){
+        System.out.println("Checkout page displayed order summary data (no price surcharge): " + "\n");
+
+        logger.info("Checkout order summary subtotal price (no price surcharge): " + checkoutPage.getOrderSummarySubtotalPrice());
+        logger.info("Checkout order summary shipping cost (no price surcharge): " + checkoutPage.getOrderSummaryShippingCost());
+        logger.info("Checkout order summary total price (no price surcharge): " + checkoutPage.getOrderSummaryTotalPrice());
+        logger.info("Checkout order summary total alt price (no price surcharge): " + checkoutPage.getOrderSummaryTotalAltPrice());
 
         System.out.println("\n");
     }
