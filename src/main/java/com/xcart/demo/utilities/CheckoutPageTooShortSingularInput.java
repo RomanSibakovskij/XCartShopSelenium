@@ -72,6 +72,7 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
     //invalid guest account generated data (shipping address) - too short singular input
     private String tooShortGuestShipAccFirstName;
     private String tooShortGuestShipAccLastName;
+    private String tooShortGuestShipAccAddress1;
 
     public CheckoutPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -355,6 +356,41 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid guest account input data getter (billing and shipping address) - too short shipping address (4 chars)
+    public void invalidGuestAccountInputDataTooShortShipAddressGetter(){
+
+        validGuestAccFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestAccLastName = TestDataGenerator.getRandomLastName();
+        validGuestAccAddress1 = TestDataGenerator.generateRandomAddress(6);
+        validGuestAccCity = TestDataGenerator.getRandomCity();
+        validGuestAccPostCode = 54625;
+        validGuestAccEmail = TestDataGenerator.generateRandomEmailAddress(7);
+
+        validGuestShipAccFirstName = validGuestAccFirstName;
+        validGuestShipAccLastName = validGuestAccLastName;
+        tooShortGuestShipAccAddress1 = "5 Ln";
+        validGuestShipAccCity = TestDataGenerator.getRandomCity();
+        validGuestShipAccPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated input data for valid guest account (too short shipping address): " + "\n");
+
+        logger.info("Valid guest first name (too short shipping address): " + validGuestAccFirstName);
+        logger.info("Valid guest last name (too short shipping address): " + validGuestAccLastName);
+        logger.info("Valid guest address1 (too short shipping address): " + validGuestAccAddress1);
+        logger.info("Valid guest city (too short shipping address): " + validGuestAccCity);
+        logger.info("Valid guest post code (too short shipping address): " + validGuestAccPostCode);
+        logger.info("Valid guest email (too short shipping address): " + validGuestAccEmail);
+
+        logger.info("Valid guest (shipping address section) first name (too short shipping address): " + validGuestShipAccFirstName);
+        logger.info("Valid guest (shipping address section) last name (too short shipping address): " + validGuestShipAccLastName);
+        logger.info("Too short guest (shipping address section) address1: " + tooShortGuestShipAccAddress1);
+        logger.info("Valid guest (shipping address section) city (too short shipping address): " + validGuestShipAccCity);
+        logger.info("Valid guest (shipping address section) post code (too short shipping address): " + validGuestShipAccPostCode);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest data input methods (billing address) - too short singular input
     public void inputTooShortGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(tooShortGuestAccFirstName);}
     public void inputTooShortGuestLastNameIntoLastNameInputField(){checkoutPageNameAddressLastNameInputField.sendKeys(tooShortGuestAccLastName);}
@@ -366,6 +402,11 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
     //invalid guest data input methods (shipping address) - too short singular input
     public void inputTooShortGuestShipFirstNameIntoFirstNameInputField(){checkoutPageNameShipAddressFirstNameInputField.sendKeys(tooShortGuestShipAccFirstName);}
     public void inputTooShortGuestShipLastNameIntoLastNameInputField(){checkoutPageNameShipAddressLastNameInputField.sendKeys(tooShortGuestShipAccLastName);}
+
+    public void inputTooShortGuestShipAddress1IntoAddress1InputField(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", checkoutPageNameAddressShipDiffAddressCheckbox);
+        checkoutPageNameShipAddressAddress1InputField.sendKeys(tooShortGuestShipAccAddress1);
+    }
 
     //valid guest data input methods (billing address) - for remaining inputs
     public void inputValidGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(validGuestAccFirstName);}
