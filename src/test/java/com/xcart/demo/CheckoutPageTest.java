@@ -344,4 +344,29 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //Test 023c -> add multiple products ("iMac") (from products map) to check out test (as a registered user)
+    @Test
+    @DisplayName("Multiple Products Addition (Products Map) Checkout Confirmation Test(as a registered user)")
+    @Tag("Multiple_Product_Map_Products_Checkout_Confirmation")
+    @Tag("Multiple_Products")
+    @Tag("Reg_User_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void multipleProductsMapProductsRegUserCheckoutConfirmationTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add multiple products ("iMac") from products map to cart test (as a registered user)
+        addMultipleProductsFromProductsMapToCartRegUserTest();
+        //add multiple products ("iMac") from products map to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+        //registered user product ("iMac") (from products map) checkout confirmation test
+        validRegUserProductCheckoutConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }
