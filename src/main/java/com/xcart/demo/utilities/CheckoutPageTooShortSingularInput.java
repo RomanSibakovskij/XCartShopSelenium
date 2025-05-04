@@ -64,6 +64,7 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
     //invalid guest account generated data (billing address) - too short singular input
     private String tooShortGuestAccFirstName;
     private String tooShortGuestAccLastName;
+    private String tooShortGuestAccAddress1;
 
     public CheckoutPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -137,9 +138,45 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid guest account input data getter (billing and shipping address) - too short billing address (4 chars)
+    public void invalidGuestAccountInputDataTooShortBillAddressGetter(){
+
+        validGuestAccFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestAccLastName = TestDataGenerator.getRandomLastName();
+        tooShortGuestAccAddress1 = "4 Rd";
+        validGuestAccCity = TestDataGenerator.getRandomCity();
+        validGuestAccPostCode = TestDataGenerator.getRandomPostalCode();
+        validGuestAccEmail = TestDataGenerator.generateRandomEmailAddress(6);
+
+        validGuestShipAccFirstName = validGuestAccFirstName;
+        validGuestShipAccLastName = validGuestAccLastName;
+        validGuestShipAccAddress1 = TestDataGenerator.generateRandomAddress(4);
+        validGuestShipAccCity = TestDataGenerator.getRandomCity();
+        validGuestShipAccPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated input data for valid guest account (too short billing address): " + "\n");
+
+        logger.info("Valid guest first name (too short billing address): " + validGuestAccFirstName);
+        logger.info("Valid guest last name (too short billing address): " + validGuestAccLastName);
+        logger.info("Too short guest address1: " + tooShortGuestAccAddress1);
+        logger.info("Valid guest city (too short billing address): " + validGuestAccCity);
+        logger.info("Valid guest post code (too short billing address): " + validGuestAccPostCode);
+        logger.info("Valid guest email (too short billing address): " + validGuestAccEmail);
+
+        logger.info("Valid guest (shipping address section) first name (too short billing address): " + validGuestShipAccFirstName);
+        logger.info("Valid guest (shipping address section) last name (too short billing address): " + validGuestShipAccLastName);
+        logger.info("Valid guest (shipping address section) address1 (too short billing address): " + validGuestShipAccAddress1);
+        logger.info("Valid guest (shipping address section) city (too short billing address): " + validGuestShipAccCity);
+        logger.info("Valid guest (shipping address section) post code (too short billing address): " + validGuestShipAccPostCode);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest data input methods (billing address) - too short singular input
     public void inputTooShortGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(tooShortGuestAccFirstName);}
     public void inputTooShortGuestLastNameIntoLastNameInputField(){checkoutPageNameAddressLastNameInputField.sendKeys(tooShortGuestAccLastName);}
+    public void inputTooShortGuestAddress1IntoAddress1InputField(){checkoutPageNameAddressAddress1InputField.sendKeys(tooShortGuestAccAddress1);}
 
     //valid guest data input methods (billing address) - for remaining inputs
     public void inputValidGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(validGuestAccFirstName);}
