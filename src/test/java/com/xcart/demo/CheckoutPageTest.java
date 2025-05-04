@@ -215,4 +215,27 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //Test 022a -> add single featured product ("Digital Angel") check out confirmation test (as a registered user)
+    @Test
+    @DisplayName("Single Product Page Product Addition Checkout Confirmation Test (as a registered user)")
+    @Tag("Add_Single_Product_Page_Product_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void singleProductPageProductRegUserCheckoutConfirmationTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add single featured product ("Digital Angel") to cart test (as a registered user)
+        addSingleDigitalAngelProductToCartRegUserTest();;
+        //add single featured product ("Digital Angel") to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+        //registered user product ("Digital Angel") checkout confirmation test (with shipping method example delivery method 2 selection)
+        validRegUserProductCheckoutWithExMethodTwoConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }
