@@ -369,4 +369,24 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //single category product check out confirmation tests
+
+    //Test 024 -> single category product ("Anna Karenina") check out confirmation (as a guest)
+    @Test
+    @DisplayName("Single Category Product With Ex Delivery Method One And Money Order Checkout Confirmation Test (as a guest)")
+    @Tag("Single_Category_Product_Checkout_Confirmation")
+    @Tag("Single_Product")
+    @Tag("Valid_Guest_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void singleCategoryProductGuestCheckoutConfirmationTest() {
+        //add single category product ("Anna Karenina") to cart (as a guest)
+        addSingleProductCategoryProductToCartTest();
+        //add single category product ("Anna Karenina") to check out (as a guest)
+        addProductToCheckoutTest();
+        //valid guest single category product with example shipping delivery method 1 and money order payment method ("Anna Karenina") checkout confirmation test
+        validGuestProductExDeliveryOneAndMoneyOrderCheckoutConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }
