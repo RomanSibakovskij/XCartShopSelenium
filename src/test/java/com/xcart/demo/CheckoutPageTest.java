@@ -83,4 +83,28 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //Test 020d -> add multiple featured products ("Thumb-Size R/C Mini Cooper") check out confirmation test (as a registered user)
+    @Test
+    @DisplayName("Multiple Featured Product Checkout Confirmation Test (as a registered user)")
+    @Tag("Multiple_Featured_Products_Checkout_Confirmation")
+    @Tag("Multiple_Products")
+    @Tag("Test_As_A_Reg_User")
+    void multipleFeaturedProductRegUserCheckoutConfirmationTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add multiple featured products ("Thumb-Size R/C Mini Cooper") to cart test (as a registered user)
+        addMultipleFeaturedProductToCartRegUserTest();
+        //add multiple featured products ("Thumb-Size R/C Mini Cooper") to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+        //registered user product ("Thumb-Size R/C Mini Cooper") checkout confirmation test
+        validRegUserProductCheckoutConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }

@@ -4968,6 +4968,34 @@ protected void navigateToRegisterPageTest(){
         captureScreenshot(driver, "Guest Checkout Confirmation Test Result (billing and shipping address)");
     }
 
+    //registered user product checkout confirmation test method (both for single / multiple products)
+    protected void validRegUserProductCheckoutConfirmationTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page text element assert (without aside section)
+        isGeneralPageNoAsideTextElementAsExpected(generalPage);
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page
+        captureScreenshot(driver, "Checkout Page Display (registered user)");
+        //checkout page registered user specific parts web element assert
+        isCheckoutPageRegUserWebElementDisplayed(checkoutPage);
+        //checkout page registered user specific parts text element assert
+        isCheckoutPageRegUserTextElementAsExpected(checkoutPage);
+        //log order summary data
+        logCheckoutPageOrderSummaryData(checkoutPage);
+        //click 'Accept Terms' checkbox
+        checkoutPage.clickAcceptTermsCheckbox();
+        //click 'Submit order' button
+        checkoutPage.clickSubmitOrderButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Registered User Checkout Confirmation Test Result");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //order invoice page test method
