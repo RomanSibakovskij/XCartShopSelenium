@@ -172,4 +172,29 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //Test 021c -> multiple featured product with shipping method example delivery method 2 selection ("R/C Desktop Forklift") check out confirmation test (as a registered user)
+    @Test
+    @DisplayName("Multiple Searched Product With Ex Delivery Method Two Checkout Confirmation Test (as a registered user)")
+    @Tag("Multiple_Searched_Product_Checkout_Confirmation")
+    @Tag("Multiple_Products")
+    @Tag("Reg_User_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void multipleSearchedProductRegUserCheckoutConfirmationTest() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        //navigate user to 'Register' page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest(registerPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //add multiple searched products ("R/C Desktop Forklift") to cart test (as a registered user)
+        addMultipleSearchedProductsToCartRegUserTest();
+        //add multiple featured product ("R/C Desktop Forklift") to check out test (as a registered user)
+        addProductToCheckoutLowerButtonTest();
+        //registered user products ("R/C Desktop Forklift") checkout confirmation test (with shipping method example delivery method 2 selection)
+        validRegUserProductCheckoutWithExMethodTwoConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }
