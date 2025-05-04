@@ -5834,6 +5834,142 @@ protected void navigateToRegisterPageTest(){
         assertTrue(checkoutPage.isCheckoutPageShipMethodExampleUSDelivery2PriceDisplayed(), "The checkout page shipping method example US delivery two price isn't displayed");
     }
 
+    //order invoice page web element assert test method
+    protected void isOrderInvoicePageWebElementDisplayed(OrderInvoicePage orderInvoicePage){
+        //assert order invoice page title is displayed
+        assertTrue(orderInvoicePage.isOrderInvoicePageTitleDisplayed(), "The order invoice page title isn't displayed");
+        //assert order invoice page subtitle is displayed
+        assertTrue(orderInvoicePage.isOrderInvoicePageSubtitleDisplayed(), "The order invoice page subtitle isn't displayed");
+        //assert order invoice page order placement success message is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceOrderPlacementSuccessMessageDisplayed(), "The order invoice page order placement success message isn't displayed");
+        //assert order invoice page print invoice link is displayed
+        assertTrue(orderInvoicePage.isOrderInvoicePagePrintInvoiceLinkDisplayed(), "The order invoice page print invoice link isn't displayed");
+        //order invoice table
+        //assert order invoice table x cart logo is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceXCartLogoDisplayed(), "The order invoice table X cart logo isn't displayed");
+        //assert order invoice table column one (data block) is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceColumnOneDisplayed(), "The order invoice table column one isn't displayed");
+        //assert order invoice table column two (data block) is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceColumnTwoDisplayed(), "The order invoice table column two isn't displayed");
+        //table
+        //assert order invoice table order email subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceOrderEmailSubtextDisplayed(), "The order invoice table order email subtext isn't displayed");
+        //assert order invoice table order email is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceOrderEmailDisplayed(), "The order invoice table order email isn't displayed");
+        //billing address column
+        //assert order invoice table billing address subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressSubtextDisplayed(), "The order invoice table billing address subtext isn't displayed");
+        //assert order invoice table billing address first name subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressFirstNameSubtextDisplayed(), "The order invoice table billing address first name subtext isn't displayed");
+        //assert order invoice table billing address first name is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressFirstNameDisplayed(), "The order invoice table billing address first name isn't displayed");
+        //assert order invoice table billing address last name subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressLastNameSubtextDisplayed(), "The order invoice table billing address last name subtext isn't displayed");
+        //assert order invoice table billing address last name is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressLastNameDisplayed(), "The order invoice table billing address last name isn't displayed");
+        //assert order invoice table billing address1 subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddress1SubtextDisplayed(), "The order invoice table billing address1 subtext isn't displayed");
+        //assert order invoice table billing address1 is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressDisplayed(), "The order invoice table billing address1 isn't displayed");
+        //assert order invoice table billing address city subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressCitySubtextDisplayed(), "The order invoice table billing address city subtext isn't displayed");
+        //assert order invoice table billing address city is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressCityDisplayed(), "The order invoice table billing address city isn't displayed");
+        //assert order invoice table billing address state subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressStateSubtextDisplayed(), "The order invoice table billing address state subtext isn't displayed");
+        //assert order invoice table billing address state is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressStateDisplayed(), "The order invoice table billing address state isn't displayed");
+        //assert order invoice table billing address country subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressCountrySubtextDisplayed(), "The order invoice table billing address country subtext isn't displayed");
+        //assert order invoice table billing address country is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressCountryDisplayed(), "The order invoice table billing address country isn't displayed");
+        //assert order invoice table billing address post code subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressPostCodeSubtextDisplayed(), "The order invoice table billing address post code subtext isn't displayed");
+        //assert order invoice table billing address post code is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressPostCodeDisplayed(), "The order invoice table billing address post code isn't displayed");
+        //assert order invoice table billing address phone subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressPhoneSubtextDisplayed(), "The order invoice table billing address phone subtext isn't displayed");
+        //assert order invoice table billing address phone is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressPhoneDisplayed(), "The order invoice table billing address phone isn't displayed");
+        //assert order invoice table billing address fax subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceBillingAddressFaxSubtextDisplayed(), "The order invoice table billing address fax subtext isn't displayed");
+        //shipping address column
+        //assert order invoice table shipping address subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressSubtextDisplayed(), "The order invoice table shipping address subtext isn't displayed");
+        //assert order invoice table shipping address first name subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressFirstNameSubtextDisplayed(), "The order invoice table shipping address first name subtext isn't displayed");
+        //assert order invoice table shipping address first name is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressFirstNameDisplayed(), "The order invoice table shipping address first name isn't displayed");
+        //assert order invoice table shipping address last name subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressLastNameSubtextDisplayed(), "The order invoice table shipping address last name subtext isn't displayed");
+        //assert order invoice table shipping address last name is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressLastNameDisplayed(), "The order invoice table shipping address last name isn't displayed");
+        //assert order invoice table shipping address1 subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddress1SubtextDisplayed(), "The order invoice table shipping address1 subtext isn't displayed");
+        //assert order invoice table shipping address1 is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressDisplayed(), "The order invoice table shipping address isn't displayed");
+        //assert order invoice table shipping city subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressCitySubtextDisplayed(), "The order invoice table shipping city subtext isn't displayed");
+        //assert order invoice table shipping city is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressCityDisplayed(), "The order invoice table shipping city isn't displayed");
+        //assert order invoice table shipping state subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressStateSubtextDisplayed(), "The order invoice table shipping state subtext isn't displayed");
+        //assert order invoice table shipping state is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressStateDisplayed(), "The order invoice table shipping state isn't displayed");
+        //assert order invoice table shipping country subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressCountrySubtextDisplayed(), "The order invoice table shipping country subtext isn't displayed");
+        //assert order invoice table shipping country is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressCountryDisplayed(), "The order invoice table shipping country isn't displayed");
+        //assert order invoice table shipping post code subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressPostCodeSubtextDisplayed(), "The order invoice table shipping post code subtext isn't displayed");
+        //assert order invoice table shipping city is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressPostCodeDisplayed(), "The order invoice table shipping post code isn't displayed");
+        //assert order invoice table shipping phone subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressPhoneSubtextDisplayed(), "The order invoice table shipping phone subtext isn't displayed");
+        //assert order invoice table shipping city is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressPhoneDisplayed(), "The order invoice table shipping phone isn't displayed");
+        //assert order invoice table shipping fax subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceShippingAddressFaxSubtextDisplayed(), "The order invoice table shipping fax subtext isn't displayed");
+        //assert order invoice page thank you message is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceThankYouMessageDisplayed(), "The order invoice page thank you message isn't displayed");
+        //assert order invoice page continue shopping button is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceContinueShoppingButtonDisplayed(), "The order invoice page continue shopping button isn't displayed");
+    }
+
+    //order invoice product table web element assert text method
+    protected void isOrderInvoicePageProductTableWebElementDisplayed(OrderInvoicePage orderInvoicePage){
+        //assert order products table subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceProductsOrderedSubtextDisplayed(), "The order products table subtext isn't displayed");
+        //list elements
+        //assert order products table product SKU codes are displayed (as a list)
+        assertTrue(orderInvoicePage.isOrderInvoiceProductSKUCodeDisplayed(), "The order products table product SKU codes aren't displayed");
+        //assert order products table product details are displayed (as a list)
+        assertTrue(orderInvoicePage.isOrderInvoiceProductDetailsDisplayed(), "The order products table product details aren't displayed");
+        //assert order products table product item prices are displayed (as a list)
+        assertTrue(orderInvoicePage.isOrderInvoiceProductItemPriceDisplayed(), "The order products table product item prices aren't displayed");
+        //assert order products table product quantities are displayed (as a list)
+        assertTrue(orderInvoicePage.isOrderInvoiceProductQtyDisplayed(), "The order products table product quantities aren't displayed");
+        //assert order products table product total prices are displayed (as a list)
+        assertTrue(orderInvoicePage.isOrderInvoiceProductTotalPriceDisplayed(), "The order products table product total prices aren't displayed");
+        //singular table elements
+        //assert order products table order subtotal price subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceProductsOrderSubtotalPriceSubtextDisplayed(), "The order products table order subtotal price subtext isn't displayed");
+        //assert order products table order subtotal price is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceProductsOrderSubtotalPriceDisplayed(), "The order products table order subtotal price isn't displayed");
+        //assert order products table order shipping price subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceProductsOrderShippingPriceSubtextDisplayed(), "The order products table order shipping price subtext isn't displayed");
+        //assert order products table order shipping price is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceProductsOrderShippingPriceDisplayed(), "The order products table order shipping price isn't displayed");
+        //assert order products table order payment method surcharge subtext is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceProductsOrderPaymentMethodSurchargeSubtextDisplayed(), "The order products table order payment method surcharge subtext isn't displayed");
+        //assert order products table order payment method surcharge is displayed
+        assertTrue(orderInvoicePage.isOrderInvoiceProductsOrderPaymentMethodSurchargeDisplayed(), "The order products table order payment method surcharge isn't displayed");
+        //assert order products table order total price subtext is displayed
+        //assertTrue(orderInvoicePage.isOrderInvoiceProductsOrderTotalPriceSubtextDisplayed(), "The order products table order total price subtext isn't displayed");
+        //assert order products table order total price is displayed
+        //assertTrue(orderInvoicePage.isOrderInvoiceProductsOrderTotalPriceDisplayed(), "The order products table order total price isn't displayed");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert method
@@ -6203,6 +6339,73 @@ protected void navigateToRegisterPageTest(){
         assertEquals("$11.00", checkoutPage.getCheckoutPageShipMethodExampleDelivery2Price(), "The checkout page shipping method example US delivery two price doesn't match expectations.");
     }
 
+    //order invoice page text element test method
+    protected void isOrderInvoicePageTextElementAsExpected(OrderInvoicePage orderInvoicePage){
+        //assert order invoice page title is as expected
+        assertEquals("Invoice", orderInvoicePage.getOrderInvoicePageTitle(), "The order invoice page title doesn't match expectations.");
+        //assert order invoice page subtitle is as expected
+        assertEquals("Confirmation", orderInvoicePage.getOrderInvoicePageSubtitle(), "The order invoice page subtitle doesn't match expectations.");
+        //assert order invoice page order placement success message is as expected
+        assertEquals("Congratulations! Your order has been successfully placed.\n" +
+                "Thank you for using our store. An order notification has been sent to your email address.\n" +
+                "Your order will be processed according to the delivery details.", orderInvoicePage.getOrderInvoiceOrderPlacementSuccessMessage(), "The order invoice page order placement success message doesn't match expectations.");
+        //billing address column
+        //assert order invoice billing address subtext is as expected
+        assertEquals("Billing address", orderInvoicePage.getOrderInvoiceBillingAddressSubtext(), "The order invoice billing address subtext doesn't match expectations.");
+        //assert order invoice billing address first name subtext is as expected
+        assertEquals("First name:", orderInvoicePage.getOrderInvoiceBillingAddressFirstNameSubtext(), "The order invoice billing address first name subtext doesn't match expectations.");
+        //assert order invoice billing address last name subtext is as expected
+        assertEquals("Last name:", orderInvoicePage.getOrderInvoiceBillingAddressLastNameSubtext(), "The order invoice billing address last name subtext doesn't match expectations.");
+        //assert order invoice billing address1 subtext is as expected
+        assertEquals("Address:", orderInvoicePage.getOrderInvoiceBillingAddress1Subtext(), "The order invoice billing address1 subtext doesn't match expectations.");
+        //assert order invoice billing address city subtext is as expected
+        assertEquals("City:", orderInvoicePage.getOrderInvoiceBillingAddressCitySubtext(), "The order invoice billing address city subtext doesn't match expectations.");
+        //assert order invoice billing address state subtext is as expected
+        assertEquals("State:", orderInvoicePage.getOrderInvoiceBillingAddressStateSubtext(), "The order invoice billing address state subtext doesn't match expectations.");
+        //assert order invoice billing address country subtext is as expected
+        assertEquals("Country:", orderInvoicePage.getOrderInvoiceBillingAddressCountrySubtext(), "The order invoice billing address country subtext doesn't match expectations.");
+        //assert order invoice billing address post code subtext is as expected
+        assertEquals("Zip/Postal code:", orderInvoicePage.getOrderInvoiceBillingAddressPostCodeSubtext(), "The order invoice billing address post code subtext doesn't match expectations.");
+        //assert order invoice billing address phone subtext is as expected
+        assertEquals("Phone:", orderInvoicePage.getOrderInvoiceBillingAddressPhoneSubtext(), "The order invoice billing address phone subtext doesn't match expectations.");
+        //assert order invoice billing address fax subtext is as expected
+        assertEquals("Fax:", orderInvoicePage.getOrderInvoiceBillingAddressFaxSubtext(), "The order invoice billing address fax subtext doesn't match expectations.");
+        //shipping address column
+        //assert order invoice shipping address subtext is as expected
+        assertEquals("Shipping address", orderInvoicePage.getOrderInvoiceShippingAddressSubtext(), "The order invoice shipping address subtext doesn't match expectations.");
+        //assert order invoice shipping address first name subtext is as expected
+        assertEquals("First name:", orderInvoicePage.getOrderInvoiceShippingAddressFirstNameSubtext(), "The order invoice shipping address first name subtext doesn't match expectations.");
+        //assert order invoice shipping address last name subtext is as expected
+        assertEquals("Last name:", orderInvoicePage.getOrderInvoiceShippingAddressLastNameSubtext(), "The order invoice shipping address last name subtext doesn't match expectations.");
+        //assert order invoice shipping address1 subtext is as expected
+        assertEquals("Address:", orderInvoicePage.getOrderInvoiceShippingAddress1Subtext(), "The order invoice shipping address1 subtext doesn't match expectations.");
+        //assert order invoice shipping address city subtext is as expected
+        assertEquals("City:", orderInvoicePage.getOrderInvoiceShippingAddressCitySubtext(), "The order invoice shipping address city subtext doesn't match expectations.");
+        //assert order invoice shipping address state subtext is as expected
+        assertEquals("State:", orderInvoicePage.getOrderInvoiceShippingAddressStateSubtext(), "The order invoice shipping address state subtext doesn't match expectations.");
+        //assert order invoice shipping address country subtext is as expected
+        assertEquals("Country:", orderInvoicePage.getOrderInvoiceShippingAddressCountrySubtext(), "The order invoice shipping address country subtext doesn't match expectations.");
+        //assert order invoice shipping address post code subtext is as expected
+        assertEquals("Zip/Postal code:", orderInvoicePage.getOrderInvoiceShippingAddressPostCodeSubtext(), "The order invoice shipping address post code subtext doesn't match expectations.");
+        //assert order invoice shipping address phone subtext is as expected
+        assertEquals("Phone:", orderInvoicePage.getOrderInvoiceShippingAddressPhoneSubtext(), "The order invoice shipping address phone subtext doesn't match expectations.");
+        //assert order invoice billing address fax subtext is as expected
+        assertEquals("Fax:", orderInvoicePage.getOrderInvoiceShippingAddressFaxSubtext(), "The order invoice shipping address fax subtext doesn't match expectations.");
+        //order products table
+        //assert order invoice products ordered subtext is as expected
+        assertEquals("Products ordered", orderInvoicePage.getOrderInvoiceProductsOrderedSubtext(), "The order invoice products ordered subtext doesn't match expectations.");
+        //assert order invoice order subtotal price subtext is as expected
+        assertEquals("Subtotal:", orderInvoicePage.getOrderInvoiceProductsOrderSubtotalPriceSubtext(), "The order invoice products order subtotal price subtext doesn't match expectations.");
+        //assert order invoice order shipping method subtext is as expected
+        //assertEquals("Invoice", orderInvoicePage.getOrderInvoiceProductsOrderShippingPriceSubtext(), "The order invoice products order shipping price subtext doesn't match expectations.");
+        //assert order invoice order payment method subtext is as expected
+        //assertEquals("Invoice", orderInvoicePage.getOrderInvoiceProductsOrderPaymentMethodSurchargeSubtext(), "The order invoice products order payment method subtext doesn't match expectations.");
+        //assert order invoice order total price subtext is as expected //Selenium sometimes fails to find this element
+        //assertEquals("Total:", orderInvoicePage.getOrderInvoiceProductsOrderTotalPriceSubtext(), "The order invoice products order total price subtext doesn't match expectations.");
+        //assert order invoice thank you message is as expected
+        assertEquals("Thank you for your purchase!", orderInvoicePage.getOrderInvoiceThankYouMessage(), "The order invoice page thank you message doesn't match expectations.");
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page product data logger method
@@ -6353,6 +6556,39 @@ protected void navigateToRegisterPageTest(){
         logger.info("Checkout order summary shipping cost (no price surcharge): " + checkoutPage.getOrderSummaryShippingCost());
         logger.info("Checkout order summary total price (no price surcharge): " + checkoutPage.getOrderSummaryTotalPrice());
         logger.info("Checkout order summary total alt price (no price surcharge): " + checkoutPage.getOrderSummaryTotalAltPrice());
+
+        System.out.println("\n");
+    }
+
+    //order invoice page data logger method
+    protected void logOrderInvoicePageData(OrderInvoicePage orderInvoicePage){
+        System.out.println("Order invoice page displayed data: " + "\n");
+
+        logger.info("Order invoice product SKU code(s): " + orderInvoicePage.getOrderInvoiceProductSKU());
+        logger.info("Order invoice product(s) details: " + orderInvoicePage.getOrderInvoiceProductDetails());
+        logger.info("Order invoice product item price(s): " + orderInvoicePage.getOrderInvoiceProductItemPrice());
+        logger.info("Order invoice product quantity(ies): " + orderInvoicePage.getOrderInvoiceProductQty());
+        logger.info("Order invoice product total price(s): " + orderInvoicePage.getOrderInvoiceProductTotalPrice());
+        //log these elements if they are present
+        if (orderInvoicePage.isOrderInvoiceProductsOrderSubtotalPriceDisplayed()) {
+            logger.info("Order invoice product order subtotal price: " + orderInvoicePage.getOrderInvoiceProductOrderSubtotalPrice());
+        }
+
+        if (orderInvoicePage.isOrderInvoiceProductsOrderShippingPriceDisplayed()) {
+            logger.info("Order invoice product order shipping price: " + orderInvoicePage.getOrderInvoiceProductOrderShippingPrice());
+        }
+
+        if (orderInvoicePage.isOrderInvoiceProductsOrderPaymentMethodSurchargeDisplayed()) {
+            logger.info("Order invoice product order payment method surcharge: " + orderInvoicePage.getOrderInvoiceProductOrderPaymentMethodSurcharge());
+        }
+        //log the issue if order price isn't displayed
+        try {
+            if (orderInvoicePage.isOrderInvoiceProductsOrderTotalPriceDisplayed()) {
+                logger.info("Order invoice product order total price: " + orderInvoicePage.getOrderInvoiceProductOrderTotalPrice());
+            }
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            logger.info("Order total price element is not present on the page");
+        }
 
         System.out.println("\n");
     }
