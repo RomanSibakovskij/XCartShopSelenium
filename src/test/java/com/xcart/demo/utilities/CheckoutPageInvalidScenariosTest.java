@@ -202,4 +202,20 @@ public class CheckoutPageInvalidScenariosTest extends TestMethods{
         invalidGuestBillAndShipAddressCheckoutTooLongBillFirstNameTest();
     }
 
+    //Test 025l -> invalid single featured product ("Iphone 5c") check out confirmation test (as a guest) - too long billing last name (100 chars) (the checkout doesn't get aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Single Featured Product Checkout Confirmation Test (as a guest) - Too Long Billing Last Name")
+    @Tag("Invalid_Single_Featured_Product_Checkout_Confirmation")
+    @Tag("Single_Product")
+    @Tag("Test_As_A_Guest")
+    @Tag("Too_Long_Singular_Input")
+    void invalidGuestCheckoutConfirmationTooLongBillLastNameTest() {
+        //add single featured product ("Iphone 5c") to cart test (as a guest)
+        addSingleFeaturedProductToCartGuestTest();
+        //add single featured product ("Iphone 5c") to check out test (as a guest)
+        addIphoneProductToCheckoutWithOptionsGuestTest();
+        //invalid guest product ("Iphone 5c") checkout confirmation test - too long billing last name (100 chars)
+        invalidGuestBillAndShipAddressCheckoutTooLongBillLastNameTest();
+    }
+
 }
