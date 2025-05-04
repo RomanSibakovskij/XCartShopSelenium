@@ -414,4 +414,24 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //single category multiple products check out confirmation tests
+
+    //Test 024b -> multiple single category products with example shipping delivery method 1 and money order payment method ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") check out confirmation test (as a guest)
+    @Test
+    @DisplayName("Multiple Single Category Products With Ex Delivery Method One And Money Order Checkout Confirmation (as a guest)")
+    @Tag("Multiple_Single_Category_Product_Products_Checkout_Confirmation")
+    @Tag("Multiple_Products")
+    @Tag("Valid_Guest_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void multipleSingleCategoryProductsGuestCheckoutConfirmationTest() {
+        //add multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") to cart test (as a guest)
+        addSetProductCategoryMultipleProductsToCartTest();
+        //add multiple single category products ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") to check out test (as a guest)
+        addProductToCheckoutTest();
+        //valid guest multiple category products with example shipping delivery method 1 and money order payment method ("The Lord of the Rings: 50th Anniversary, One Vol. Edition") checkout confirmation test
+        validGuestProductExDeliveryOneAndMoneyOrderCheckoutConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }
