@@ -307,6 +307,12 @@ public class CheckoutPage extends BasePage{
         action.moveToElement(checkoutPagePayMethodFaxOrderingRadioButton).click().perform();
     }
 
+    //click 'Example delivery method 2' radio button
+    public void clickExampleDelivery2RadioButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageShipMethodExampleDelivery2RadioButton).click().perform();
+    }
+
     //click 'Accept Terms' checkbox method
     public void clickAcceptTermsCheckbox(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
