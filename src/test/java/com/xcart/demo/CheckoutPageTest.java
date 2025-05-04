@@ -279,4 +279,24 @@ public class CheckoutPageTest extends TestMethods{
         orderInvoicePageTest();
     }
 
+    //single product (from products map) check out confirmation tests
+
+    //Test 023 -> single product ("Antec Nine Hundred ATX Gaming Case") (products map) check out confirmation test (as a guest)
+    @Test
+    @DisplayName("Single Product Addition (Products Map) With Ex Delivery Method One And Money Order Checkout Confirmation Test (as a guest)")
+    @Tag("Single_Products_Map_Product_Checkout_Confirmation")
+    @Tag("Single_Product")
+    @Tag("Valid_Guest_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void singleProductsMapProductGuestCheckoutConfirmationTest() {
+        //add single product ("Antec Nine Hundred ATX Gaming Case") from products map to cart test (as a guest)
+        addSingleProductFromProductsMapToCartGuestTest();
+        //add single product ("Antec Nine Hundred ATX Gaming Case") from products map to check out test (as a guest)
+        addProductToCheckoutTest();
+        //valid guest product with example shipping delivery method 1 and money order payment method ("Antec Nine Hundred ATX Gaming Case") (from products map) checkout confirmation test
+        validGuestProductExDeliveryOneAndMoneyOrderCheckoutConfirmationTest();
+        //order invoice page test
+        orderInvoicePageTest();
+    }
+
 }

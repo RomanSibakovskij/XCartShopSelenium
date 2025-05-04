@@ -307,10 +307,23 @@ public class CheckoutPage extends BasePage{
         action.moveToElement(checkoutPagePayMethodFaxOrderingRadioButton).click().perform();
     }
 
+    //click 'Example delivery method 1' radio button
+    public void clickExampleDelivery1RadioButton(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(850));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPageShipMethodExampleDelivery1RadioButton));
+        checkoutPageShipMethodExampleDelivery1RadioButton.click();
+    }
+
     //click 'Example delivery method 2' radio button
     public void clickExampleDelivery2RadioButton(){
         Actions action = new Actions(driver);
         action.moveToElement(checkoutPageShipMethodExampleDelivery2RadioButton).click().perform();
+    }
+
+    //click 'Money order payment method' radio button
+    public void clickMoneyOrderRadioButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPagePayMethodMoneyOrderRadioButton).click().perform();
     }
 
     //click 'Accept Terms' checkbox method
