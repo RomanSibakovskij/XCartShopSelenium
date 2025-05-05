@@ -396,4 +396,20 @@ public class CheckoutPageInvalidScenariosTest extends TestMethods{
         invalidGuestBillAndShipAddressCheckoutInvalidBillLastNameFormatTest();
     }
 
+    //Test 025y -> invalid single featured product ("Iphone 5c") check out confirmation test (as a guest) - invalid billing address format (special symbols only) (the checkout doesn't get aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Single Featured Product Checkout Confirmation Test (as a guest) - Invalid Address Format")
+    @Tag("Invalid_Single_Featured_Product_Checkout_Confirmation")
+    @Tag("Single_Product")
+    @Tag("Test_As_A_Guest")
+    @Tag("Invalid_Singular_Input")
+    void invalidGuestCheckoutConfirmationInvalidBillAddressFormatTest() {
+        //add single featured product ("Iphone 5c") to cart test (as a guest)
+        addSingleFeaturedProductToCartGuestTest();
+        //add single featured product ("Iphone 5c") to check out test (as a guest)
+        addIphoneProductToCheckoutWithOptionsGuestTest();
+        //invalid guest product ("Iphone 5c") checkout confirmation test - invalid billing address format (special symbols only)
+        invalidGuestBillAndShipAddressCheckoutInvalidBillAddressFormatTest();
+    }
+
 }
