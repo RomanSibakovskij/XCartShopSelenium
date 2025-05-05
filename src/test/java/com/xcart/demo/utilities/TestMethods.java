@@ -6904,6 +6904,52 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Guest Checkout Confirmation Test Result (billing and shipping address) - Invalid Billing Post Code Format");
     }
+    //invalid guest product checkout confirmation test method (billing and shipping address) - invalid billing email format (special symbols only)
+    protected void invalidGuestBillAndShipAddressCheckoutInvalidBillEmailFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageInvalidSingularInputFormat checkoutPageInvalidSingularInputFormat = new CheckoutPageInvalidSingularInputFormat(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page text element assert (without aside section)
+        isGeneralPageNoAsideTextElementAsExpected(generalPage);
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page
+        captureScreenshot(driver, "Checkout Page Display (guest)");
+        //checkout page guest name address section web element assert
+        isCheckoutPageGuestWebElementDisplayed(checkoutPage);
+        //checkout page guest name address section text element assert
+        isCheckoutPageGuestTextElementAsExpected(checkoutPage);
+        //invalid guest account data (billing and shipping address) input getter - invalid billing email format (special symbols only)
+        checkoutPageInvalidSingularInputFormat.invalidGuestAccountInputDataInvalidBillEmailFormatGetter();
+        //input valid guest first name into first name input field
+        checkoutPageInvalidSingularInputFormat.inputValidGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        checkoutPageInvalidSingularInputFormat.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest address 1 into address 1 input field
+        checkoutPageInvalidSingularInputFormat.inputValidGuestAddress1IntoAddress1InputField();
+        //input valid guest city into city input field
+        checkoutPageInvalidSingularInputFormat.inputValidGuestCityIntoCityInputField();
+        //input valid guest post code into post code input field
+        checkoutPageInvalidSingularInputFormat.inputValidGuestPostCodeIntoPostCodeInputField();
+        //input invalid guest email format into email input field (special symbols only)
+        checkoutPageInvalidSingularInputFormat.inputInvalidGuestEmailFormatIntoEmailInputField();
+        //capture screenshot of the checkout page after valid guest data input
+        captureScreenshot(driver, "Checkout Page Display After Invalid Guest Account Data Input (billing address) - Invalid Billing Email Format");
+        //click 'Submit' button
+        checkoutPage.clickSubmitButton();
+        //assert the user gets an expected error, log the issue otherwise
+        try{
+            assertEquals("Email address is invalid! Please correct", checkoutPageInvalidSingularInputFormat.getSingularInputErrorMessage(), "The invalid billing address email format input error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The invalid billing address email input error doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Guest Checkout Confirmation Test Result (billing and shipping address) - Invalid Billing Email Format");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
