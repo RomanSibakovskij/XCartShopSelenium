@@ -73,6 +73,7 @@ public class CheckoutPageInvalidSingularInputFormat extends BasePage{
 
     //invalid guest account generated data (shipping address) - invalid singular input format
     private String invalidGuestShipAccFirstNameFormat;
+    private String invalidGuestShipAccLastNameFormat;
 
     public CheckoutPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -344,6 +345,41 @@ public class CheckoutPageInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid guest account input data getter (billing and shipping address) - invalid shipping last name format (special symbols only)
+    public void invalidGuestAccountInputDataInvalidShipLastNameFormatGetter(){
+
+        validGuestAccFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestAccLastName = TestDataGenerator.getRandomLastName();
+        validGuestAccAddress1 = TestDataGenerator.generateRandomAddress(4);
+        validGuestAccCity = TestDataGenerator.getRandomCity();
+        validGuestAccPostCode = TestDataGenerator.getRandomPostalCode();
+        validGuestAccEmail = TestDataGenerator.generateRandomEmailAddress(6);
+
+        validGuestShipAccFirstName = validGuestAccFirstName;
+        invalidGuestShipAccLastNameFormat = "#$%$#^%$";
+        validGuestShipAccAddress1 = TestDataGenerator.generateRandomAddress(4);
+        validGuestShipAccCity = TestDataGenerator.getRandomCity();
+        validGuestShipAccPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated input data for valid guest account (invalid shipping last name format): " + "\n");
+
+        logger.info("Valid guest first name (invalid shipping last name format): " + validGuestAccFirstName);
+        logger.info("Valid guest last name (invalid shipping last name format): " + validGuestAccLastName);
+        logger.info("Valid guest address1 (invalid shipping last name format): " + validGuestAccAddress1);
+        logger.info("Valid guest city (invalid shipping last name format): " + validGuestAccCity);
+        logger.info("Valid guest post code (invalid shipping last name format): " + validGuestAccPostCode);
+        logger.info("Valid guest email (invalid shipping last name format): " + validGuestAccEmail);
+
+        logger.info("Valid guest (shipping address section) first name (invalid shipping last name format): " + validGuestShipAccFirstName);
+        logger.info("Invalid guest (shipping address section) last name format: " + invalidGuestShipAccLastNameFormat);
+        logger.info("Valid guest (shipping address section) address1 (invalid shipping last name format): " + validGuestShipAccAddress1);
+        logger.info("Valid guest (shipping address section) city (invalid shipping last name format): " + validGuestShipAccCity);
+        logger.info("Valid guest (shipping address section) post code (invalid shipping last name format): " + validGuestShipAccPostCode);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest data input methods (billing address) - invalid singular input format
     public void inputInvalidGuestFirstNameFormatIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(invalidGuestAccFirstNameFormat);}
     public void inputInvalidGuestLastNameFormatIntoLastNameInputField(){checkoutPageNameAddressLastNameInputField.sendKeys(invalidGuestAccLastNameFormat);}
@@ -355,6 +391,7 @@ public class CheckoutPageInvalidSingularInputFormat extends BasePage{
 
     //invalid guest data input methods (shipping address) - invalid singular input format
     public void inputInvalidGuestShipFirstNameFormatIntoFirstNameInputField(){checkoutPageNameShipAddressFirstNameInputField.sendKeys(invalidGuestShipAccFirstNameFormat);}
+    public void inputInvalidGuestShipLastNameFormatIntoLastNameInputField(){checkoutPageNameShipAddressLastNameInputField.sendKeys(invalidGuestShipAccLastNameFormat);}
 
     //valid guest data input methods (billing address) - for remaining inputs
     public void inputValidGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(validGuestAccFirstName);}
