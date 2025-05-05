@@ -1,6 +1,6 @@
 # XCartShopSelenium
 
-Simple Selenium test suite on user account registration/login/logout, account information update, user address addition/update/removal, single category product display view, product addition (removal from) to wishlist, basic product addition to cart/checkout, order submission validation, product return. The test suite captures screenshots at the end of test case run (for logging purposes). Since the password edit functionality and account removal functionality are non-operational (they both throw 403 error) in this demo, their testing is omitted.
+Simple Selenium test suite on user account registration/login/logout, account information update, user address addition/update/removal, single category product display view, product addition (removal from) to wishlist, basic product addition to cart/checkout, order submission validation. The test suite captures screenshots at the end of test case run (for logging purposes). Since the password edit functionality and account removal functionality are non-operational (they both throw 403 error) in this demo, their testing is omitted.
 
 #Tech Requirements:
 
