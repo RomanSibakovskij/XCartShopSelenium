@@ -6838,6 +6838,72 @@ protected void navigateToRegisterPageTest(){
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Guest Checkout Confirmation Test Result (billing and shipping address) - Invalid Billing City Format");
     }
+    //invalid guest product checkout confirmation test method (billing and shipping address) - invalid billing post code format (special symbols only)
+    protected void invalidGuestBillAndShipAddressCheckoutInvalidBillPostCodeFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageInvalidSingularInputFormat checkoutPageInvalidSingularInputFormat = new CheckoutPageInvalidSingularInputFormat(driver);
+        //general page web element assert (without aside section)
+        isGeneralPageNoAsideWebElementDisplayed(generalPage);
+        //general page text element assert (without aside section)
+        isGeneralPageNoAsideTextElementAsExpected(generalPage);
+        //checkout page web element assert
+        isCheckoutPageWebElementDisplayed(checkoutPage);
+        //checkout page text element assert
+        isCheckoutPageTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page
+        captureScreenshot(driver, "Checkout Page Display (guest)");
+        //checkout page guest name address section web element assert
+        isCheckoutPageGuestWebElementDisplayed(checkoutPage);
+        //checkout page guest name address section text element assert
+        isCheckoutPageGuestTextElementAsExpected(checkoutPage);
+        //invalid guest account data (billing and shipping address) input getter - invalid billing post code format (special symbols only)
+        checkoutPageInvalidSingularInputFormat.invalidGuestAccountInputDataInvalidBillPostCodeFormatGetter();
+        //input valid guest first name into first name input field
+        checkoutPageInvalidSingularInputFormat.inputValidGuestFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field
+        checkoutPageInvalidSingularInputFormat.inputValidGuestLastNameIntoLastNameInputField();
+        //input valid guest address 1 into address 1 input field
+        checkoutPageInvalidSingularInputFormat.inputValidGuestAddress1IntoAddress1InputField();
+        //input valid guest city into city input field
+        checkoutPageInvalidSingularInputFormat.inputValidGuestCityIntoCityInputField();
+        //input invalid guest post code format into post code input field (special symbols only)
+        checkoutPageInvalidSingularInputFormat.inputInvalidGuestPostCodeFormatIntoPostCodeInputField();
+        //input valid guest email into email input field
+        checkoutPageInvalidSingularInputFormat.inputValidGuestEmailIntoEmailInputField();
+        //capture screenshot of the checkout page after valid guest data input
+        captureScreenshot(driver, "Checkout Page Display After Invalid Guest Account Data Input (billing address) - Invalid Billing Post Code Format");
+        //click 'Ship to a different address' checkbox
+        checkoutPage.clickShipDiffAddressCheckbox();
+        //capture screenshot of the checkout page
+        captureScreenshot(driver, "Checkout Page Shipping Address Section Display (guest)");
+        //checkout page (shipping address section) web element assert
+        isCheckoutPageShippingAddressSectionWebElementDisplayed(checkoutPage);
+        //checkout page (shipping address section) text element assert
+        isCheckoutPageShipAddressSectionTextElementAsExpected(checkoutPage);
+        //input valid guest first name into first name input field (shipping address section)
+        checkoutPageInvalidSingularInputFormat.inputValidGuestShipFirstNameIntoFirstNameInputField();
+        //input valid guest last name into last name input field (shipping address section)
+        checkoutPageInvalidSingularInputFormat.inputValidGuestShipLastNameIntoLastNameInputField();
+        //input valid guest address 1 into address 1 input field (shipping address section)
+        checkoutPageInvalidSingularInputFormat.inputValidGuestShipAddress1IntoAddress1InputField();
+        //input valid guest city into city input field (shipping address section)
+        checkoutPageInvalidSingularInputFormat.inputValidGuestShipCityIntoCityInputField();
+        //input valid guest post code into post code input field (shipping address section)
+        checkoutPageInvalidSingularInputFormat.inputValidGuestShipPostCodeIntoPostCodeInputField();
+        //capture screenshot of the checkout page after valid guest data input
+        captureScreenshot(driver, "Checkout Page Display After Valid Guest Account Data Input (shipping address)");
+        //click 'Submit' button
+        checkoutPage.clickSubmitButton();
+        //assert the user gets an expected error, log the issue otherwise
+        try{
+            assertEquals("Post code cannot consist of special symbols only.", checkoutPageInvalidSingularInputFormat.getSingularInputErrorMessage(), "The invalid billing address post code input format error message doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The invalid billing address post code input format error doesn't get triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Guest Checkout Confirmation Test Result (billing and shipping address) - Invalid Billing Post Code Format");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -66,6 +66,7 @@ public class CheckoutPageInvalidSingularInputFormat extends BasePage{
     private String invalidGuestAccLastNameFormat;
     private String invalidGuestAccAddress1Format;
     private String invalidGuestAccCityFormat;
+    private String invalidGuestAccPostCodeFormat;
 
     public CheckoutPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -209,11 +210,48 @@ public class CheckoutPageInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid guest account input data getter (billing and shipping address) - invalid billing post code format (special symbols only)
+    public void invalidGuestAccountInputDataInvalidBillPostCodeFormatGetter(){
+
+        validGuestAccFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestAccLastName = TestDataGenerator.getRandomLastName();
+        validGuestAccAddress1 = TestDataGenerator.generateRandomAddress(4);
+        validGuestAccCity = TestDataGenerator.getRandomCity();
+        invalidGuestAccPostCodeFormat = "#%$#%@#@";
+        validGuestAccEmail = TestDataGenerator.generateRandomEmailAddress(6);
+
+        validGuestShipAccFirstName = validGuestAccFirstName;
+        validGuestShipAccLastName = validGuestAccLastName;
+        validGuestShipAccAddress1 = TestDataGenerator.generateRandomAddress(4);
+        validGuestShipAccCity = TestDataGenerator.getRandomCity();
+        validGuestShipAccPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated input data for valid guest account (invalid billing post code format): " + "\n");
+
+        logger.info("Valid guest first name (invalid billing post code format): " + validGuestAccFirstName);
+        logger.info("Valid guest last name (invalid billing post code format): " + validGuestAccLastName);
+        logger.info("Valid guest address1 (invalid billing post code format): " + validGuestAccAddress1);
+        logger.info("Valid guest city (invalid billing post code format): " + validGuestAccCity);
+        logger.info("Invalid guest post code format: " + invalidGuestAccPostCodeFormat);
+        logger.info("Valid guest email (invalid billing post code format): " + validGuestAccEmail);
+
+        logger.info("Valid guest (shipping address section) first name (invalid billing post code format): " + validGuestShipAccFirstName);
+        logger.info("Valid guest (shipping address section) last name (invalid billing post code format): " + validGuestShipAccLastName);
+        logger.info("Valid guest (shipping address section) address1 (invalid billing post code format): " + validGuestShipAccAddress1);
+        logger.info("Valid guest (shipping address section) city (invalid billing post code format): " + validGuestShipAccCity);
+        logger.info("Valid guest (shipping address section) post code (invalid billing post code format): " + validGuestShipAccPostCode);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest data input methods (billing address) - invalid singular input format
     public void inputInvalidGuestFirstNameFormatIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(invalidGuestAccFirstNameFormat);}
     public void inputInvalidGuestLastNameFormatIntoLastNameInputField(){checkoutPageNameAddressLastNameInputField.sendKeys(invalidGuestAccLastNameFormat);}
     public void inputInvalidGuestAddress1FormatIntoAddress1InputField(){checkoutPageNameAddressAddress1InputField.sendKeys(invalidGuestAccAddress1Format);}
     public void inputInvalidGuestCityFormatIntoCityInputField(){checkoutPageNameAddressCityInputField.sendKeys(invalidGuestAccCityFormat);}
+    public void inputInvalidGuestPostCodeFormatIntoPostCodeInputField(){checkoutPageNameAddressPostCodeInputField.sendKeys(invalidGuestAccPostCodeFormat);}
+
 
     //valid guest data input methods (billing address) - for remaining inputs
     public void inputValidGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(validGuestAccFirstName);}
