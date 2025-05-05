@@ -68,6 +68,8 @@ public class CheckoutPageInvalidSingularInputFormat extends BasePage{
     private String invalidGuestAccCityFormat;
     private String invalidGuestAccPostCodeFormat;
     private String invalidGuestAccEmailFormat;
+    //existing test email
+    private String existingTestEmail;
 
     public CheckoutPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -275,6 +277,35 @@ public class CheckoutPageInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid guest account input data getter (billing and shipping address) - existing billing email format (test email)
+    public void invalidGuestAccountInputDataExistingBillTestEmailGetter(){
+
+        validGuestAccFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestAccLastName = TestDataGenerator.getRandomLastName();
+        validGuestAccAddress1 = TestDataGenerator.generateRandomAddress(4);
+        validGuestAccCity = TestDataGenerator.getRandomCity();
+        validGuestAccPostCode = TestDataGenerator.getRandomPostalCode();
+        existingTestEmail = "demo-customer@x-cart.com";
+
+        validGuestShipAccFirstName = validGuestAccFirstName;
+        validGuestShipAccLastName = validGuestAccLastName;
+        validGuestShipAccAddress1 = TestDataGenerator.generateRandomAddress(4);
+        validGuestShipAccCity = TestDataGenerator.getRandomCity();
+        validGuestShipAccPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated input data for valid guest account (existing test email): " + "\n");
+
+        logger.info("Valid guest first name (existing test email): " + validGuestAccFirstName);
+        logger.info("Valid guest last name (existing test email): " + validGuestAccLastName);
+        logger.info("Valid guest address1 (existing test email): " + validGuestAccAddress1);
+        logger.info("Valid guest city (existing test email): " + validGuestAccCity);
+        logger.info("Valid guest post code (existing test email): " + validGuestAccPostCode);
+        logger.info("Existing test email: " + existingTestEmail);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest data input methods (billing address) - invalid singular input format
     public void inputInvalidGuestFirstNameFormatIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(invalidGuestAccFirstNameFormat);}
     public void inputInvalidGuestLastNameFormatIntoLastNameInputField(){checkoutPageNameAddressLastNameInputField.sendKeys(invalidGuestAccLastNameFormat);}
@@ -282,7 +313,7 @@ public class CheckoutPageInvalidSingularInputFormat extends BasePage{
     public void inputInvalidGuestCityFormatIntoCityInputField(){checkoutPageNameAddressCityInputField.sendKeys(invalidGuestAccCityFormat);}
     public void inputInvalidGuestPostCodeFormatIntoPostCodeInputField(){checkoutPageNameAddressPostCodeInputField.sendKeys(invalidGuestAccPostCodeFormat);}
     public void inputInvalidGuestEmailFormatIntoEmailInputField(){checkoutPageNameAddressEmailInputField.sendKeys(invalidGuestAccEmailFormat);}
-
+    public void inputExistingTestBillEmailIntoEmailInputField(){checkoutPageNameAddressEmailInputField.sendKeys(existingTestEmail);}
 
     //valid guest data input methods (billing address) - for remaining inputs
     public void inputValidGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(validGuestAccFirstName);}
