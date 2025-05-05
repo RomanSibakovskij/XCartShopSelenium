@@ -46,7 +46,83 @@ public class CheckoutPageInvalidSingularInputFormat extends BasePage{
     @FindBy(xpath = "//div[@role='dialog']")
     private WebElement checkoutPageSingularInputErrorBox;
 
+    //valid guest account generated data (billing address) -> for remaining valid inputs
+    private String validGuestAccFirstName;
+    private String validGuestAccLastName;
+    private String validGuestAccAddress1;
+    private String validGuestAccCity;
+    private int validGuestAccPostCode;
+    private String validGuestAccEmail;
+
+    //valid guest account generated data (shipping address) -> for remaining valid inputs
+    private String validGuestShipAccFirstName;
+    private String validGuestShipAccLastName;
+    private String validGuestShipAccAddress1;
+    private String validGuestShipAccCity;
+    private int validGuestShipAccPostCode;
+
+    //invalid guest account generated data (billing address) - invalid singular input format
+    private String invalidGuestAccFirstNameFormat;
+
     public CheckoutPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
+
+    //invalid guest account input data getter (billing and shipping address) - invalid billing first name format (special symbols only)
+    public void invalidGuestAccountInputDataInvalidBillFirstNameFormatGetter(){
+
+        invalidGuestAccFirstNameFormat = "$$%#$@##$@#";
+        validGuestAccLastName = TestDataGenerator.getRandomLastName();
+        validGuestAccAddress1 = TestDataGenerator.generateRandomAddress(9);
+        validGuestAccCity = TestDataGenerator.getRandomCity();
+        validGuestAccPostCode = TestDataGenerator.getRandomPostalCode();
+        validGuestAccEmail = TestDataGenerator.generateRandomEmailAddress(6);
+
+        validGuestShipAccFirstName = TestDataGenerator.getRandomFirstName();
+        validGuestShipAccLastName = validGuestAccLastName;
+        validGuestShipAccAddress1 = TestDataGenerator.generateRandomAddress(4);
+        validGuestShipAccCity = TestDataGenerator.getRandomCity();
+        validGuestShipAccPostCode = TestDataGenerator.getRandomPostalCode();
+
+        System.out.println("Generated input data for valid guest account (invalid billing first name format): " + "\n");
+
+        logger.info("Invalid guest first name format: " + invalidGuestAccFirstNameFormat);
+        logger.info("Valid guest last name (invalid billing first name format): " + validGuestAccLastName);
+        logger.info("Valid guest address1 (invalid billing first name format): " + validGuestAccAddress1);
+        logger.info("Valid guest city (invalid billing first name format): " + validGuestAccCity);
+        logger.info("Valid guest post code (invalid billing first name format): " + validGuestAccPostCode);
+        logger.info("Valid guest email (invalid billing first name format): " + validGuestAccEmail);
+
+        logger.info("Valid guest (shipping address section) first name (invalid billing first name format): " + validGuestShipAccFirstName);
+        logger.info("Valid guest (shipping address section) last name (invalid billing first name format): " + validGuestShipAccLastName);
+        logger.info("Valid guest (shipping address section) address1 (invalid billing first name format): " + validGuestShipAccAddress1);
+        logger.info("Valid guest (shipping address section) city (invalid billing first name format): " + validGuestShipAccCity);
+        logger.info("Valid guest (shipping address section) post code (invalid billing first name format): " + validGuestShipAccPostCode);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid guest data input methods (billing address) - invalid singular input format
+    public void inputInvalidGuestFirstNameFormatIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(invalidGuestAccFirstNameFormat);}
+
+    //valid guest data input methods (billing address) - for remaining inputs
+    public void inputValidGuestFirstNameIntoFirstNameInputField(){checkoutPageNameAddressFirstNameInputField.sendKeys(validGuestAccFirstName);}
+    public void inputValidGuestLastNameIntoLastNameInputField(){checkoutPageNameAddressLastNameInputField.sendKeys(validGuestAccLastName);}
+    public void inputValidGuestAddress1IntoAddress1InputField(){checkoutPageNameAddressAddress1InputField.sendKeys(validGuestAccAddress1);}
+    public void inputValidGuestCityIntoCityInputField(){checkoutPageNameAddressCityInputField.sendKeys(validGuestAccCity);}
+    public void inputValidGuestPostCodeIntoPostCodeInputField(){checkoutPageNameAddressPostCodeInputField.sendKeys(String.valueOf(validGuestAccPostCode));}
+    public void inputValidGuestEmailIntoEmailInputField(){checkoutPageNameAddressEmailInputField.sendKeys(validGuestAccEmail);}
+
+    //valid guest data input methods (shipping address) - for remaining inputs
+    public void inputValidGuestShipFirstNameIntoFirstNameInputField(){checkoutPageNameShipAddressFirstNameInputField.sendKeys(validGuestShipAccFirstName);}
+    public void inputValidGuestShipLastNameIntoLastNameInputField(){checkoutPageNameShipAddressLastNameInputField.sendKeys(validGuestShipAccLastName);}
+
+    public void inputValidGuestShipAddress1IntoAddress1InputField(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", checkoutPageNameAddressShipDiffAddressCheckbox);
+        checkoutPageNameShipAddressAddress1InputField.sendKeys(validGuestShipAccAddress1);
+    }
+
+    public void inputValidGuestShipCityIntoCityInputField(){checkoutPageNameShipAddressCityInputField.sendKeys(validGuestShipAccCity);}
+    public void inputValidGuestShipPostCodeIntoPostCodeInputField(){checkoutPageNameShipAddressPostCodeInputField.sendKeys(String.valueOf(validGuestShipAccPostCode));}
 
     //singular input error getter
     public String getSingularInputErrorMessage(){return checkoutPageGuestSingularInputError.getText();}
