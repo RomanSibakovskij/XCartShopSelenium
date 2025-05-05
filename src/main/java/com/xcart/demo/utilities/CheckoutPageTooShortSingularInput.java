@@ -24,7 +24,7 @@ public class CheckoutPageTooShortSingularInput extends BasePage{
     private WebElement checkoutPageNameAddressEmailInputField;
     @FindBy(xpath = "//fieldset[@id='personal_details']//div[@class='optional-label'][2]//input")
     private WebElement checkoutPageNameAddressShipDiffAddressCheckbox;
-    //shipping address section elements;
+    //shipping address section elements
     @FindBy(xpath = "//div[@id='ship2diff_box']//ul/li//input[@id='s_firstname']")
     private WebElement checkoutPageNameShipAddressFirstNameInputField;
     @FindBy(xpath = "//div[@id='ship2diff_box']//ul/li//input[@id='s_lastname']")
